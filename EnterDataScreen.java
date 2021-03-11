@@ -16,5 +16,4 @@ public class EnterDataScreen extends Screen {
     this.parent.setData(this.data[1],input);
     return this.parent;
   }
-  
 }

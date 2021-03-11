@@ -1,6 +1,6 @@
 public class WelcomeScreen extends Screen {
 
-  public WelcomeScreen() {super();}
+  public WelcomeScreen() {super(null);}
 
   public void display() {
     System.out.println("Welcome to or Criminal Database Software!\n");

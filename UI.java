@@ -5,8 +5,6 @@ public class UI {
   private static Scanner scanner = new Scanner(System.in);
 
   private static Screen display = new WelcomeScreen();
-
-  public UI(){}
   
   public static boolean loop() {
     
@@ -23,8 +21,6 @@ public class UI {
     
     // Advance to next screen
     display = display.next(inp);
-
-
     return display == null ? false : true;
   }
   

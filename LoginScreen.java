@@ -19,7 +19,7 @@ public class LoginScreen extends Screen {
   public Screen next(String input) {
     switch (input) {
       case "0":
-        return super.prev();
+        return this.parent;
       case "1":
         return new EnterDataScreen(this,"Username","0");
       case "2":
