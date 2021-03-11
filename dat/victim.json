@@ -1,0 +1,15 @@
+[
+  {
+    "id":"P000001",
+    "numHReports":1,
+    "hospitalReports":[ "R0040" ],
+    "numCrimes":2,
+    "crimes":[ "C00405", "C44224" ]
+  },{
+    "id":"P000002",
+    "numHReports":3,
+    "hospitalReports":[ "R2003", "R2001" ],
+    "numCrimes":1,
+    "crimes":[ "C90912" ]
+  }
+]

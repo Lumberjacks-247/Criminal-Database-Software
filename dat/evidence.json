@@ -1,0 +1,17 @@
+[
+  {
+    "id":"E909919245",
+    "name":"Hammer",
+    "location":"Bedroom A",
+    "hasDNA":false,
+    "associatedCrime":"C44014",
+    "dateCollected":"09/24/1983"
+  },{
+    "id":"E103345902",
+    "name":"Vehicle",
+    "location":"Parking lot",
+    "hasDNA":true,
+    "associatedCrime":"C99914",
+    "dateCollected":"02/14/2021"
+  }
+]

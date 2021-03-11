@@ -1,0 +1,15 @@
+[
+  {
+    "RepID":"R0001",
+    "NumStatements":5,
+    "Statements":[ "statement1", "statement2", "statement3", "statement4", "statement5" ],
+    "NumVictims":3,
+    "Victims":[ "P004593", "P114050", "P440592" ]
+  },{
+    "RepID":"R0002",
+    "NumStatements":3,
+    "Statements":[ "statement1", "statement2", "statement3" ],
+    "NumVictims":2,
+    "Victims":[ "P244468", "P990990", "P663535" ]
+  }
+]

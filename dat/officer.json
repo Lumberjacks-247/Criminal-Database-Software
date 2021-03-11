@@ -1,0 +1,13 @@
+[
+  {
+    "id":"P000004",
+    "badgeNo":"S109382",
+    "numCrimes":2,
+    "associatedCrimes":[ "C13314", "C06942" ]
+  },{
+    "id":"P000124",
+    "badgeNo":"S402942",
+    "numCrimes":6,
+    "associatedCrimes":[ "C40214", "C19923", "C99010", "C00010", "C40401", "C11145" ]
+  }
+]

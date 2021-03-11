@@ -1,0 +1,37 @@
+[
+  {
+    "id":"C10105",
+    "crime":"Assault",
+    "numCriminals":3,
+    "criminals":[ "P001143", "P331002", "P000111" ],
+    "numVictims":1,
+    "victims":[ "P889291" ],
+    "numPOI":0,
+    "poi":[ ],
+    "numWitnesses":2,
+    "witnesses":[ "P405909", "P141005" ],
+    "numSuspects":1,
+    "suspects":[ "P101928" ],
+    "numEvidence":4,
+    "evidence":[ "E099382938", "E000124543", "E101114934", "E133410778" ],
+    "numReports":2,
+    "reports":[ "R0023", "R0141" ]
+  },{
+    "id":"C10211",
+    "crime":"Murder",
+    "numCriminals":1,
+    "criminals":[ "P111445" ],
+    "numVictims":2,
+    "victims":[ "P556773", "P443512" ],
+    "numPOI":1,
+    "poi":[ "P010001" ],
+    "numWitnesses":3,
+    "witnesses":[ "P009291", "P134622", "P922456" ],
+    "numSuspects":0,
+    "suspects":[ ],
+    "numEvidence":5,
+    "evidence":[ "E101184624", "E909919245", "E823489931", "E001928312", "E000001429" ],
+    "numReports":1,
+    "reports":[ "R0001" ]
+    }
+]

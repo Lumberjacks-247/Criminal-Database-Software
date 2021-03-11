@@ -1,0 +1,13 @@
+[
+  {
+    "id":"P100829",
+    "numCrimes":2,
+    "associatedCrimes":[ "C10105", "C99024" ],
+    "phone":"9019293800"
+  },{
+    "id":"P004129",
+    "numCrimes":1,
+    "associatedCrimes":[ "C33450" ],
+    "phone":"2998001400"
+  }
+]

@@ -1,0 +1,11 @@
+[
+    {
+        "accessLevel":0,
+        "firstName":"Bob",
+        "lastName":"Smith"
+    },{
+        "accessLevel":2,
+        "firstName":"Mel",
+        "lastName":"Brooks"
+    }
+]

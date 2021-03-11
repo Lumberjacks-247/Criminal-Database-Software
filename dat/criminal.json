@@ -1,0 +1,21 @@
+[
+  {
+    "id":"P000128",
+    "numCrimes":2,
+    "associatedCrimes":[ "C00324", "C90951" ],
+    "isViolent":false,
+    "gang":"crips",
+    "shoeSize":13,
+    "numTattoos":2,
+    "tattoos":[ "tattoo1", "tattoo2" ]
+  },{
+    "id":"P000193",
+    "numCrimes":1,
+    "associatedCrimes":[ "C44414" ],
+    "isViolent":true,
+    "gang":"",
+    "shoeSize":10,
+    "numTattoos":0,
+    "tattoos":[ ]
+  }
+]

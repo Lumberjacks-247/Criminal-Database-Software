@@ -1,0 +1,23 @@
+[
+  {
+    "id":"P000102",
+    "numCrimes":4,
+    "associatedCrimes":[ "C10152", "C55029", "C40401", "C43314" ],
+    "isPastCriminal":true,
+    "phone":"8641234567",
+    "numTattoos":0,
+    "tattoos":[ ],
+    "shoeSize":9,
+    "gang":"Bloods"
+  },{
+    "id":"P001002",
+    "numCrimes":1,
+    "associatedCrimes":[ "C40052" ],
+    "isPastCriminal":false,
+    "phone":"0000000000",
+    "numTattoos":1,
+    "tattoos":[ "tattoo1" ],
+    "shoeSize":8,
+    "gang":""
+  }
+]

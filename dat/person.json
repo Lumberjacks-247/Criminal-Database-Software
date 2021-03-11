@@ -1,0 +1,33 @@
+[
+  {
+    "id":"P000001",
+    "name":"John Smith",
+    "sex":"M",
+    "birthday":"01/01/2000",
+    "heightFt":5,
+    "heightIn":10,
+    "weight":180,
+    "isJuvenile":false,
+    "address":"123 Len St",
+    "city":"Town",
+    "state":"MI",
+    "zip":"12345",
+    "eyeColor":"brown",
+    "race":"B"
+  },{
+    "id":"P000002",
+    "name":"Alicia DeSanta",
+    "sex":"F",
+    "birthday":"12/24/1983",
+    "heightFt":5,
+    "heightIn":2,
+    "weight":120,
+    "isJuvenile":false,
+    "address":"901 Rodeo Dr",
+    "city":"Los Angeles",
+    "state":"CA",
+    "zip":"09876",
+    "eyeColor":"green",
+    "race":"W"
+  }
+]
