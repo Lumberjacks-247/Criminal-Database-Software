@@ -5,6 +5,7 @@ public class Facade {
 	private Crime crime;
 	private User user;
 	protected Password password;
+	private Users currentUser;
 
 	
 	public Facade() {
@@ -59,40 +60,32 @@ public class Facade {
 		return true;
 	}
 	
-	public static void createAccount(String userName, String userPassword) {
-		userName = userName.next();
-		userPassword = userPassword.next();
+	public boolean createAccount(String userName, String firstName, String lastName, int age, String userPassword)
+	{
+		return user.addUser(userName,  firstName,  lastName,  age,  userPassword);
+	}
+
+
+	public boolean addUser(String userName, String firstName, String lastName, int age, String userPassword) {
+		if(findUser(userName))
+			return false;
+		User.add(new User(userName, firstName, lastName, age, userPassword));
+		return true;
 	}
 	
 	public boolean findUser(String userName) {
 		return user.haveUser(userName);
 	}
 	
-	private boolean findPassword(String userPassword) {
-		return password.havePassword(userPassword);
+	public Users getCurrentUser() {
+		return currentUser;
 	}
 	
-	public boolean checkPassword(String userName, String userPassword) {
-		String password = null;
-		if(!findUser(userName)) {
-			findPassword(userPassword);
-			if (password == userPassword)
-				return true;
-		}
+	public boolean login(String userName) {
+		if(!user.haveUser(userName))return false;
+		
+		currentUser = user.getUser(userName);
 		return true;
-		
-	}
-	
-	public boolean login(String userName, String userPassword) {
-		if(findUser(userName)) {
-			checkPassword(userName, userPassword);
-			if(checkPassword(userName, userPassword) == true) {
-				return true;
-			}
-			return false;
-		}
-		return false;
-		
 	}
 	
 }
