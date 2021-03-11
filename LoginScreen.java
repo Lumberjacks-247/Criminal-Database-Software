@@ -23,8 +23,7 @@ public class LoginScreen extends Screen {
       case "1":
         return new EnterDataScreen(this,"Username","0");
       case "2":
-        return new EnterDataScreen(this, "Password","1");
-      
+        return new EnterDataScreen(this, "Password","1");    
       default:
         return this;
     }

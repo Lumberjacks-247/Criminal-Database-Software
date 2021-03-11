@@ -2,15 +2,9 @@ import java.util.Scanner;
 
 public class UI {
   
-  private static Scanner scanner = new Scanner (System.in);
+  private static Scanner scanner = new Scanner(System.in);
 
   private static Screen display = new WelcomeScreen();
-
-  /*public static boolean stop() {
-    scanner.close();
-    System.out.println("Goodbye!");
-    return false;
-  }*/
 
   public UI(){}
   
@@ -38,11 +32,5 @@ public class UI {
     return scanner.nextLine();  // grab user input
   }
 
-
-
-  public static void main(String[] args) {
-
-    while(UI.loop());
-
-  }
+  public static void main(String[] args) { while(UI.loop());}
 }
