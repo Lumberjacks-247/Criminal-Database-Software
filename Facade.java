@@ -82,7 +82,8 @@ public class Facade {
 	}
 	
 	public boolean login(String userName) {
-		if(!user.haveUser(userName))return false;
+		if(!user.haveUser(userName))
+			return false;
 		
 		currentUser = user.getUser(userName);
 		return true;
