@@ -1,23 +1,29 @@
-public abstract class Screen {
+public abstract class Screen extends Screens {
 
-  protected String data[];
+  /* Base implementation */
+
   protected Screen parent;
+  protected ScreenType type;
+  public Screen back() {
+    return this.parent;
+  }
 
-  public Screen(Screen parent) {
+  protected void childOf(Screen parent) {
     this.parent = parent;
   }
-  
-  protected void setData(String index, String value) {
-    int i = Integer.parseInt(index);
-    this.data[i] = value;
-  }
-  
-  protected String getData(String index) {
-    int i = Integer.parseInt(index);
-    return this.data[i];
+
+  protected ScreenType type() {
+    return this.type;
   }
 
-  abstract public Screen next(String input);
+  /* Abstract Implementation */
+  
   abstract public void display();
+  abstract public Screen next(String input);
+
+
+
+  
+
 
 }
