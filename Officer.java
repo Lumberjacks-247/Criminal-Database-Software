@@ -14,6 +14,12 @@ public class Officer extends Person{
         super(firstName, lastName);
     }
 
+    public Officer(String firstName, String lastName, String typeOfOfficer, String statement) {
+        super(firstName, lastName);
+        this.typeOfOfficer = typeOfOfficer;
+        this.statement = statement;
+    }
+
     /**
      * returns what kind of officer the officer is
      * @return String for type of officer

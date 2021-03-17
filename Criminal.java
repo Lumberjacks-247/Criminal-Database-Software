@@ -18,13 +18,25 @@ public class Criminal extends Suspect{
         super(firstName, lastName);
     }
 
-    //need crime class
-    public Crime getCrime() {
+    public Criminal(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, 
+    String eyeColor, String address, int age, String tattoos, String victimRelationShip, String evidenceConnection, boolean isRepeatOffender,
+    ArrayList<Person> accomplices, ArrayList<Person> familyMembers, double footSize, String prefferedClothes, String nickNames,
+    String commonWords, String hobbies, String job, String distinctPhysicalTraits, ArrayList<Crime> crimes, double sentences, String status, boolean inCustody) {
+        super(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, victimRelationShip, evidenceConnection, isRepeatOffender, 
+        accomplices, familyMembers, footSize, prefferedClothes, nickNames, commonWords, hobbies, job, distinctPhysicalTraits);
+        this.crimes = crimes;
+        this. sentence = sentences;
+        this.status = status;
+        this.inCustody = inCustody;
+    }
 
+    //need crime class
+    public ArrayList<Crime> getCrimes() {
+        return crimes;
     }
 
     public void addCrime(Crime crime) {
-
+        crimes.add(crime);
     }
 
     //should this be in crime class?
