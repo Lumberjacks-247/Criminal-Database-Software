@@ -12,7 +12,7 @@ public class EnterDataScreen extends Screen {
 
   }
 
-  public childOf(EditorScreen parent) {
+  public void childOf(EditorScreen parent) {
     this.parent = parent;
   }
 
