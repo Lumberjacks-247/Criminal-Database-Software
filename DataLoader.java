@@ -29,6 +29,7 @@ public class DataLoader extends DataConstants {
                 String zip  = (String)personJSON.get(PERSON_ZIP);
                 String eyeColor = (String)personJSON.get(PERSON_EYE_COLOR);
                 String race = (String)personJSON.get(PERSON_RACE);
+                people.add(new Person(name, name)); // Separate first name and lasst name
             }
 
             return people;
@@ -37,5 +38,12 @@ public class DataLoader extends DataConstants {
         }
 
         return null;
+    }
+
+    public static void main(String[] args) {
+        ArrayList<Person> people = DataLoader.loadPeople();
+        for (Person person : people) {
+            System.out.println(person);
+        } 
     }
 }
