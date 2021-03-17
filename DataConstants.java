@@ -10,7 +10,8 @@ public abstract class DataConstants {
     protected static final String CRIMES_POI = "poi";
     protected static final String CRIMES_NUM_WITNESSES = "numWitnesses";
     protected static final String CRIMES_WITNESSES = "witnesses";
-    protected static final String CRIMES_NUM_SUSPECTS = "suspects";
+    protected static final String CRIMES_NUM_SUSPECTS = "numSuspects";
+    protected static final String CRIMES_SUSPECTS = "suspects";
     protected static final String CRIMES_NUM_EVIDENCE = "numEvidence";
     protected static final String CRIMES_EVIDENCE = "evidence";
     protected static final String CRIMES_NUM_REPORTS = "numReports";
@@ -41,7 +42,8 @@ public abstract class DataConstants {
 
     protected static final String PERSON_FILE_NAME = "dat/person.json";
     protected static final String PERSON_ID = "id";
-    protected static final String PERSON_NAME = "name";
+    protected static final String PERSON_FIRST_NAME = "firstName";
+    protected static final String PERSON_LAST_NAME = "lastName";
     protected static final String PERSON_SEX = "sex";
     protected static final String PERSON_BIRTHDAY = "birthday";
     protected static final String PERSON_HEIGHT_FT = "heightFt";
