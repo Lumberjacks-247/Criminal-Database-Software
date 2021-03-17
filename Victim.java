@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Victim extends Person{
 
     private String statement;
-    private boolean isAlive = true;
+    private boolean isAlive;
     private ArrayList<HospitalReport> hospitalReports;
 
     /**
@@ -15,6 +15,13 @@ public class Victim extends Person{
      */
     public Victim(String firstName, String lastName) {
         super(firstName, lastName);
+    }
+
+    public Victim(String firstName, String lastName, String statement, boolean isAlive, ArrayList<HospitalReport> hospitalReports) {
+        super(firstName, lastName);
+        this.statement = statement;
+        this.isAlive = isAlive;
+        this.hospitalReports = hospitalReports;
     }
 
     /**
@@ -48,13 +55,12 @@ public class Victim extends Person{
         this.isAlive = !isAlive;
     }
 
-    //need HospitalReport class
-    public HospitalReport getHospitalReport() {
-
+    public ArrayList<HospitalReport> getHospitalReports() {
+        return this.hospitalReports;
     }
 
-    public void addHospitalReport() {
-        
+    public void addHospitalReport(HospitalReport hospitalReport) {
+        this.hospitalReports.add(hospitalReport);
     }
     
 }

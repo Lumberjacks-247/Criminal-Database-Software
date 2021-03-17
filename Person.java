@@ -16,6 +16,32 @@ public class Person {
         setID(this);
     }
 
+    /**
+     * creates Person object with passed in parameters from json file
+     * @param firstName first name of person
+     * @param lastName last name of person
+     * @param id id of person
+     * @param gender gender of person
+     * @param race race of person
+     * @param hairColor hair color of person
+     * @param hairStyle hair style of person
+     * @param eyeColor eye color of person
+     * @param address address of persons home
+     * @param age age of person
+     */
+    public Person(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, String eyeColor, String address, int age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.id = id;
+        this.gender = gender;
+        this.race = race;
+        this.hairColor = hairColor;
+        this.hairStyle = hairStyle;
+        this.eyeColor = eyeColor;
+        this.address = address;
+        this.age = age;
+    }
+
     //how are we doing this?
     private void setID(Person person) {
 
