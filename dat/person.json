@@ -1,7 +1,8 @@
 [
   {
     "id":"P000001",
-    "name":"John Smith",
+    "firstName":"John",
+    "lastName":"Smith",
     "sex":"M",
     "birthday":"01/01/2000",
     "heightFt":5,
@@ -16,7 +17,8 @@
     "race":"B"
   },{
     "id":"P000002",
-    "name":"Alicia DeSanta",
+    "firstName":"Alicia",
+    "lastName":"DeSanta",
     "sex":"F",
     "birthday":"12/24/1983",
     "heightFt":5,
