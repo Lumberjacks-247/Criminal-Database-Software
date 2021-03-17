@@ -1,24 +1,24 @@
 import java.util.Scanner;
 
 public class UI {
-  
-  private static Scanner scanner = new Scanner(System.in);
 
-  private static Screen display = new WelcomeScreen();
+  private static final String QUITFLAG = "-1";
+  private static Scanner scanner = new Scanner(System.in);
+  private static Screen display = Screens.start();
   
   public static boolean loop() {
     
     // Display screen
-    System.out.println("\n\n\n\n##############################################################");
     display.display();
     
     // Grab user input
-    System.out.print("\n\nWaiting on user input: ");
     String inp = input();
-    if (inp.equals("-1")) {
+
+    // Check global quit flag
+    if (inp.equals(UI.QUITFLAG)) {
       return false;
     }
-    
+
     // Advance to next screen
     display = display.next(inp);
     return display == null ? false : true;

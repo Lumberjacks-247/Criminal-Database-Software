@@ -1,19 +1,28 @@
 public class EnterDataScreen extends Screen {
+  
 
-  public EnterDataScreen(Screen parent, String prompt, String dataIndex) {
-    super(parent);
-    this.data = new String[2];
-    this.data[0] = prompt;
-    this.data[1] = dataIndex;
+  private EditorScreen parent;
+  private String dataPrompt;
+  private int dataIndex;
+  public EnterDataScreen(EditorScreen parent, String dataPrompt,String dataIndex) {
+
+    this.parent = parent;
+    this.dataPrompt = dataPrompt;
+    this.dataIndex = Integer.parseInt(dataIndex);
+
+  }
+
+  public childOf(EditorScreen parent) {
+    this.parent = parent;
   }
 
   public void display() {
-    System.out.println("Current " + this.data[0] + ": " + this.parent.getData(this.data[1]));
-    System.out.print("New " + this.data[0]  + ": ");
+    System.out.println("Old " + this.dataPrompt + ": " + this.parent.getData(this.dataIndex));
+    System.out.print("New " + this.dataPrompt + ": ");
   }
 
   public Screen next(String input) {
-    this.parent.setData(this.data[1],input);
+    this.parent.setData(this.dataIndex+"", input);
     return this.parent;
   }
 }
