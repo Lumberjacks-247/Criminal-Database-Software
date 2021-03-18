@@ -10,6 +10,10 @@ public class Screens {
     LOGIN,
     CREATEACCOUNT,
     MAINMENU
+    ;
+
+
+
   }
 
   /* UI Startup */
@@ -19,19 +23,27 @@ public class Screens {
   }
 
 
-  protected static Screen CallFacade(ScreenType scrntype, EditorScreen scrn) {
-    Facade facade = new Facade();
+  private static Facade facade = new Facade();
 
+  protected static Screen CallFacade(ScreenType scrntype, EditorScreen scrn) {
+
+    String username;
+    String password;
+    String accessLevel;
     switch (scrntype) {
       case LOGIN:
-        String username = scrn.getData(0);
-        //String password = scrn.getData(1);
-        if (facade.login(username/*,password*/)) {
+        username = scrn.getData(0);
+        password = scrn.getData(1);
+        if (true/*facade.login(username/*,password)*/) {
           return CreateScreen(ScreenType.MAINMENU);
         } else {
           System.out.println("\n !!!!!!LOGIN - FAILURE!!!!! \n");
           return scrn;
         }
+      case CREATEACCOUNT:
+        username = scrn.getData(0);
+        password = scrn.getData(1);
+        accessLevel = scrn.getData(2); 
         
       default:
         return scrn;
@@ -55,7 +67,7 @@ public class Screens {
         return Login();
 
       case CREATEACCOUNT:
-        return CreateScreen(ScreenType.NULL);
+        return CreateAccount();
 
       case MAINMENU:
         return MainMenu();
@@ -66,66 +78,98 @@ public class Screens {
     }
   }
 
+  
+  protected static Screen EditorScreen(String titleString,String dataPromptString,String choiceString,String linkString) {
+    
+    String title = "                  " + titleString + "\n";
+    title += "-----------------------------------------------------------";
+
+    String[] dataPrompts = dataPromptString.split(";");
+
+    String[] choices = choiceString.split(";");
+    String body = "-----------------------------------------------------------\n";
+
+    for (int i = 0; i < choices.length;++i){
+      body += "                   (" + i + ") " + choices[i] + " \n"; 
+    }
+
+
+    String[] linkArray = linkString.split(";");
+    ScreenType[] links = new ScreenType[linkArray.length];
+    for (int i = 0; i < linkArray.length; ++i) {
+      links[i] = ScreenType.valueOf(linkArray[i]);
+    }
+
+
+    return new EditorScreen(title,dataPrompts,body,links);
+
+
+  }
+
+  protected static Screen TransScreen(String titleString,String choiceString,String linkString) {
+
+    String title = "                  " + titleString + "\n";
+    title += "-----------------------------------------------------------";
+
+    String[] choices = choiceString.split(";");
+    String body = "\n";
+
+    for (int i = 0; i < choices.length;++i){
+      body += "                   (" + i + ") " + choices[i] + " \n"; 
+    }
+
+    String[] linkArray = linkString.split(";");
+    ScreenType[] links = new ScreenType[linkArray.length];
+    for (int i = 0; i < linkArray.length; ++i) {
+      links[i] = ScreenType.valueOf(linkArray[i]);
+    }
+
+    return new TransScreen(title + body, links);
+
+
+  }
+
 
 
 
   protected static Screen WelcomeScreen() {
-    String prompt = "";
-    prompt += "          Welcome!\n";
-    prompt += "---------------------------------\n";
-    prompt += "        (0) Exit\n";
-    prompt += "        (1) Login\n";
-    prompt += "        (2) Create Account\n";
 
-    ScreenType[] links = new ScreenType[3];
-    links[0] = ScreenType.PARENT;
-    links[1] = ScreenType.LOGIN;
-    links[2] = ScreenType.CREATEACCOUNT;
+    String titleString = "Welcome";
+    String choiceString = "Exit;Login;Create Account";
+    String linkString = "EXIT;LOGIN;CREATEACCOUNT";
 
-    return new TransScreen(prompt, links);
+    return TransScreen(titleString, choiceString, linkString);
   }
 
   protected static Screen MainMenu() {
-    String prompt = "";
-    prompt += "      Criminal Database Software\n";
-    prompt += "-----------------------------------------\n";
-    prompt += "              (0) Logout\n";
-    prompt += "              (1) Search\n";
-    prompt += "              (2) New\n";
 
+    String titleString = "Criminal Database Software";
+    String choiceString = "Logout;Search;New";
+    String linkString = "WELCOME;SEARCH;NEW";
 
-    ScreenType[] links = new ScreenType[3];
-    links[0] = ScreenType.PARENT;
-    links[1] = ScreenType.SEARCH;
-    links[2] = ScreenType.NEW;
-
-    return new TransScreen(prompt,links);
+    return TransScreen(titleString,choiceString,linkString);
   }
 
   protected static Screen Login() {
-    String title = "";
-    title += "                 Login       \n";
-    title += "--------------------------------------";
-  
-    String[] dataPrompts = new String[2];
-    dataPrompts[0] = "username";
-    dataPrompts[1] = "password";
 
-    String choices = "";
-    choices += "--------------------------------------\n";
-    choices += "       (0) Back\n";
-    choices += "       (1) Change username\n";
-    choices += "       (2) Change password\n";
-    choices += "       (3) Login\n";
- 
+    String titleString = "Login";
+    String dataPromptString = "Username;Password";
+    String choiceString = "Back;Set Username;Set Password;Login";
+    String linkString = "PARENT;ENTERDATA;ENTERDATA;SUBMITDATA";
 
-    ScreenType[] links = new ScreenType[4];
-    links[0] = ScreenType.PARENT;
-    links[1] = ScreenType.ENTERDATA;
-    links[2] = ScreenType.ENTERDATA;
-    links[3] = ScreenType.SUBMITDATA;
+    return EditorScreen(titleString,dataPromptString,choiceString,linkString);
+  }
+
+  protected static Screen CreateAccount() {
     
-    return new EditorScreen(title,dataPrompts,choices,links);
+    String titleString = "Create Account";
+    String dataPromptString = "Username;Password;First Name;Last Name;Age";
+    String choiceString = "Back;Set Username;Set Password;Set First Name;Set Lastname;Set Age;Create Account";
+    String linkString = "PARENT;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;SUBMITDATA";
+
+    return EditorScreen(titleString, dataPromptString, choiceString, linkString);
+
+
   }
 
 
