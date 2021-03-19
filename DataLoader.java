@@ -54,7 +54,7 @@ public class DataLoader extends DataConstants {
                 JSONObject crimeJSON = (JSONObject)crimeJSON.get(i);
                 String id = (String)crimeJSON.get(CRIMES_ID);
                 String crime = (String)crimeJSON.get(CRIMES_CRIME);
-                int numCriminals = (Integer)crimeJSON.get(CRIMES_NUM_CRIMINALS);
+                int numCriminals = (Integer)crimeJSON.get(CRIMES_NUM_CRIMINALS); // long int value, not integer
                 // ADD INTAKE FOR ARRAY OF CRIMINALS
                 int numVictims = (Integer)crimeJSON.get(CRIMES_NUM_VICTIMS);
                 // ADD INTAKE FOR ARRAY OF VICTIMS
