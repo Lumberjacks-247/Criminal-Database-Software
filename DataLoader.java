@@ -4,6 +4,10 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import CriminalDatabaseSoftware.HospitalReport;
+
+import java.util.Iterator;
+
 public class DataLoader extends DataConstants {
     public static ArrayList<Person> loadPeople() {
         ArrayList<Person> people = new ArrayList<Person>();
@@ -56,6 +60,14 @@ public class DataLoader extends DataConstants {
                 String crime = (String)crimeJSON.get(CRIMES_CRIME);
                 int numCriminals = ((Long)crimeJSON.get(CRIMES_NUM_CRIMINALS)).intValue(); // long int value, not integer
                 // ADD INTAKE FOR ARRAY OF CRIMINALS
+                String[] criminals = new String[numCriminals];
+                JSONArray criminalsJSON = (JSONArray)crimeJSON.get(CRIMES_CRIMINALS);
+                Iterator<String> cjsIterator = criminalsJSON.iterator();
+                for (int j = 0; j < numCriminals; ++j) {
+                    if (cjsIterator.hasNext()) {
+                        criminals[j] = cjsIterator.next();
+                    }
+                }
                 int numVictims = ((Long)crimeJSON.get(CRIMES_NUM_VICTIMS)).intValue();
                 // ADD INTAKE FOR ARRAY OF VICTIMS
                 int numPOI = ((Long)crimeJSON.get(CRIMES_NUM_POI)).intValue();
@@ -108,8 +120,151 @@ public class DataLoader extends DataConstants {
     }
 
     public static ArrayList<Evidence> loadEvidence() {
-        return new ArrayList<Evidence>();
+        ArrayList<Evidence> evidence = new ArrayList<Evidence>();
+
+        try {
+            FileReader reader = new FileReader(EVIDENCE_FILE_NAME);
+            JSONParser parser = new JSONParser();
+            JSONArray evidencesJSON = (JSONArray)new JSONParser().parse(reader);
+
+            for (int i = 0; i < evidencesJSON.size(); ++i) {
+                JSONObject evidenceJSON = (JSONObject)evidencesJSON.get(i);
+                String id = (String)evidenceJSON.get(EVIDENCE_ID);
+                String name = (String)evidenceJSON.get(EVIDENCE_NAME);
+                String location = (String)evidenceJSON.get(EVIDENCE_LOCATION);
+                boolean hasDNA = (Boolean)evidenceJSON.get(EVIDENCE_HAS_DNA);
+                String associatedCrime = (String)evidenceJSON.get(EVIDENCE_ASSOC_CRIME);
+                String dateCollected = (String)evidenceJSON.get(EVIDENCE_DATE_COLLECTED);
+                evidence.add(new Evidence(id, name, dateCollected));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
+
+    public static ArrayList<Officer> loadOfficer() {
+        ArrayList<Officer> officer = new ArrayList<Officer>();
+
+        try {
+            FileReader reader = new FileReader(OFFICER_FILE_NAME);
+            JSONParser parser = new JSONParser();
+            JSONArray officersJSON = (JSONArray)new JSONParser().parse(reader);
+
+            for (int i = 0; i < officersJSON.size(); ++i) {
+                JSONObject officerJSON = (JSONObject)officersJSON.get(i);
+                String id = (String)officerJSON.get(OFFICER_ID);
+                String badgeNo = (String)officerJSON.get(OFFICER_BADGE_NO);
+                int numCrimes = ((Long)officerJSON.get(OFFICER_NUM_CRIMES)).intValue();
+                // INTAKE ARRAY OF ASSOC CRIMES
+                officer.add(new Officer(firstName, lastName));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public static ArrayList<POI> loadPOI() {
+        ArrayList<POI> poi = new ArrayList<POI>();
+
+        try {
+            FileReader reader = new FileReader(POI_FILE_NAME);
+            JSONParser parser = new JSONParser();
+            JSONArray poisJSON = (JSONArray)new JSONParser().parse(reader);
+
+            for (int i = 0; i < poisJSON.size(); ++i) {
+                JSONObject poiJSON = (JSONObject)poisJSON.get(i);
+                String id = (String)poiJSON.get(POI_ID);
+                int numCrimes = ((Long)poiJSON.get(POI_NUM_CRIMES)).intValue();
+                // INTAKE ARRAY OF ASSOC CRIMES
+                int phone = ((Long)poiJSON.get(POI_PHONE)).intValue();
+                poi.add(new POI(firstName, lastName));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public static ArrayList<HospitalReport> loadReport() {
+        ArrayList<HospitalReport> report = new ArrayList<HospitalReport>();
+
+        try {
+            FileReader reader = new FileReader(REPORT_FILE_NAME);
+            JSONParser parser = new JSONParser();
+            JSONArray reportsJSON = (JSONArray)new JSONParser().parse(reader);
+
+            for (int i = 0; i < reportsJSON.size(); ++i) {
+                JSONObject reportJSON = (JSONObject)reportsJSON.get(i);
+                String id = (String)reportJSON.get(REPORT_ID);
+                int numStatements = ((Long)reportJSON.get(REPORT_NUM_STATEMENTS)).intValue();
+                // INTAKE ARRAY OF STATEMENTS
+                int numVictims = ((Long)reportJSON.get(REPORT_NUM_VICTIMS)).intValue();
+                // INTAKE ARRAY OF VICTIMS
+                report.add(new HospitalReport(id, ));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public static ArrayList<Suspect> loadSuspects() {
+        ArrayList<Suspect> suspect = new ArrayList<Suspect>();
+
+        try {
+            FileReader reader = new FileReader(SUSPECTS_FILE_NAME);
+            JSONParser parser = new JSONParser();
+            JSONArray suspectsJSON = (JSONArray)new JSONParser().parse(reader);
+
+            for (int i = 0; i < suspectsJSON.size(); ++i) {
+                JSONObject suspectJSON = (JSONObject)suspectsJSON.get(i);
+                String id = (String)suspectJSON.get(SUSPECTS_ID);
+                int numCrimes = ((Long)suspectJSON.get(SUSPECTS_NUM_CRIMES)).intValue();
+                // INTAKE ARRAY OF ASSOC CRIMES
+                boolean isPastCriminal = (Boolean)suspectJSON.get(SUSPECTS_IS_PAST_CRIMINAL);
+                int phone = ((Long)suspectJSON.get(SUSPECTS_PHONE)).intValue();
+                int numTattoos = ((Long)suspectJSON.get(SUSPECTS_NUM_TATTOOS)).intValue();
+                // INTAKE ARRAY OF TATTOOS
+                int shoeSize = ((Long)suspectJSON.get(SUSPECTS_SHOE_SIZE)).intValue();
+                String gang = (String)suspectJSON.get(SUSPECTS_GANG);
+                suspect.add(new Suspect(firstName, lastName));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public static ArrayList<User> loadUsers() {
+        ArrayList<User> user = new ArrayList<User>();
+
+        try {
+            FileReader reader = new FileReader(USER_FILE_NAME);
+            JSONParser parser = new JSONParser();
+            JSONArray usersJSON = (JSONArray)new JSONParser().parse(reader);
+
+            for (int i = 0; i < usersJSON.size(); ++i) {
+                JSONObject userJSON = (JSONObject)usersJSON.get(i);
+                int accessLevel = ((Long)userJSON.get(USER_ACCESS_LEVEL)).intValue();
+                String firstname = (String)userJSON.get(USER_FIRST_NAME);
+                String lastName = (String)userJSON.get(USER_LAST_NAME);
+                user.add(User());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    
 
     public static void main(String[] args) {
         ArrayList<Person> people = DataLoader.loadPeople();
