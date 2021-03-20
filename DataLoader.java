@@ -187,7 +187,7 @@ public class DataLoader extends DataConstants {
             e.printStackTrace();
         }
 
-        return null;
+        firstNamereturn null;
     }
 
     public static ArrayList<HospitalReport> loadReport() {
@@ -255,7 +255,7 @@ public class DataLoader extends DataConstants {
                 int accessLevel = ((Long)userJSON.get(USER_ACCESS_LEVEL)).intValue();
                 String firstname = (String)userJSON.get(USER_FIRST_NAME);
                 String lastName = (String)userJSON.get(USER_LAST_NAME);
-                user.add(User());
+                user.add(new User(userName, firstName, lastName, accessLevel, userPassword));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -264,7 +264,52 @@ public class DataLoader extends DataConstants {
         return null;
     }
 
-    
+    public static ArrayList<Victim> loadVictims() {
+        ArrayList<Victim> victim = new ArrayList<Victim>();
+
+        try {
+            FileReader reader = new FileReader(VICTIM_FILE_NAME);
+            JSONParser parser = new JSONParser();
+            JSONArray victimsJSON = (JSONArray)new JSONParser().parse(reader);
+
+            for (int i = 0; i < victimsJSON.size(); ++i) {
+                JSONObject victimJSON = (JSONObject)victimsJSON.get(i);
+                String id = (String)victimJSON.get(VICTIM_ID);
+                int numReports = ((Long)victimJSON.get(VICTIM_NUM_H_REPORTS)).intValue();
+                // INTAKE ARRAY OF REPORTS
+                int numCrimes = ((Long)victimJSON.get(VICTIM_NUM_CRIMES)).intValue();
+                // INTAKE ARRAY OF CRIMES
+                victim.add(new Victim(firstName, lastName));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public static ArrayList<Witness> loadWitness() {
+        ArrayList<Witness> witness = new ArrayList<Witness>();
+
+        try {
+            FileReader reader = new FileReader(WITNESS_FILE_NAME);
+            JSONParser parser = new JSONParser();
+            JSONArray witnessesJSON = (JSONArray)new JSONParser().parse(reader);
+
+            for (int i = 0; i < witnessesJSON.size(); ++i) {
+                JSONObject witnessJSON = (JSONObject)witnessesJSON.get(i);
+                String id = (String)witnessJSON.get(WITNESS_ID);
+                int numCrimes = ((Long)witnessJSON.get(WITNESS_NUM_CRIMES)).intValue();
+                // INTAKE ARRAY OF ASSOC CRIMES
+                int phone = ((Long)witnessJSON.get(WITNESS_PHONE)).intValue();
+                witness.add(new Witness(firstName, lastName));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 
     public static void main(String[] args) {
         ArrayList<Person> people = DataLoader.loadPeople();
