@@ -1,5 +1,3 @@
-package CriminalDatabaseSoftware;
-
 import java.util.ArrayList;
 
 public class Crime {
@@ -8,13 +6,16 @@ public class Crime {
     private String id, typeOfCrime, location;
     private boolean isOpen = true;
     private User author;
+    private static Crime crime;
     private ArrayList<POI> pois;
+    private ArrayList<Crime> crimeList;
     private ArrayList<Suspect> suspects;
     private ArrayList<Criminal> criminals;
     private ArrayList<Victim> victims;
     private ArrayList<Witness> witnesses;
     private ArrayList<Officer> officers;
     private ArrayList<Evidence> evidence;
+    
 
     /**
      * creates a new crime object with just an id
@@ -231,6 +232,27 @@ public class Crime {
 
 	public void setEvidence(ArrayList<Evidence> evidence) {
 		this.evidence = evidence;
+	}
+
+	public static Crime getInstance() {
+		if(crime == null) {
+			crime = new Crime();
+		}
+		return crime;
+	}
+
+	public boolean haveCrime(String crimeName) {
+		for(Crime crime : crimeList) {
+			if(crime.getCrime().equals(crime)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	private Crime getCrime() {
+		// TODO Auto-generated method stub
+		return null;
 	}
     
 }
