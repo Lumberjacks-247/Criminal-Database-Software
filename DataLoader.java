@@ -3,9 +3,6 @@ import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-
-import CriminalDatabaseSoftware.HospitalReport;
-
 import java.util.Iterator;
 
 public class DataLoader extends DataConstants {
@@ -24,7 +21,6 @@ public class DataLoader extends DataConstants {
                 String lastName = (String)personJSON.get(PERSON_LAST_NAME);
                 String sex = (String)personJSON.get(PERSON_SEX);
                 String birthday = (String)personJSON.get(PERSON_BIRTHDAY);
-                int heightFt = ((Long)personJSON.get(PERSON_HEIGHT_FT)).intValue();
                 int heightIn = ((Long)personJSON.get(PERSON_HEIGHT_IN)).intValue();
                 int weight = ((Long)personJSON.get(PERSON_WEIGHT)).intValue();
                 boolean isJuvenile = (Boolean)personJSON.get(PERSON_IS_JUVENILE);
@@ -187,7 +183,7 @@ public class DataLoader extends DataConstants {
             e.printStackTrace();
         }
 
-        firstNamereturn null;
+        return null;
     }
 
     public static ArrayList<HospitalReport> loadReport() {
