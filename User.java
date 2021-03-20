@@ -1,24 +1,10 @@
-import java.util.UUID;
-
 
 public class User {
-	private UUID id;
 	private int accessLevel;
-	private String userName;
-	private String firstName;
-	private String lastName;
-	private String userPassword;
+	private String userName, firstName, lastName, userPassword, id;
 
-  public User(String userName, String firstName, String lastName, int accessLevel, String userPassword) {
-	  this.id = UUID.randomUUID();
-	  this.userName = userName;
-	  this.firstName = firstName;
-	  this.lastName = lastName;
-	  this.accessLevel = accessLevel;
-	  this.userPassword = userPassword;
-  }
-  
-  public User(UUID id, String userName, String firstName, String lastName, int accessLevel, String userPassword) {
+
+  public User(String id,String userName, String firstName, String lastName, int accessLevel, String userPassword) {
 	  this.id = id;
 	  this.userName = userName;
 	  this.firstName = firstName;
@@ -59,11 +45,11 @@ public class User {
     this.lastName = name;
   }
   
-  public UUID getID() {
+  public String getID() {
 	  return id;
   }
   
-  public void setID(UUID id) {
+  public void setID(String id) {
 	  this.id = id;
   }
   

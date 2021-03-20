@@ -2,9 +2,8 @@ import java.util.ArrayList;
 
 public class Person {
 
-    private String firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, city, state, zip;
-    private int age, height, weight;
-    private boolean isJuvenile;
+    private String firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address;
+    private int age;
     private static Person person;
     private ArrayList<Person> personList;
 
@@ -194,43 +193,6 @@ public class Person {
     public void setAddress(String address) {
         this.address = address;
     }
-
-    public String getCity() {
-		return city;
-	}
-	public void setCity(String city) {
-		this.city = city;
-	}
-	public String getState() {
-		return state;
-	}
-	public void setState(String state) {
-		this.state = state;
-	}
-	public String getZip() {
-		return zip;
-	}
-	public void setZip(String zip) {
-		this.zip = zip;
-	}
-	public int getHeight() {
-		return height;
-	}
-	public void setHeight(int height) {
-		this.height = height;
-	}
-	public int getWeight() {
-		return weight;
-	}
-	public void setWeight(int weight) {
-		this.weight = weight;
-	}
-	public boolean isJuvenile() {
-		return isJuvenile;
-	}
-	public void setJuvenile(boolean isJuvenile) {
-		this.isJuvenile = isJuvenile;
-	}
 
 	public static Person getInstance() {
 		if(person == null) {
