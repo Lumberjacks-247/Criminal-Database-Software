@@ -1,9 +1,11 @@
-package CriminalDatabaseSoftware;
+import java.util.ArrayList;
 
 public class Person {
 
     private String firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address;
     private int age;
+    private static Person person;
+    private ArrayList<Person> personList;
 
     /**
      * Creates Person object with passed in first and last name
@@ -192,6 +194,21 @@ public class Person {
         this.address = address;
     }
 
+	public static Person getInstance() {
+		if(person == null) {
+			person = new Person("asdf", "asdf");
+		}
+		return person;
+	}
+
+	public boolean havePerson(String personName) {
+		for(Person person : personList) {
+			if(person.getFirstName().equals(firstName)){
+				return true;
+			}
+		}
+		return false;
+	}
     public static void main(String[] args) {
         Person dylan = new Suspect("Dylan", "Neff");
         System.out.println(dylan.getFirstName());
