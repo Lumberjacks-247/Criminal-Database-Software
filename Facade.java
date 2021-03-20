@@ -4,7 +4,6 @@ public class Facade {
 	private Person person;
 	private Crime crime;
 	private Users user;
-	protected Password password;
 	private User currentUser;
 
 	
@@ -14,7 +13,6 @@ public class Facade {
 		person = Person.getInstance(); 
 		crime = Crime.getInstance();
 		user = Users.getInstance();
-		password = Password.getInstance();
 	}
 	
 	public boolean findPerson(String personName) {

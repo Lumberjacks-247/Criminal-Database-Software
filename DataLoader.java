@@ -34,8 +34,8 @@ public class DataLoader extends DataConstants {
                 String zip  = (String)personJSON.get(PERSON_ZIP);
                 String eyeColor = (String)personJSON.get(PERSON_EYE_COLOR);
                 String race = (String)personJSON.get(PERSON_RACE);
-                people.add(new Person(firstName, lastName, id, sex, race, /* VAR FOR HAIR COLOR*/, 
-                                      /* VAR FOR HAIR STYLE */, /* VAR FOR EYE COLOR */, address, /* VAR FOR AGE */));
+                people.add(new Person(firstName, lastName, id, sex, race,// /* VAR FOR HAIR COLOR*/, 
+                                     // /* VAR FOR HAIR STYLE */, /* VAR FOR EYE COLOR */, address, /* VAR FOR AGE */));
             }
 
             return people;
