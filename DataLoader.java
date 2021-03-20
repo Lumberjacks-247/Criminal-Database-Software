@@ -1,7 +1,5 @@
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.function.LongToIntFunction;
-
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -91,12 +89,12 @@ public class DataLoader extends DataConstants {
 
             for (int i = 0; i < criminalsJSON.size(); ++i) {
                 JSONObject criminalJSON = (JSONObject)criminalsJSON.get(i);
-                int numCrimes = (Integer)criminalJSON.get(CRIMINAL_NUM_CRIMES);
+                int numCrimes = ((Long)criminalJSON.get(CRIMINAL_NUM_CRIMES)).intValue();
                 // ADD INTAKE FOR ARRAY OF CRIMES
                 boolean isViolent = (Boolean)criminalJSON.get(CRIMINAL_IS_VIOLENT);
                 String gang = (String)criminalJSON.get(CRIMINAL_GANG);
-                int shoeSize = (Integer)criminalJSON.get(CRIMINAL_SHOE_SIZE);
-                int numTattoos = (Integer)criminalJSON.get(CRIMINAL_NUM_TATTOOS);
+                int shoeSize = ((Long)criminalJSON.get(CRIMINAL_SHOE_SIZE)).intValue();
+                int numTattoos = ((Long)criminalJSON.get(CRIMINAL_NUM_TATTOOS)).intValue();
                 // ADD INTAKE FOR ARRAY OF TATTOOS
                 criminals.add(new Criminal(/* ADD INFO */));
             }
