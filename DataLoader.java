@@ -1,5 +1,7 @@
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.function.LongToIntFunction;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -54,19 +56,19 @@ public class DataLoader extends DataConstants {
                 JSONObject crimeJSON = (JSONObject)crimeJSON.get(i);
                 String id = (String)crimeJSON.get(CRIMES_ID);
                 String crime = (String)crimeJSON.get(CRIMES_CRIME);
-                int numCriminals = (Integer)crimeJSON.get(CRIMES_NUM_CRIMINALS);
+                int numCriminals = ((Long)crimeJSON.get(CRIMES_NUM_CRIMINALS)).intValue(); // long int value, not integer
                 // ADD INTAKE FOR ARRAY OF CRIMINALS
-                int numVictims = (Integer)crimeJSON.get(CRIMES_NUM_VICTIMS);
+                int numVictims = ((Long)crimeJSON.get(CRIMES_NUM_VICTIMS)).intValue();
                 // ADD INTAKE FOR ARRAY OF VICTIMS
-                int numPOI = (Integer)crimeJSON.get(CRIMES_NUM_POI);
+                int numPOI = ((Long)crimeJSON.get(CRIMES_NUM_POI)).intValue();
                 // ADD INTAKE FOR ARRAY OF POI
-                int numWitnesses = (Integer)crimeJSON.get(CRIMES_NUM_WITNESSES);
+                int numWitnesses = ((Long)crimeJSON.get(CRIMES_NUM_WITNESSES)).intValue();
                 // ADD INTAKE FOR ARRAY OF WITNESSES
-                int numSuspects = (Integer)crimeJSON.get(CRIMES_NUM_SUSPECTS);
+                int numSuspects = ((Long)crimeJSON.get(CRIMES_NUM_SUSPECTS)).intValue();
                 // ADD INTAKE FOR ARRAY OF SUSPECTS
-                int numEvidence = (Integer)crimeJSON.get(CRIMES_NUM_EVIDENCE);
+                int numEvidence = ((Long)crimeJSON.get(CRIMES_NUM_EVIDENCE)).intValue();
                 // ADD INTAKE FOR EVIDENCE
-                int numReports = (Integer)crimeJSON.get(CRIMES_NUM_REPORTS);
+                int numReports = ((Long)crimeJSON.get(CRIMES_NUM_REPORTS)).intValue();
                 // ADD INTAKE FOR REPORTS
                 crimes.add(new Crime(id, crime, /* REST OF INFO */));
             }
