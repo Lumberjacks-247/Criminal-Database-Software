@@ -3,7 +3,7 @@ package CriminalDatabaseSoftware;
 public class POI extends Person{
 
     private String tattoos, gang, victimRelationship, evidenceConnection;
-    private boolean isRepeatOffender = false;
+    private boolean isRepeatOffender;
 
     /**
      * Creates POI object with passed in first and last names
@@ -12,6 +12,17 @@ public class POI extends Person{
      */
     public POI(String firstName, String lastName) {
         super(firstName, lastName);
+        this.isRepeatOffender = false;
+    }
+
+    public POI(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, 
+    String eyeColor, String address, int age, String tattoos, String victimRelationShip, String evidenceConnection, boolean isRepeatOffender) {
+        super(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age);
+        this.tattoos = tattoos;
+        this.gang = gang;
+        this.victimRelationship = victimRelationShip;
+        this.evidenceConnection = evidenceConnection;
+        this.isRepeatOffender = isRepeatOffender;
     }
 
     /**

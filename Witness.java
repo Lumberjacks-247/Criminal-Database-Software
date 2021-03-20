@@ -13,6 +13,14 @@ public class Witness extends Person{
         super(firstName, lastName);
     }
 
+    public Witness(String firstName, String lastName, String phoneNumber, String email, String statement, String relationToBadGuy) {
+        super(firstName, lastName);
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.statement = statement;
+        this.relationToBadGuy = relationToBadGuy;
+    }
+
     /**
      * returns witness's phone number
      * @return witness's phone number as a String
