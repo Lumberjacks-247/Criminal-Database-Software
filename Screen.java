@@ -8,13 +8,80 @@
  */
 public abstract class Screen {
 
-  /* Base implementation */
 
-  protected Screen parent;
-  protected ScreenConsts ScreenType;
+/*
+##############################################################
+
+                        Public Data         
+
+##############################################################
+*/
 
   public Screen getParent() {
     return this.parent;
+  }
+
+  /**
+   * Grabs the prompt of a data point from a specified index.
+   * @param index Index of data point to access prompt from
+   * @return String prompt of data point
+   */
+  public String getPrompt(int index) {
+    return this.data[index].prompt;
+  }
+
+  /**
+   * Grabs data from a specified index.
+   * @param index Specified index from which to get data
+   * @return String data
+   */ 
+  public String getDataValue(int index) {
+    return this.data[index].value;
+  }
+
+  /**
+   * Sets the data at a specified index to the specified value.
+   * @param index The index at which to set specified data
+   * @param value The String value to set at the specified index
+   */  
+  public void setDataValue(int index, String value) {
+    this.data[index].value = value;
+  }
+
+
+
+/*
+##############################################################
+
+                      Protected Data         
+
+##############################################################
+*/
+
+  protected class Datum {
+    public String prompt,value = "";
+    public Datum(String prompt_) {prompt = prompt_;}
+    public String toString() { return prompt + ": " + value;}
+  }
+
+
+  protected Screen parent;
+  protected Datum[] data;
+  protected String[] links;
+
+  /**
+   * Parses the given String input and checks if it is valid, returns the parsed input if so.
+   * @param input the String input from user
+   * @return integer representaion of user input
+   */
+  protected int isValid(String input) {
+
+    try {
+      int index = Integer.parseInt(input);
+
+      return (index >= 0 && index < this.links.length) ? index : -1;  // If choice is in range, return choice; else return -1
+
+    } catch(Exception e) { return -1; }
   }
 
   /**
@@ -25,14 +92,23 @@ public abstract class Screen {
   }
 
   /**
-   * Returns a ScreenConsts denoting the type of this Screen.
-   * @return ScreenConsts of this Screen
+   * Grabs the Datum at the specified index.
+   * @param index The index of the desired Datum
+   * @return The requested Datum object
    */
-  protected ScreenConsts getType() {
-    return this.ScreenType;
+  protected Datum getDatum(int index) {
+    return this.data[index];
   }
 
-  /* Abstract Implementation */
+  
+
+/*
+##############################################################
+
+                      Abstract Data         
+
+##############################################################
+*/
   
   /**
    * Displays this screen to output.

@@ -4,8 +4,6 @@ import java.util.Scanner;
 /**
  * The main loop which handles user input and cycles Screen objects.
  * @author Blake Seekings
- * @version 2.0 Moved constants to UIConstants
- * @since 3/18/2021
  * @see Screen
  * @see UIConstants
  * @see ScreenConsts
@@ -44,11 +42,6 @@ public class UI {
     return scanner.nextLine();  
   }
 
-  public static void main(String[] args) throws Exception { 
-    String thing = input();
-    if (thing.equals("1")) {
-      throw new Exception("Failed to build");
-    }
-  }
+  public static void main(String[] args) { while(UI.display()); }
 
 }

@@ -13,70 +13,60 @@ public class UIConstants {
   public static final String PROMPT = ">> ";
   public static final String QUITFLAG = "-1";
 
-  /* Private Constants */
-  private static final ScreenConsts STARTSCREEN = ScreenConsts.WELCOME;
-
   /* UI Startup */
 
   /**
    * Returns the initial Screen for UI to display.
    */
   public static Screen start() {
-    return STARTSCREEN.getScreen(null);
+    return  ScreenCalls.START.call(null);
   }
 
+  /**
+   * Returns the null element, this breaks the Screen sequence completly.
+   * @param parent The Screen object which called this method.
+   * @return The null element
+   */
+  public static Screen Null(Screen parent) {
+    return null;
+  }
 
-  //private static Facade facade = new Facade();
+  /**
+   * Constructs an EnterDataScreen using parametrized data.
+   * @param parent The Screen where change in data is requested.
+   * @param dataIndex The index of the data in parent.
+   * @return The EnterDataScreen which is linked to the parent and a field of data.
+   */
+  public static EnterDataScreen EnterData(Screen parent, int dataIndex) {
+    return new EnterDataScreen(parent, dataIndex);
+  }
 
-  /*protected static Screen CallFacade(ScreenType scrntype, EditorScreen scrn) {
-
-    String username;
-    String password;
-    String accessLevel;
-    switch (scrntype) {
-      case LOGIN:
-        username = scrn.getData(0);
-        password = scrn.getData(1);
-        if (falsefacade.login(username,password)) {
-          return CreateScreen(ScreenType.MAINMENU);
-        } else {
-          System.out.println("\n !!!!!!LOGIN - FAILURE!!!!! \n");
-          return scrn;
-        }
-      case CREATEACCOUNT:
-        username = scrn.getData(0);
-        password = scrn.getData(1);
-        accessLevel = scrn.getData(2); 
-        
-      default:
-        return scrn;
-    }
-
-
-  }*/
-  
   /**
    * When passed a given parameter and called, will return the parent of the parameter.
    * @param parent The object of Screen which called for a new screen
    * @return the parent of the parameter
    */
-  protected static Screen Parent(Screen parent) {
-    return parent.parent();
+  public static Screen ParentScreen(Screen parent) {
+    return parent.getParent();
   }
 
   /**
-   * Creates the Welcom Screen
+   * Creates the Welcome Screen
    * @param parent The Screen instance preceding the new Screen
    * @return The Welcome Screen
    */ 
-  protected static Screen Welcome(Screen parent) {
+  public static Screen WelcomeScreen(Screen parent) {
 
     String titleString = "Welcome";
     String choiceString = "Exit;Login;Create Account";
-    String linkString = "EXIT;LOGIN;CREATEACCOUNT";
+    String linkString = "S:NULL;S:LOGIN;S:CREATEACCOUNT";
 
-    Screen newScreen = new TransScreen(titleString, choiceString, linkString);
-    return newScreen;
+      
+    /* Extra Adjustments */
+    Screen screen = new TransScreen(titleString,choiceString,linkString);
+    screen.setParent(null);
+    return screen;
+
   }
 
   /**
@@ -84,13 +74,16 @@ public class UIConstants {
    * @param parent The Screen instance preceding the new Screen
    * @return The Main Menu Screen
    */ 
-  protected static Screen MainMenu(Screen parent) {
+  public static Screen MainMenuScreen(Screen parent) {
 
     String titleString = "Criminal Database Software";
     String choiceString = "Logout;Search;New";
-    String linkString = "WELCOME;SEARCH;NEW";
+    String linkString = "F:LOGOUT;S:SEARCH;S:NEW";
 
-    return new TransScreen(titleString,choiceString,linkString);
+    /* Extra Adjustments */
+    Screen screen = new TransScreen(titleString,choiceString,linkString);
+    screen.setParent(null);
+    return screen;
   }
 
   /**
@@ -98,14 +91,18 @@ public class UIConstants {
    * @param parent The Screen instance preceding the new Screen
    * @return The Login Screen
    */ 
-  protected static Screen Login(Screen parent) {
+  public static Screen LoginScreen(Screen parent) {
 
     String titleString = "Login";
     String dataPromptString = "Username;Password";
     String choiceString = "Back;Set Username;Set Password;Login";
-    String linkString = "PARENT;ENTERDATA;ENTERDATA;SUBMITDATA";
+    String linkString = "S:PARENT;ENTERDATA;ENTERDATA;F:LOGIN";
 
-    return new EditorScreen(titleString,dataPromptString,choiceString,linkString);
+    /* Extra Adjustments */
+    Screen screen = new EditorScreen(titleString, dataPromptString, choiceString, linkString);
+    screen.setParent(parent);
+    return screen;
+
   }
 
   /**
@@ -113,14 +110,17 @@ public class UIConstants {
    * @param parent The Screen instance preceding the new Screen
    * @return The Create Account Screen
    */ 
-  protected static Screen CreateAccount(Screen parent) {
+  public static Screen CreateAccountScreen(Screen parent) {
     
     String titleString = "Create Account";
     String dataPromptString = "Username;Password;First Name;Last Name;Age";
     String choiceString = "Back;Set Username;Set Password;Set First Name;Set Lastname;Set Age;Create Account";
-    String linkString = "PARENT;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;SUBMITDATA";
+    String linkString = "S:PARENT;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;F:CREATEACCOUNT";
 
-    return new EditorScreen(titleString, dataPromptString, choiceString, linkString);
+    /* Extra Adjustments */
+    Screen screen = new EditorScreen(titleString, dataPromptString, choiceString, linkString);
+    screen.setParent(parent);
+    return screen;
 
 
   }

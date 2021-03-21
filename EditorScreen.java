@@ -6,16 +6,10 @@
  */
 public class EditorScreen extends Screen {
 
-  private class Datum {
-    public String prompt,value = "";
-    public Datum(String prompt_) {prompt = prompt_;}
-    public String toString() { return prompt + ": " + value;}
-  }
 
   private String title;
-  private Datum[] data;
   private String[] choices;
-  private String[] links;
+
 
   /**
    * Creates a new Editor Screen.
@@ -40,21 +34,8 @@ public class EditorScreen extends Screen {
     /* Choice links */
     this.links = links_.split(";");
 
-  }
 
-  /**
-   * Parses the given String input and checks if it is valid, returns the parsed input if so.
-   * @param input the String input from user
-   * @return integer representaion of user input
-   */
-  private int isValid(String input) {
 
-    try {
-      int index = Integer.parseInt(input);
-
-      return (index >= 0 && index < this.links.length) ? index : -1;  // If choice is in range, return choice; else return -1
-
-    } catch(Exception e) { return -1; } // If error, then invalid and return -1
   }
 
   public void display() {
@@ -76,23 +57,8 @@ public class EditorScreen extends Screen {
   }
 
   /**
-   * Grabs data from a specified index.
-   * @param index Specified index from which to get data
-   * @return String data
-   */ 
-  public String getData(int index) {
-    return this.data[index].value;
-  }
-
-  /**
-   * Sets the data at a specified index to the specified value.
-   * @param index index at which to set specified dat
-   * @param value The String data to set at the specified index
-   */  
-  public void setData(int index, String value) {
-    this.data[index].value = value;
-  }
-
+   * @param input String input grabbed from user
+   */
   public Screen next(String input) {
 
     /* Check for Invalid Input */
@@ -100,8 +66,13 @@ public class EditorScreen extends Screen {
     if ((choice = isValid(input)) < 0)
       return this;
 
-    ScreenConsts scrntype = ScreenConsts.valueOf(links[choice]);
-    Screen screen = scrntype.getScreen(this);
-    return screen;
+    
+    String phoneNumber = this.links[choice];
+    if (phoneNumber.equals("ENTERDATA"))
+      return UIConstants.EnterData(this, choice-1);
+    
+    
+    return Telephone.call(this,phoneNumber);
+    
   }
 }

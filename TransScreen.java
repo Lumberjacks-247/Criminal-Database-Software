@@ -8,7 +8,6 @@ public class TransScreen extends Screen {
 
   private String title;
   private String[] choices;
-  private String[] links;
 
   /**
    * Creates a new Transition Screen.
@@ -37,21 +36,6 @@ public class TransScreen extends Screen {
 
   }
 
-    /**
-   * Parses the given String input and checks if it is valid, returns the parsed input if so.
-   * @param input the String input from user
-   * @return integer representaion of user input
-   */
-  private int isValid(String input) {
-
-    try {
-      int index = Integer.parseInt(input);
-
-      return (index >= 0 && index < this.links.length) ? index : -1;  // If choice is in range, return choice; else return -1
-
-    } catch(Exception e) { return -1; }
-  }
-
   public Screen next(String input) {
 
     /* Check for Invalid Input */
@@ -60,18 +44,8 @@ public class TransScreen extends Screen {
       return this;
 
     /* Move to next screen */
-    ScreenConsts scrntype = ScreenConsts.valueOf(this.links[choice]);
-    Screen screen = scrntype.getScreen(this);
-    return screen;
+
+    String phoneNumber = this.links[choice];
+    return Telephone.call(this,phoneNumber);
   }
-
-
-
-
-
-
-
-
-
-
 }
