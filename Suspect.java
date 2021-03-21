@@ -1,5 +1,3 @@
-package CriminalDatabaseSoftware;
-
 import java.util.ArrayList;
 
 public class Suspect extends POI{
@@ -206,5 +204,10 @@ public class Suspect extends POI{
     public void setDistintPhysicalTraits(String distinctPhysicalTraits) {
         this.distintPhysicalTraits = distinctPhysicalTraits;
     }
+
+	public Object getSuspectName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
     
 }

@@ -215,5 +215,10 @@ public class Person {
         System.out.println(dylan.getAge());
         System.out.println(dylan.getAddress());
     }
+
+	public Object getPersonName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
     
 }
