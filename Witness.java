@@ -1,5 +1,3 @@
-package CriminalDatabaseSoftware;
-
 public class Witness extends Person{
 
     private String phoneNumber, email, statement, relationToBadGuy;
@@ -84,6 +82,11 @@ public class Witness extends Person{
     public void setRelationToBadGuy(String relation) {
         this.relationToBadGuy = relation;
     }
+
+	public Object getWitnessName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
     
 }

@@ -254,5 +254,10 @@ public class Crime {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	public Object getCrimeName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
     
 }
