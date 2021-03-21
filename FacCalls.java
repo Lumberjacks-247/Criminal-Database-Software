@@ -2,8 +2,9 @@ import java.util.function.Function;
 
 public enum FacCalls {
 
-    LOGIN   (FacUIConstants::login),
-    LOGOUT  (FacUIConstants::logout)
+    LOGIN         (FacUIConstants::login),
+    LOGOUT        (FacUIConstants::logout),
+    CREATEACCOUNT (FacUIConstants::createAccount)
     ;
 
     public static Screen getF(Screen screen, String callName) {
