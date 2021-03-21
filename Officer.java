@@ -1,5 +1,3 @@
-package CriminalDatabaseSoftware;
-
 public class Officer extends Person{
 
     private String typeOfOfficer; //use enumeration
@@ -51,5 +49,10 @@ public class Officer extends Person{
     public void setStatement(String statement) {
         this.statement = statement;
     }
+
+	public Object getOfficerName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
     
 }

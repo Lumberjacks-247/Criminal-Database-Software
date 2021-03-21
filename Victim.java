@@ -1,5 +1,3 @@
-package CriminalDatabaseSoftware;
-
 import java.util.ArrayList;
 
 public class Victim extends Person{
@@ -62,5 +60,10 @@ public class Victim extends Person{
     public void addHospitalReport(HospitalReport hospitalReport) {
         this.hospitalReports.add(hospitalReport);
     }
+
+	public Object getVictimName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
     
 }

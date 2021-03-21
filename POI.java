@@ -1,4 +1,3 @@
-package CriminalDatabaseSoftware;
 
 public class POI extends Person{
 
@@ -103,5 +102,10 @@ public class POI extends Person{
     public void setEvidenceConnection(String evidenceConnection) {
         this.evidenceConnection = evidenceConnection;
     }
+
+	public Object getPOIName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
     
 }

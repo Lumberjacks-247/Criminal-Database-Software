@@ -46,7 +46,6 @@ public abstract class DataConstants {
     protected static final String PERSON_LAST_NAME = "lastName";
     protected static final String PERSON_SEX = "sex";
     protected static final String PERSON_BIRTHDAY = "birthday";
-    protected static final String PERSON_HEIGHT_FT = "heightFt";
     protected static final String PERSON_HEIGHT_IN = "heightIn";
     protected static final String PERSON_WEIGHT = "weight";
     protected static final String PERSON_IS_JUVENILE = "isJuvenile";

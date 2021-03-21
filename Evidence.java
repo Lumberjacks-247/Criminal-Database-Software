@@ -1,5 +1,3 @@
-package CriminalDatabaseSoftware;
-
 public class Evidence {
 
     private String id;
@@ -71,5 +69,10 @@ public class Evidence {
     public void setDateOfDiscovery(String dateOfDiscovery) {
         this.dateOfDiscovery = dateOfDiscovery;
     }
+
+	public Object getEvidenceName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
     
 }

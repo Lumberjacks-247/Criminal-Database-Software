@@ -1,5 +1,3 @@
-package CriminalDatabaseSoftware;
-
 import java.util.ArrayList;
 
 public class Criminal extends Suspect{
@@ -63,5 +61,10 @@ public class Criminal extends Suspect{
     public void changeInCustody() {
         this.inCustody = !this.inCustody;
     }
+
+	public Object getCriminalName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
     
 }
