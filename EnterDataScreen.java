@@ -4,6 +4,7 @@ public class EnterDataScreen extends Screen {
   private EditorScreen parent;
   private String dataPrompt;
   private int dataIndex;
+  
   public EnterDataScreen(EditorScreen parent, String dataPrompt,String dataIndex) {
 
     this.parent = parent;

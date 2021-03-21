@@ -1,32 +1,54 @@
 import java.util.Scanner;
 
-public class UI {
 
-  private static final String QUITFLAG = "-1";
+/**
+ * The main loop which handles user input and cycles Screen objects.
+ * @author Blake Seekings
+ * @version 2.0 Moved constants to UIConstants
+ * @since 3/18/2021
+ * @see Screen
+ * @see UIConstants
+ * @see ScreenConsts
+ */
+public class UI {
   private static Scanner scanner = new Scanner(System.in);
-  private static Screen display = Screens.start();
+  private static Screen screen = UIConstants.start();
   
-  public static boolean loop() {
+
+  /**
+   * Displays the current Screen, grabs user input, and cycles to the next Screen.
+   * @return method call success boolean
+   */
+  public static boolean display() {
     
     // Display screen
-    display.display();
+    screen.display();
     
     // Grab user input
     String inp = input();
 
     // Check global quit flag
-    if (inp.equals(UI.QUITFLAG)) {
+    if (inp.equals(UIConstants.QUITFLAG)) {
       return false;
     }
 
     // Advance to next screen
-    display = display.next(inp);
-    return display == null ? false : true;
+    return (screen = screen.next(inp)) == null ? false : true;
   }
   
+  /**
+   * Grabs input from user.
+   * @return String input from user
+   */
   private static String input() {
-    return scanner.nextLine();  // grab user input
+    return scanner.nextLine();  
   }
 
-  public static void main(String[] args) { while(UI.loop());}
+  public static void main(String[] args) throws Exception { 
+    String thing = input();
+    if (thing.equals("1")) {
+      throw new Exception("Failed to build");
+    }
+  }
+
 }

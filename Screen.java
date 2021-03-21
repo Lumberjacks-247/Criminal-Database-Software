@@ -1,29 +1,49 @@
-public abstract class Screen extends Screens {
+/**
+ * Allows text to be written to output and cycles through contiguous Screen objects.
+ * @author Blake Seekings
+ * @version 3.0 - Implementing ScreenConsts enum
+ * @since 3/18/2021
+ * @see TransScreen
+ * @see EditorScreen
+ */
+public abstract class Screen {
 
   /* Base implementation */
 
   protected Screen parent;
-  protected ScreenType type;
-  public Screen back() {
+  protected ScreenConsts ScreenType;
+
+  public Screen getParent() {
     return this.parent;
   }
 
-  protected void childOf(Screen parent) {
+  /**
+   * Sets the given Screen as the parent of this Screen.
+   */
+  protected void setParent(Screen parent) {
     this.parent = parent;
   }
 
-  protected ScreenType type() {
-    return this.type;
+  /**
+   * Returns a ScreenConsts denoting the type of this Screen.
+   * @return ScreenConsts of this Screen
+   */
+  protected ScreenConsts getType() {
+    return this.ScreenType;
   }
 
   /* Abstract Implementation */
   
+  /**
+   * Displays this screen to output.
+   */
   abstract public void display();
-  abstract public Screen next(String input);
-
-
-
   
-
+  /**
+   * Grabs the next Screen.
+   * @param input The String input captured from user
+   * @return The next Screen in the sequence
+   */
+  abstract public Screen next(String input);
 
 }
