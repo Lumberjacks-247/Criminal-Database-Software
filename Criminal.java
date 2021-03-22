@@ -37,6 +37,10 @@ public class Criminal extends Suspect{
         crimes.add(crime);
     }
 
+    public int getCrimesLength() {
+        return this.crimes.size();
+    }
+
     //should this be in crime class?
     public double getSentence() {
         return this.sentence;
