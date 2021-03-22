@@ -4,7 +4,8 @@ public enum FacCalls {
 
     LOGIN         (FacUIConstants::login),
     LOGOUT        (FacUIConstants::logout),
-    CREATEACCOUNT (FacUIConstants::createAccount)
+    CREATEACCOUNT (FacUIConstants::createAccount),
+    SEARCHPEOPLE  (FacUIConstants::searchPeople)
     ;
 
     public static Screen getF(Screen screen, String callName) {

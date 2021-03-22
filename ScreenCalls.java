@@ -17,6 +17,9 @@ public enum ScreenCalls {
     LOGIN         (UIConstants::LoginScreen),
     LOGOUT        (UIConstants::WelcomeScreen),
     CREATEACCOUNT (UIConstants::CreateAccountScreen),
+    SEARCH        (UIConstants::SearchScreen),
+    SEARCHPEOPLE  (UIConstants::SearchPeopleScreen),
+    SEARCHREPORT  (UIConstants::SearchReportScreen),
     MAINMENU      (UIConstants::MainMenuScreen);
 
     /* Method reference */

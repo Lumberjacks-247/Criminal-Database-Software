@@ -1,6 +1,9 @@
 public class FacUIConstants {
   private static Facade fac = new Facade();
   
+  public static Screen searchPeople(Screen s) {
+    return null;
+  }
   public static Screen logout(Screen s) {
     fac.logout();
     return ScreenCalls.LOGOUT.call(s);

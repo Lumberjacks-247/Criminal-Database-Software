@@ -68,7 +68,39 @@ public class UIConstants {
     return screen;
 
   }
+  /**
+   * Creates the Search Screen.
+   * @param parent The Screen instance preceding the new Screen
+   * @return The Search Screen
+   */ 
+  public static Screen SearchScreen(Screen parent) {
 
+    String titleString = "Search";
+    String choiceString = "Back;Search People;Search Reports";
+    String linkString = "S:PARENT;S:SEARCHPEOPLE;S:SEARCHREPORTS";
+  
+    Screen screen = new TransScreen(titleString,choiceString,linkString);
+    screen.setParent(parent);
+    return screen;
+  }
+
+  public static Screen SearchPeopleScreen(Screen parent) {
+
+    String titleString = "Search People";
+    String dataPromptString = "Firstname;Lastname;Id;Gender;Race;Hair Color;Hair Style;Eye Color;Address;Age";
+    
+    String choiceString = "Back;Set Firstname;Set Lastname;Set id;Set gender;Set Race;";
+    choiceString += "Set Hair Color;Set Hair Style;Set Eye Color;Set Address;Set Age;Search";
+
+    String linkString = "S:PARENT;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;";
+    linkString +=       "ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;F:SEARCHPEOPLE";
+
+
+     /* Extra Adjustments */
+     Screen screen = new EditorScreen(titleString, dataPromptString, choiceString, linkString);
+     screen.setParent(parent);
+     return screen;
+  }
   /**
    * Creates the Main Menu Screen.
    * @param parent The Screen instance preceding the new Screen
