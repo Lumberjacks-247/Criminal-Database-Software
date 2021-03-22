@@ -20,20 +20,14 @@ public class DataLoader extends DataConstants {
                 String id = (String)personJSON.get(PERSON_ID);
                 String firstName = (String)personJSON.get(PERSON_FIRST_NAME);
                 String lastName = (String)personJSON.get(PERSON_LAST_NAME);
-                String sex = (String)personJSON.get(PERSON_SEX);
-                String birthday = (String)personJSON.get(PERSON_BIRTHDAY);
-                int heightFt = ((Long)personJSON.get(PERSON_HEIGHT_FT)).intValue();
-                int heightIn = ((Long)personJSON.get(PERSON_HEIGHT_IN)).intValue();
-                int weight = ((Long)personJSON.get(PERSON_WEIGHT)).intValue();
-                boolean isJuvenile = (Boolean)personJSON.get(PERSON_IS_JUVENILE);
+                String gender = (String)personJSON.get(PERSON_GENDER);
                 String address = (String)personJSON.get(PERSON_ADDRESS);
-                String city = (String)personJSON.get(PERSON_CITY);
-                String state = (String)personJSON.get(PERSON_STATE);
-                String zip  = (String)personJSON.get(PERSON_ZIP);
                 String eyeColor = (String)personJSON.get(PERSON_EYE_COLOR);
                 String race = (String)personJSON.get(PERSON_RACE);
-                people.add(new Person(firstName, lastName, id, sex, race, /* VAR FOR HAIR COLOR*/, 
-                                      /* VAR FOR HAIR STYLE */, /* VAR FOR EYE COLOR */, address, /* VAR FOR AGE */));
+                String hairColor = (String)personJSON.get(PERSON_HAIR_COLOR);
+                String hairStyle = (String)personJSON.get(PERSON_HAIR_STYLE);
+                int age = ((Long)personJSON.get(PERSON_AGE)).intValue();
+                people.add(new Person(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age));
             }
 
             return people;
@@ -55,30 +49,77 @@ public class DataLoader extends DataConstants {
             for (int i = 0; i < crimesJSON.size(); ++i) {
                 JSONObject crimeJSON = (JSONObject)crimeJSON.get(i);
                 String id = (String)crimeJSON.get(CRIMES_ID);
-                String crime = (String)crimeJSON.get(CRIMES_CRIME);
-                int numCriminals = ((Long)crimeJSON.get(CRIMES_NUM_CRIMINALS)).intValue(); // long int value, not integer
+                String typeOfCrime = (String)crimeJSON.get(CRIMES_TYPE_OF_CRIME);
+                int chargeLevel = ((Long)crimeJSON.get(CRIMES_CHARGE_LEVEL)).intValue(); // long int value, not integer
+                String jurisdiction = (String)crimeJSON.get(CRIMES_JURISDICTION);
+                boolean isOpen = (Boolean)crimeJSON.get(CRIMES_IS_OPEN);
+                String author = (String)crimeJSON.get(CRIMES_AUTHOR);
+                String location = (String)crimeJSON.get(CRIMES_LOCATION);
+                int numPOI = ((Long)crimeJSON.get(CRIMES_NUM_POI)).intValue();
                 // ADD INTAKE FOR ARRAY OF CRIMINALS
+                String[] poi = new String[numPOI];
+                JSONArray poisJSON = (JSONArray)crimeJSON.get(CRIMES_POI);
+                Iterator<String> poisIterator = poisJSON.iterator();
+                for (int j = 0; j < numPOI; ++j) {
+                    if (poisIterator.hasNext()) {
+                        poi[j] = poisIterator.next();
+                    }
+                }
+                int numSuspects = ((Long)crimeJSON.get(CRIMES_NUM_SUSPECTS)).intValue();
+                String[] suspects = new String[numSuspects];
+                JSONArray suspectsJSON = (JSONArray)crimeJSON.get(CRIMES_SUSPECTS);
+                Iterator<String> suspectsIterator = suspectsJSON.iterator();
+                for (int j = 0; j < numSuspects; ++j) {
+                    if (suspectsIterator.hasNext()) {
+                        suspects[j] = suspectsIterator.next();
+                    }
+                }
+                int numCriminals = ((Long)crimeJSON.get(CRIMES_NUM_CRIMINALS)).intValue();
                 String[] criminals = new String[numCriminals];
                 JSONArray criminalsJSON = (JSONArray)crimeJSON.get(CRIMES_CRIMINALS);
-                Iterator<String> cjsIterator = criminalsJSON.iterator();
+                Iterator<String> criminalsIterator = criminalsJSON.iterator();
                 for (int j = 0; j < numCriminals; ++j) {
-                    if (cjsIterator.hasNext()) {
-                        criminals[j] = cjsIterator.next();
+                    if (criminalsIterator.hasNext()) {
+                        criminals[j] = criminalsIterator.next();
                     }
                 }
                 int numVictims = ((Long)crimeJSON.get(CRIMES_NUM_VICTIMS)).intValue();
-                // ADD INTAKE FOR ARRAY OF VICTIMS
-                int numPOI = ((Long)crimeJSON.get(CRIMES_NUM_POI)).intValue();
-                // ADD INTAKE FOR ARRAY OF POI
+                String[] victims = new String[numVictims];
+                JSONArray victimsJSON = (JSONArray)crimeJSON.get(CRIMES_VICTIMS);
+                Iterator<String> victimsIterator = victimsJSON.iterator();
+                for (int j = 0; j < numVictims; ++j) {
+                    if (victimsIterator.hasNext()) {
+                        victims[j] = victimsIterator.next();
+                    }
+                }
                 int numWitnesses = ((Long)crimeJSON.get(CRIMES_NUM_WITNESSES)).intValue();
-                // ADD INTAKE FOR ARRAY OF WITNESSES
-                int numSuspects = ((Long)crimeJSON.get(CRIMES_NUM_SUSPECTS)).intValue();
-                // ADD INTAKE FOR ARRAY OF SUSPECTS
+                String[] witnesses = new String[numWitnesses];
+                JSONArray witnessesJSON = (JSONArray)crimeJSON.get(CRIMES_WITNESSES);
+                Iterator<String> witnessesIterator = witnessesJSON.iterator();
+                for (int j = 0; j < numWitnesses; ++j) {
+                    if (witnessesIterator.hasNext()) {
+                        witnesses[j] = witnessesIterator.next();
+                    }
+                }
+                int numOfficers = ((Long)crimeJSON.get(CRIMES_NUM_OFFICERS)).intValue();
+                String[] officers = new String[numOfficers];
+                JSONArray officersJSON = (JSONArray)crimeJSON.get(CRIMES_OFFICERS);
+                Iterator<String> officersIterator = officersJSON.iterator();
+                for (int j = 0; j < numOfficers; ++j) {
+                    if (officersIterator.hasNext()) {
+                        officers[j] = officersIterator.next();
+                    }
+                }
                 int numEvidence = ((Long)crimeJSON.get(CRIMES_NUM_EVIDENCE)).intValue();
-                // ADD INTAKE FOR EVIDENCE
-                int numReports = ((Long)crimeJSON.get(CRIMES_NUM_REPORTS)).intValue();
-                // ADD INTAKE FOR REPORTS
-                crimes.add(new Crime(id, crime, /* REST OF INFO */));
+                String[] evidences = new String[numEvidence];
+                JSONArray evidencesJSON = (JSONArray)crimeJSON.get(CRIMES_EVIDENCE);
+                Iterator<String> evidencesIterator = evidencesJSON.iterator();
+                for (int j = 0; j < numEvidence; ++j) {
+                    if (evidencesIterator.hasNext()) {
+                        evidences[j] = evidencesIterator.next();
+                    }
+                }
+                crimes.add(new Crime(id, typeOfCrime, chargeLevel, jurisdiction, isOpen, author, location, poi, suspects, criminals, victims, witnesses, officers, evidences));
             }
 
             return crimes;
@@ -101,12 +142,19 @@ public class DataLoader extends DataConstants {
                 JSONObject criminalJSON = (JSONObject)criminalsJSON.get(i);
                 int numCrimes = ((Long)criminalJSON.get(CRIMINAL_NUM_CRIMES)).intValue();
                 // ADD INTAKE FOR ARRAY OF CRIMES
-                boolean isViolent = (Boolean)criminalJSON.get(CRIMINAL_IS_VIOLENT);
-                String gang = (String)criminalJSON.get(CRIMINAL_GANG);
-                int shoeSize = ((Long)criminalJSON.get(CRIMINAL_SHOE_SIZE)).intValue();
-                int numTattoos = ((Long)criminalJSON.get(CRIMINAL_NUM_TATTOOS)).intValue();
+                String[] crimes = new String[numCrimes];
+                JSONArray crimesJSON = (JSONArray)criminalJSON.get(CRIMINAL_CRIMES);
+                Iterator<String> crimesIterator = crimesJSON.iterator();
+                for (int j = 0; j < numCrimes; ++j) {
+                    if (crimesIterator.hasNext()) {
+                        crimes[j] = crimesIterator.next();
+                    }
+                }
+                String sentence = (String)criminalJSON.get(CRIMINAL_SENTENCE);
+                String status = (String)criminalJSON.get(CRIMINAL_STATUS);
+                boolean inCustody = (Boolean)criminalJSON.get(CRIMINAL_IN_CUSTODY);
                 // ADD INTAKE FOR ARRAY OF TATTOOS
-                criminals.add(new Criminal(/* ADD INFO */));
+                criminals.add(new Criminal(crimes, sentence, status, inCustody));
             }
 
             return criminals;
@@ -128,12 +176,9 @@ public class DataLoader extends DataConstants {
             for (int i = 0; i < evidencesJSON.size(); ++i) {
                 JSONObject evidenceJSON = (JSONObject)evidencesJSON.get(i);
                 String id = (String)evidenceJSON.get(EVIDENCE_ID);
-                String name = (String)evidenceJSON.get(EVIDENCE_NAME);
-                String location = (String)evidenceJSON.get(EVIDENCE_LOCATION);
-                boolean hasDNA = (Boolean)evidenceJSON.get(EVIDENCE_HAS_DNA);
-                String associatedCrime = (String)evidenceJSON.get(EVIDENCE_ASSOC_CRIME);
-                String dateCollected = (String)evidenceJSON.get(EVIDENCE_DATE_COLLECTED);
-                evidence.add(new Evidence(id, name, dateCollected));
+                String description = (String)evidenceJSON.get(EVIDENCE_DESCRIPTION);
+                String dateCollected = (String)evidenceJSON.get(EVIDENCE_DISC_DATE);
+                evidence.add(new Evidence(id, description, dateCollected));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -152,11 +197,9 @@ public class DataLoader extends DataConstants {
 
             for (int i = 0; i < officersJSON.size(); ++i) {
                 JSONObject officerJSON = (JSONObject)officersJSON.get(i);
-                String id = (String)officerJSON.get(OFFICER_ID);
-                String badgeNo = (String)officerJSON.get(OFFICER_BADGE_NO);
-                int numCrimes = ((Long)officerJSON.get(OFFICER_NUM_CRIMES)).intValue();
-                // INTAKE ARRAY OF ASSOC CRIMES
-                officer.add(new Officer(firstName, lastName));
+                String type = (String)officerJSON.get(OFFICER_TYPE);
+                String statement = (String)officerJSON.get(OFFICER_STATEMENT);
+                officer.add(new Officer(type, statement));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -175,17 +218,18 @@ public class DataLoader extends DataConstants {
 
             for (int i = 0; i < poisJSON.size(); ++i) {
                 JSONObject poiJSON = (JSONObject)poisJSON.get(i);
-                String id = (String)poiJSON.get(POI_ID);
-                int numCrimes = ((Long)poiJSON.get(POI_NUM_CRIMES)).intValue();
-                // INTAKE ARRAY OF ASSOC CRIMES
-                int phone = ((Long)poiJSON.get(POI_PHONE)).intValue();
-                poi.add(new POI(firstName, lastName));
+                String tattoos = (String)poiJSON.get(POI_TATTOOS);
+                String gang = (String)poiJSON.get(POI_GANG);
+                String victimRelation = (String)poiJSON.get(POI_VICTIM_RELATION);
+                String evidenceConn = (String)poiJSON.get(POI_EVIDENCE_CONN);
+                boolean isRepeatOffender = (Boolean)poiJSON.get(POI_IS_REPEAT_OFFENDER);
+                poi.add(new POI(tattoos, gang, victimRelation, evidenceConn, isRepeatOffender));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        firstNamereturn null;
+        return null;
     }
 
     public static ArrayList<HospitalReport> loadReport() {
@@ -222,16 +266,17 @@ public class DataLoader extends DataConstants {
 
             for (int i = 0; i < suspectsJSON.size(); ++i) {
                 JSONObject suspectJSON = (JSONObject)suspectsJSON.get(i);
-                String id = (String)suspectJSON.get(SUSPECTS_ID);
-                int numCrimes = ((Long)suspectJSON.get(SUSPECTS_NUM_CRIMES)).intValue();
-                // INTAKE ARRAY OF ASSOC CRIMES
-                boolean isPastCriminal = (Boolean)suspectJSON.get(SUSPECTS_IS_PAST_CRIMINAL);
-                int phone = ((Long)suspectJSON.get(SUSPECTS_PHONE)).intValue();
-                int numTattoos = ((Long)suspectJSON.get(SUSPECTS_NUM_TATTOOS)).intValue();
-                // INTAKE ARRAY OF TATTOOS
-                int shoeSize = ((Long)suspectJSON.get(SUSPECTS_SHOE_SIZE)).intValue();
-                String gang = (String)suspectJSON.get(SUSPECTS_GANG);
-                suspect.add(new Suspect(firstName, lastName));
+                String accomplices = (String)suspectJSON.get(SUSPECTS_ACCOMPLICES);
+                String familyMembers = (String)suspectJSON.get(SUSPECTS_FAMILY_MEMBERS);
+                int footSize = ((Long)suspectJSON.get(SUSPECTS_FOOT_SIZE)).intValue();
+                String prefClothes = (String)suspectJSON.get(SUSPECTS_PREFERRED_CLOTHES);
+                String nicknames = (String)suspectJSON.get(SUSPECTS_NICKNAMES);
+                String commonWords = (String)suspectJSON.get(SUSPECTS_COMMON_WORDS);
+                String hobbies = (String)suspectJSON.get(SUSPECTS_HOBBIES);
+                String job = (String)suspectJSON.get(SUSPECTS_JOB);
+                String physicalTraits = (String)suspectJSON.get(SUSPECTS_PHYSICAL_TRAITS);
+                suspect.add(new Suspect(accomplices, familyMembers, footSize, prefClothes, nicknames, commonWords
+                                        hobbies, job, physicalTraits);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -253,7 +298,9 @@ public class DataLoader extends DataConstants {
                 int accessLevel = ((Long)userJSON.get(USER_ACCESS_LEVEL)).intValue();
                 String firstname = (String)userJSON.get(USER_FIRST_NAME);
                 String lastName = (String)userJSON.get(USER_LAST_NAME);
-                user.add(new User(userName, firstName, lastName, accessLevel, userPassword));
+                String username = (String)userJSON.get(USER_USERNAME);
+                String password = (String)userJSON.get(USER_PASSWORD);
+                user.add(new User(accessLevel, firstname, lastName, username, password));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -272,12 +319,19 @@ public class DataLoader extends DataConstants {
 
             for (int i = 0; i < victimsJSON.size(); ++i) {
                 JSONObject victimJSON = (JSONObject)victimsJSON.get(i);
-                String id = (String)victimJSON.get(VICTIM_ID);
+                String statement = (String)victimJSON.get(VICTIM_STATEMENT);
+                boolean isAlive = (Boolean)victimJSON.get(VICTIM_IS_ALIVE);
                 int numReports = ((Long)victimJSON.get(VICTIM_NUM_H_REPORTS)).intValue();
                 // INTAKE ARRAY OF REPORTS
-                int numCrimes = ((Long)victimJSON.get(VICTIM_NUM_CRIMES)).intValue();
-                // INTAKE ARRAY OF CRIMES
-                victim.add(new Victim(firstName, lastName));
+                String[] hReports = new String[numReports];
+                JSONArray hReportsJSON = (JSONArray)victimJSON.get(VICTIM_H_REPORTS);
+                Iterator<String> hReportsIterator = hReportsJSON.iterator();
+                for (int j = 0; j < numReports; ++j) {
+                    if (hReportsIterator.hasNext()) {
+                        hReports[j] = hReportsIterator.next();
+                    }
+                }
+                victim.add(new Victim(statement, isAlive, numReports, hReports));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -296,11 +350,11 @@ public class DataLoader extends DataConstants {
 
             for (int i = 0; i < witnessesJSON.size(); ++i) {
                 JSONObject witnessJSON = (JSONObject)witnessesJSON.get(i);
-                String id = (String)witnessJSON.get(WITNESS_ID);
-                int numCrimes = ((Long)witnessJSON.get(WITNESS_NUM_CRIMES)).intValue();
-                // INTAKE ARRAY OF ASSOC CRIMES
-                int phone = ((Long)witnessJSON.get(WITNESS_PHONE)).intValue();
-                witness.add(new Witness(firstName, lastName));
+                int phone = ((Long)witnessJSON.get(WITNESS_PHONE_NUMBER)).intValue();
+                String email = (String)witnessJSON.get(WITNESS_EMAIL);
+                String statement = (String)witnessJSON.get(WITNESS_STATEMENT);
+                String relationBad = (String)witnessJSON.get(WITNESS_RELATION_BAD);
+                witness.add(new Witness(phone, email, statement, relationBad));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -308,16 +362,4 @@ public class DataLoader extends DataConstants {
 
         return null;
     }
-
-    public static void main(String[] args) {
-        ArrayList<Person> people = DataLoader.loadPeople();
-        for (Person person : people) {
-            System.out.println(person);
-        } 
-    }
-
-	public static ArrayList<POI> loadPOIs() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }
