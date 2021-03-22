@@ -5,11 +5,13 @@ public class HospitalReport {
     private String id, diagnosis, cause, dateAdmitted;
     private Person doctor, nurse;
     private int numDaysAdmitted;
+    private static int idCount = 000000;
 
     /**
      * creates HospitalReport object and gives it an id
      */
     public HospitalReport() {
+        idCount++
         this.setID();
     }
 
@@ -38,7 +40,7 @@ public class HospitalReport {
 	}
 
 	public void setID() {
-
+        this.id = "R" + idCount;
 	}
 
 	public String getDiagnosis() {

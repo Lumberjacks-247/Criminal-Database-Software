@@ -3,7 +3,8 @@ import java.util.ArrayList;
 public class Person {
 
     private String firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address;
-    private int age;
+    private int age; 
+    private static int idCount = 000000;
     private static Person person;
     private ArrayList<Person> personList;
 
@@ -15,7 +16,8 @@ public class Person {
     public Person(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        setID(this);
+        idCount++;
+        this.setID();
     }
 
     /**
@@ -44,9 +46,9 @@ public class Person {
         this.age = age;
     }
 
-    //how are we doing this?
-    private void setID(Person person) {
-
+    //need to check all Person object to see if id already is being used
+    private void setID() {
+        this.id = "P" + idCount;
     }
     /**
      * Returns first name of person
@@ -214,6 +216,7 @@ public class Person {
         System.out.println(dylan.getFirstName());
         System.out.println(dylan.getAge());
         System.out.println(dylan.getAddress());
+        System.out.println(dylan.getID());
     }
 
 	public Object getPersonName() {

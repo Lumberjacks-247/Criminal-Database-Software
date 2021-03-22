@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class Crime {
 
     private int levelOfCharge, jurisdiction;
+    private static int idCount = 000000;
     private String id, typeOfCrime, location;
     private boolean isOpen = true;
     private User author;
@@ -21,6 +22,7 @@ public class Crime {
      * creates a new crime object with just an id
      */
     public Crime() {
+        idCount++;
         this.setID();
     }
 
@@ -79,7 +81,7 @@ public class Crime {
      * gives the crime an id
      */
     public void setID() {
-
+        this.id = "C" + idCount;
     }
 
     /**
