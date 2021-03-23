@@ -1,3 +1,4 @@
+package src;
 public class Witness extends Person{
 
     private String phoneNumber, email, statement, relationToBadGuy;

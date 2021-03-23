@@ -1,4 +1,4 @@
-package src.UI;
+package src;
 //TODO - Add more Screens
 
 

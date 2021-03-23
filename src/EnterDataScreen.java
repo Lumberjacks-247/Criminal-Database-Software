@@ -1,4 +1,4 @@
-package src.UI;
+package src;
 /**
  * This screen allows change via user input to a specified field of data from an EditorScreen.
  * Both of which are passed as arguements.

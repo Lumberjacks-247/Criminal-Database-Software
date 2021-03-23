@@ -1,6 +1,4 @@
-package src.UI;
-import src.Facade;
-
+package src;
 //TODO - Add JavaDoc
 
 public class FacUIConstants {

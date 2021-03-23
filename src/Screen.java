@@ -1,4 +1,4 @@
-package src.UI;
+package src;
 /**
  * Allows text to be written to output and cycles through contiguous Screen objects.
  * @author Blake Seekings
