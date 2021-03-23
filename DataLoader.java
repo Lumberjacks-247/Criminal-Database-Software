@@ -57,12 +57,14 @@ public class DataLoader extends DataConstants {
                 String location = (String)crimeJSON.get(CRIMES_LOCATION);
                 int numPOI = ((Long)crimeJSON.get(CRIMES_NUM_POI)).intValue();
                 // ADD INTAKE FOR ARRAY OF CRIMINALS
-                String[] poi = new String[numPOI];
+                // ARRAY INTAKE - ARRAYLISTS
+                ArrayList<POI> pois = new ArrayList();
                 JSONArray poisJSON = (JSONArray)crimeJSON.get(CRIMES_POI);
                 Iterator<String> poisIterator = poisJSON.iterator();
                 for (int j = 0; j < numPOI; ++j) {
                     if (poisIterator.hasNext()) {
-                        poi[j] = poisIterator.next();
+                        //pois[j] = poisIterator.next();
+                        pois.add(POIs.getInstance().getPOI(poisIterator.next()));
                     }
                 }
                 int numSuspects = ((Long)crimeJSON.get(CRIMES_NUM_SUSPECTS)).intValue();
