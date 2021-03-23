@@ -212,7 +212,7 @@ public class Person {
 		return false;
 	}
     public static void main(String[] args) {
-        Person dylan = new Suspect("Dylan", "Neff", null, null, null, null, null, null, null, null, null, false);
+        Person dylan = new Suspect("Dylan", "Neff");
         System.out.println(dylan.getFirstName());
         System.out.println(dylan.getAge());
         System.out.println(dylan.getAddress());
@@ -223,13 +223,5 @@ public class Person {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-    public boolean addPerson(Object object, Object object2, Object object3, Object object4, Object object5, Object object6,
-            Object object7, Object object8, Object object9, int i) {
-                if(havePerson(firstName))
-                return false;
-            personList.add(new Person(firstName, lastName));
-            return true;
-    }
     
 }
