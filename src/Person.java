@@ -212,7 +212,11 @@ public class Person {
 		return false;
 	}
     public static void main(String[] args) {
+<<<<<<< HEAD:src/Person.java
         Person dylan = new Suspect("Dylan", "Neff", null, null, null, null, null, null, null, null, null, false);
+=======
+        Person dylan = new Suspect("Dylan", "Neff");
+>>>>>>> origin/branch-blakeseekings:src/People/Person.java
         System.out.println(dylan.getFirstName());
         System.out.println(dylan.getAge());
         System.out.println(dylan.getAddress());
@@ -223,6 +227,7 @@ public class Person {
 		// TODO Auto-generated method stub
 		return null;
 	}
+<<<<<<< HEAD:src/Person.java
 
     public boolean addPerson(Object object, Object object2, Object object3, Object object4, Object object5, Object object6,
             Object object7, Object object8, Object object9, int i) {
@@ -231,5 +236,7 @@ public class Person {
             personList.add(new Person(firstName, lastName));
             return true;
     }
+=======
+>>>>>>> origin/branch-blakeseekings:src/People/Person.java
     
 }

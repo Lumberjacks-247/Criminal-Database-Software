@@ -1,3 +1,4 @@
+
 public abstract class DataConstants {
     protected static final String CRIMES_FILE_NAME = "dat/crimes.json";
     protected static final String CRIMES_ID = "id";
@@ -63,7 +64,7 @@ public abstract class DataConstants {
     protected static final String POI_ASSOC_CRIMES = "associatedCrimes";
     protected static final String POI_PHONE = "phone";
 
-    protected static final String REPORT_FILE_NAME = "dat/report.json";
+    protected static final String REPORT_FILE_NAME = "../dat/report.json";
     protected static final String REPORT_ID = "RepID";
     protected static final String REPORT_NUM_STATEMENTS = "NumStatements";
     protected static final String REPORT_STATEMENTS = "Statements";
@@ -81,7 +82,7 @@ public abstract class DataConstants {
     protected static final String SUSPECTS_SHOE_SIZE = "shoeSize";
     protected static final String SUSPECTS_GANG = "gang";
 
-    protected static final String USER_FILE_NAME = "dat/user.json";
+    protected static final String USER_FILE_NAME = "../dat/user.json";
     protected static final String USER_ACCESS_LEVEL = "accessLevel";
     protected static final String USER_FIRST_NAME = "firstName";
     protected static final String USER_LAST_NAME = "lastName";

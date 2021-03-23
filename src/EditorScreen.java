@@ -1,3 +1,4 @@
+package src.UI;
 /**
  * Displays text, allows transition to next Screen, allows user to change data displayed.
  * @author Blake Seekings

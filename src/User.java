@@ -1,4 +1,3 @@
-
 public class User {
 	private int accessLevel;
 	private String userName, firstName, lastName, userPassword, id;

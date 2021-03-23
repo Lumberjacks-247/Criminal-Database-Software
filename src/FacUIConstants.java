@@ -1,7 +1,10 @@
+package src.UI;
+import src.Facade;
+
 //TODO - Add JavaDoc
 
 public class FacUIConstants {
-  /*private static Facade fac = new Facade();*/
+  private static Facade fac = new Facade();
   
   public static Screen searchReports(Screen s) {
     boolean override = true;

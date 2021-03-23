@@ -1,3 +1,4 @@
+package src.UI;
 import java.util.function.Function;
 
 /**
