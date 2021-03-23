@@ -51,6 +51,7 @@ public abstract class DataConstants {
     protected static final String CRIMINAL_SHOE_SIZE = "shoeSize";
     protected static final String CRIMINAL_NUM_TATTOOS = "numTattoos";
     protected static final String CRIMINAL_TATTOOS = "tattoos";
+    */
 
     protected static final String CRIMINAL_FILE_NAME = "../dat/criminal.json";
     protected static final String CRIMINAL_NUM_CRIMES = "numCrimes";
@@ -80,6 +81,7 @@ public abstract class DataConstants {
     protected static final String OFFICER_BADGE_NO = "badgeNo";
     protected static final String OFFICER_NUM_CRIMES = "numCrimes";
     protected static final String OFFICER_ASSOC_CRIMES = "associatedCrimes";
+    */
 
     protected static final String OFFICER_FILE_NAME = "../dat/officer.json";
     protected static final String OFFICER_TYPE = "typeOfficer";
@@ -176,7 +178,8 @@ public abstract class DataConstants {
     protected static final String VICTIM_HOSPITAL_REPORTS = "hospitalReports";
     protected static final String VICTIM_NUM_CRIMES = "numCrimes";
     protected static final String VICTIM_CRIMES = "crimes";
-
+    */
+    
     protected static final String VICTIM_FILE_NAME = "../dat/victim.json";
     protected static final String VICTIM_STATEMENT = "statement";
     protected static final String VICTIM_IS_ALIVE = "isAlive";
