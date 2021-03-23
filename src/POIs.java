@@ -6,7 +6,7 @@ public class POIs {
 	private ArrayList<POI> pOISList;
 	
 	private POIs() {
-		pOISList = DataLoader.loadPOIs();
+		pOISList = DataLoader.loadPOI();
 	}
 	
 	public static POIs getInstance() {
