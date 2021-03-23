@@ -298,8 +298,4 @@ public class Facade {
 		return true;
 	}
 	
-	public boolean facadeDone(String test){
-		return true;
-	}
-	
 }
