@@ -121,7 +121,7 @@ public class DataLoader extends DataConstants {
                         evidences[j] = evidencesIterator.next();
                     }
                 }
-                crimes.add(new Crime(id, typeOfCrime, chargeLevel, jurisdiction, isOpen, author, location, poi, suspects, criminals, victims, witnesses, officers, evidences));
+                crimes.add(new Crime(id, typeOfCrime, chargeLevel, jurisdiction, isOpen, author, location, pois, suspects, criminals, victims, witnesses, officers, evidences));
             }
 
             return crimes;
