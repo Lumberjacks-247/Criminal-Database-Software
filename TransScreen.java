@@ -1,7 +1,7 @@
 /**
  * Displays text and allows transition to next Screen.
  * @author Blake Seekings
- * @version 3.0 - Implementing ScreenConsts enum
+ * @version 4.0 - Implementing Telephone Call Structure
  * @since 3/18/2021
  */
 public class TransScreen extends Screen {

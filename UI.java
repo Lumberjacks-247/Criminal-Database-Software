@@ -4,9 +4,9 @@ import java.util.Scanner;
 /**
  * The main loop which handles user input and cycles Screen objects.
  * @author Blake Seekings
+ * @version 1.3
  * @see Screen
  * @see UIConstants
- * @see ScreenConsts
  */
 public class UI {
   private static Scanner scanner = new Scanner(System.in);

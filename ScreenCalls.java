@@ -1,12 +1,10 @@
 import java.util.function.Function;
 
 /**
- * Contains the different types of Screens and defines how they cycle.
+ * An enumeration of this type constructs <code>Screen</code> objects when called.
+ * Each enumeration stores a reference to a method in <code>UIConstants</code>.
  * @author Blake Seekings
- * @version 2.0 Implement constructors and methods
- * @since 3/18/2021
- * @see Screen
- * @see UI
+ * @version 1.4
  */
 public enum ScreenCalls {
 
@@ -19,7 +17,7 @@ public enum ScreenCalls {
     CREATEACCOUNT (UIConstants::CreateAccountScreen),
     SEARCH        (UIConstants::SearchScreen),
     SEARCHPEOPLE  (UIConstants::SearchPeopleScreen),
-    SEARCHREPORT  (UIConstants::SearchReportScreen),
+    SEARCHREPORTS  (UIConstants::SearchReportsScreen),
     MAINMENU      (UIConstants::MainMenuScreen);
 
     /* Method reference */
@@ -32,18 +30,22 @@ public enum ScreenCalls {
       this.f = f_;
     }
 
-    public static Screen getF(Screen screen, String callName) {
-      return ScreenCalls.valueOf(callName).call(screen);
+    /**
+     * Grabs the method reference from an enumeration.
+     * @param command the string value of the enumeration to grab from
+     * @return the method reference of the enumeration
+     */ 
+    public static Function<Screen,Screen> getFunct(String command) {
+      return valueOf(command).f;
     }
 
     /** 
-     * Calls the method reference of this enum to return a new Screen.
-     * @param parent The object of Screen which called for a new Screen
-     * @return A subclass of Screen with instance data and type provided by this enums 
-     * method reference.
+     * Makes a call to the method reference of this enumeration.
+     * @param screen the screen passed as a parameter to the method reference
+     * @return the screen object constructed by the method reference
      */
-    public Screen call(Screen parent) {
-      return this.f.apply(parent);
+    public Screen call(Screen screen) {
+      return this.f.apply(screen);
     }
 
   
