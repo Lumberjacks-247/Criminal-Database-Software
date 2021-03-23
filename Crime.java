@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class Crime {
 
     private int levelOfCharge, jurisdiction;
+    private static int idCount = 000000;
     private String id, typeOfCrime, location;
     private boolean isOpen = true;
     private User author;
@@ -21,6 +22,7 @@ public class Crime {
      * creates a new crime object with just an id
      */
     public Crime() {
+        idCount++;
         this.setID();
     }
 
@@ -79,7 +81,7 @@ public class Crime {
      * gives the crime an id
      */
     public void setID() {
-
+        this.id = "C" + idCount;
     }
 
     /**
@@ -186,6 +188,10 @@ public class Crime {
 		this.pois = pois;
 	}
 
+    public int getPoisLength() {
+        return this.pois.size();
+    }
+
 	public ArrayList<Suspect> getSuspects() {
 		return suspects;
 	}
@@ -193,6 +199,10 @@ public class Crime {
 	public void setSuspects(ArrayList<Suspect> suspects) {
 		this.suspects = suspects;
 	}
+
+    public int getSuspetcsLength() {
+        return this.suspects.size();
+    }
 
 	public ArrayList<Criminal> getCriminals() {
 		return criminals;
@@ -202,6 +212,10 @@ public class Crime {
 		this.criminals = criminals;
 	}
 
+    public int getCriminalsLength() {
+        return this.criminals.size();
+    }
+
 	public ArrayList<Victim> getVictims() {
 		return victims;
 	}
@@ -209,6 +223,10 @@ public class Crime {
 	public void setVictims(ArrayList<Victim> victims) {
 		this.victims = victims;
 	}
+
+    public int getVictimsLength() {
+        return this.victims.size();
+    }
 
 	public ArrayList<Witness> getWitnesses() {
 		return witnesses;
@@ -218,6 +236,10 @@ public class Crime {
 		this.witnesses = witnesses;
 	}
 
+    public int getWitnessesLenght() {
+        return this.witnesses.size();
+    }
+
 	public ArrayList<Officer> getOfficers() {
 		return officers;
 	}
@@ -226,6 +248,10 @@ public class Crime {
 		this.officers = officers;
 	}
 
+    public int getOfficersLength() {
+        return this.officers.size();
+    }
+
 	public ArrayList<Evidence> getEvidence() {
 		return evidence;
 	}
@@ -233,6 +259,10 @@ public class Crime {
 	public void setEvidence(ArrayList<Evidence> evidence) {
 		this.evidence = evidence;
 	}
+
+    public int getEvidenceLength() {
+        return this.evidence.size();
+    }
 
 	public static Crime getInstance() {
 		if(crime == null) {

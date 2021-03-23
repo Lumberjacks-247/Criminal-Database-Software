@@ -60,6 +60,10 @@ public class Suspect extends POI{
         }
     }
 
+    public int getAccomplicesLength() {
+        return this.accomplices.size();
+    }
+
     /**
      * Checks if person is in ArrayList and if so, returns the person
      * @param firstName first name of person to return
@@ -91,6 +95,10 @@ public class Suspect extends POI{
         for(Person person : familyMembers) {
             if(person.getFirstName().equalsIgnoreCase(firstName) && person.getLastName().equalsIgnoreCase(lastName)) familyMembers.remove(person);
         }
+    }
+
+    public int getFamilyMembersLength() {
+        return this.familyMembers.size();
     }
 
     /**

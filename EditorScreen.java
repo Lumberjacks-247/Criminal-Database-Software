@@ -1,70 +1,78 @@
+/**
+ * Displays text, allows transition to next Screen, allows user to change data displayed.
+ * @author Blake Seekings
+ * @version 3.0 Implementing ScreenConsts enum
+ * @since 3/18/2021
+ */
 public class EditorScreen extends Screen {
+
+
   private String title;
-  private String choices;
-  private String[] dataPrompts;
-  private String[] data;
-  private ScreenType[] links;
+  private String[] choices;
 
 
-  public EditorScreen(String title, String[] dataPrompts,String choices,ScreenType[] links) {
-    this.title = title;
-    this.dataPrompts = dataPrompts;
-    this.choices = choices;
-    this.links = links;
-    this.data = new String[dataPrompts.length];
+  /**
+   * Creates a new Editor Screen.
+   * @param title_ String title of Screen
+   * @param prompts_ Prompts for data points
+   * @param choices_ Prompts for use choices
+   * @param links_ Links to next Screen 
+   */ 
+  public EditorScreen(String title_, String prompts_,String choices_,String links_) {
+
+    /* Title */
+    this.title = title_;
+
+    /* Data */
+    String[] prompts = prompts_.split(";"); // Get prompts
+    this.data = new Datum[prompts.length]; //Init
+    for (int size=0; size<data.length;) { data[size] = new Datum(prompts[size++]); }  //Create new datum
+
+    /* Choice Prompts */
+    this.choices = choices_.split(";");
+
+    /* Choice links */
+    this.links = links_.split(";");
+
+
+
   }
 
   public void display() {
-    System.out.println(this.title);
-
-    for (int i = 0; i < data.length; ++i) {
-      System.out.print(this.dataPrompts[i] + ": ");
-      System.out.println(this.data[i]);
-    }
-
-    System.out.println(this.choices);
-  }
-
-  public String getData(int index) {
-    return this.data[index];
-  }
-
-  public void setData(String index, String value) {
-    int i = Integer.parseInt(index);
-    this.data[i] = value;
-  }
-
-  public Screen next(String input) {
     
-    int index;
-    try {
-      index = Integer.parseInt(input);
-    } catch(Exception e) {
+    String top = "";
+    top += "\t\t\t\t" + this.title + "\n";
+    top += UIConstants.DIV + "\n";
+
+    String mid = "";
+    for(int i=0; i<data.length;) { mid += "\t\t\t\t" + this.data[i++] + "\n"; }
+    
+    String bot = UIConstants.DIV + "\n";
+    for (int i=0;i<choices.length;) { bot += "\t\t\t\t(" + i + ") " + this.choices[i++] + "\n"; } 
+
+    String display = top+mid+bot;
+    display += "\n" + UIConstants.PROMPT;
+    System.out.print(display);
+    
+  }
+
+  /**
+   * @param input String input grabbed from user
+   */
+  public Screen next(String input) {
+
+    /* Check for Invalid Input */
+    int choice;
+    if ((choice = isValid(input)) < 0)
       return this;
-    }
 
-    if (index < 0 || index >= this.links.length) {
-      return this;
-    }
-
-    if (this.links[index] == ScreenType.ENTERDATA) {
-      /* Pass important data */
-      EnterDataScreen dataScreen = new EnterDataScreen(this, this.dataPrompts[index-1],index-1 + "");
-      dataScreen.childOf(this);
-      return dataScreen;
-
-    }
-
-    if (this.links[index] == ScreenType.PARENT) {
-      return this.parent;
-    }
-
-    if (this.links[index] == ScreenType.SUBMITDATA) {
-      return CallFacade(this.type,this);
-    }
-
-    Screen scrn = CreateScreen(this.links[index]);
-    scrn.childOf(this);
-    return scrn;
+    
+    String phoneNumber = this.links[choice];
+    if (phoneNumber.equals("ENTERDATA"))
+      return UIConstants.EnterData(this, choice-1);
+    
+    
+    return Telephone.call(this,phoneNumber);
+    
   }
 }

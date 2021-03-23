@@ -3,11 +3,13 @@ public class Evidence {
     private String id;
     private String description;
     private String dateOfDiscovery;
+    private static int idCount = 000000;
 
     /**
      * creates an Evidence object with an id
      */
     public Evidence() {
+        idCount++;
         this.setID();
     }
 
@@ -35,7 +37,7 @@ public class Evidence {
      * gives piece of evidence an id
      */
     public void setID() {
-
+        this.id = "E" + idCount;
     }
 
     /**
