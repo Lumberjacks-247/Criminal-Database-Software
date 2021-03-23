@@ -1,10 +1,12 @@
+//TODO - Add more Screens
+
+
 /**
  * Contains constant information for use by UI and other UI involved classes.
  * @author Blake Seekings
- * @version 2.0 Implement ScreenConsts enum
+ * @version 3.0 - Implement Telephone Call Structure
  * @since 3/18/2021
- * @see UI
- * @see Screen
+ * @see ScreenCalls
  */
 public class UIConstants {
   
@@ -50,6 +52,33 @@ public class UIConstants {
     return parent.getParent();
   }
 
+  /* 
+  public static Screen exampleTransScreen(Screen parent) {
+
+    String titleString = "EMPTY";
+    String choiceString = "EMPTY;EMPTY;EMPTY";
+    String linkString = "EMPTY;EMPTY;EMPTY";
+
+    // Extra Adjustments 
+    Screen screen = new TransScreen(titleString,choiceString,linkString);
+    screen.setParent(parent);
+    return screen;
+
+  }
+
+
+  /*
+
+  public static Screen exampleEditorScreen(Screen parent) {
+
+    String titleString = "EMPTY";
+    String dataPromptString = "EMPTY;EMPTY";
+    String choiceString = "Back;SET EMPTY;SET EMPTY;EMPTY"
+    String linkString = "S:PARENT;ENTERDATA;ENTERDATA;F:EMPTY";
+  }
+
+  */
+
   /**
    * Creates the Welcome Screen
    * @param parent The Screen instance preceding the new Screen
@@ -68,7 +97,61 @@ public class UIConstants {
     return screen;
 
   }
+  /**
+   * Creates the Search Screen.
+   * @param parent The Screen instance preceding the new Screen
+   * @return The Search Screen
+   */ 
+  public static Screen SearchScreen(Screen parent) {
 
+    String titleString = "Search";
+    String choiceString = "Back;Search People;Search Reports";
+    String linkString = "S:PARENT;S:SEARCHPEOPLE;S:SEARCHREPORTS";
+  
+    Screen screen = new TransScreen(titleString,choiceString,linkString);
+    screen.setParent(parent);
+    return screen;
+  }
+
+  /**
+   * Creates the Search People Screen.
+   * @param parent The Screen instance preceding the new Screen
+   * @return The Search People Screen
+   */
+  public static Screen SearchPeopleScreen(Screen parent) {
+
+    String titleString = "Search People";
+    String dataPromptString = "Firstname;Lastname;Id;Gender;Race;Hair Color;Hair Style;Eye Color;Address;Age";
+    
+    String choiceString = "Back;Set Firstname;Set Lastname;Set id;Set gender;Set Race;";
+    choiceString += "Set Hair Color;Set Hair Style;Set Eye Color;Set Address;Set Age;Search";
+
+    String linkString = "S:PARENT;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;";
+    linkString +=       "ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;F:SEARCHPEOPLE";
+
+
+     /* Extra Adjustments */
+     Screen screen = new EditorScreen(titleString, dataPromptString, choiceString, linkString);
+     screen.setParent(parent);
+     return screen;
+  }
+
+  public static Screen SearchReportsScreen(Screen parent) {
+    
+    String titleString = "Search Reports";
+    
+    String dataPromptString = "Author;Level of Charge;Jurisdiction;Type of Crime;Location";
+    
+    String choiceString = "Back;Set Author;Set Level of Charge;Set Jurisdiction;Set Type of Crime;Set Location;Search for Report";
+
+    String linkString = "S:PARENT;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;F:SEARCHREPORTS";
+
+    /* Extra Adjustments */
+    Screen screen = new EditorScreen(titleString, dataPromptString, choiceString, linkString);
+    screen.setParent(parent);
+    return screen;
+
+  }
   /**
    * Creates the Main Menu Screen.
    * @param parent The Screen instance preceding the new Screen
