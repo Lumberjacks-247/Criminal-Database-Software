@@ -1,4 +1,4 @@
-
+package src;
 public class POI extends Person{
 
     private String tattoos, gang, victimRelationship, evidenceConnection;

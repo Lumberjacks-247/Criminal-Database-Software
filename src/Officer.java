@@ -1,3 +1,4 @@
+package src;
 public class Officer extends Person{
 
     private String typeOfOfficer; //use enumeration
