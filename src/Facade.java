@@ -1,3 +1,6 @@
+package src;
+import src.People.*;
+import src.Reports.*;
 
 public class Facade {
 
@@ -12,7 +15,6 @@ public class Facade {
 	private Suspects suspect;
 	private Victims victim;
 	private Witnesses witness;
-	protected Password password;
 	private HospitalReport hospitalreport;
 
 	
@@ -29,7 +31,6 @@ public class Facade {
 		suspect = Suspects.getInstance();
 		victim = Victims.getInstance();
 		witness = Witnesses.getInstance();
-		password = Password.getInstance();
 		hospitalreport = HospitalReport.getInstance();
 	}
 	
