@@ -1,4 +1,4 @@
-
+package src;
 public abstract class DataConstants {
     /*
     protected static final String CRIMES_FILE_NAME = "../dat/crimes.json";
