@@ -300,7 +300,7 @@ public class DataLoader extends DataConstants {
                 String lastName = (String)userJSON.get(USER_LAST_NAME);
                 String username = (String)userJSON.get(USER_USERNAME);
                 String password = (String)userJSON.get(USER_PASSWORD);
-                user.add(new User(accessLevel, firstname, lastName, username, password));
+                user.add(new User(username, firstname, lastName, accessLevel, password));
             }
         } catch (Exception e) {
             e.printStackTrace();

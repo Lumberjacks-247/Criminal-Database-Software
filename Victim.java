@@ -11,7 +11,7 @@ public class Victim extends Person{
      * @param firstName first name of victim
      * @param lastName last name of victim
      */
-    public Victim(String firstName, String lastName) {
+    public Victim(String firstName,  String lastName, String statement, boolean isAlive, Long numReports, String hReports) {
         super(firstName, lastName);
     }
 

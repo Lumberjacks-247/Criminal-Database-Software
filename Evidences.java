@@ -38,10 +38,10 @@ public class Evidences {
 		return evidenceList;
 	}
 	
-	public boolean addEvidences(String evidenceName) {
+	public boolean addEvidences(String evidenceName,int id, String description, String dateCollected) {
 		if(haveEvidence(evidenceName))
 			return false;
-		evidenceList.add(new Evidence()); //add parameters into evidence
+		evidenceList.add(new Evidence(evidenceName, id, description, dateCollected));
 		return true;
 	}
 	

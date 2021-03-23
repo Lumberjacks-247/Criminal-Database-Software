@@ -8,7 +8,7 @@ public class Evidence {
     /**
      * creates an Evidence object with an id
      */
-    public Evidence() {
+    public Evidence(String evidenceName, int id, String description, String dateCollected) {
         idCount++;
         this.setID();
     }

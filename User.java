@@ -4,8 +4,7 @@ public class User {
 	private String userName, firstName, lastName, userPassword, id;
 
 
-  public User(String id,String userName, String firstName, String lastName, int accessLevel, String userPassword) {
-	  this.id = id;
+  public User(String userName, String firstName, String lastName, int accessLevel, String userPassword) {
 	  this.userName = userName;
 	  this.firstName = firstName;
 	  this.lastName = lastName;
@@ -43,14 +42,6 @@ public class User {
 
   public void setLastName(String name) {
     this.lastName = name;
-  }
-  
-  public String getID() {
-	  return id;
-  }
-  
-  public void setID(String id) {
-	  this.id = id;
   }
   
   public String getPassword() {

@@ -58,8 +58,8 @@ public class FacUIConstants {
     String p0 = s.getDataValue(0);
     String p1 = s.getDataValue(1);
     String p2 = s.getDataValue(2);
-    int p3 = Integer.parseInt(s.getDataValue(3));
-    String p4 = s.getDataValue(4);
+    int p3 = Integer.parseInt(s.getDataValue(4));
+    String p4 = s.getDataValue(5);
 
 
     //TODO - Create success and failure branches
