@@ -38,10 +38,10 @@ public class Users {
 		return userList;
 	}
 	
-	public boolean addUser(String id, String userName, String firstName, String lastName, int accessLevel, String userPassword) {
+	public boolean addUser(String userName, String firstName, String lastName, int accessLevel, String userPassword) {
 		if(haveUser(userName, userPassword))
 			return false;
-		userList.add(new User(id, userName, firstName, lastName, accessLevel, userPassword));
+		userList.add(new User(userName, firstName, lastName, accessLevel, userPassword));
 		return true;
 	}
 	

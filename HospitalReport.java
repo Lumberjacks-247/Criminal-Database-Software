@@ -1,17 +1,17 @@
-package CriminalDatabaseSoftware;
+import java.util.ArrayList;
 
 public class HospitalReport {
 
     private String id, diagnosis, cause, dateAdmitted;
     private Person doctor, nurse;
     private int numDaysAdmitted;
-    private static int idCount = 000000;
+    public static HospitalReport hospitalreport;
+	private ArrayList<HospitalReport> hospitalReportList;
 
     /**
      * creates HospitalReport object and gives it an id
      */
     public HospitalReport() {
-        idCount++
         this.setID();
     }
 
@@ -40,7 +40,7 @@ public class HospitalReport {
 	}
 
 	public void setID() {
-        this.id = "R" + idCount;
+
 	}
 
 	public String getDiagnosis() {
@@ -89,6 +89,40 @@ public class HospitalReport {
 
 	public void setNumDaysAdmitted(int numDaysAdmitted) {
 		this.numDaysAdmitted = numDaysAdmitted;
+	}
+
+	public static HospitalReport getInstance() {
+		if(hospitalreport == null) {
+			hospitalreport = new HospitalReport();
+		}
+		return hospitalreport;
+	}
+
+	public boolean haveHospitalReport(String hospitalReportName) {
+		for(HospitalReport hospitalreport : hospitalReportList) {
+			if(hospitalreport.getHospitalReportName().equals(hospitalReportName)) 
+				return true;
+		}
+		return false;
+	}
+
+	private boolean getHospitalReport(String hospitalReportName) {
+		for(HospitalReport hospitalreport : hospitalReportList) {
+			if(hospitalreport.getHospitalReportName().equals(hospitalReportName)) 
+				return true;
+		}
+		return false;
+	}
+
+	private String getHospitalReportName() {
+		return null;
+	}
+
+	public boolean addHospitalReport(String hospitalReportName) {
+		if(haveHospitalReport(hospitalReportName))
+			return false;
+		hospitalReportList.add(new HospitalReport(hospitalReportName, hospitalReportName, hospitalReportName, doctor, doctor, hospitalReportName, numDaysAdmitted));
+		return true;
 	}
     
 }

@@ -9,7 +9,7 @@ public class POI extends Person{
      * @param firstName first name of POI
      * @param lastName last name of POI
      */
-    public POI(String firstName, String lastName) {
+    public POI(String firstName,  String lastName, String tattoos, String gang, String victimRelation, String evidenceConn, Boolean isRepeatOffender) {
         super(firstName, lastName);
         this.isRepeatOffender = false;
     }

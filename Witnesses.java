@@ -38,10 +38,10 @@ public class Witnesses {
 		return witnessList;
 	}
 	
-	public boolean addWitness(String firstName,  String lastName) {
+	public boolean addWitness(String firstName,  String lastName, Long phone, String email, String statement, String relationBad) {
 		if(haveWitness(firstName))
 			return false;
-		witnessList.add(new Witness(firstName, lastName));
+		witnessList.add(new Witness(firstName, lastName, phone, email, statement, relationBad));
 		return true;
 	}
 	
