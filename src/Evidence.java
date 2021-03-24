@@ -8,7 +8,7 @@ public class Evidence {
     private String description;
     private String dateOfDiscovery;
     private static int idCount = 0;
-    DecimalFormat = new DecimalFormat("000000");
+    DecimalFormat df = new DecimalFormat("000000");
 
     /**
      * creates an Evidence object with an id
