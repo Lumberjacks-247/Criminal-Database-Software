@@ -1,4 +1,5 @@
 package src;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class HospitalReport {
@@ -6,8 +7,10 @@ public class HospitalReport {
     private String id, diagnosis, cause, dateAdmitted;
     private Person doctor, nurse;
     private int numDaysAdmitted;
-    public static HospitalReport hospitalreport;
+	private int idCount = 0;
+    public static HospitalReport hospitalReport;
 	private ArrayList<HospitalReport> hospitalReportList;
+	DecimalFormat df = new DecimalFormat("000000");
 
     /**
      * creates HospitalReport object and gives it an id
@@ -41,7 +44,7 @@ public class HospitalReport {
 	}
 
 	public void setID() {
-
+		this. id = "R" + df.format(idCount);
 	}
 
 	public String getDiagnosis() {
@@ -93,23 +96,23 @@ public class HospitalReport {
 	}
 
 	public static HospitalReport getInstance() {
-		if(hospitalreport == null) {
-			hospitalreport = new HospitalReport();
+		if(hospitalReport == null) {
+			hospitalReport = new HospitalReport();
 		}
-		return hospitalreport;
+		return hospitalReport;
 	}
 
 	public boolean haveHospitalReport(String hospitalReportName) {
-		for(HospitalReport hospitalreport : hospitalReportList) {
-			if(hospitalreport.getHospitalReportName().equals(hospitalReportName)) 
+		for(HospitalReport hospitalReport : hospitalReportList) {
+			if(hospitalReport.getHospitalReportName().equals(hospitalReportName)) 
 				return true;
 		}
 		return false;
 	}
 
 	private boolean getHospitalReport(String hospitalReportName) {
-		for(HospitalReport hospitalreport : hospitalReportList) {
-			if(hospitalreport.getHospitalReportName().equals(hospitalReportName)) 
+		for(HospitalReport hospitalReport : hospitalReportList) {
+			if(hospitalReport.getHospitalReportName().equals(hospitalReportName)) 
 				return true;
 		}
 		return false;

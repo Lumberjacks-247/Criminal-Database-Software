@@ -1,10 +1,11 @@
 package src;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Crime {
 
     private int levelOfCharge, jurisdiction;
-    private static int idCount = 000000;
+    private static int idCount = 0;
     private String id, typeOfCrime, location;
     private boolean isOpen = true;
     private User author;
@@ -17,6 +18,7 @@ public class Crime {
     private ArrayList<Witness> witnesses;
     private ArrayList<Officer> officers;
     private ArrayList<Evidence> evidence;
+    DecimalFormat df = new DecimalFormat("000000");
     
 
     /**
@@ -81,8 +83,8 @@ public class Crime {
     /**
      * gives the crime an id
      */
-    public void setID() {
-        this.id = "C" + idCount;
+    private void setID() {
+        this.id = "C" + df.format(idCount);
     }
 
     /**

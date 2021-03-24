@@ -1,10 +1,14 @@
 package src;
+
+import java.text.DecimalFormat;
+
 public class Evidence {
 
     private String id;
     private String description;
     private String dateOfDiscovery;
-    private static int idCount = 000000;
+    private static int idCount = 0;
+    DecimalFormat = new DecimalFormat("000000");
 
     /**
      * creates an Evidence object with an id
@@ -37,8 +41,8 @@ public class Evidence {
     /**
      * gives piece of evidence an id
      */
-    public void setID() {
-        this.id = "E" + idCount;
+    private void setID() {
+        this.id = "E" + df.format(idCount);
     }
 
     /**
