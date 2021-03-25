@@ -225,6 +225,7 @@ public class DataLoader extends DataConstants {
                 String victimRelation = (String)poiJSON.get(POI_VICTIM_RELATION);
                 String evidenceConn = (String)poiJSON.get(POI_EVIDENCE_CONN);
                 boolean isRepeatOffender = (Boolean)poiJSON.get(POI_IS_REPEAT_OFFENDER);
+                // COPY INFO FROM PERSON TO PASS
                 poi.add(new POI(tattoos, gang, victimRelation, evidenceConn, isRepeatOffender));
                 // CAN'T CONSTRUCT WITH AMOUNT OF DATA REQUIRED FROM POI
             }
