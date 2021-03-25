@@ -14,10 +14,10 @@ public class Suspect extends POI{
     }
 
     public Suspect(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, 
-    String eyeColor, String address, String age, String tattoos, String victimRelationShip, String evidenceConnection, boolean isRepeatOffender,
+    String eyeColor, String address, String age, String tattoos, String gang, String victimRelationShip, String evidenceConnection, boolean isRepeatOffender,
     ArrayList<Person> accomplices, ArrayList<Person> familyMembers, double footSize, String prefferedClothes, String nickNames,
     String commonWords, String hobbies, String job, String distinctPhysicalTraits) {
-        super(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, victimRelationShip, evidenceConnection, isRepeatOffender);
+        super(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelationShip, evidenceConnection, isRepeatOffender);
         this.accomplices = accomplices;
         this.familyMembers = familyMembers;
         this.footSize = footSize;
