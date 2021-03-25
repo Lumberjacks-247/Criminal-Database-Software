@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Person {
 
     private String firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address;
-    private int age; 
+    private String age; 
     private static int idCount = 0;
     private static Person person;
     private ArrayList<Person> personList;
@@ -36,7 +36,7 @@ public class Person {
      * @param address address of persons home
      * @param age age of person
      */
-    public Person(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, String eyeColor, String address, int age) {
+    public Person(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, String eyeColor, String address, String age) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.id = id;
@@ -89,18 +89,18 @@ public class Person {
 
     /**
      * returns age of person
-     * @return age as an int
+     * @return age as a String
      */
-    public int getAge() {
+    public String getAge() {
         return this.age;
     }
 
     /**
      * sets age of person to passed in age
-     * @param age age of person as an int
+     * @param age age of person as a String
      */
-    public void setAge(int age) {
-        if(age>0) this.age = age;
+    public void setAge(String age) {
+        this.age = age;
     }
 
     /**

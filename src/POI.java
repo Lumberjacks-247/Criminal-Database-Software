@@ -15,7 +15,7 @@ public class POI extends Person{
     }
 
     public POI(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, 
-    String eyeColor, String address, int age, String tattoos, String victimRelationShip, String evidenceConnection, boolean isRepeatOffender) {
+    String eyeColor, String address, String age, String tattoos, String gang, String victimRelationShip, String evidenceConnection, boolean isRepeatOffender) {
         super(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age);
         this.tattoos = tattoos;
         this.gang = gang;
