@@ -2,7 +2,7 @@ package src;
 //TODO - Add JavaDoc
 
 public class FacUIConstants {
-  private static Facade fac = new Facade();
+  //private static Facade fac = new Facade();
   
   public static Screen searchReports(Screen s) {
     boolean override = true;
@@ -25,12 +25,18 @@ public class FacUIConstants {
   public static Screen searchPeople(Screen s) {
     
     boolean override = true;
+    String p0 = s.getDataValue(0);
+    String p1 = s.getDataValue(1);
+    String p2 = s.getDataValue(2);
+    String p3 = s.getDataValue(3);
+    String p4 = s.getDataValue(4);
+    String p5 = s.getDataValue(5);
+    String p6 = s.getDataValue(6);
+    String p7 = s.getDataValue(7);
+    String p8 = s.getDataValue(8);
 
-    if (/*fac.findPerson(personName)*/override) {
-      return ScreenCalls.MAINMENU.call(s);
-    } else {
-      return ScreenCalls.MAINMENU.call(s);
-    }
+  
+    return ScreenCalls.MAINMENU.call(s);
   }
 
   public static Screen logout(Screen s) {
@@ -59,8 +65,8 @@ public class FacUIConstants {
     String p0 = s.getDataValue(0);
     String p1 = s.getDataValue(1);
     String p2 = s.getDataValue(2);
-    int p3 = Integer.parseInt(s.getDataValue(4));
-    String p4 = s.getDataValue(5);
+    String p3 = s.getDataValue(3);
+    String p4 = s.getDataValue(4);
 
 
     //TODO - Create success and failure branches

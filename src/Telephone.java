@@ -1,4 +1,5 @@
 package src;
+import java.util.concurrent.ExecutionException;
 import java.util.function.Function;
 
 /**
@@ -50,13 +51,19 @@ public class Telephone {
      * @param phonenum the String specifying the grouping anc command to access
      * @return The Function which references the specified method
      */
-    public static Function<Screen,Screen> connect(String phonenum) {
+    public static Function<Screen,Screen> connect(String phonenum) throws ExecutionException {
       
       String[] params = phonenum.split(":");
       String areaCode = params[0]; // Refers to the particular grouping of commands to be called
       String localNumber = params[1]; // Refers to the particular command to call
 
-      return valueOf(areaCode).plug(localNumber);
+      try {
+        return valueOf(areaCode).plug(localNumber);
+      } catch(IllegalArgumentException e) {
+        
+        System.err.println("\nsrc.Telephone$Switchboard.InvalidCommandException: "+  phonenum);
+        throw new ExecutionException("",e);
+      }
     }
 
 
@@ -69,6 +76,13 @@ public class Telephone {
    * @return The Screen object given back by the called method
    */
   public static Screen call(Screen screen, String phonenum) {
-    return Switchboard.connect(phonenum).apply(screen);
+    try {
+      return Switchboard.connect(phonenum).apply(screen);
+    } catch(ExecutionException e) {
+      System.err.println("\tfrom: " + screen.name + " Screen");
+      System.err.println("\tSee ScreenCalls and FacUICalls");
+      e.getCause().printStackTrace();
+      return null;
+    }
   }
 }

@@ -17,7 +17,8 @@ public abstract class Screen {
 
 ##############################################################
 */
-
+  public String name;
+  
   public Screen getParent() {
     return this.parent;
   }
@@ -60,10 +61,11 @@ public abstract class Screen {
 */
 
   protected class Datum {
-    public String prompt,value = "";
+    public String prompt,value = null;
     public Datum(String prompt_) {prompt = prompt_;}
     public String toString() { return prompt + ": " + value;}
   }
+
 
 
   protected Screen parent;

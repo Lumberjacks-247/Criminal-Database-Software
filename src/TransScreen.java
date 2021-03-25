@@ -18,19 +18,21 @@ public class TransScreen extends Screen {
    * @param links_    String of ; delimited links to next Screen
    */
   public TransScreen(String title_,String choices_, String links_) {
-    this.title = title_;
+    this.name = this.title = title_;
     this.choices = choices_.split(";");
     this.links = links_.split(";");
   }
 
   public void display() {
-
-    String top = "\t\t\t\t" + this.title + "\n";
-    top += UIConstants.DIV + "\n";
+    String top = UIConstants.center(this.title) + "\n";
+    top += UIConstants.DIV;
 
 
     String bot = "";
-    for (int i=0;i<choices.length;) {bot += "\t\t\t\t(" + i + ") " + this.choices[i++] + "\n";}
+    for (int i=0;i<choices.length;) {
+      String line = UIConstants.center("(" + i + ") " + this.choices[i++]);
+      bot += line + "\n";
+    }
 
     String display = top + bot;
     display += "\n" + UIConstants.PROMPT;

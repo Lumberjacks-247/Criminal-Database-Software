@@ -35,6 +35,9 @@ public class EnterDataScreen extends Screen {
    * @param input String input grabbed from user
    */
   public Screen next(String input) {
+    if (input.equals(""))
+      input = null;
+
     this.parent.setDataValue(this.index,input);
     return this.parent;
   }

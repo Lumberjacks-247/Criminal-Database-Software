@@ -11,12 +11,55 @@ package src;
  */
 public class UIConstants {
   
-  /* Public Constants */
-  public static final String DIV = "-------------------------------";
+/*
+##############################################################
+
+                        Constants      
+
+##############################################################
+*/
+
+  public static final String INDENT = "\t";
+  private static final String DIV_SYMBOL = "-";
+  public static final String DIV = makeDIV();
   public static final String PROMPT = ">> ";
   public static final String QUITFLAG = "-1";
+  public static final int LINESIZE = 60;
 
-  /* UI Startup */
+/*
+##############################################################
+
+                      Display Methods         
+
+##############################################################
+*/
+
+  private static String makeDIV() {
+    String line = "";
+    for (int i = 0; i < LINESIZE;i++) {
+      line += DIV_SYMBOL;
+    }
+    line += "\n";
+    return line;
+  }
+
+  public static String center(String line) {
+    /* Makes String centered on Screen */
+    int shiftSize = (LINESIZE-line.length())/2;
+    String shift = "";
+    for (;shiftSize > -1;shiftSize--)
+      shift += " ";
+
+    return shift + line;
+  }
+  
+/*
+##############################################################
+
+                        UI Startup      
+
+##############################################################
+*/
 
   /**
    * Returns the initial Screen for UI to display.
@@ -24,6 +67,46 @@ public class UIConstants {
   public static Screen start() {
     return  ScreenCalls.START.call(null);
   }
+
+
+/*
+##############################################################
+
+                      Screen Definitions
+
+##############################################################
+*/
+
+/* Example TransScreen Construction
+  public static Screen exampleTransScreen(Screen parent) {
+
+    String titleString = "EMPTY";
+    String choiceString = "EMPTY;EMPTY;EMPTY";
+    String linkString = "EMPTY;EMPTY;EMPTY";
+
+
+    Screen screen = new TransScreen(titleString,choiceString,linkString);
+    screen.setParent(parent);
+    return screen;
+
+  }
+
+*/
+/* Example EditorScreen Construction
+
+  public static Screen exampleEditorScreen(Screen parent) {
+
+    String titleString = "EMPTY";
+    String dataPromptString = "EMPTY;EMPTY";
+    String choiceString = "Back;SET EMPTY;SET EMPTY;EMPTY"
+    String linkString = "S:PARENT;ENTERDATA;ENTERDATA;F:EMPTY";
+
+    Screen screen = new EditorScreen(titleString,dataPromptString,choiceString,linkString);
+    screen.setParent(parent);
+    return screen;
+  }
+
+*/
 
   /**
    * Returns the null element, this breaks the Screen sequence completly.
@@ -53,33 +136,6 @@ public class UIConstants {
     return parent.getParent();
   }
 
-  /* 
-  public static Screen exampleTransScreen(Screen parent) {
-
-    String titleString = "EMPTY";
-    String choiceString = "EMPTY;EMPTY;EMPTY";
-    String linkString = "EMPTY;EMPTY;EMPTY";
-
-    // Extra Adjustments 
-    Screen screen = new TransScreen(titleString,choiceString,linkString);
-    screen.setParent(parent);
-    return screen;
-
-  }
-
-
-  /*
-
-  public static Screen exampleEditorScreen(Screen parent) {
-
-    String titleString = "EMPTY";
-    String dataPromptString = "EMPTY;EMPTY";
-    String choiceString = "Back;SET EMPTY;SET EMPTY;EMPTY"
-    String linkString = "S:PARENT;ENTERDATA;ENTERDATA;F:EMPTY";
-  }
-
-  */
-
   /**
    * Creates the Welcome Screen
    * @param parent The Screen instance preceding the new Screen
@@ -98,6 +154,7 @@ public class UIConstants {
     return screen;
 
   }
+  
   /**
    * Creates the Search Screen.
    * @param parent The Screen instance preceding the new Screen
@@ -137,6 +194,7 @@ public class UIConstants {
      return screen;
   }
 
+  //TODO - Add JavaDoc
   public static Screen SearchReportsScreen(Screen parent) {
     
     String titleString = "Search Reports";
@@ -153,6 +211,7 @@ public class UIConstants {
     return screen;
 
   }
+  
   /**
    * Creates the Main Menu Screen.
    * @param parent The Screen instance preceding the new Screen
@@ -160,7 +219,7 @@ public class UIConstants {
    */ 
   public static Screen MainMenuScreen(Screen parent) {
 
-    String titleString = "Criminal Database Software";
+    String titleString = "Main Menu";
     String choiceString = "Logout;Search;New";
     String linkString = "F:LOGOUT;S:SEARCH;S:NEW";
 
