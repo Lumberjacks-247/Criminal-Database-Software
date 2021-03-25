@@ -19,9 +19,9 @@ public class Facade {
 	public Facade() {
 
 
+		user = Users.getInstance();
 		person = Person.getInstance(); 
 		crime = Crimes.getInstance();
-		user = Users.getInstance();
 		criminal = Criminals.getInstance();
 		evidence = Evidences.getInstance();
 		officer = Officers.getInstance();
@@ -81,9 +81,9 @@ public class Facade {
 		return true;
 	}
 	
-	public boolean createAccount(String id, String userName, String firstName, String lastName, int accessLevel, String userPassword)
+	public boolean createAccount(String userName, String firstName, String lastName, int accessLevel, String userPassword)
 	{
-		return user.addUser(id, userName,  firstName,  lastName,  accessLevel,  userPassword);
+		return user.addUser(userName,  firstName,  lastName,  accessLevel,  userPassword);
 	}
 	
 	public boolean findUser(String userName, String userPassword) {

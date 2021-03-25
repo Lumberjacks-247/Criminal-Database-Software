@@ -39,10 +39,11 @@ public class Suspects {
 		return suspectList;
 	}
 	
-	public boolean addSuspect(String firstName,  String lastName) {
+	public boolean addSuspect(String firstName,  String lastName, String accomplices, String familyMembers, Long footSize,
+			String prefClothes, String nicknames, String commonWords, String hobbies, String job, String physicalTraits) {
 		if(haveSuspect(firstName))
 			return false;
-		suspectList.add(new Suspect(firstName, lastName));
+		suspectList.add(new Suspect(firstName, lastName, accomplices, familyMembers, footSize, prefClothes, nicknames, commonWords, hobbies, job, physicalTraits, false));
 		return true;
 	}
 	

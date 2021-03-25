@@ -1,4 +1,5 @@
 package src;
+
 /**
  * Displays text and allows transition to next Screen.
  * @author Blake Seekings

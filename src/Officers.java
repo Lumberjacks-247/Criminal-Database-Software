@@ -39,10 +39,10 @@ public class Officers {
 		return officerList;
 	}
 	
-	public boolean addOfficer(String firstName,  String lastName) {
+	public boolean addOfficer(String firstName,  String lastName, String type, String statement) {
 		if(haveOfficer(firstName))
 			return false;
-		officerList.add(new Officer(firstName, lastName));
+		officerList.add(new Officer(firstName, lastName, type, statement));
 		return true;
 	}
 	

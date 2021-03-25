@@ -13,8 +13,8 @@ public class Criminal extends Suspect{
      * @param firstName first name of criminal
      * @param lastName last name of criminal
      */
-    public Criminal(String firstName, String lastName) {
-        super(firstName, lastName);
+    public Criminal(String firstName, String lastName, boolean inCustody) {
+        super(firstName, lastName, lastName, lastName, null, lastName, lastName, lastName, lastName, lastName, lastName, inCustody);
     }
 
     public Criminal(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, 

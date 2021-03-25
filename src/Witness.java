@@ -8,7 +8,7 @@ public class Witness extends Person{
      * @param firstName first name of witness
      * @param lastName last name of witness
      */
-    public Witness(String firstName, String lastName) {
+    public Witness(String firstName,  String lastName, Long phone, String email, String statement, String relationBad) {
         super(firstName, lastName);
     }
 

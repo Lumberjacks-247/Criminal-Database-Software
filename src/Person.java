@@ -1,13 +1,15 @@
 package src;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Person {
 
     private String firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address;
     private int age; 
-    private static int idCount = 000000;
+    private static int idCount = 0;
     private static Person person;
     private ArrayList<Person> personList;
+    DecimalFormat df = new DecimalFormat("000000");
 
     /**
      * Creates Person object with passed in first and last name
@@ -49,7 +51,7 @@ public class Person {
 
     //need to check all Person object to see if id already is being used
     private void setID() {
-        this.id = "P" + idCount;
+        this.id = "P" + df.format(idCount);
     }
     /**
      * Returns first name of person
@@ -225,4 +227,5 @@ public class Person {
 		return null;
 	}
     
+
 }
