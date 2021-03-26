@@ -207,6 +207,22 @@ public class Suspect extends POI{
         return this.distintPhysicalTraits;
     }
 
+    public String list(ArrayList<Person> al) {
+        String ret = "";
+        for(Person person : al) {
+            ret = ret + person.getFirstName() + " " + person.getLastName() + ", ";
+        }
+        return ret;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "\nAccomplices: " + this.list(this.accomplices) + "\nFamily Members: " + this.list(this.familyMembers) +
+            "\nFoot Size: " + this.getFootSize() + "\nPreffered Clothes: " + this.getPrefferedClothes() + "\nNick Names: " + this.getNickNames() +
+            "\nCommon Words: " + this.getCommonWords() + "\nHobbies: " + this.getHobbies() + "\nJob: " + this.getJob() + 
+            "\nDistinct Physical Traits: " + this.getDistintPhysicalTraits();
+    }
+
     /**
      * sets suspect's distinct physical traits to passed in String
      * @param distinctPhysicalTraits String containing suspect's distinct physical traits

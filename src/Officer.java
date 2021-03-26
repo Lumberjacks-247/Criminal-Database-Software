@@ -55,5 +55,10 @@ public class Officer extends Person{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+    @Override
+    public String toString() {
+        return super.toString() + "\nType of Officer: " + this.getTypeOfOfficer() + "\nStatement: " + this.getStatement();
+    }
     
 }

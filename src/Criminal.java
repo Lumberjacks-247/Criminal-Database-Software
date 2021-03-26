@@ -71,5 +71,18 @@ public class Criminal extends Suspect{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+    public String listCrimes(ArrayList<Crime> crimes) {
+        String ret = "";
+        for(Crime crime : crimes) {
+            ret = ret + crime.getID() + ", ";
+        }
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "\nCrimes: " + this.listCrimes(this.crimes) + "\nSentence: " + this.getSentence() + 
+            "\nStatus: " + this.getStatus() + "\nIn Custody: " + this.getInCustody();
+    }
     
 }

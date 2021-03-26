@@ -95,6 +95,12 @@ public class POI extends Person{
         return this.evidenceConnection;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + "\nTattoos: " + this.getTattoos() + "\nGang: " + this.getGang() + "\nRelation to Victim" + this.getVictimRelationship() +
+            "\nConnection to Evidence: " + this.getEvidenceConnection() + "\nRepeat Offender: " + this.getIsRepeatOffender();
+    }
+
     /**
      * sets poi's evidenceConnection to passed in String
      * @param evidenceConnection String that contains poi's connection to evidence
