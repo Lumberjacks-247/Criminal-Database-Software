@@ -133,12 +133,23 @@ public abstract class DataConstants {
     protected static final String POI_EVIDENCE_CONN = "evidenceConn";
     protected static final String POI_IS_REPEAT_OFFENDER = "isRepeatOffender";
 
+    /*
     protected static final String REPORT_FILE_NAME = "../dat/report.json";
     protected static final String REPORT_ID = "RepID";
     protected static final String REPORT_NUM_STATEMENTS = "NumStatements";
     protected static final String REPORT_STATEMENTS = "Statements";
     protected static final String REPORT_NUM_VICTIMS = "NumVictims";
     protected static final String REPORT_VICTIMS = "Victims";
+    */
+
+    protected static final String HOSPITAL_FILE_NAME = "../dat/hospital.json";
+    protected static final String HOSPITAL_ID = "id";
+    protected static final String HOSPITAL_DIAGNOSIS = "diagnosis";
+    protected static final String HOSPITAL_CAUSE = "cause";
+    protected static final String HOSPITAL_DOCTOR = "doctor";
+    protected static final String HOSPITAL_NURSE = "nurse";
+    protected static final String HOSPITAL_DATE = "date";
+    protected static final String HOSPITAL_NUM_DAYS = "numDays";
 
     /*
     protected static final String SUSPECTS_FILE_NAME = "../dat/suspects.json";
