@@ -1,13 +1,17 @@
 [
   {
-    "id":"P100829",
-    "numCrimes":2,
-    "associatedCrimes":[ "C10105", "C99024" ],
-    "phone":"9019293800"
+    "firstName":"Willie",
+    "lastName":"Dustice",
+    "phone":"9019293800",
+    "email":"wdustice@protonmail.ch",
+    "statement":"He punched that girl and then drove off.",
+    "relBad":"No relation"
   },{
-    "id":"P004129",
-    "numCrimes":1,
-    "associatedCrimes":[ "C33450" ],
-    "phone":"2998001400"
+    "firstName":"Bobson",
+    "lastName":"Dugnutt",
+    "phone":"8034004000",
+    "email":"bdg@aka.ms",
+    "statement":"They were wearing masks and each of them had the same pair of Air Force Ones on.",
+    "relBad":"Brother"
   }
 ]

@@ -1,13 +1,35 @@
 [
   {
-    "id":"P000100",
-    "numCrimes":1,
-    "associatedCrimes":[ "C00100" ],
-    "phone":"8031002987"
+    "firstName":"Jason",
+    "lastName":"Statham",
+    "id":"P002001",
+    "gender":"M",
+    "race":"W",
+    "hairColor":"None",
+    "hairStyle":"None",
+    "eyeColor":"brown",
+    "address":"400 Fairfax Ave",
+    "age":"47",
+    "tattoos":"numbers on left wrist",
+    "gang":"Crips",
+    "victimRelation":"Nephew",
+    "evidenceConn":"",
+    "isRepeatOffender":false
   },{
-    "id":"P000234",
-    "numCrimes":3,
-    "associatedCrimes":[ "C40014", "C11102", "C77742" ],
-    "phone":"8642021000"
+    "firstName":"Runningout",
+    "lastName":"Ofnames",
+    "id":"P040002",
+    "gender":"F",
+    "race":"B",
+    "hairColor":"Red",
+    "hairStyle":"Curly",
+    "eyeColor":"brown",
+    "address":"1280 Howard St",
+    "age":"22",
+    "tattoos":"ice cream cone under right eye",
+    "gang":"",
+    "victimRelation":"Sister",
+    "evidenceConn":"Pistol belongs to her",
+    "isRepeatOffender":true
   }
 ]

@@ -206,7 +206,7 @@ public abstract class DataConstants {
     */
 
     protected static final String WITNESS_FILE_NAME = "../dat/witness.json";
-    protected static final String WITNESS_PHONE_NUMBER = "phoneNumber";
+    protected static final String WITNESS_PHONE_NUMBER = "phone";
     protected static final String WITNESS_EMAIL = "email";
     protected static final String WITNESS_STATEMENT = "statement";
     protected static final String WITNESS_RELATION_BAD = "relBad";

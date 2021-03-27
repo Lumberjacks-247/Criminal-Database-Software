@@ -1,13 +1,13 @@
 [
   {
-    "id":"P000004",
-    "badgeNo":"S109382",
-    "numCrimes":2,
-    "associatedCrimes":[ "C13314", "C06942" ]
+    "firstName":"Billy",
+    "lastName":"Bob",
+    "typeOfficer":"Detective",
+    "statement":"He was beating the girl when I arrived on scene."
   },{
-    "id":"P000124",
-    "badgeNo":"S402942",
-    "numCrimes":6,
-    "associatedCrimes":[ "C40214", "C19923", "C99010", "C00010", "C40401", "C11145" ]
+    "firstName":"Lisa",
+    "lastName":"Davis",
+    "typeOfficer":"Corporal",
+    "statement":"The vehicle was smashed to pieces as soon as I arrived."
   }
 ]

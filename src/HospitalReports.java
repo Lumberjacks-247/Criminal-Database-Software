@@ -27,7 +27,7 @@ public class HospitalReports {
 
     public HospitalReport getHReport(String id) {
         for (HospitalReport hreport : hreportList) {
-            if (hreport.getID().equals(id) {
+            if (hreport.getID().equals(id)) {
                 return hreport;
             }
         }
