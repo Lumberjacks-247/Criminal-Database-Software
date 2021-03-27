@@ -276,7 +276,7 @@ public class DataWriter extends DataConstants{
 
 	public static JSONObject getSuspectJSON(Suspect suspect) {
 		JSONObject suspectDetails = new JSONObject();
-		suspectDetails.put(SUSPECTS_ACCOMPLICES, suspect.getAccomplice());
+		suspectDetails.put(SUSPECTS_ACCOMPLICES, suspect.getAccomplice());	// WRITE ARRAYLIST
 		suspectDetails.put(SUSPECTS_FAMILY_MEMBERS, suspect.getFamilyMember());
 		suspectDetails.put(SUSPECTS_FOOT_SIZE, suspect.getFootSize());
 		suspectDetails.put(SUSPECTS_PREFERRED_CLOTHES, suspect.getPrefferedClothes());
@@ -286,5 +286,34 @@ public class DataWriter extends DataConstants{
 		suspectDetails.put(SUSPECTS_JOB, suspect.getJob());
 		suspectDetails.put(SUSPECTS_PHYSICAL_TRAITS, suspect.getDistintPhysicalTraits());
 		return suspectDetails;
+	}
+
+	public static void saveHospitalReports() {
+		HospitalReports hreports = HospitalReports.getInstance();
+		ArrayList<HospitalReport> hreportList = hreports.getHReports();
+		JSONArray jsonHreports = new JSONArray();
+
+		for (int i = 0; i < hreportList.size(); ++i) {
+			jsonHreports.add(getHReportsJSON(hreportList.get(i)));
+		}
+
+		try (FileWriter file = new FileWriter(HOSPITAL_FILE_NAME)) {
+			file.write(jsonHreports.toJSONString());
+			file.flush();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static JSONObject getHReportsJSON(HospitalReport report) {
+		JSONObject hreportDetails = new JSONObject();
+		hreportDetails.put(HOSPITAL_ID, report.getID());
+		hreportDetails.put(HOSPITAL_DIAGNOSIS, report.getDiagnosis());
+		hreportDetails.put(HOSPITAL_CAUSE, report.getCause());
+		hreportDetails.put(HOSPITAL_DOCTOR, report.getDoctor());
+		hreportDetails.put(HOSPITAL_NURSE, report.getNurse());
+		hreportDetails.put(HOSPITAL_DATE, report.getDateAdmitted());
+		hreportDetails.put(HOSPITAL_NUM_DAYS, report.getNumDaysAdmitted());
+		return hreportDetails;
 	}
 }

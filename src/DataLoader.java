@@ -54,7 +54,7 @@ public class DataLoader extends DataConstants {
                 int chargeLevel = ((Long)crimeJSON.get(CRIMES_CHARGE_LEVEL)).intValue(); // long int value, not integer
                 int jurisdiction = ((Long)crimeJSON.get(CRIMES_JURISDICTION)).intValue();
                 boolean isOpen = (Boolean)crimeJSON.get(CRIMES_IS_OPEN);
-                String author = (String)crimeJSON.get(CRIMES_AUTHOR);  /// NEED TO INTAKE USEr
+                String author = (String)crimeJSON.get(CRIMES_AUTHOR);  /// NEED TO INTAKE USER
                 String location = (String)crimeJSON.get(CRIMES_LOCATION);
                 int numPOI = ((Long)crimeJSON.get(CRIMES_NUM_POI)).intValue();
                 // ADD INTAKE FOR ARRAY OF CRIMINALS
@@ -358,6 +358,32 @@ public class DataLoader extends DataConstants {
                 String statement = (String)witnessJSON.get(WITNESS_STATEMENT);
                 String relationBad = (String)witnessJSON.get(WITNESS_RELATION_BAD);
                 witness.add(new Witness(phone, email, statement, relationBad));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public static ArrayList<HospitalReport> loadHReports() {
+        ArrayList<HospitalReport> hreport = new ArrayList<HospitalReport>();
+
+        try {
+            FileReader reader = new FileReader(HOSPITAL_FILE_NAME);
+            JSONParser parser = new JSONParser();
+            JSONArray hreportsJSON = (JSONArray)new JSONParser().parse(reader);
+
+            for (int i = 0; i < hreportsJSON.size(); ++i) {
+                JSONObject hreportJSON = (JSONObject)hreportsJSON.get(i);
+                String id = (String)hreportJSON.get(HOSPITAL_ID);
+                String diagnosis = (String)hreportJSON.get(HOSPITAL_DIAGNOSIS);
+                String cause = (String)hreportJSON.get(HOSPITAL_CAUSE);
+                String doctor = (String)hreportJSON.get(HOSPITAL_DOCTOR);
+                String nurse = (String)hreportJSON.get(HOSPITAL_NURSE);
+                String dateAdmitted = (String)hreportJSON.get(HOSPITAL_DATE);
+                int numDays = ((Long)hreportJSON.get(HOSPITAL_NUM_DAYS)).intValue();
+                hreport.add(new HospitalReport(id, diagnosis, cause, doctor, nurse, dateAdmitted, numDays));
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -1,0 +1,19 @@
+[
+    {
+        "id":"R0001",
+        "diagnosis":"Cracked Ribs",
+        "cause":"Victim in car crash",
+        "doctor":"Albert Hoss",
+        "nurse":"Matt Christman",
+        "date":"02/21/2008",
+        "numDays":"12"
+    },{
+        "id":"R0023",
+        "diagnosis":"Myocardial Infarction",
+        "cause":"Acute cyanide exposure",
+        "doctor":"Stavros Halkias",
+        "nurse":"Amber Frost",
+        "date":"11/03/2020",
+        "numDays":"1"
+    }
+]
