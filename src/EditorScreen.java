@@ -22,7 +22,7 @@ public class EditorScreen extends Screen {
   public EditorScreen(String title_, String prompts_,String choices_,String links_) {
 
     /* Title */
-    this.title = title_;
+    this.name = this.title = title_;
 
     /* Data */
     String[] prompts = prompts_.split(";"); // Get prompts
@@ -40,16 +40,18 @@ public class EditorScreen extends Screen {
   }
 
   public void display() {
-    
-    String top = "";
-    top += "\t\t\t\t" + this.title + "\n";
-    top += UIConstants.DIV + "\n";
+    String top = UIConstants.center(this.title) + "\n";
+    top += UIConstants.DIV;
 
     String mid = "";
-    for(int i=0; i<data.length;) { mid += "\t\t\t\t" + this.data[i++] + "\n"; }
-    
-    String bot = UIConstants.DIV + "\n";
-    for (int i=0;i<choices.length;) { bot += "\t\t\t\t(" + i + ") " + this.choices[i++] + "\n"; } 
+    for(int i=0; i<data.length;) { 
+      mid += UIConstants.center(this.data[i++].toString()) + "\n"; 
+    }
+    mid += UIConstants.DIV;
+    String  bot = "";
+    for (int i=0;i<choices.length;) {
+      bot += UIConstants.center("(" + i + ") " + this.choices[i++]) + "\n";
+    } 
 
     String display = top+mid+bot;
     display += "\n" + UIConstants.PROMPT;
