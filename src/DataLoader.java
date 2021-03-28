@@ -376,7 +376,7 @@ public class DataLoader extends DataConstants {
                 String hobbies = (String)suspectJSON.get(SUSPECTS_HOBBIES);
                 String job = (String)suspectJSON.get(SUSPECTS_JOB);
                 String physicalTraits = (String)suspectJSON.get(SUSPECTS_PHYSICAL_TRAITS);
-                suspect.add(new Suspect(firstName, lastName, id, gender, address, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelation, evidenceConn, isRepeatOffender, accomplices, family, footSize, prefClothes, nicknames, commonWords, hobbies, job, physicalTraits));
+                suspect.add(new Suspect(firstName, lastName, id, gender, address, race, hairColor, hairStyle, eyeColor, age, tattoos, gang, victimRelation, evidenceConn, isRepeatOffender, accomplices, family, footSize, prefClothes, nicknames, commonWords, hobbies, job, physicalTraits));
             }
         } catch (Exception e) {
             e.printStackTrace();
