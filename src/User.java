@@ -3,6 +3,10 @@ public class User {
 	private int accessLevel;
 	private String userName, firstName, lastName, userPassword, id;
 
+  public User(String firstName, String lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
 
   public User(String userName, String firstName, String lastName, int accessLevel, String userPassword) {
 	  this.userName = userName;

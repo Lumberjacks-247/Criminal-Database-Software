@@ -8,6 +8,9 @@ import org.json.simple.parser.JSONParser;
 import java.util.Iterator;
 
 public class DataLoader extends DataConstants {
+
+    private static final String DELIMITER = " ";
+
     public static ArrayList<Person> loadPeople() {
         ArrayList<Person> people = new ArrayList<Person>();
 
@@ -50,13 +53,15 @@ public class DataLoader extends DataConstants {
             JSONArray crimesJSON = (JSONArray)parser.parse(reader);
 
             for (int i = 0; i < crimesJSON.size(); ++i) {
-                JSONObject crimeJSON = (JSONObject)crimeJSON.get(i);
+                JSONObject crimeJSON = (JSONObject)crimesJSON.get(i);
                 String id = (String)crimeJSON.get(CRIMES_ID);
                 String typeOfCrime = (String)crimeJSON.get(CRIMES_TYPE_OF_CRIME);
                 int chargeLevel = ((Long)crimeJSON.get(CRIMES_CHARGE_LEVEL)).intValue(); // long int value, not integer
                 int jurisdiction = ((Long)crimeJSON.get(CRIMES_JURISDICTION)).intValue();
                 boolean isOpen = ((Boolean)crimeJSON.get(CRIMES_IS_OPEN)).booleanValue();
-                String author = (String)crimeJSON.get(CRIMES_AUTHOR);  /// NEED TO INTAKE USER
+                String authorString = (String)crimeJSON.get(CRIMES_AUTHOR);  /// NEED TO INTAKE USER
+                String[] authorName = authorString.split(DELIMITER);
+                User author = new User(authorName[0], authorName[1]);
                 String location = (String)crimeJSON.get(CRIMES_LOCATION);
                 //int numPOI = ((Long)crimeJSON.get(CRIMES_NUM_POI)).intValue();
                 // ADD INTAKE FOR ARRAY OF CRIMINALS
@@ -479,8 +484,12 @@ public class DataLoader extends DataConstants {
                 String id = (String)hreportJSON.get(HOSPITAL_ID);
                 String diagnosis = (String)hreportJSON.get(HOSPITAL_DIAGNOSIS);
                 String cause = (String)hreportJSON.get(HOSPITAL_CAUSE);
-                String doctor = (String)hreportJSON.get(HOSPITAL_DOCTOR); // BOTH DOCTOR AND NURSE ARE PERSONS
-                String nurse = (String)hreportJSON.get(HOSPITAL_NURSE);
+                String doctorString = (String)hreportJSON.get(HOSPITAL_DOCTOR); // BOTH DOCTOR AND NURSE ARE PERSONS
+                String[] docName = doctorString.split(DELIMITER);
+                Person doctor = new Person(docName[0], docName[1]);
+                String nurseString = (String)hreportJSON.get(HOSPITAL_NURSE);
+                String[] nurseName = nurseString.split(DELIMITER);
+                Person nurse = new Person(nurseName[0], nurseName[1]);
                 String dateAdmitted = (String)hreportJSON.get(HOSPITAL_DATE);
                 int numDays = ((Long)hreportJSON.get(HOSPITAL_NUM_DAYS)).intValue();
                 hreport.add(new HospitalReport(id, diagnosis, cause, doctor, nurse, dateAdmitted, numDays));
