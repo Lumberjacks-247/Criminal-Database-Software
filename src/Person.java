@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 public class Person {
 
-    private String firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address = "";
-    private String age = ""; 
-    private static int idCount = 0;
-    private static Person person;
-    private ArrayList<Person> personList;
+    protected String firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address = "";
+    protected String age = ""; 
+    protected static int idCount = 0;
+    protected static Person person;
+    protected ArrayList<Person> personList;
     DecimalFormat df = new DecimalFormat("000000");
 
     /**

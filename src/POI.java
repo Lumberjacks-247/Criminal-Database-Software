@@ -1,8 +1,8 @@
 package src;
 public class POI extends Person{
 
-    private String tattoos, gang, victimRelationship, evidenceConnection;
-    private boolean isRepeatOffender;
+    protected String tattoos, gang, victimRelationship, evidenceConnection;
+    protected boolean isRepeatOffender;
 
     /**
      * Creates POI object with passed in first and last names
