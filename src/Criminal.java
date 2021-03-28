@@ -3,10 +3,10 @@ import java.util.ArrayList;
 
 public class Criminal extends Suspect{
 
-    private ArrayList<Crime> crimes;
-    private double sentence;
-    private String status;
-    private boolean inCustody;
+    protected ArrayList<Crime> crimes;
+    protected double sentence;
+    protected String status;
+    protected boolean inCustody;
 
     /**
      * Creates a Crimianl object with passed in first and last name
