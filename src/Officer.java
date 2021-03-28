@@ -9,14 +9,32 @@ public class Officer extends Person{
      * @param firstName officers first name
      * @param lastName officers last name
      */
-    public Officer(String firstName, String lastName) {
+    /*public Officer(String firstName, String lastName) {
         super(firstName, lastName);
-    }
+    }*/
 
     public Officer(String firstName, String lastName, String typeOfOfficer, String statement) {
         super(firstName, lastName);
         this.typeOfOfficer = typeOfOfficer;
         this.statement = statement;
+    }
+
+    public Officer(String typeOfOfficer, String statement) {
+        this.typeOfOfficer = typeOfOfficer;
+        this.statement = statement;
+    }
+
+    public void setPersonInfo(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, String eyeColor, String address, String age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.id = id;
+        this.gender = gender;
+        this.race = race;
+        this.hairColor = hairColor;
+        this.hairStyle = hairStyle;
+        this.eyeColor = eyeColor;
+        this.address = address;
+        this.age = age;
     }
 
     /**
