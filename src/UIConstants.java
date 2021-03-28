@@ -256,8 +256,8 @@ public class UIConstants {
   public static Screen CreateAccountScreen(Screen parent) {
     
     String titleString = "Create Account";
-    String dataPromptString = "Username;Password;First Name;Last Name;Age";
-    String choiceString = "Back;Set Username;Set Password;Set First Name;Set Lastname;Set Age;Create Account";
+    String dataPromptString = "Username;Password;First Name;Last Name;Access Level";
+    String choiceString = "Back;Set Username;Set Password;Set First Name;Set Lastname;Set Access Level;Create Account";
     String linkString = "S:PARENT;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;F:CREATEACCOUNT";
 
     /* Extra Adjustments */

@@ -232,6 +232,9 @@ public class DataLoader extends DataConstants {
                 String dateCollected = (String)evidenceJSON.get(EVIDENCE_DISC_DATE);
                 evidence.add(new Evidence(id, description, dateCollected));
             }
+
+            return evidence;
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -255,6 +258,9 @@ public class DataLoader extends DataConstants {
                 String statement = (String)officerJSON.get(OFFICER_STATEMENT);
                 officer.add(new Officer(type, statement));
             }
+
+            return officer;
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -292,6 +298,9 @@ public class DataLoader extends DataConstants {
                 poi.add(new POI(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelation, evidenceConn, isRepeatOffender));
                 // CAN'T CONSTRUCT WITH AMOUNT OF DATA REQUIRED FROM POI
             }
+
+            return poi;
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -378,6 +387,9 @@ public class DataLoader extends DataConstants {
                 String physicalTraits = (String)suspectJSON.get(SUSPECTS_PHYSICAL_TRAITS);
                 suspect.add(new Suspect(firstName, lastName, id, gender, address, race, hairColor, hairStyle, eyeColor, age, tattoos, gang, victimRelation, evidenceConn, isRepeatOffender, accomplices, family, footSize, prefClothes, nicknames, commonWords, hobbies, job, physicalTraits));
             }
+
+            return suspect;
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -403,6 +415,9 @@ public class DataLoader extends DataConstants {
                 String password = (String)userJSON.get(USER_PASSWORD);
                 user.add(new User(username, firstname, lastName, accessLevel, password));
             }
+
+            return user;
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -437,6 +452,9 @@ public class DataLoader extends DataConstants {
                 }
                 victim.add(new Victim(firstName, lastName, statement, isAlive, hReports));
             }
+
+            return victim;
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -463,6 +481,9 @@ public class DataLoader extends DataConstants {
                 String relationBad = (String)witnessJSON.get(WITNESS_RELATION_BAD);
                 witness.add(new Witness(firstName, lastName, phone, email, statement, relationBad));
             }
+
+            return witness;
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -494,6 +515,9 @@ public class DataLoader extends DataConstants {
                 int numDays = ((Long)hreportJSON.get(HOSPITAL_NUM_DAYS)).intValue();
                 hreport.add(new HospitalReport(id, diagnosis, cause, doctor, nurse, dateAdmitted, numDays));
             }
+
+            return hreport;
+
         } catch (Exception e) {
             e.printStackTrace();
         }
