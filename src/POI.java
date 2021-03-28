@@ -24,6 +24,29 @@ public class POI extends Person{
         this.isRepeatOffender = isRepeatOffender;
     }
 
+    public POI(String tattoos, String gang, String victimRelationship, String evidenceConnection, boolean isRepeatOffender) {
+        this.tattoos = tattoos;
+        this.gang = gang;
+        this.victimRelationship = victimRelationship;
+        this.evidenceConnection = evidenceConnection;
+        this.isRepeatOffender = isRepeatOffender;
+    }
+
+    public POI() {};
+
+    public void setPersonInfo(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, String eyeColor, String address, String age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.id = id;
+        this.gender = gender;
+        this.race = race;
+        this.hairColor = hairColor;
+        this.hairStyle = hairStyle;
+        this.eyeColor = eyeColor;
+        this.address = address;
+        this.age = age;
+    }
+
     /**
      * returns tattoos of the poi
      * @return tattoos of the poi as a String

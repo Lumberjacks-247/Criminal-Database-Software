@@ -29,6 +29,29 @@ public class Criminal extends Suspect{
         this.inCustody = inCustody;
     }
 
+    public Criminal(ArrayList<Crime> crimes, double sentence, String status, boolean inCustody) {
+        this.crimes = crimes;
+        this.sentence = sentence;
+        this.status = status;
+        this.inCustody = inCustody;
+    }
+
+    public void setSuspectInfo(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, 
+    String eyeColor, String address, String age, String tattoos, String gang, String victimRelationShip, String evidenceConnection, boolean isRepeatOffender,
+    ArrayList<Person> accomplices, ArrayList<Person> familyMembers, double footSize, String prefferedClothes, String nickNames,
+    String commonWords, String hobbies, String job, String distinctPhysicalTraits) {
+        super.setPOIInfo(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelationShip, evidenceConnection, isRepeatOffender);
+        this.accomplices = accomplices;
+        this.familyMembers = familyMembers;
+        this.footSize = footSize;
+        this.prefferedClothes = prefferedClothes;
+        this.nickNames = nickNames;
+        this.commonWords = commonWords;
+        this.hobbies = hobbies;
+        this.job = job;
+        this.distintPhysicalTraits = distinctPhysicalTraits;
+    }
+
     //need crime class
     public ArrayList<Crime> getCrimes() {
         return crimes;

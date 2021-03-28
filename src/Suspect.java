@@ -29,6 +29,31 @@ public class Suspect extends POI{
         this.distintPhysicalTraits = distinctPhysicalTraits;
     }
 
+    public Suspect(ArrayList<Person> accomplices, ArrayList<Person> familyMembers, double footSize, String prefferedClothes, String nickNames,
+        String commonWords, String hobbies, String job, String distinctPhysicalTraits) {
+            this.accomplices = accomplices;
+            this.familyMembers = familyMembers;
+            this.footSize = footSize;
+            this.prefferedClothes = prefferedClothes;
+            this.nickNames = nickNames;
+            this.commonWords = commonWords;
+            this.hobbies = hobbies;
+            this.job = job;
+            this.distintPhysicalTraits = distinctPhysicalTraits;
+        }
+
+    public Suspect() {};
+
+    public void setPOIInfo(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, 
+    String eyeColor, String address, String age, String tattoos, String gang, String victimRelationShip, String evidenceConnection, boolean isRepeatOffender) {
+        super.setPersonInfo(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age);
+        this.tattoos = tattoos;
+        this.gang = gang;
+        this.victimRelationship = victimRelationShip;
+        this.evidenceConnection = evidenceConnection;
+        this.isRepeatOffender = isRepeatOffender;
+    }
+
     /**
      * Checks if person is in ArrayList and if so, returns the person
      * @param firstName first name of person to return
