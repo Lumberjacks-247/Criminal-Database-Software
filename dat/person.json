@@ -1,33 +1,25 @@
 [
   {
-    "id":"P000001",
     "firstName":"John",
     "lastName":"Smith",
-    "sex":"M",
-    "birthday":"01/01/2000",
-    "heightIn":10,
-    "weight":180,
-    "isJuvenile":false,
-    "address":"123 Len St",
-    "city":"Town",
-    "state":"MI",
-    "zip":"12345",
+    "id":"P000001",
+    "gender":"M",
+    "race":"B",
+    "hairColor":"None",
+    "hairStyle":"None",
     "eyeColor":"brown",
-    "race":"B"
+    "address":"123 Len St",
+    "age":"23"
   },{
-    "id":"P000002",
     "firstName":"Alicia",
     "lastName":"DeSanta",
-    "sex":"F",
-    "birthday":"12/24/1983",
-    "heightIn":2,
-    "weight":120,
-    "isJuvenile":false,
+    "id":"P000002",
+    "gender":"F",
+    "race":"W",
+    "hairColor":"Red",
+    "hairStyle":"Curly",
+    "eyeColor":"blue",
     "address":"901 Rodeo Dr",
-    "city":"Los Angeles",
-    "state":"CA",
-    "zip":"09876",
-    "eyeColor":"green",
-    "race":"W"
+    "age":"38"
   }
 ]

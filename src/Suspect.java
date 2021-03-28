@@ -3,10 +3,10 @@ import java.util.ArrayList;
 
 public class Suspect extends POI{
 
-    private ArrayList<Person> accomplices;
-    private ArrayList<Person> familyMembers;
-    private double footSize;
-    private String prefferedClothes, nickNames, commonWords, hobbies, job, distintPhysicalTraits;
+    protected ArrayList<Person> accomplices;
+    protected ArrayList<Person> familyMembers;
+    protected double footSize;
+    protected String prefferedClothes, nickNames, commonWords, hobbies, job, distintPhysicalTraits;
 
     public Suspect(String firstName,  String lastName, String accomplices, String familyMembers, Long footSize,
 			String prefClothes, String nicknames, String commonWords, String hobbies, String job, String physicalTraits, boolean isRepeatOffender) {
@@ -14,10 +14,10 @@ public class Suspect extends POI{
     }
 
     public Suspect(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, 
-    String eyeColor, String address, String age, String tattoos, String victimRelationShip, String evidenceConnection, boolean isRepeatOffender,
+    String eyeColor, String address, String age, String tattoos, String gang, String victimRelationShip, String evidenceConnection, boolean isRepeatOffender,
     ArrayList<Person> accomplices, ArrayList<Person> familyMembers, double footSize, String prefferedClothes, String nickNames,
     String commonWords, String hobbies, String job, String distinctPhysicalTraits) {
-        super(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, victimRelationShip, evidenceConnection, isRepeatOffender);
+        super(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelationShip, evidenceConnection, isRepeatOffender);
         this.accomplices = accomplices;
         this.familyMembers = familyMembers;
         this.footSize = footSize;
@@ -62,6 +62,10 @@ public class Suspect extends POI{
         }
     }
 
+    public ArrayList<Person> getAccomplices() {
+        return this.accomplices;
+    }
+
     public int getAccomplicesLength() {
         return this.accomplices.size();
     }
@@ -97,6 +101,10 @@ public class Suspect extends POI{
         for(Person person : familyMembers) {
             if(person.getFirstName().equalsIgnoreCase(firstName) && person.getLastName().equalsIgnoreCase(lastName)) familyMembers.remove(person);
         }
+    }
+
+    public ArrayList<Person> getFamilyMembers() {
+        return this.familyMembers;
     }
 
     public int getFamilyMembersLength() {
@@ -205,6 +213,22 @@ public class Suspect extends POI{
      */
     public String getDistintPhysicalTraits() {
         return this.distintPhysicalTraits;
+    }
+
+    public String list(ArrayList<Person> al) {
+        String ret = "";
+        for(Person person : al) {
+            ret = ret + person.getFirstName() + " " + person.getLastName() + ", ";
+        }
+        return ret;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "\nAccomplices: " + this.list(this.accomplices) + "\nFamily Members: " + this.list(this.familyMembers) +
+            "\nFoot Size: " + this.getFootSize() + "\nPreffered Clothes: " + this.getPrefferedClothes() + "\nNick Names: " + this.getNickNames() +
+            "\nCommon Words: " + this.getCommonWords() + "\nHobbies: " + this.getHobbies() + "\nJob: " + this.getJob() + 
+            "\nDistinct Physical Traits: " + this.getDistintPhysicalTraits();
     }
 
     /**

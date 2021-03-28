@@ -3,10 +3,10 @@ import java.util.ArrayList;
 
 public class Criminal extends Suspect{
 
-    private ArrayList<Crime> crimes;
-    private double sentence;
-    private String status;
-    private boolean inCustody;
+    protected ArrayList<Crime> crimes;
+    protected double sentence;
+    protected String status;
+    protected boolean inCustody;
 
     /**
      * Creates a Crimianl object with passed in first and last name
@@ -18,10 +18,10 @@ public class Criminal extends Suspect{
     }
 
     public Criminal(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, 
-    String eyeColor, String address, int age, String tattoos, String victimRelationShip, String evidenceConnection, boolean isRepeatOffender,
+    String eyeColor, String address, String age, String tattoos, String gang, String victimRelationShip, String evidenceConnection, boolean isRepeatOffender,
     ArrayList<Person> accomplices, ArrayList<Person> familyMembers, double footSize, String prefferedClothes, String nickNames,
     String commonWords, String hobbies, String job, String distinctPhysicalTraits, ArrayList<Crime> crimes, double sentences, String status, boolean inCustody) {
-        super(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, victimRelationShip, evidenceConnection, isRepeatOffender, 
+        super(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelationShip, evidenceConnection, isRepeatOffender, 
         accomplices, familyMembers, footSize, prefferedClothes, nickNames, commonWords, hobbies, job, distinctPhysicalTraits);
         this.crimes = crimes;
         this. sentence = sentences;
@@ -71,5 +71,18 @@ public class Criminal extends Suspect{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+    public String listCrimes(ArrayList<Crime> crimes) {
+        String ret = "";
+        for(Crime crime : crimes) {
+            ret = ret + crime.getID() + ", ";
+        }
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "\nCrimes: " + this.listCrimes(this.crimes) + "\nSentence: " + this.getSentence() + 
+            "\nStatus: " + this.getStatus() + "\nIn Custody: " + this.getInCustody();
+    }
     
 }

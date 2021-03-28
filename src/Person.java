@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 public class Person {
 
-    private String firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address;
-    private String age; 
-    private static int idCount = 0;
-    private static Person person;
-    private ArrayList<Person> personList;
+    protected String firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address = "";
+    protected String age = ""; 
+    protected static int idCount = 0;
+    protected static Person person;
+    protected ArrayList<Person> personList;
     DecimalFormat df = new DecimalFormat("000000");
 
     /**
@@ -197,6 +197,22 @@ public class Person {
      */
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String toString() {
+        return "Name: " + this.getFirstName() + this.getLastName() + "\nAge: " + this.getAge() + "\nGender: " + this.getGender() + 
+            "\nRace: " + this.getRace() + "\nHair Color: " + this.getHairColor() + "\nHairStyle" + this.getHairStyle() + 
+            "\nEye Color: " + this.getEyeColor() + "\nAddress: " + this.getAddress();
+    }
+
+    /*public boolean partialCompare(Person person) {
+        if(!this.getFirstName().equals(person.getFirstName())) return false;
+        if(!this.getLastName().equals(person.getLastName())) return false;
+        return true;
+    }*/
+
+    public boolean compareID(Person person) {
+        return(this.getID().equals(person.getID()));
     }
 
 	public static Person getInstance() {

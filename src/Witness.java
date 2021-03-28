@@ -84,6 +84,12 @@ public class Witness extends Person{
         this.relationToBadGuy = relation;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + "\nPhone Number: " + this.getPhoneNumber() + "\nEmail: " + this.getEmail() + 
+            "\nStatement: " + this.getStatement() + "Relation to Bad Guy: " + this.getRelationToBadGuy();
+    }
+
 	public Object getWitnessName() {
 		// TODO Auto-generated method stub
 		return null;

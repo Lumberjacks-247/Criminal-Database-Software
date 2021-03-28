@@ -1,15 +1,15 @@
 [
   {
-    "id":"P000001",
-    "numHReports":1,
-    "hospitalReports":[ "R0040" ],
-    "numCrimes":2,
-    "crimes":[ "C00405", "C44224" ]
+    "firstName":"Allison",
+    "lastName":"Rogers",
+    "statement":"I saw him behind the building cutting copper out of the AC unit.",
+    "isAlive":true,
+    "hospitalReports":[ "R0040" ]
   },{
-    "id":"P000002",
-    "numHReports":3,
-    "hospitalReports":[ "R2003", "R2001" ],
-    "numCrimes":1,
-    "crimes":[ "C90912" ]
+    "firstName":"Sleve",
+    "lastName":"McDichael",
+    "statement":"She stole the back wheels off of my car at the QT.",
+    "isAlive":true,
+    "hospitalReports":[ "R2003", "R2001" ]
   }
 ]

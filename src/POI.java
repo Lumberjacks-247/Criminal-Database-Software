@@ -1,8 +1,8 @@
 package src;
 public class POI extends Person{
 
-    private String tattoos, gang, victimRelationship, evidenceConnection;
-    private boolean isRepeatOffender;
+    protected String tattoos, gang, victimRelationship, evidenceConnection;
+    protected boolean isRepeatOffender;
 
     /**
      * Creates POI object with passed in first and last names
@@ -93,6 +93,12 @@ public class POI extends Person{
      */
     public String getEvidenceConnection() {
         return this.evidenceConnection;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "\nTattoos: " + this.getTattoos() + "\nGang: " + this.getGang() + "\nRelation to Victim" + this.getVictimRelationship() +
+            "\nConnection to Evidence: " + this.getEvidenceConnection() + "\nRepeat Offender: " + this.getIsRepeatOffender();
     }
 
     /**

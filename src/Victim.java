@@ -1,6 +1,8 @@
 package src;
 import java.util.ArrayList;
 
+import src.HospitalReport;
+
 public class Victim extends Person{
 
     private String statement;
@@ -60,6 +62,19 @@ public class Victim extends Person{
 
     public void addHospitalReport(HospitalReport hospitalReport) {
         this.hospitalReports.add(hospitalReport);
+    }
+
+    public String listHR(ArrayList<HospitalReport> hr) {
+        String ret = "";
+        for(HospitalReport report : hr) {
+            ret = ret + report.getID() + ", ";
+        }
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "\nStatement" + this.getStatement() + "\nIs Alive: " + this.getIsAlive() + 
+            "\nHospital Reports: " + this.listHR(hospitalReports);
     }
 
 	public Object getVictimName() {
