@@ -3,10 +3,10 @@ import java.util.ArrayList;
 
 public class Suspect extends POI{
 
-    private ArrayList<Person> accomplices;
-    private ArrayList<Person> familyMembers;
-    private double footSize;
-    private String prefferedClothes, nickNames, commonWords, hobbies, job, distintPhysicalTraits;
+    protected ArrayList<Person> accomplices;
+    protected ArrayList<Person> familyMembers;
+    protected double footSize;
+    protected String prefferedClothes, nickNames, commonWords, hobbies, job, distintPhysicalTraits;
 
     public Suspect(String firstName,  String lastName, String accomplices, String familyMembers, Long footSize,
 			String prefClothes, String nicknames, String commonWords, String hobbies, String job, String physicalTraits, boolean isRepeatOffender) {
@@ -62,6 +62,10 @@ public class Suspect extends POI{
         }
     }
 
+    public ArrayList<Person> getAccomplices() {
+        return this.accomplices;
+    }
+
     public int getAccomplicesLength() {
         return this.accomplices.size();
     }
@@ -97,6 +101,10 @@ public class Suspect extends POI{
         for(Person person : familyMembers) {
             if(person.getFirstName().equalsIgnoreCase(firstName) && person.getLastName().equalsIgnoreCase(lastName)) familyMembers.remove(person);
         }
+    }
+
+    public ArrayList<Person> getFamilyMembers() {
+        return this.familyMembers;
     }
 
     public int getFamilyMembersLength() {
