@@ -25,6 +25,25 @@ public class Victim extends Person{
         this.hospitalReports = hospitalReports;
     }
 
+    public Victim(String statement, boolean isAlive, ArrayList<HospitalReport> hospitalReports) {
+        this.statement = statement;
+        this.isAlive = isAlive;
+        this.hospitalReports = hospitalReports;
+    }
+
+    public void setPersonInfo(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, String eyeColor, String address, String age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.id = id;
+        this.gender = gender;
+        this.race = race;
+        this.hairColor = hairColor;
+        this.hairStyle = hairStyle;
+        this.eyeColor = eyeColor;
+        this.address = address;
+        this.age = age;
+    }
+
     /**
      * returns victims report of the crime
      * @return victims statement as a String

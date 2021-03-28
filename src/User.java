@@ -1,7 +1,7 @@
 package src;
 public class User {
 	private int accessLevel;
-	private String userName, firstName, lastName, userPassword, id;
+	private String userName, firstName, lastName, userPassword;
 
 
   public User(String userName, String firstName, String lastName, int accessLevel, String userPassword) {

@@ -11,6 +11,8 @@ public class Person {
     protected ArrayList<Person> personList;
     DecimalFormat df = new DecimalFormat("000000");
 
+
+    public Person() {};
     /**
      * Creates Person object with passed in first and last name
      * @param firstName first name of person
