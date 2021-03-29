@@ -1,15 +1,1 @@
-[
-    {
-        "accessLevel":0,
-        "firstName":"Bob",
-        "lastName":"Smith",
-        "userName":"BSmith",
-        "userPassword":"Password01"
-    },{
-        "accessLevel":2,
-        "firstName":"Mel",
-        "lastName":"Brooks",
-        "userName":"MBrooks",
-        "userPassword":"Password"
-    }
-]
+[{"firstName":"Bob","lastName":"Smith","userPassword":"Password01","accessLevel":0,"userName":"BSmith"},{"firstName":"Mel","lastName":"Brooks","userPassword":"Password","accessLevel":2,"userName":"MBrooks"}]
