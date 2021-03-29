@@ -1,3 +1,7 @@
+/**
+ * DataLoader, a JSON Loader for CriminalDatabaseSoftware
+ * @author Brooks Robinson
+ */
 package src;
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -11,6 +15,10 @@ public class DataLoader extends DataConstants {
 
     private static final String DELIMITER = " ";
 
+    /**
+     * Loads all Person objects from person.json
+     * @return ArrayList of Person
+     */
     public static ArrayList<Person> loadPeople() {
         ArrayList<Person> people = new ArrayList<Person>();
 
@@ -42,6 +50,10 @@ public class DataLoader extends DataConstants {
         return null;
     }
 
+    /**
+     * Loads all Crime objects from crimes.json
+     * @return ArrayList of Crime
+     */
     public static ArrayList<Crime> loadCrimes() {
         ArrayList<Crime> crimes = new ArrayList<Crime>();
 
@@ -129,6 +141,10 @@ public class DataLoader extends DataConstants {
         return null;
     }
 
+    /**
+     * Loads all Criminal objects from criminal.json
+     * @return ArrayList of Criminal
+     */
     public static ArrayList<Criminal> loadCriminals() {
         ArrayList<Criminal> criminals = new ArrayList<Criminal>();
 
@@ -201,6 +217,10 @@ public class DataLoader extends DataConstants {
         return null;
     }
 
+    /**
+     * Loads all Evidence objects from evidence.json
+     * @return ArrayList of Evidence
+     */
     public static ArrayList<Evidence> loadEvidence() {
         ArrayList<Evidence> evidence = new ArrayList<Evidence>();
 
@@ -226,6 +246,10 @@ public class DataLoader extends DataConstants {
         return null;
     }
 
+    /**
+     * Loads all Officer objects from officer.json
+     * @return ArrayList of Officer
+     */
     public static ArrayList<Officer> loadOfficer() {
         ArrayList<Officer> officer = new ArrayList<Officer>();
 
@@ -250,6 +274,10 @@ public class DataLoader extends DataConstants {
         return null;
     }
 
+    /**
+     * Loads all POI objects from poi.json
+     * @return ArrayList of POI
+     */
     public static ArrayList<POI> loadPOI() {
         ArrayList<POI> poi = new ArrayList<POI>();
 
@@ -289,6 +317,10 @@ public class DataLoader extends DataConstants {
         return null;
     }
 
+    /**
+     * Loads all Suspect objects from suspects.json
+     * @return ArrayList of Suspect
+     */
     public static ArrayList<Suspect> loadSuspects() {
         ArrayList<Suspect> suspect = new ArrayList<Suspect>();
 
@@ -351,6 +383,10 @@ public class DataLoader extends DataConstants {
         return null;
     }
 
+    /**
+     * Loads all User objects from user.json
+     * @return ArrayList of User
+     */
     public static ArrayList<User> loadUsers() {
         ArrayList<User> user = new ArrayList<User>();
 
@@ -378,6 +414,10 @@ public class DataLoader extends DataConstants {
         return null;
     }
 
+    /**
+     * Loads all Victim objects from victim.json
+     * @return ArrayList of Victim
+     */
     public static ArrayList<Victim> loadVictims() {
         ArrayList<Victim> victim = new ArrayList<Victim>();
 
@@ -415,6 +455,10 @@ public class DataLoader extends DataConstants {
         return null;
     }
 
+    /**
+     * Loads all Witness objects from witness.json
+     * @return ArrayList of Witness
+     */
     public static ArrayList<Witness> loadWitness() {
         ArrayList<Witness> witness = new ArrayList<Witness>();
 
@@ -446,6 +490,10 @@ public class DataLoader extends DataConstants {
         return null;
     }
 
+    /**
+     * Loads all HospitalReport objects from hospital.json
+     * @return ArrayList of HospitalReport
+     */
     public static ArrayList<HospitalReport> loadHReports() {
         ArrayList<HospitalReport> hreport = new ArrayList<HospitalReport>();
 

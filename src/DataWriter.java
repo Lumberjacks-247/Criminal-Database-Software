@@ -1,3 +1,7 @@
+/**
+ * DataWriter, a JSON Writer for CriminalDatabaseSoftware
+ * @author Brooks Robinson
+ */
 package src;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -7,6 +11,9 @@ import org.json.simple.JSONObject;
 
 public class DataWriter extends DataConstants{
     
+	/**
+	 * Saves the Users to user.json
+	 */
     public static void saveUsers() {
         Users users = Users.getInstance();
         ArrayList<User> userList = users.getUsers();
@@ -24,6 +31,11 @@ public class DataWriter extends DataConstants{
         }
     }
 
+	/**
+	 * Creates parameters inside a JSONObject for each User
+	 * @param user user being written
+	 * @return JSONObject equivalent to a User
+	 */
     public static JSONObject getUserJSON(User user) {
         JSONObject userDetails = new JSONObject();
         userDetails.put(USER_ACCESS_LEVEL, user.getAccessLevel());
@@ -34,6 +46,9 @@ public class DataWriter extends DataConstants{
         return userDetails;
     }
 
+	/**
+	 * Saves the Victims to victim.json
+	 */
 	public static void saveVictims() {
 		Victims victims = Victims.getInstance();
 		ArrayList<Victim> victimList = victims.getVictims();
@@ -51,6 +66,11 @@ public class DataWriter extends DataConstants{
 		}
 	}
 
+	/**
+	 * Creates parameters inside a JSONObject for each Victim
+	 * @param victim victim being written
+	 * @return JSONObject equivalent to a Victim
+	 */
 	public static JSONObject getVictimJSON(Victim victim) {
 		JSONObject victimDetails = new JSONObject();
 		victimDetails.put(PERSON_FIRST_NAME, victim.getFirstName());
@@ -62,6 +82,9 @@ public class DataWriter extends DataConstants{
 		return victimDetails;
 	}
 
+	/**
+	 * Saves the Crimes to crimes.json
+	 */
 	public static void saveCrimes() {
 		Crimes crimes = Crimes.getInstance();
 		ArrayList<Crime> crimeList = crimes.getCrimes();
@@ -79,6 +102,11 @@ public class DataWriter extends DataConstants{
 		}
 	}
 
+	/**
+	 * Creates parameters inside a JSONObject for each Crime
+	 * @param crime crime being written
+	 * @return JSONObject equivalent to a Crime
+	 */
 	public static JSONObject getCrimeJSON(Crime crime) {
 		JSONObject crimeDetails = new JSONObject();
 		crimeDetails.put(CRIMES_ID, crime.getID());
@@ -98,6 +126,9 @@ public class DataWriter extends DataConstants{
 		return crimeDetails;
 	}
 
+	/**
+	 * Saves the Witnesses to witness.json
+	 */
 	public static void saveWitnesses() {
 		Witnesses witnesses = Witnesses.getInstance();
 		ArrayList<Witness> witnessList = witnesses.getWitnesses();
@@ -115,6 +146,11 @@ public class DataWriter extends DataConstants{
 		}
 	}
 
+	/**
+	 * Creates parameters inside a JSONObject for each Witness
+	 * @param witness witness being written
+	 * @return JSONObject equivalent to a Witness
+	 */
 	public static JSONObject getWitnessJSON(Witness witness) {
 		JSONObject witnessDetails = new JSONObject();
 		witnessDetails.put(PERSON_FIRST_NAME, witness.getFirstName());
@@ -127,6 +163,9 @@ public class DataWriter extends DataConstants{
 		return witnessDetails;
 	}
 
+	/**
+	 * Saves the Criminals inside of criminal.json
+	 */
 	public static void saveCriminals() {
 		Criminals criminals = Criminals.getInstance();
 		ArrayList<Criminal> criminalList = criminals.getCriminals();
@@ -144,6 +183,11 @@ public class DataWriter extends DataConstants{
 		}
 	}
 
+	/**
+	 * Creates parameters inside a JSONObject for each Criminal
+	 * @param criminal criminal being written
+	 * @return JSONObject equivalent to a Criminal
+	 */
 	public static JSONObject getCriminalJSON(Criminal criminal) {
 		JSONObject criminalDetails = new JSONObject();
 		criminalDetails.put(PERSON_FIRST_NAME, criminal.getFirstName());
@@ -177,6 +221,9 @@ public class DataWriter extends DataConstants{
 		return criminalDetails;
 	}
 
+	/**
+	 * Saves the Evidences to evidence.json
+	 */
 	public static void saveEvidences() {
 		Evidences evidences = Evidences.getInstance();
 		ArrayList<Evidence> evidenceList = evidences.getEvidences();
@@ -194,6 +241,11 @@ public class DataWriter extends DataConstants{
 		}
 	}
 
+	/**
+	 * Creates parameters inside a JSONObject for each Evidence
+	 * @param evidence Evidence being written
+	 * @return JSONObject equivalent to a Evidence
+	 */
 	public static JSONObject getEvidenceJSON(Evidence evidence) {
 		JSONObject evidenceDetails = new JSONObject();
 		evidenceDetails.put(EVIDENCE_ID, evidence.getID());
@@ -202,6 +254,9 @@ public class DataWriter extends DataConstants{
 		return evidenceDetails;
 	}
 
+	/**
+	 * Saves the Officers to officer.json
+	 */
 	public static void saveOfficers() {
 		Officers officers = Officers.getInstance();
 		ArrayList<Officer> officerList = officers.getOfficers();
@@ -219,6 +274,11 @@ public class DataWriter extends DataConstants{
 		}
 	}
 
+	/**
+	 * Creates parameters inside a JSONObject for each Officer
+	 * @param officer Officer being written
+	 * @return JSONObject equivalent to a Officer
+	 */
 	public static JSONObject getOfficerJSON(Officer officer) {
 		JSONObject officerDetails = new JSONObject();
 		officerDetails.put(PERSON_FIRST_NAME, officer.getFirstName());
@@ -228,6 +288,9 @@ public class DataWriter extends DataConstants{
 		return officerDetails;
 	}
 
+	/**
+	 * Saves the People to person.json
+	 */
 	public static void savePeople() {
 		People people = People.getInstance();
 		ArrayList<Person> personList = people.getPeople();
@@ -245,6 +308,11 @@ public class DataWriter extends DataConstants{
 		}
 	}
 
+	/**
+	 * Creates parameters inside a JSONObject for each Person
+	 * @param person Person being written
+	 * @return JSONObject equivalent to a Person
+	 */
 	public static JSONObject getPersonJSON(Person person) {
 		JSONObject personDetails = new JSONObject();
 		personDetails.put(PERSON_FIRST_NAME, person.getFirstName());
@@ -260,6 +328,9 @@ public class DataWriter extends DataConstants{
 		return personDetails;
 	}
 
+	/**
+	 * Saves the POIs to poi.json
+	 */
 	public static void savePOIs() {
 		POIs pois = POIs.getInstance();
 		ArrayList<POI> poiList = pois.getPOIs();
@@ -277,6 +348,11 @@ public class DataWriter extends DataConstants{
 		}
 	}
 
+	/**
+	 * Creates parameters inside a JSONObject for each POI
+	 * @param poi POI being written
+	 * @return JSONObject equivalent to a POI
+	 */
 	public static JSONObject getPOIJSON(POI poi) {
 		JSONObject poiDetails = new JSONObject();
 		poiDetails.put(PERSON_FIRST_NAME, poi.getFirstName());
@@ -297,6 +373,9 @@ public class DataWriter extends DataConstants{
 		return poiDetails;
 	}
 
+	/**
+	 * Saves the Suspects to suspects.json
+	 */
 	public static void saveSuspects() {
 		Suspects suspects = Suspects.getInstance();
 		ArrayList<Suspect> suspectList = suspects.getSuspects();
@@ -314,6 +393,11 @@ public class DataWriter extends DataConstants{
 		}
 	}
 
+	/**
+	 * Creates parameters inside a JSONObject for each Suspect
+	 * @param suspect Suspect being written
+	 * @return JSONObject equivalent to a Suspect
+	 */
 	public static JSONObject getSuspectJSON(Suspect suspect) {
 		JSONObject suspectDetails = new JSONObject();
 		suspectDetails.put(PERSON_FIRST_NAME, suspect.getFirstName());
@@ -343,6 +427,9 @@ public class DataWriter extends DataConstants{
 		return suspectDetails;
 	}
 
+	/**
+	 * Saves the HospitalReports to hospital.json
+	 */
 	public static void saveHospitalReports() {
 		HospitalReports hreports = HospitalReports.getInstance();
 		ArrayList<HospitalReport> hreportList = hreports.getHReports();
@@ -360,6 +447,11 @@ public class DataWriter extends DataConstants{
 		}
 	}
 
+	/**
+	 * Creates parameters inside a JSONObject for each HospitalReport
+	 * @param report HospitalReport being written
+	 * @return JSONObject equivalent to a HospitalReport
+	 */
 	public static JSONObject getHReportsJSON(HospitalReport report) {
 		JSONObject hreportDetails = new JSONObject();
 		hreportDetails.put(HOSPITAL_ID, report.getID());
