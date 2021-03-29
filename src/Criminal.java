@@ -15,6 +15,7 @@ public class Criminal extends Suspect{
      */
     public Criminal(String firstName, String lastName, boolean inCustody) {
         super(firstName, lastName, lastName, lastName, null, lastName, lastName, lastName, lastName, lastName, lastName, inCustody);
+        this.setID();
     }
 
     public Criminal(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, 

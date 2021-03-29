@@ -14,15 +14,12 @@ public class Victim extends Person{
      * @param firstName first name of victim
      * @param lastName last name of victim
      */
-    public Victim(String firstName,  String lastName, String statement, boolean isAlive, Long numReports, String hReports) {
-        super(firstName, lastName);
-    }
-
     public Victim(String firstName, String lastName, String statement, boolean isAlive, ArrayList<HospitalReport> hospitalReports) {
         super(firstName, lastName);
         this.statement = statement;
         this.isAlive = isAlive;
         this.hospitalReports = hospitalReports;
+        this.setID();
     }
 
     public Victim(String statement, boolean isAlive, ArrayList<HospitalReport> hospitalReports) {
@@ -35,13 +32,6 @@ public class Victim extends Person{
         this.firstName = firstName;
         this.lastName = lastName;
         this.id = id;
-        this.gender = gender;
-        this.race = race;
-        this.hairColor = hairColor;
-        this.hairStyle = hairStyle;
-        this.eyeColor = eyeColor;
-        this.address = address;
-        this.age = age;
     }
 
     /**
