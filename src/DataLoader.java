@@ -78,7 +78,7 @@ public class DataLoader extends DataConstants {
                 Iterator<String> poisIterator = poisJSON.iterator();
                 for (int j = 0; j < poisJSON.size(); ++j) {
                     if (poisIterator.hasNext()) {
-                        pois.add(POIs.getInstance().getPOI(poisIterator.next()));
+                        //pois.add(POIs.getInstance().getPOI(poisIterator.next()));
                     }
                 }
                 ArrayList<Suspect> suspects = new ArrayList<Suspect>();
@@ -86,7 +86,7 @@ public class DataLoader extends DataConstants {
                 Iterator<String> suspectsIterator = suspectsJSON.iterator();
                 for (int j = 0; j < suspectsJSON.size(); ++j) {
                     if (suspectsIterator.hasNext()) {
-                        suspects.add(Suspects.getInstance().getSuspect(poisIterator.next()));
+                        //suspects.add(Suspects.getInstance().getSuspect(poisIterator.next()));
                     }
                 }
                 ArrayList<Criminal> criminals = new ArrayList<Criminal>();
@@ -94,7 +94,7 @@ public class DataLoader extends DataConstants {
                 Iterator<String> criminalsIterator = criminalsJSON.iterator();
                 for (int j = 0; j < criminalsJSON.size(); ++j) {
                     if (criminalsIterator.hasNext()) {
-                        criminals.add(Criminals.getInstance().getCriminal(criminalsIterator.next()));
+                        //criminals.add(Criminals.getInstance().getCriminal(criminalsIterator.next()));
                     }
                 }
                 ArrayList<Victim> victims = new ArrayList<Victim>();
@@ -102,7 +102,7 @@ public class DataLoader extends DataConstants {
                 Iterator<String> victimsIterator = victimsJSON.iterator();
                 for (int j = 0; j < victimsJSON.size(); ++j) {
                     if (victimsIterator.hasNext()) {
-                        victims.add(Victims.getInstance().getVictim(victimsIterator.next()));
+                        //victims.add(Victims.getInstance().getVictim(victimsIterator.next()));
                     }
                 }
                 ArrayList<Witness> witnesses = new ArrayList<Witness>();
@@ -110,7 +110,7 @@ public class DataLoader extends DataConstants {
                 Iterator<String> witnessesIterator = witnessesJSON.iterator();
                 for (int j = 0; j < witnessesJSON.size(); ++j) {
                     if (witnessesIterator.hasNext()) {
-                        witnesses.add(Witnesses.getInstance().getWitness(witnessesIterator.next()));
+                        //witnesses.add(Witnesses.getInstance().getWitness(witnessesIterator.next()));
                     }
                 }
                 ArrayList<Officer> officers = new ArrayList<Officer>();
@@ -118,7 +118,7 @@ public class DataLoader extends DataConstants {
                 Iterator<String> officersIterator = officersJSON.iterator();
                 for (int j = 0; j < officersJSON.size(); ++j) {
                     if (officersIterator.hasNext()) {
-                        officers.add(Officers.getInstance().getOfficer(officersIterator.next()));
+                        //officers.add(Officers.getInstance().getOfficer(officersIterator.next()));
                     }
                 }
                 ArrayList<Evidence> evidences = new ArrayList<Evidence>();
@@ -126,7 +126,7 @@ public class DataLoader extends DataConstants {
                 Iterator<String> evidencesIterator = evidencesJSON.iterator();
                 for (int j = 0; j < evidencesJSON.size(); ++j) {
                     if (evidencesIterator.hasNext()) {
-                        evidences.add(Evidences.getInstance().getEvidence(evidencesIterator.next()));
+                        //evidences.add(Evidences.getInstance().getEvidence(evidencesIterator.next()));
                     }
                 }
                 crimes.add(new Crime(id, typeOfCrime, chargeLevel, jurisdiction, isOpen, author, location,
@@ -175,7 +175,7 @@ public class DataLoader extends DataConstants {
                 Iterator<String> accomplicesIterator = accomplicesJSON.iterator();
                 for (int j = 0; j < accomplicesJSON.size(); ++j) {
                     if (accomplicesIterator.hasNext()) {
-                        accomplices.add(People.getInstance().getPerson(accomplicesIterator.next()));
+                        //accomplices.add(People.getInstance().getPerson(accomplicesIterator.next()));
                     }
                 }
                 ArrayList<Person> family = new ArrayList<Person>();
@@ -183,7 +183,7 @@ public class DataLoader extends DataConstants {
                 Iterator<String> familyIterator = familyJSON.iterator();
                 for (int j = 0; j < familyJSON.size(); ++j) {
                     if (familyIterator.hasNext()) {
-                        family.add(People.getInstance().getPerson(familyIterator.next()));
+                        //family.add(People.getInstance().getPerson(familyIterator.next()));
                     }
                 }
                 double footSize = ((Long)criminalJSON.get(SUSPECT_FOOT_SIZE)).floatValue();
@@ -198,7 +198,7 @@ public class DataLoader extends DataConstants {
                 Iterator<String> crimesIterator = crimesJSON.iterator();
                 for (int j = 0; j < crimesJSON.size(); ++j) {
                     if (crimesIterator.hasNext()) {
-                        crimes.add(Crimes.getInstance().getCrime(crimesIterator.next()));
+                        //crimes.add(Crimes.getInstance().getCrime(crimesIterator.next()));
                     }
                 }
                 double sentence = ((Long)criminalJSON.get(CRIMINAL_SENTENCE)).floatValue();
@@ -351,7 +351,7 @@ public class DataLoader extends DataConstants {
                 Iterator<String> accomplicesIterator = accomplicesJSON.iterator();
                 for (int j = 0; j < accomplicesJSON.size(); ++j) {
                     if (accomplicesIterator.hasNext()) {
-                        accomplices.add(People.getInstance().getPerson(accomplicesIterator.next()));
+                        //accomplices.add(People.getInstance().getPerson(accomplicesIterator.next()));
                     }
                 }
                 ArrayList<Person> family = new ArrayList<Person>();
@@ -359,7 +359,7 @@ public class DataLoader extends DataConstants {
                 Iterator<String> familyIterator = familyJSON.iterator();
                 for (int j = 0; j < familyJSON.size(); ++j) {
                     if (familyIterator.hasNext()) {
-                        family.add(People.getInstance().getPerson(familyIterator.next()));
+                        //family.add(People.getInstance().getPerson(familyIterator.next()));
                     }
                 }
                 double footSize = ((Long)suspectJSON.get(SUSPECT_FOOT_SIZE)).floatValue();
@@ -438,7 +438,7 @@ public class DataLoader extends DataConstants {
                 Iterator<String> hReportsIterator = hReportsJSON.iterator();
                 for (int j = 0; j < hReportsJSON.size(); ++j) {
                     if (hReportsIterator.hasNext()) {
-                        hReports.add(HospitalReports.getInstance().getHReport(hReportsIterator.next()));
+                        //hReports.add(HospitalReports.getInstance().getHReport(hReportsIterator.next()));
                     }
                 }
                 Victim ret = new Victim(statement, isAlive, hReports);
