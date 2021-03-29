@@ -80,7 +80,6 @@ public class FacUIConstants {
     String username = s.getDataValue(0);
     String password = s.getDataValue(1);
 
-    //TODO - Create success and failure branches
     if (fac.login(username, password)/*override*/) {
       return ScreenCalls.MAINMENU.call(s);
     } else {
@@ -98,10 +97,10 @@ public class FacUIConstants {
     String p0 = s.getDataValue(0); //Username
     String p1 = s.getDataValue(1); //Password
     String p2 = s.getDataValue(2); //First Name
-    int p3 = Integer.parseInt(s.getDataValue(3)); //Last Name
-    String p4 = s.getDataValue(4); //Access Level
+    String p3 = s.getDataValue(3); //Last Name
+    int p4 = Integer.parseInt(s.getDataValue(4)); //Access Level
 
-    if (fac.createAccount(p0,p1,p2,p3,p4)/*override*/) {
+    if (fac.createAccount(p0,p2,p3,p4,p1)/*override*/) {
       return ScreenCalls.MAINMENU.call(s);
     } else {
       return ScreenCalls.WELCOME.call(s);
