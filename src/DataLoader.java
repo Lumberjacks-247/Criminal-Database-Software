@@ -186,7 +186,7 @@ public class DataLoader extends DataConstants {
                         //family.add(People.getInstance().getPerson(familyIterator.next()));
                     }
                 }
-                double footSize = ((Long)criminalJSON.get(SUSPECT_FOOT_SIZE)).floatValue();
+                double footSize = ((Long)criminalJSON.get(SUSPECT_FOOT_SIZE)).doubleValue();
                 String prefClothes = (String)criminalJSON.get(SUSPECT_PREFERRED_CLOTHES);
                 String nicknames = (String)criminalJSON.get(SUSPECT_NICKNAMES);
                 String commonWords = (String)criminalJSON.get(SUSPECT_COMMON_WORDS);
@@ -201,7 +201,7 @@ public class DataLoader extends DataConstants {
                         //crimes.add(Crimes.getInstance().getCrime(crimesIterator.next()));
                     }
                 }
-                double sentence = ((Long)criminalJSON.get(CRIMINAL_SENTENCE)).floatValue();
+                double sentence = ((Long)criminalJSON.get(CRIMINAL_SENTENCE)).doubleValue();
                 String status = (String)criminalJSON.get(CRIMINAL_STATUS);
                 boolean inCustody = ((Boolean)criminalJSON.get(CRIMINAL_IN_CUSTODY)).booleanValue();
                 Criminal ret = new Criminal(crimes, sentence, status, inCustody);
