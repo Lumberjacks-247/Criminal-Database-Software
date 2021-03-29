@@ -205,7 +205,7 @@ public class DataLoader extends DataConstants {
                 // ADD INTAKE FOR ARRAY OF TATTOOS
                 //criminals.add(new Criminal(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelation, evidenceConn, isRepeatOffender, accomplices, family, footSize, prefClothes, nicknames, commonWords, hobbies, job, physicalTraits, crimes, sentence, status, inCustody));
                 Criminal ret = new Criminal(crimes, sentence, status, inCustody);
-                ret.setPOIInfo(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelation, evidenceConn, isRepeatOffender);
+                ret.setSuspectInfo(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelation, evidenceConn, isRepeatOffender, accomplices, family, footSize, prefClothes, nicknames, commonWords, hobbies, job, physicalTraits);
                 //criminals.add(new Criminal(crimes, sentence, status, inCustody).setPOIInfo(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelation, evidenceConn, isRepeatOffender));
                 criminals.add(ret);
                 // CAN'T CONSTRUCT WITH AMOUNT OF DATA REQUESTED FROM CRIMINALS
@@ -448,6 +448,7 @@ public class DataLoader extends DataConstants {
                 JSONObject victimJSON = (JSONObject)victimsJSON.get(i);
                 String firstName = (String)victimJSON.get(PERSON_FIRST_NAME);
                 String lastName = (String)victimJSON.get(PERSON_LAST_NAME);
+                String id = (String)victimJSON.get(PERSON_ID);
                 String statement = (String)victimJSON.get(VICTIM_STATEMENT);
                 boolean isAlive = ((Boolean)victimJSON.get(VICTIM_IS_ALIVE)).booleanValue();
                 //int numReports = ((Long)victimJSON.get(VICTIM_NUM_H_REPORTS)).intValue();
@@ -460,7 +461,10 @@ public class DataLoader extends DataConstants {
                         hReports.add(HospitalReports.getInstance().getHReport(hReportsIterator.next()));
                     }
                 }
-                victim.add(new Victim(firstName, lastName, statement, isAlive, hReports));
+                //victim.add(new Victim(firstName, lastName, statement, isAlive, hReports));
+                Victim ret = new Victim(statement, isAlive, hReports);
+                ret.setPersonInfo(firstName, lastName, id);
+                victim.add(ret);
             }
 
             return victim;
@@ -485,11 +489,15 @@ public class DataLoader extends DataConstants {
                 JSONObject witnessJSON = (JSONObject)witnessesJSON.get(i);
                 String firstName = (String)witnessJSON.get(PERSON_FIRST_NAME);
                 String lastName = (String)witnessJSON.get(PERSON_LAST_NAME);
+                String id = (String)witnessJSON.get(PERSON_ID);
                 String phone = (String)witnessJSON.get(WITNESS_PHONE_NUMBER);
                 String email = (String)witnessJSON.get(WITNESS_EMAIL);
                 String statement = (String)witnessJSON.get(WITNESS_STATEMENT);
                 String relationBad = (String)witnessJSON.get(WITNESS_RELATION_BAD);
-                witness.add(new Witness(firstName, lastName, phone, email, statement, relationBad));
+                //witness.add(new Witness(firstName, lastName, phone, email, statement, relationBad));
+                Witness ret = new Witness(phone, email, statement, relationBad);
+                ret.setPersonInfo(firstName, lastName, id);
+                witness.add(ret);
             }
 
             return witness;
