@@ -78,6 +78,7 @@ public class Victim extends Person{
         for(HospitalReport report : hr) {
             ret = ret + report.getID() + ", ";
         }
+        return ret;
     }
 
     @Override
