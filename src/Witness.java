@@ -8,16 +8,13 @@ public class Witness extends Person{
      * @param firstName first name of witness
      * @param lastName last name of witness
      */
-    public Witness(String firstName,  String lastName, Long phone, String email, String statement, String relationBad) {
-        super(firstName, lastName);
-    }
-
     public Witness(String firstName, String lastName, String phoneNumber, String email, String statement, String relationToBadGuy) {
         super(firstName, lastName);
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.statement = statement;
         this.relationToBadGuy = relationToBadGuy;
+        this.setID();
     }
 
     public Witness(String phoneNumber, String email, String statement, String relationToBadGuy) {

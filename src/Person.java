@@ -52,7 +52,7 @@ public class Person {
     }
 
     //need to check all Person object to see if id already is being used
-    private void setID() {
+    protected void setID() {
         this.id = "P" + df.format(idCount);
     }
     /**

@@ -17,6 +17,7 @@ public class Officer extends Person{
         super(firstName, lastName);
         this.typeOfOfficer = typeOfOfficer;
         this.statement = statement;
+        this.setID();
     }
 
     public Officer(String typeOfOfficer, String statement) {
@@ -28,13 +29,6 @@ public class Officer extends Person{
         this.firstName = firstName;
         this.lastName = lastName;
         this.id = id;
-        this.gender = gender;
-        this.race = race;
-        this.hairColor = hairColor;
-        this.hairStyle = hairStyle;
-        this.eyeColor = eyeColor;
-        this.address = address;
-        this.age = age;
     }
 
     /**

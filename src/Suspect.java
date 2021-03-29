@@ -11,6 +11,7 @@ public class Suspect extends POI{
     public Suspect(String firstName,  String lastName, String accomplices, String familyMembers, Long footSize,
 			String prefClothes, String nicknames, String commonWords, String hobbies, String job, String physicalTraits, boolean isRepeatOffender) {
         super(firstName, lastName, physicalTraits, physicalTraits, physicalTraits, physicalTraits, isRepeatOffender);
+        this.setID();
     }
 
     public Suspect(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, 
