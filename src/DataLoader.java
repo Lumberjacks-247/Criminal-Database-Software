@@ -199,11 +199,15 @@ public class DataLoader extends DataConstants {
                         crimes.add(Crimes.getInstance().getCrime(crimesIterator.next()));
                     }
                 }
-                String sentence = (String)criminalJSON.get(CRIMINAL_SENTENCE);
+                double sentence = ((Long)criminalJSON.get(CRIMINAL_SENTENCE)).floatValue();
                 String status = (String)criminalJSON.get(CRIMINAL_STATUS);
                 boolean inCustody = ((Boolean)criminalJSON.get(CRIMINAL_IN_CUSTODY)).booleanValue();
                 // ADD INTAKE FOR ARRAY OF TATTOOS
-                criminals.add(new Criminal(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelation, evidenceConn, isRepeatOffender, accomplices, family, footSize, prefClothes, nicknames, commonWords, hobbies, job, physicalTraits, crimes, sentence, status, inCustody));
+                //criminals.add(new Criminal(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelation, evidenceConn, isRepeatOffender, accomplices, family, footSize, prefClothes, nicknames, commonWords, hobbies, job, physicalTraits, crimes, sentence, status, inCustody));
+                Criminal ret = new Criminal(crimes, sentence, status, inCustody);
+                ret.setPOIInfo(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelation, evidenceConn, isRepeatOffender);
+                //criminals.add(new Criminal(crimes, sentence, status, inCustody).setPOIInfo(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelation, evidenceConn, isRepeatOffender));
+                criminals.add(ret);
                 // CAN'T CONSTRUCT WITH AMOUNT OF DATA REQUESTED FROM CRIMINALS
             }
 
@@ -295,7 +299,10 @@ public class DataLoader extends DataConstants {
                 String evidenceConn = (String)poiJSON.get(POI_EVIDENCE_CONN);
                 boolean isRepeatOffender = ((Boolean)poiJSON.get(POI_IS_REPEAT_OFFENDER)).booleanValue();
                 // COPY INFO FROM PERSON TO PASS
-                poi.add(new POI(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelation, evidenceConn, isRepeatOffender));
+                //poi.add(new POI(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelation, evidenceConn, isRepeatOffender));
+                POI ret = new POI(tattoos, gang, victimRelation, evidenceConn, isRepeatOffender);
+                ret.setPersonInfo(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age);
+                poi.add(ret);
                 // CAN'T CONSTRUCT WITH AMOUNT OF DATA REQUIRED FROM POI
             }
 
@@ -385,7 +392,10 @@ public class DataLoader extends DataConstants {
                 String hobbies = (String)suspectJSON.get(SUSPECTS_HOBBIES);
                 String job = (String)suspectJSON.get(SUSPECTS_JOB);
                 String physicalTraits = (String)suspectJSON.get(SUSPECTS_PHYSICAL_TRAITS);
-                suspect.add(new Suspect(firstName, lastName, id, gender, address, race, hairColor, hairStyle, eyeColor, age, tattoos, gang, victimRelation, evidenceConn, isRepeatOffender, accomplices, family, footSize, prefClothes, nicknames, commonWords, hobbies, job, physicalTraits));
+                //suspect.add(new Suspect(firstName, lastName, id, gender, address, race, hairColor, hairStyle, eyeColor, age, tattoos, gang, victimRelation, evidenceConn, isRepeatOffender, accomplices, family, footSize, prefClothes, nicknames, commonWords, hobbies, job, physicalTraits));
+                Suspect ret = new Suspect(accomplices, family, footSize, prefClothes, nicknames, commonWords, hobbies, job, physicalTraits);
+                ret.setPOIInfo(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelation, evidenceConn, isRepeatOffender);
+                suspect.add(ret);
             }
 
             return suspect;
