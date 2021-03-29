@@ -101,6 +101,7 @@ public class Criminal extends Suspect{
         for(Crime crime : crimes) {
             ret = ret + crime.getID() + ", ";
         }
+        return ret;
     }
 
     @Override
