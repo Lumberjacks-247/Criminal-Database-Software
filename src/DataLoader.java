@@ -17,8 +17,7 @@ public class DataLoader extends DataConstants {
         try {
             FileReader reader = new FileReader(PERSON_FILE_NAME);
             JSONParser parser = new JSONParser();
-            //JSONArray peopleJSON = (JSONArray)new JSONParser().parse(reader);
-            JSONArray peopleJSON = (JSONArray)parser.parse(reader);  // TEST THIS!
+            JSONArray peopleJSON = (JSONArray)parser.parse(reader);
 
             for (int i = 0; i < peopleJSON.size(); ++i) {
                 JSONObject personJSON = (JSONObject)peopleJSON.get(i);
@@ -49,22 +48,19 @@ public class DataLoader extends DataConstants {
         try {
             FileReader reader = new FileReader(CRIMES_FILE_NAME);
             JSONParser parser = new JSONParser();
-            //JSONArray crimesJSON = (JSONArray)new JSONParser().parse(reader);
             JSONArray crimesJSON = (JSONArray)parser.parse(reader);
 
             for (int i = 0; i < crimesJSON.size(); ++i) {
                 JSONObject crimeJSON = (JSONObject)crimesJSON.get(i);
                 String id = (String)crimeJSON.get(CRIMES_ID);
                 String typeOfCrime = (String)crimeJSON.get(CRIMES_TYPE_OF_CRIME);
-                int chargeLevel = ((Long)crimeJSON.get(CRIMES_CHARGE_LEVEL)).intValue(); // long int value, not integer
+                int chargeLevel = ((Long)crimeJSON.get(CRIMES_CHARGE_LEVEL)).intValue();
                 int jurisdiction = ((Long)crimeJSON.get(CRIMES_JURISDICTION)).intValue();
                 boolean isOpen = ((Boolean)crimeJSON.get(CRIMES_IS_OPEN)).booleanValue();
-                String authorString = (String)crimeJSON.get(CRIMES_AUTHOR);  /// NEED TO INTAKE USER
+                String authorString = (String)crimeJSON.get(CRIMES_AUTHOR);
                 String[] authorName = authorString.split(DELIMITER);
                 User author = new User(authorName[0], authorName[1]);
                 String location = (String)crimeJSON.get(CRIMES_LOCATION);
-                //int numPOI = ((Long)crimeJSON.get(CRIMES_NUM_POI)).intValue();
-                // ADD INTAKE FOR ARRAY OF CRIMINALS
                 ArrayList<POI> pois = new ArrayList<POI>();
                 JSONArray poisJSON = (JSONArray)crimeJSON.get(CRIMES_POI);
                 Iterator<String> poisIterator = poisJSON.iterator();
@@ -73,7 +69,6 @@ public class DataLoader extends DataConstants {
                         pois.add(POIs.getInstance().getPOI(poisIterator.next()));
                     }
                 }
-                //int numSuspects = ((Long)crimeJSON.get(CRIMES_NUM_SUSPECTS)).intValue();
                 ArrayList<Suspect> suspects = new ArrayList<Suspect>();
                 JSONArray suspectsJSON = (JSONArray)crimeJSON.get(CRIMES_SUSPECTS);
                 Iterator<String> suspectsIterator = suspectsJSON.iterator();
@@ -82,7 +77,6 @@ public class DataLoader extends DataConstants {
                         suspects.add(Suspects.getInstance().getSuspect(poisIterator.next()));
                     }
                 }
-                //int numCriminals = ((Long)crimeJSON.get(CRIMES_NUM_CRIMINALS)).intValue();
                 ArrayList<Criminal> criminals = new ArrayList<Criminal>();
                 JSONArray criminalsJSON = (JSONArray)crimeJSON.get(CRIMES_CRIMINALS);
                 Iterator<String> criminalsIterator = criminalsJSON.iterator();
@@ -91,7 +85,6 @@ public class DataLoader extends DataConstants {
                         criminals.add(Criminals.getInstance().getCriminal(criminalsIterator.next()));
                     }
                 }
-                //int numVictims = ((Long)crimeJSON.get(CRIMES_NUM_VICTIMS)).intValue();
                 ArrayList<Victim> victims = new ArrayList<Victim>();
                 JSONArray victimsJSON = (JSONArray)crimeJSON.get(CRIMES_VICTIMS);
                 Iterator<String> victimsIterator = victimsJSON.iterator();
@@ -100,7 +93,6 @@ public class DataLoader extends DataConstants {
                         victims.add(Victims.getInstance().getVictim(victimsIterator.next()));
                     }
                 }
-                //int numWitnesses = ((Long)crimeJSON.get(CRIMES_NUM_WITNESSES)).intValue();
                 ArrayList<Witness> witnesses = new ArrayList<Witness>();
                 JSONArray witnessesJSON = (JSONArray)crimeJSON.get(CRIMES_WITNESSES);
                 Iterator<String> witnessesIterator = witnessesJSON.iterator();
@@ -109,7 +101,6 @@ public class DataLoader extends DataConstants {
                         witnesses.add(Witnesses.getInstance().getWitness(witnessesIterator.next()));
                     }
                 }
-                //int numOfficers = ((Long)crimeJSON.get(CRIMES_NUM_OFFICERS)).intValue();
                 ArrayList<Officer> officers = new ArrayList<Officer>();
                 JSONArray officersJSON = (JSONArray)crimeJSON.get(CRIMES_OFFICERS);
                 Iterator<String> officersIterator = officersJSON.iterator();
@@ -118,7 +109,6 @@ public class DataLoader extends DataConstants {
                         officers.add(Officers.getInstance().getOfficer(officersIterator.next()));
                     }
                 }
-                //int numEvidence = ((Long)crimeJSON.get(CRIMES_NUM_EVIDENCE)).intValue();
                 ArrayList<Evidence> evidences = new ArrayList<Evidence>();
                 JSONArray evidencesJSON = (JSONArray)crimeJSON.get(CRIMES_EVIDENCE);
                 Iterator<String> evidencesIterator = evidencesJSON.iterator();
@@ -127,8 +117,8 @@ public class DataLoader extends DataConstants {
                         evidences.add(Evidences.getInstance().getEvidence(evidencesIterator.next()));
                     }
                 }
-                crimes.add(new Crime(id, typeOfCrime, chargeLevel, jurisdiction, isOpen, author, location, pois, suspects, criminals, victims, witnesses, officers, evidences));
-                // BROKEN FROM AUTHOR, NEEDS TO BE OF TYPE USER INSTEAD OF STRING
+                crimes.add(new Crime(id, typeOfCrime, chargeLevel, jurisdiction, isOpen, author, location,
+                                     pois,suspects, criminals, victims, witnesses, officers, evidences));
             }
 
             return crimes;
@@ -145,12 +135,10 @@ public class DataLoader extends DataConstants {
         try {
             FileReader reader = new FileReader(CRIMINAL_FILE_NAME);
             JSONParser parser = new JSONParser();
-            //JSONArray criminalsJSON = (JSONArray)new JSONParser().parse(reader);
             JSONArray criminalsJSON = (JSONArray)parser.parse(reader);
 
             for (int i = 0; i < criminalsJSON.size(); ++i) {
                 JSONObject criminalJSON = (JSONObject)criminalsJSON.get(i);
-                //int numCrimes = ((Long)criminalJSON.get(CRIMINAL_NUM_CRIMES)).intValue();
                 String id = (String)criminalJSON.get(PERSON_ID);
                 String firstName = (String)criminalJSON.get(PERSON_FIRST_NAME);
                 String lastName = (String)criminalJSON.get(PERSON_LAST_NAME);
@@ -166,7 +154,6 @@ public class DataLoader extends DataConstants {
                 String victimRelation = (String)criminalJSON.get(POI_VICTIM_RELATION);
                 String evidenceConn = (String)criminalJSON.get(POI_EVIDENCE_CONN);
                 boolean isRepeatOffender = ((Boolean)criminalJSON.get(POI_IS_REPEAT_OFFENDER)).booleanValue();
-                //String accomplices = (String)suspectJSON.get(SUSPECTS_ACCOMPLICES);
                 ArrayList<Person> accomplices = new ArrayList<Person>();
                 JSONArray accomplicesJSON = (JSONArray)criminalJSON.get(SUSPECTS_ACCOMPLICES);
                 Iterator<String> accomplicesIterator = accomplicesJSON.iterator();
@@ -175,7 +162,6 @@ public class DataLoader extends DataConstants {
                         accomplices.add(People.getInstance().getPerson(accomplicesIterator.next()));
                     }
                 }
-                //String familyMembers = (String)suspectJSON.get(SUSPECTS_FAMILY_MEMBERS);
                 ArrayList<Person> family = new ArrayList<Person>();
                 JSONArray familyJSON = (JSONArray)criminalJSON.get(SUSPECTS_FAMILY_MEMBERS);
                 Iterator<String> familyIterator = familyJSON.iterator();
@@ -202,13 +188,9 @@ public class DataLoader extends DataConstants {
                 double sentence = ((Long)criminalJSON.get(CRIMINAL_SENTENCE)).floatValue();
                 String status = (String)criminalJSON.get(CRIMINAL_STATUS);
                 boolean inCustody = ((Boolean)criminalJSON.get(CRIMINAL_IN_CUSTODY)).booleanValue();
-                // ADD INTAKE FOR ARRAY OF TATTOOS
-                //criminals.add(new Criminal(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelation, evidenceConn, isRepeatOffender, accomplices, family, footSize, prefClothes, nicknames, commonWords, hobbies, job, physicalTraits, crimes, sentence, status, inCustody));
                 Criminal ret = new Criminal(crimes, sentence, status, inCustody);
                 ret.setSuspectInfo(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelation, evidenceConn, isRepeatOffender, accomplices, family, footSize, prefClothes, nicknames, commonWords, hobbies, job, physicalTraits);
-                //criminals.add(new Criminal(crimes, sentence, status, inCustody).setPOIInfo(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelation, evidenceConn, isRepeatOffender));
                 criminals.add(ret);
-                // CAN'T CONSTRUCT WITH AMOUNT OF DATA REQUESTED FROM CRIMINALS
             }
 
             return criminals;
@@ -225,9 +207,7 @@ public class DataLoader extends DataConstants {
         try {
             FileReader reader = new FileReader(EVIDENCE_FILE_NAME);
             JSONParser parser = new JSONParser();
-            //JSONArray evidencesJSON = (JSONArray)new JSONParser().parse(reader);
             JSONArray evidencesJSON = (JSONArray)parser.parse(reader);
-
 
             for (int i = 0; i < evidencesJSON.size(); ++i) {
                 JSONObject evidenceJSON = (JSONObject)evidencesJSON.get(i);
@@ -252,9 +232,7 @@ public class DataLoader extends DataConstants {
         try {
             FileReader reader = new FileReader(OFFICER_FILE_NAME);
             JSONParser parser = new JSONParser();
-            //JSONArray officersJSON = (JSONArray)new JSONParser().parse(reader);
             JSONArray officersJSON = (JSONArray)parser.parse(reader);
-
 
             for (int i = 0; i < officersJSON.size(); ++i) {
                 JSONObject officerJSON = (JSONObject)officersJSON.get(i);
@@ -278,7 +256,6 @@ public class DataLoader extends DataConstants {
         try {
             FileReader reader = new FileReader(POI_FILE_NAME);
             JSONParser parser = new JSONParser();
-            //JSONArray poisJSON = (JSONArray)new JSONParser().parse(reader);
             JSONArray poisJSON = (JSONArray)parser.parse(reader);
 
             for (int i = 0; i < poisJSON.size(); ++i) {
@@ -298,12 +275,9 @@ public class DataLoader extends DataConstants {
                 String victimRelation = (String)poiJSON.get(POI_VICTIM_RELATION);
                 String evidenceConn = (String)poiJSON.get(POI_EVIDENCE_CONN);
                 boolean isRepeatOffender = ((Boolean)poiJSON.get(POI_IS_REPEAT_OFFENDER)).booleanValue();
-                // COPY INFO FROM PERSON TO PASS
-                //poi.add(new POI(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelation, evidenceConn, isRepeatOffender));
                 POI ret = new POI(tattoos, gang, victimRelation, evidenceConn, isRepeatOffender);
                 ret.setPersonInfo(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age);
                 poi.add(ret);
-                // CAN'T CONSTRUCT WITH AMOUNT OF DATA REQUIRED FROM POI
             }
 
             return poi;
@@ -315,39 +289,12 @@ public class DataLoader extends DataConstants {
         return null;
     }
 
-    /*
-    public static ArrayList<HospitalReport> loadReport() {
-        ArrayList<HospitalReport> report = new ArrayList<HospitalReport>();
-
-        try {
-            FileReader reader = new FileReader(REPORT_FILE_NAME);
-            JSONParser parser = new JSONParser();
-            JSONArray reportsJSON = (JSONArray)new JSONParser().parse(reader);
-
-            for (int i = 0; i < reportsJSON.size(); ++i) {
-                JSONObject reportJSON = (JSONObject)reportsJSON.get(i);
-                String id = (String)reportJSON.get(REPORT_ID);
-                int numStatements = ((Long)reportJSON.get(REPORT_NUM_STATEMENTS)).intValue();
-                // INTAKE ARRAY OF STATEMENTS
-                int numVictims = ((Long)reportJSON.get(REPORT_NUM_VICTIMS)).intValue();
-                // INTAKE ARRAY OF VICTIMS
-                report.add(new HospitalReport(id, ));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return null;
-    }
-    */
-
     public static ArrayList<Suspect> loadSuspects() {
         ArrayList<Suspect> suspect = new ArrayList<Suspect>();
 
         try {
             FileReader reader = new FileReader(SUSPECTS_FILE_NAME);
             JSONParser parser = new JSONParser();
-            //JSONArray suspectsJSON = (JSONArray)new JSONParser().parse(reader);
             JSONArray suspectsJSON = (JSONArray)parser.parse(reader);
 
             for (int i = 0; i < suspectsJSON.size(); ++i) {
@@ -367,7 +314,6 @@ public class DataLoader extends DataConstants {
                 String victimRelation = (String)suspectJSON.get(POI_VICTIM_RELATION);
                 String evidenceConn = (String)suspectJSON.get(POI_EVIDENCE_CONN);
                 boolean isRepeatOffender = ((Boolean)suspectJSON.get(POI_IS_REPEAT_OFFENDER)).booleanValue();
-                //String accomplices = (String)suspectJSON.get(SUSPECTS_ACCOMPLICES);
                 ArrayList<Person> accomplices = new ArrayList<Person>();
                 JSONArray accomplicesJSON = (JSONArray)suspectJSON.get(SUSPECTS_ACCOMPLICES);
                 Iterator<String> accomplicesIterator = accomplicesJSON.iterator();
@@ -376,7 +322,6 @@ public class DataLoader extends DataConstants {
                         accomplices.add(People.getInstance().getPerson(accomplicesIterator.next()));
                     }
                 }
-                //String familyMembers = (String)suspectJSON.get(SUSPECTS_FAMILY_MEMBERS);
                 ArrayList<Person> family = new ArrayList<Person>();
                 JSONArray familyJSON = (JSONArray)suspectJSON.get(SUSPECTS_FAMILY_MEMBERS);
                 Iterator<String> familyIterator = familyJSON.iterator();
@@ -392,7 +337,6 @@ public class DataLoader extends DataConstants {
                 String hobbies = (String)suspectJSON.get(SUSPECTS_HOBBIES);
                 String job = (String)suspectJSON.get(SUSPECTS_JOB);
                 String physicalTraits = (String)suspectJSON.get(SUSPECTS_PHYSICAL_TRAITS);
-                //suspect.add(new Suspect(firstName, lastName, id, gender, address, race, hairColor, hairStyle, eyeColor, age, tattoos, gang, victimRelation, evidenceConn, isRepeatOffender, accomplices, family, footSize, prefClothes, nicknames, commonWords, hobbies, job, physicalTraits));
                 Suspect ret = new Suspect(accomplices, family, footSize, prefClothes, nicknames, commonWords, hobbies, job, physicalTraits);
                 ret.setPOIInfo(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelation, evidenceConn, isRepeatOffender);
                 suspect.add(ret);
@@ -413,7 +357,6 @@ public class DataLoader extends DataConstants {
         try {
             FileReader reader = new FileReader(USER_FILE_NAME);
             JSONParser parser = new JSONParser();
-            //JSONArray usersJSON = (JSONArray)new JSONParser().parse(reader);
             JSONArray usersJSON = (JSONArray)parser.parse(reader);
 
             for (int i = 0; i < usersJSON.size(); ++i) {
@@ -441,7 +384,6 @@ public class DataLoader extends DataConstants {
         try {
             FileReader reader = new FileReader(VICTIM_FILE_NAME);
             JSONParser parser = new JSONParser();
-            //JSONArray victimsJSON = (JSONArray)new JSONParser().parse(reader);
             JSONArray victimsJSON = (JSONArray)parser.parse(reader);
 
             for (int i = 0; i < victimsJSON.size(); ++i) {
@@ -451,8 +393,6 @@ public class DataLoader extends DataConstants {
                 String id = (String)victimJSON.get(PERSON_ID);
                 String statement = (String)victimJSON.get(VICTIM_STATEMENT);
                 boolean isAlive = ((Boolean)victimJSON.get(VICTIM_IS_ALIVE)).booleanValue();
-                //int numReports = ((Long)victimJSON.get(VICTIM_NUM_H_REPORTS)).intValue();
-                // INTAKE ARRAY OF REPORTS
                 ArrayList<HospitalReport> hReports = new ArrayList<HospitalReport>();
                 JSONArray hReportsJSON = (JSONArray)victimJSON.get(VICTIM_H_REPORTS);
                 Iterator<String> hReportsIterator = hReportsJSON.iterator();
@@ -461,7 +401,6 @@ public class DataLoader extends DataConstants {
                         hReports.add(HospitalReports.getInstance().getHReport(hReportsIterator.next()));
                     }
                 }
-                //victim.add(new Victim(firstName, lastName, statement, isAlive, hReports));
                 Victim ret = new Victim(statement, isAlive, hReports);
                 ret.setPersonInfo(firstName, lastName, id);
                 victim.add(ret);
@@ -482,7 +421,6 @@ public class DataLoader extends DataConstants {
         try {
             FileReader reader = new FileReader(WITNESS_FILE_NAME);
             JSONParser parser = new JSONParser();
-            //JSONArray witnessesJSON = (JSONArray)new JSONParser().parse(reader);
             JSONArray witnessesJSON = (JSONArray)parser.parse(reader);
 
             for (int i = 0; i < witnessesJSON.size(); ++i) {
@@ -494,7 +432,6 @@ public class DataLoader extends DataConstants {
                 String email = (String)witnessJSON.get(WITNESS_EMAIL);
                 String statement = (String)witnessJSON.get(WITNESS_STATEMENT);
                 String relationBad = (String)witnessJSON.get(WITNESS_RELATION_BAD);
-                //witness.add(new Witness(firstName, lastName, phone, email, statement, relationBad));
                 Witness ret = new Witness(phone, email, statement, relationBad);
                 ret.setPersonInfo(firstName, lastName, id);
                 witness.add(ret);
@@ -515,7 +452,6 @@ public class DataLoader extends DataConstants {
         try {
             FileReader reader = new FileReader(HOSPITAL_FILE_NAME);
             JSONParser parser = new JSONParser();
-            //JSONArray hreportsJSON = (JSONArray)new JSONParser().parse(reader);
             JSONArray hreportsJSON = (JSONArray)parser.parse(reader);
 
             for (int i = 0; i < hreportsJSON.size(); ++i) {
@@ -523,7 +459,7 @@ public class DataLoader extends DataConstants {
                 String id = (String)hreportJSON.get(HOSPITAL_ID);
                 String diagnosis = (String)hreportJSON.get(HOSPITAL_DIAGNOSIS);
                 String cause = (String)hreportJSON.get(HOSPITAL_CAUSE);
-                String doctorString = (String)hreportJSON.get(HOSPITAL_DOCTOR); // BOTH DOCTOR AND NURSE ARE PERSONS
+                String doctorString = (String)hreportJSON.get(HOSPITAL_DOCTOR);
                 String[] docName = doctorString.split(DELIMITER);
                 Person doctor = new Person(docName[0], docName[1]);
                 String nurseString = (String)hreportJSON.get(HOSPITAL_NURSE);
