@@ -38,6 +38,9 @@ public class UI {
     return scanner.nextLine();  
   }
 
-  public static void main(String[] args) { while(UI.display()); }
+  public static void main(String[] args) { 
+    FacCalls.LOGOUT.call(screen);
+    while(UI.display());
+  }
 
 }
