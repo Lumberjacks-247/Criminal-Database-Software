@@ -39,10 +39,10 @@ public class Victims {
 		return victimList;
 	}
 	
-	public boolean addVictim(String firstName,  String lastName, String statement, boolean isAlive, Long numReports, String hReports) {
+	public boolean addVictim(String firstName,  String lastName, String statement, boolean isAlive, ArrayList<HospitalReport> hReports) {
 		if(haveVictim(firstName))
 			return false;
-		victimList.add(new Victim(firstName, lastName, statement, isAlive, numReports, hReports));
+		victimList.add(new Victim(firstName, lastName, statement, isAlive, hReports));
 		return true;
 	}
 	

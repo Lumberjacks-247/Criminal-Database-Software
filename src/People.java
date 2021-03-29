@@ -19,7 +19,10 @@ public class People {
 	//check if have person.
 	public boolean havePerson(String personName) {
 		for(Person person : personList) {
-			if(person.getPersonName().equals(personName)) 
+      String firstname = person.getFirstName();
+      String lastname = person.getLastName();
+      String name = firstname +" "+ lastname;
+			if(name.equals(personName)) 
 				return true;
 		}
 		return false;
@@ -28,7 +31,10 @@ public class People {
 	
 	public Person getPerson(String personName) {
 		for(Person person: personList) {
-			if(person.getPersonName().equals(personName)) {
+      String firstname = person.getFirstName();
+      String lastname = person.getLastName();
+      String name = firstname +" "+ lastname;
+			if(name.equals(personName)) {
 				return person;
 			}
 		}

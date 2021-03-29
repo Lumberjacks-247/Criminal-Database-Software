@@ -1,7 +1,7 @@
 package src;
 public class Facade {
 
-	private Person person;
+	private People people;
 	private Crimes crime;
 	private Users user;
 	private User currentUser;
@@ -12,15 +12,14 @@ public class Facade {
 	private Suspects suspect;
 	private Victims victim;
 	private Witnesses witness;
-	protected Password password;
-	private HospitalReport hospitalreport;
+	private HospitalReports hospitalreport;
 
 	
 	public Facade() {
 
 
 		user = Users.getInstance();
-		person = Person.getInstance(); 
+		people = People.getInstance(); 
 		crime = Crimes.getInstance();
 		criminal = Criminals.getInstance();
 		evidence = Evidences.getInstance();
@@ -29,12 +28,11 @@ public class Facade {
 		suspect = Suspects.getInstance();
 		victim = Victims.getInstance();
 		witness = Witnesses.getInstance();
-		password = Password.getInstance();
-		hospitalreport = HospitalReport.getInstance();
+		hospitalreport = HospitalReports.getInstance();
 	}
 	
 	public boolean findPerson(String personName) {
-		return person.havePerson(personName);
+		return people.havePerson(personName);
 	}
 
 	public boolean checkPerson(String personName) {
@@ -275,7 +273,7 @@ public class Facade {
 	}
 	
 	public boolean findHospitalReport(String hospitalReportName) {
-		return hospitalreport.haveHospitalReport(hospitalReportName);
+		return hospitalreport.haveHReport(hospitalReportName);
 	}
 
 	public boolean checkHospitalReport(String hospitalReportName) {
@@ -292,7 +290,7 @@ public class Facade {
 	
 	public boolean addHospitalReport(String hospitalReportName) {
 		if(!findHospitalReport(hospitalReportName)) {
-			hospitalreport.addHospitalReport(null);
+			hospitalreport.addHReport(null,null,null,null,null,null,0);
 			return false;
 		}
 		return true;

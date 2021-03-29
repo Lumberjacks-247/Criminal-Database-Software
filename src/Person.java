@@ -1,13 +1,10 @@
 package src;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 
 public class Person {
 
     protected String firstName ,lastName ,id ,gender ,race ,hairColor ,hairStyle ,eyeColor ,address ,age;
     protected static int idCount = 0;
-    protected static Person person;
-    protected ArrayList<Person> personList;
     DecimalFormat df = new DecimalFormat("000000");
 
 
@@ -231,27 +228,5 @@ public class Person {
     public boolean compareID(Person person) {
         return(this.getID().equals(person.getID()));
     }
-
-	public static Person getInstance() {
-		if(person == null) {
-			person = new Person("asdf", "asdf");
-		}
-		return person;
-	}
-
-	public boolean havePerson(String personName) {
-		for(Person person : personList) {
-			if(person.getFirstName().equals(firstName)){
-				return true;
-			}
-		}
-		return false;
-	}
-
-	public Object getPersonName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-    
 
 }

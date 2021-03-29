@@ -1,15 +1,13 @@
 package src;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
+
 
 public class HospitalReport {
 
-    private String id, diagnosis, cause, dateAdmitted;
-    private Person doctor, nurse;
-    private int numDaysAdmitted;
+  private String id, diagnosis, cause, dateAdmitted;
+  private Person doctor, nurse;
+  private int numDaysAdmitted;
 	private int idCount = 0;
-    public static HospitalReport hospitalReport;
-	private ArrayList<HospitalReport> hospitalReportList;
 	DecimalFormat df = new DecimalFormat("000000");
 
     /**
@@ -95,38 +93,7 @@ public class HospitalReport {
 		this.numDaysAdmitted = numDaysAdmitted;
 	}
 
-	public static HospitalReport getInstance() {
-		if(hospitalReport == null) {
-			hospitalReport = new HospitalReport();
-		}
-		return hospitalReport;
-	}
 
-	public boolean haveHospitalReport(String hospitalReportName) {
-		for(HospitalReport hospitalReport : hospitalReportList) {
-			if(hospitalReport.getHospitalReportName().equals(hospitalReportName)) 
-				return true;
-		}
-		return false;
-	}
 
-	private boolean getHospitalReport(String hospitalReportName) {
-		for(HospitalReport hospitalReport : hospitalReportList) {
-			if(hospitalReport.getHospitalReportName().equals(hospitalReportName)) 
-				return true;
-		}
-		return false;
-	}
-
-	private String getHospitalReportName() {
-		return null;
-	}
-
-	public boolean addHospitalReport(String hospitalReportName) {
-		if(haveHospitalReport(hospitalReportName))
-			return false;
-		hospitalReportList.add(new HospitalReport(hospitalReportName, hospitalReportName, hospitalReportName, doctor, doctor, hospitalReportName, numDaysAdmitted));
-		return true;
-	}
     
 }
