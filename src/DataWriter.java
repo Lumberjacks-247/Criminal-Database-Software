@@ -83,7 +83,7 @@ public class DataWriter extends DataConstants{
 	}
 
 	/**
-	 * Saves the Crimes to crimes.json
+	 * Saves the Crimes to crime.json
 	 */
 	public static void saveCrimes() {
 		Crimes crimes = Crimes.getInstance();
@@ -205,15 +205,15 @@ public class DataWriter extends DataConstants{
 		criminalDetails.put(POI_VICTIM_RELATION, criminal.getVictimRelationship());
 		criminalDetails.put(POI_EVIDENCE_CONN, criminal.getEvidenceConnection());
 		criminalDetails.put(POI_IS_REPEAT_OFFENDER, criminal.getIsRepeatOffender());
-		criminalDetails.put(SUSPECTS_ACCOMPLICES, criminal.getAccomplices());
-		criminalDetails.put(SUSPECTS_FAMILY_MEMBERS, criminal.getFamilyMembers());
-		criminalDetails.put(SUSPECTS_FOOT_SIZE, criminal.getFootSize());
-		criminalDetails.put(SUSPECTS_PREFERRED_CLOTHES, criminal.getPrefferedClothes());
-		criminalDetails.put(SUSPECTS_NICKNAMES, criminal.getNickNames());
-		criminalDetails.put(SUSPECTS_COMMON_WORDS, criminal.getCommonWords());
-		criminalDetails.put(SUSPECTS_HOBBIES, criminal.getHobbies());
-		criminalDetails.put(SUSPECTS_JOB, criminal.getJob());
-		criminalDetails.put(SUSPECTS_PHYSICAL_TRAITS, criminal.getDistintPhysicalTraits());
+		criminalDetails.put(SUSPECT_ACCOMPLICES, criminal.getAccomplices());
+		criminalDetails.put(SUSPECT_FAMILY_MEMBERS, criminal.getFamilyMembers());
+		criminalDetails.put(SUSPECT_FOOT_SIZE, criminal.getFootSize());
+		criminalDetails.put(SUSPECT_PREFERRED_CLOTHES, criminal.getPrefferedClothes());
+		criminalDetails.put(SUSPECT_NICKNAMES, criminal.getNickNames());
+		criminalDetails.put(SUSPECT_COMMON_WORDS, criminal.getCommonWords());
+		criminalDetails.put(SUSPECT_HOBBIES, criminal.getHobbies());
+		criminalDetails.put(SUSPECT_JOB, criminal.getJob());
+		criminalDetails.put(SUSPECT_PHYSICAL_TRAITS, criminal.getDistintPhysicalTraits());
 		criminalDetails.put(CRIMINAL_CRIMES, criminal.getCrimes());
 		criminalDetails.put(CRIMINAL_SENTENCE, criminal.getSentence());
 		criminalDetails.put(CRIMINAL_STATUS, criminal.getStatus());
@@ -374,7 +374,7 @@ public class DataWriter extends DataConstants{
 	}
 
 	/**
-	 * Saves the Suspects to suspects.json
+	 * Saves the Suspects to suspect.json
 	 */
 	public static void saveSuspects() {
 		Suspects suspects = Suspects.getInstance();
@@ -385,7 +385,7 @@ public class DataWriter extends DataConstants{
 			jsonSuspects.add(getSuspectJSON(suspectList.get(i)));
 		}
 
-		try (FileWriter file = new FileWriter(SUSPECTS_FILE_NAME)) {
+		try (FileWriter file = new FileWriter(SUSPECT_FILE_NAME)) {
 			file.write(jsonSuspects.toJSONString());
 			file.flush();
 		} catch (IOException e) {
@@ -415,15 +415,15 @@ public class DataWriter extends DataConstants{
 		suspectDetails.put(POI_VICTIM_RELATION, suspect.getVictimRelationship());
 		suspectDetails.put(POI_EVIDENCE_CONN, suspect.getEvidenceConnection());
 		suspectDetails.put(POI_IS_REPEAT_OFFENDER, suspect.getIsRepeatOffender());
-		suspectDetails.put(SUSPECTS_ACCOMPLICES, suspect.getAccomplices());
-		suspectDetails.put(SUSPECTS_FAMILY_MEMBERS, suspect.getFamilyMembers());
-		suspectDetails.put(SUSPECTS_FOOT_SIZE, suspect.getFootSize());
-		suspectDetails.put(SUSPECTS_PREFERRED_CLOTHES, suspect.getPrefferedClothes());
-		suspectDetails.put(SUSPECTS_NICKNAMES, suspect.getNickNames());
-		suspectDetails.put(SUSPECTS_COMMON_WORDS, suspect.getCommonWords());
-		suspectDetails.put(SUSPECTS_HOBBIES, suspect.getHobbies());
-		suspectDetails.put(SUSPECTS_JOB, suspect.getJob());
-		suspectDetails.put(SUSPECTS_PHYSICAL_TRAITS, suspect.getDistintPhysicalTraits());
+		suspectDetails.put(SUSPECT_ACCOMPLICES, suspect.getAccomplices());
+		suspectDetails.put(SUSPECT_FAMILY_MEMBERS, suspect.getFamilyMembers());
+		suspectDetails.put(SUSPECT_FOOT_SIZE, suspect.getFootSize());
+		suspectDetails.put(SUSPECT_PREFERRED_CLOTHES, suspect.getPrefferedClothes());
+		suspectDetails.put(SUSPECT_NICKNAMES, suspect.getNickNames());
+		suspectDetails.put(SUSPECT_COMMON_WORDS, suspect.getCommonWords());
+		suspectDetails.put(SUSPECT_HOBBIES, suspect.getHobbies());
+		suspectDetails.put(SUSPECT_JOB, suspect.getJob());
+		suspectDetails.put(SUSPECT_PHYSICAL_TRAITS, suspect.getDistintPhysicalTraits());
 		return suspectDetails;
 	}
 
