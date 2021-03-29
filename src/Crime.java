@@ -2,6 +2,8 @@ package src;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+import src.Criminal;
+
 public class Crime {
 
     private int levelOfCharge, jurisdiction;
@@ -282,6 +284,89 @@ public class Crime {
 		}
 		return false;
 	}
+
+    public String listNamesPOI(ArrayList<POI> people) {
+        String ret = "";
+        for(Person p : people) {
+            ret.concat(list(p));
+        }
+        return ret;
+    }
+
+    public String listNamesSuspect(ArrayList<Suspect> people) {
+        String ret = "";
+        for(Person p : people) {
+            ret.concat(list(p));
+        }
+        return ret;
+    }
+
+    public String listNamesCriminal(ArrayList<Criminal> people) {
+        String ret = "";
+        for(Person p : people) {
+            ret.concat(list(p));
+        }
+        return ret;
+    }
+
+    public String listNamesVictim(ArrayList<Victim> people) {
+        String ret = "";
+        for(Person p : people) {
+            ret.concat(list(p));
+        }
+        return ret;
+    }
+
+    public String listNamesWitness(ArrayList<Witness> people) {
+        String ret = "";
+        for(Person p : people) {
+            ret.concat(list(p));
+        }
+        return ret;
+    }
+
+    public String listNamesOfficer(ArrayList<Officer> people) {
+        String ret = "";
+        for(Person p : people) {
+            ret.concat(list(p));
+        }
+        return ret;
+    }
+
+    public String listEvidence(ArrayList<Evidence> evidence) {
+        String ret = "";
+        for(Evidence e : evidence) {
+            ret.concat(e.getDescription() + ", ");
+        }
+        return ret;
+    }
+
+    public String list(Person p) {
+        return p.getFirstName() + " " + p.getLastName() + ", ";
+    }
+
+    public String toString() {
+        String levelOfCharge = (String)levelOfCharge;
+        String jurisdiction = (String)jurisdiction;
+        String isOpen = (String)isOpen;
+        String[] details = new String[]{id,typeOfCrime,levelOfCharge,jurisdiction,location,isOpen,author.getFirstName() + " " + author.getLastName(),listNamesPOI(pois),
+            listNamesSuspect(suspects),listNamesCriminal(criminals),listNamesVictim(victims),listNamesWitness(witnesses),
+            listNamesOfficer(officers), listEvidence(evidence)};
+        String[] prompts = new String[]{"ID: ","Type of Crime: ","Level of Charge","Jurisdiction","Location: ","Open: ","Author Name: ",
+            "POI Names: ","Suspect Names: ","Criminal Names: ","Victim Names: ","Witness Names: ", "Officer Names: ", "Evididence: "};
+        
+        String output = "";
+
+        for (int i = 0; i < details.length;i++) {
+          String detail = details[i];
+          String prompt = prompts[i];
+  
+          if (!detail.equals("")) {
+            output += prompt + detail + " | ";
+          } 
+  
+          
+        }
 
 	private Crime getCrime() {
 		// TODO Auto-generated method stub
