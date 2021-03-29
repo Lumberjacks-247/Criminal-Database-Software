@@ -28,7 +28,7 @@ public class Victim extends Person{
         this.hospitalReports = hospitalReports;
     }
 
-    public void setPersonInfo(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, String eyeColor, String address, String age) {
+    public void setPersonInfo(String firstName, String lastName, String id) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.id = id;

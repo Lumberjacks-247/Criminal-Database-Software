@@ -24,17 +24,10 @@ public class Witness extends Person{
         this.relationToBadGuy = relationToBadGuy;
     }
 
-    public void setPersonInfo(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, String eyeColor, String address, String age) {
+    public void setPersonInfo(String firstName, String lastName, String id) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.id = id;
-        this.gender = gender;
-        this.race = race;
-        this.hairColor = hairColor;
-        this.hairStyle = hairStyle;
-        this.eyeColor = eyeColor;
-        this.address = address;
-        this.age = age;
     }
 
     /**
