@@ -1,9 +1,14 @@
 package src;
 
+/**
+ * Displays the results of a search in Facade to the screen.
+ * @author Blake Seekings
+ * @version 1.0
+ * @see FacUIConstants
+ */
 public class ResScreen extends Screen {
   private Object[] data;
 
-  private Screen parent;
   public ResScreen(Screen parent, Object[] objs) {
     this.parent = parent;
     this.data = objs;
