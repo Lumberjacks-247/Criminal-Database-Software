@@ -105,7 +105,12 @@ public class FacUIConstants {
     } else {
       return ScreenCalls.WELCOME.call(s);
     }
+
+
   }
 
+  public static Screen createCrime(Screen s) {
+    return s.parent;
+  }
 
 }

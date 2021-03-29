@@ -20,8 +20,11 @@ public enum ScreenCalls {
     CREATEACCOUNT (UIConstants::CreateAccountScreen),
     SEARCH        (UIConstants::SearchScreen),
     SEARCHPEOPLE  (UIConstants::SearchPeopleScreen),
-    SEARCHREPORTS  (UIConstants::SearchReportsScreen),
-    MAINMENU      (UIConstants::MainMenuScreen);
+    SEARCHREPORTS (UIConstants::SearchReportsScreen),
+    MAINMENU      (UIConstants::MainMenuScreen),
+    NEWDATA       (UIConstants::NewDataScreen),
+    NEWCRIME      (UIConstants::NewCrimeScreen)
+    ;
 
 
     /* Method reference */

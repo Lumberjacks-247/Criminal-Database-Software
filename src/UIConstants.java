@@ -223,7 +223,7 @@ public class UIConstants {
 
     String titleString = "Main Menu";
     String choiceString = "Logout;Search;New";
-    String linkString = "F:LOGOUT;S:SEARCH;S:NEW";
+    String linkString = "F:LOGOUT;S:SEARCH;S:NEWDATA";
 
     /* Extra Adjustments */
     Screen screen = new TransScreen(titleString,choiceString,linkString);
@@ -270,6 +270,33 @@ public class UIConstants {
 
   }
 
+
+  public static Screen NewDataScreen(Screen parent) {
+    String titleString = "Enter New Data";
+    String choiceString = "Back;Enter New Person;Enter New Crime";
+    String linkString = "S:PARENT;S:ENTERPERSON;S:NEWCRIME";
+
+    
+    /* Extra Adjustments */
+    Screen screen = new TransScreen(titleString,choiceString,linkString);
+    screen.setParent(null);
+    return screen;
+  }
+
+
+  public static Screen NewCrimeScreen(Screen parent) {
+        
+    String titleString = "New Crime";
+    String dataPromptString = "Name of Crime";
+    String choiceString = "Back;Set Name of Crime;Create New Crime";
+    String linkString = "S:PARENT;ENTERDATA;F:CREATECRIME";
+
+    
+    /* Extra Adjustments */
+    Screen screen = new EditorScreen(titleString, dataPromptString, choiceString, linkString);
+    screen.setParent(parent);
+    return screen;
+  }
 
   public static Screen ResultScreen(Screen parent,Object[] objs) {
     return new ResScreen(parent,objs);
