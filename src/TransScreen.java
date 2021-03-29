@@ -30,7 +30,7 @@ public class TransScreen extends Screen {
 
     String bot = "";
     for (int i=0;i<choices.length;) {
-      String line = UIConstants.center("(" + i + ") " + this.choices[i++]);
+      String line = "(" + i + ") " + this.choices[i++];
       bot += line + "\n";
     }
 

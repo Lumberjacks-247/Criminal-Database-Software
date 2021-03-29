@@ -29,6 +29,10 @@ public enum FacCalls {
     }
 
     private Function<Screen,Screen> f;
+
+    /**
+     * @param f_ A method reference which takes in a Screen object and returns a Screen object
+     */
     private FacCalls(Function<Screen,Screen> f_) {
       this.f = f_;
     }

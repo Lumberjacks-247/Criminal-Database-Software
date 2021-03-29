@@ -50,7 +50,7 @@ public class EditorScreen extends Screen {
     mid += UIConstants.DIV;
     String  bot = "";
     for (int i=0;i<choices.length;) {
-      bot += UIConstants.center("(" + i + ") " + this.choices[i++]) + "\n";
+      bot += "(" + i + ") " + this.choices[i++] + "\n";
     } 
 
     String display = top+mid+bot;
