@@ -49,13 +49,13 @@ public class Facade {
 		return false;
 	}
 	
-	public boolean addPerson(String personName, String newPerson) {
-		if(!findPerson(personName)) {
-			person.addPerson(null, null, null, null, null, null, null, null, null, 0);
-			return false;
-		}
-		return true;
-	}
+	// public boolean addPerson(String personName, String newPerson) {
+	// 	if(!findPerson(personName)) {
+	// 		person.addPerson(null, null, null, null, null, null, null, null, null, null);
+	// 		return false;
+	// 	}
+	// 	return true;
+	// }
 
 	public boolean findCrime(String crimeName) {
 		return crime.haveCrime(crimeName);

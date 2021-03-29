@@ -43,6 +43,7 @@ public class Users {
 		if(haveUser(userName, userPassword))
 			return false;
 		userList.add(new User(userName, firstName, lastName, accessLevel, userPassword));
+    saveUsers();
 		return true;
 	}
 	

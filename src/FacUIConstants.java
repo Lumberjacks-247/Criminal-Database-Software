@@ -18,21 +18,21 @@ public class FacUIConstants {
    * @param s The Screen which contains the information of the Report Search
    * @return The Screen object representing a success or failure to find Reports
    */
-  public static Screen searchReports(Screen s) {
-    String p0 = s.getDataValue(0); // Author
-    String p1 = s.getDataValue(1); // LofC
-    String p2 = s.getDataValue(2); // Jurisdiction
-    String p3 = s.getDataValue(3); // TofC
-    String p4 = s.getDataValue(4); // Location
-
-    if (fac.findCrime(p0,p1,p2,p3,p4)) {
-      return ScreenCalls.MAINMENU.call(s);
-    } else {
-      return ScreenCalls.MAINMENU.call(s);
-    }
-
-
-  }
+//   public static Screen searchReports(Screen s) {
+//     String p0 = s.getDataValue(0); // Author
+//     String p1 = s.getDataValue(1); // LofC
+//     String p2 = s.getDataValue(2); // Jurisdiction
+//     String p3 = s.getDataValue(3); // TofC
+//     String p4 = s.getDataValue(4); // Location
+// 
+//     if (fac.findCrime(p0,p1,p2,p3,p4)) {
+//       return ScreenCalls.MAINMENU.call(s);
+//     } else {
+//       return ScreenCalls.MAINMENU.call(s);
+//     }
+// 
+// 
+//   }
 
   /**
    * Calls the Facade and passes the People information to search for. When
@@ -41,24 +41,24 @@ public class FacUIConstants {
    * @param s The Screen object containing the information for the Person Search
    * @return The Screen object representing a success or failure to find Persons
    */
-  public static Screen searchPeople(Screen s) {
-    
-
-    String p0 = s.getDataValue(0);  //First Name
-    String p1 = s.getDataValue(1); //Last Name
-    String p2 = s.getDataValue(2); //Gender
-    String p3 = s.getDataValue(3); //Race
-    String p4 = s.getDataValue(4); //Hair Color 
-    String p5 = s.getDataValue(5); //Hair Style
-    String p6 = s.getDataValue(6); //Eye Color
-    String p7 = s.getDataValue(7); //Set Address
-    String p8 = s.getDataValue(8); //Age
-
-    //Search people
-    /* Person[] people = fac.searchPeople(p0,p1,p2,p3,p4,p5,p6,p7,p8);*/
-
-    return ScreenCalls.MAINMENU.call(s);
-  }
+//   public static Screen searchPeople(Screen s) {
+//     
+// 
+//     String p0 = s.getDataValue(0);  //First Name
+//     String p1 = s.getDataValue(1); //Last Name
+//     String p2 = s.getDataValue(2); //Gender
+//     String p3 = s.getDataValue(3); //Race
+//     String p4 = s.getDataValue(4); //Hair Color 
+//     String p5 = s.getDataValue(5); //Hair Style
+//     String p6 = s.getDataValue(6); //Eye Color
+//     String p7 = s.getDataValue(7); //Set Address
+//     String p8 = s.getDataValue(8); //Age
+// 
+//     //Search people
+//     /* Person[] people = fac.searchPeople(p0,p1,p2,p3,p4,p5,p6,p7,p8);*/
+// 
+//     return ScreenCalls.MAINMENU.call(s);
+//   }
 
   /**
    * Calls the Facade to log the current user out. Returns the user to the
