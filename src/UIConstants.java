@@ -65,6 +65,9 @@ public class UIConstants {
    * Returns the initial Screen for UI to display.
    */
   public static Screen start() {
+    // Person[] people = new Person[]{new Person("James","Seekings",null,"Male","Caucasian","Blond","Straight",null,null,null)};
+    // Screen start = new ResScreen(ScreenCalls.START.call(null),people);
+    //return start;
     return  ScreenCalls.START.call(null);
   }
 
@@ -179,9 +182,9 @@ public class UIConstants {
   public static Screen SearchPeopleScreen(Screen parent) {
 
     String titleString = "Search People";
-    String dataPromptString = "Firstname;Lastname;Id;Gender;Race;Hair Color;Hair Style;Eye Color;Address;Age";
+    String dataPromptString = "Firstname;Lastname;Gender;Race;Hair Color;Hair Style;Eye Color;Address;Age";
     
-    String choiceString = "Back;Set Firstname;Set Lastname;Set id;Set gender;Set Race;";
+    String choiceString = "Back;Set Firstname;Set Lastname;Set gender;Set Race;";
     choiceString += "Set Hair Color;Set Hair Style;Set Eye Color;Set Address;Set Age;Search";
 
     String linkString = "S:PARENT;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;";
@@ -266,6 +269,11 @@ public class UIConstants {
     return screen;
 
 
+  }
+
+
+  public static Screen ResultScreen(Screen parent,Object[] objs) {
+    return new ResScreen(parent,objs);
   }
 
 

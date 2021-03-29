@@ -1,5 +1,6 @@
 package src;
 import java.util.function.Function;
+import java.util.function.BiFunction;
 
 /**
  * An enumeration of this type constructs <code>Screen</code> objects when called.
@@ -11,6 +12,7 @@ public enum ScreenCalls {
 
     NULL          (UIConstants::Null),
     START         (UIConstants::WelcomeScreen),
+    RESULTS       (UIConstants::ResultScreen),
     PARENT        (UIConstants::ParentScreen),
     WELCOME       (UIConstants::WelcomeScreen),
     LOGIN         (UIConstants::LoginScreen),
@@ -21,14 +23,20 @@ public enum ScreenCalls {
     SEARCHREPORTS  (UIConstants::SearchReportsScreen),
     MAINMENU      (UIConstants::MainMenuScreen);
 
+
     /* Method reference */
     private Function<Screen,Screen> f;
+    private BiFunction<Screen,Object[],Screen> b;
     /**
      * Constructs enum objects.
      * @param f_ Method reference to be stored in this enum
      */
     private ScreenCalls(Function<Screen,Screen> f_) {
       this.f = f_;
+    }
+
+    private ScreenCalls(BiFunction<Screen,Object[],Screen> b_) {
+      this.b = b_;
     }
 
     /**
@@ -47,6 +55,10 @@ public enum ScreenCalls {
      */
     public Screen call(Screen screen) {
       return this.f.apply(screen);
+    }
+
+    public Screen call(Screen screen, Object[] objs) {
+      return this.b.apply(screen, objs);
     }
 
   

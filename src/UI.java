@@ -26,11 +26,6 @@ public class UI {
     // Grab user input
     String inp = input();
 
-    // Check global quit flag
-    if (inp.equals(UIConstants.QUITFLAG)) {
-      return false;
-    }
-
     // Advance to next screen
     return (screen = screen.next(inp)) == null ? false : true;
   }

@@ -4,8 +4,7 @@ import java.util.ArrayList;
 
 public class Person {
 
-    protected String firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address = "";
-    protected String age = ""; 
+    protected String firstName ,lastName ,id ,gender ,race ,hairColor ,hairStyle ,eyeColor ,address ,age;
     protected static int idCount = 0;
     protected static Person person;
     protected ArrayList<Person> personList;
@@ -17,8 +16,7 @@ public class Person {
      * @param lastName lsat name of person
      */
     public Person(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.init(firstName,lastName,null,null,null,null,null,null,null,null);
         idCount++;
         this.setID();
     }
@@ -37,16 +35,20 @@ public class Person {
      * @param age age of person
      */
     public Person(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, String eyeColor, String address, String age) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.id = id;
-        this.gender = gender;
-        this.race = race;
-        this.hairColor = hairColor;
-        this.hairStyle = hairStyle;
-        this.eyeColor = eyeColor;
-        this.address = address;
-        this.age = age;
+        this.init( firstName,  lastName,  id,  gender,  race,  hairColor,  hairStyle,  eyeColor,  address,  age);
+    }
+
+    private void init(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, String eyeColor, String address, String age) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.id = id == null ? "" : id;
+      this.gender = gender == null ? "" : gender;
+      this.race = race == null ? "" : race;
+      this.hairColor = hairColor == null ? "" : hairColor;
+      this.hairStyle = hairStyle == null ? "" : hairStyle;
+      this.eyeColor = eyeColor == null ? "" : eyeColor;
+      this.address = address == null ? "" : address;
+      this.age = age == null ? "" : age;
     }
 
     //need to check all Person object to see if id already is being used
@@ -200,9 +202,22 @@ public class Person {
     }
 
     public String toString() {
-        return "Name: " + this.getFirstName() + this.getLastName() + "\nAge: " + this.getAge() + "\nGender: " + this.getGender() + 
-            "\nRace: " + this.getRace() + "\nHair Color: " + this.getHairColor() + "\nHairStyle" + this.getHairStyle() + 
-            "\nEye Color: " + this.getEyeColor() + "\nAddress: " + this.getAddress();
+      String[] details = new String[]{firstName+ " " +lastName,age,gender,race,hairColor,hairStyle,eyeColor,address};
+      String[] prompts = new String[]{"Name: ","Age: ","Gender: ","Race: ","Hair Color: ","Hair Style: ","Eye Color: ","Address: "};
+      
+      String output = "";
+      for (int i = 0; i < details.length;i++) {
+        String detail = details[i];
+        String prompt = prompts[i];
+
+        if (!detail.equals("")) {
+          output += prompt + detail + " | ";
+        } 
+
+        
+      }
+
+      return output;
     }
 
     /*public boolean partialCompare(Person person) {
@@ -230,13 +245,6 @@ public class Person {
 		}
 		return false;
 	}
-    public static void main(String[] args) {
-        Person dylan = new Suspect("Dylan", "Neff");
-        System.out.println(dylan.getFirstName());
-        System.out.println(dylan.getAge());
-        System.out.println(dylan.getAddress());
-        System.out.println(dylan.getID());
-    }
 
 	public Object getPersonName() {
 		// TODO Auto-generated method stub

@@ -24,18 +24,20 @@ public class FacUIConstants {
   }
   public static Screen searchPeople(Screen s) {
     
-    boolean override = true;
-    String p0 = s.getDataValue(0);
-    String p1 = s.getDataValue(1);
-    String p2 = s.getDataValue(2);
-    String p3 = s.getDataValue(3);
-    String p4 = s.getDataValue(4);
-    String p5 = s.getDataValue(5);
-    String p6 = s.getDataValue(6);
-    String p7 = s.getDataValue(7);
-    String p8 = s.getDataValue(8);
 
-  
+    String p0 = s.getDataValue(0);  //First Name
+    String p1 = s.getDataValue(1); //Last Name
+    String p2 = s.getDataValue(2); //Gender
+    String p3 = s.getDataValue(3); //Race
+    String p4 = s.getDataValue(4); //Hair Color 
+    String p5 = s.getDataValue(5); //Hair Style
+    String p6 = s.getDataValue(6); //Eye Color
+    String p7 = s.getDataValue(7); //Set Address
+    String p8 = s.getDataValue(8); //Age
+
+    //Search people
+    /* Person[] people = fac.searchPeople(p0,p1,p2,p3,p4,p5,p6,p7,p8);*/
+
     return ScreenCalls.MAINMENU.call(s);
   }
 
