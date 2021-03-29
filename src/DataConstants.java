@@ -1,3 +1,7 @@
+/**
+ * DataConstants, Constants for DataLoader and DataWriter
+ * @author Brooks Robinson
+ */
 package src;
 public abstract class DataConstants {
     protected static final String CRIMES_FILE_NAME = "dat/crimes.json";
