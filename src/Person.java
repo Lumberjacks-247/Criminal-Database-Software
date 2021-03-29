@@ -220,6 +220,11 @@ public class Person {
       return output;
     }
 
+    /**
+     * CALLING OBJECT MUST BE PERSON WITH SEARCH INFO WHILE PARAMETER IS ALREADY CREATED PERSON
+     * @param person person object to see if their info matches search info
+     * @return true if partial match is found, false if not
+     */
     public boolean partialCompare(Person person) {
         if(!this.getFirstName().equalsIgnoreCase(person.getFirstName())){
             if(this.getFirstName().equals(BLANK)) continue;

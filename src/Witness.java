@@ -4,19 +4,25 @@ public class Witness extends Person{
     private String phoneNumber, email, statement, relationToBadGuy;
 
     /**
+     * USED FOR CREATING WITNESS THROUGH UI
      * creates Witness object with passed in first and last name
      * @param firstName first name of witness
      * @param lastName last name of witness
      */
-    public Witness(String firstName, String lastName, String phoneNumber, String email, String statement, String relationToBadGuy) {
+    public Witness(String firstName, String lastName) {
         super(firstName, lastName);
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.statement = statement;
-        this.relationToBadGuy = relationToBadGuy;
-        this.setID();
     }
 
+    //USED FOR CREATING wITNESS FROM JSON
+    public Witness(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, String eyeColor, String address, String age, String phoneNumber, String email, String statement, String relationToBadGuy) {
+        super(firstName, lastName, id,  gender,  race,  hairColor,  hairStyle,  eyeColor,  address,  age);
+        this.phoneNumber = phoneNumber == null ? "" : phoneNumber;
+        this.email = email == null ? "" : email;
+        this.statement = statement == null ? "" : statement;
+        this.relationToBadGuy = relationToBadGuy == null ? "" : relationToBadGuy;
+    }
+
+    //USED FOR LOADING INTO JSON
     public Witness(String phoneNumber, String email, String statement, String relationToBadGuy) {
         this.phoneNumber = phoneNumber;
         this.email = email;
@@ -98,6 +104,27 @@ public class Witness extends Person{
     public String toString() {
         return super.toString() + "\nPhone Number: " + this.getPhoneNumber() + "\nEmail: " + this.getEmail() + 
             "\nStatement: " + this.getStatement() + "Relation to Bad Guy: " + this.getRelationToBadGuy();
+    }
+
+    public boolean partialCompare(Witness witness) {
+        if(!super.partialCompare(witness)) return false;
+        if(!this.getPhoneNumber().equalsIgnoreCase(witness.getPhoneNumber())){ 
+            if(this.getPhoneNumber().equals(BLANK)) continue;
+            return false;
+        }
+        if(!this.getEmail().equalsIgnoreCase(witness.getEmail())){ 
+            if(this.getEmail().equals(BLANK)) continue;
+            return false;
+        }
+        if(!this.getStatement().equalsIgnoreCase(witness.getStatement())){ 
+            if(this.getStatement().equals(BLANK)) continue;
+            return false;
+        }
+        if(!this.getRelationToBadGuy().equalsIgnoreCase(witness.getRelationToBadGuy())){ 
+            if(this.getRelationToBadGuy().equals(BLANK)) continue;
+            return false;
+        }
+        return true;
     }
 
 	public Object getWitnessName() {

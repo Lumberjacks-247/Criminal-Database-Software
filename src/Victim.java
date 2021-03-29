@@ -10,18 +10,25 @@ public class Victim extends Person{
     private ArrayList<HospitalReport> hospitalReports;
 
     /**
+     * USED FOR CREATING VICTIM THROUGH UI
      * creates a Victim object with passed in first and last names
      * @param firstName first name of victim
      * @param lastName last name of victim
      */
-    public Victim(String firstName, String lastName, String statement, boolean isAlive, ArrayList<HospitalReport> hospitalReports) {
+    public Victim(String firstName, String lastName) {
         super(firstName, lastName);
-        this.statement = statement;
-        this.isAlive = isAlive;
-        this.hospitalReports = hospitalReports;
-        this.setID();
     }
 
+    //USED FOR CREATING VICTIM FROM JSON
+    public Victim(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, 
+        String eyeColor, String address, String age, String statement, boolean isAlive, ArrayList<HospitalReport> hospitalReports) {
+        super(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age);
+        this.statement = statement == null ? "" : statement;
+        this.isAlive = isAlive;
+        this.hospitalReports = hospitalReports;
+    }
+
+    //USED FOR LOADING INTO JSON
     public Victim(String statement, boolean isAlive, ArrayList<HospitalReport> hospitalReports) {
         this.statement = statement;
         this.isAlive = isAlive;
@@ -85,6 +92,17 @@ public class Victim extends Person{
     public String toString() {
         return super.toString() + "\nStatement" + this.getStatement() + "\nIs Alive: " + this.getIsAlive() + 
             "\nHospital Reports: " + this.listHR(hospitalReports);
+    }
+
+    public boolean partialCompare(Victim victim) {
+        if(!super.partialCompare(victim)) return false;
+        if(!this.getStatement().equalsIgnoreCase(victim.getStatement())){ 
+            if(this.getStatement().equals(BLANK)) continue;
+            return false;
+        }
+        if(this.getIsAlive()!=victim.getIsAlive()) return false;
+        //Compare Hospital Reports HERE
+        return true;
     }
 
 	public Object getVictimName() {

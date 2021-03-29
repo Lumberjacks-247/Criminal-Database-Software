@@ -9,22 +9,17 @@ public class POI extends Person{
      * @param firstName first name of POI
      * @param lastName last name of POI
      */
-    public POI(String firstName,  String lastName, String tattoos, String gang, String victimRelation, String evidenceConn, Boolean isRepeatOffender) {
+    public POI(String firstName,  String lastName) {
         super(firstName, lastName);
-        this.tattoos = tattoos;
-        this.victimRelationship = victimRelation;
-        this.evidenceConnection = evidenceConn;
-        this.isRepeatOffender = false;
-        this.setID();
     }
 
     public POI(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, 
     String eyeColor, String address, String age, String tattoos, String gang, String victimRelationShip, String evidenceConnection, boolean isRepeatOffender) {
         super(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age);
-        this.tattoos = tattoos;
-        this.gang = gang;
-        this.victimRelationship = victimRelationShip;
-        this.evidenceConnection = evidenceConnection;
+        this.tattoos = tattoos == null ? "" : tattoos;
+        this.gang = gang == null ? "" : gang;
+        this.victimRelationship = victimRelationShip == null ? "" : victimRelationShip;
+        this.evidenceConnection = evidenceConnection == null ? "" : evidenceConnection;
         this.isRepeatOffender = isRepeatOffender;
     }
 
@@ -126,6 +121,33 @@ public class POI extends Person{
     public String toString() {
         return super.toString() + "\nTattoos: " + this.getTattoos() + "\nGang: " + this.getGang() + "\nRelation to Victim" + this.getVictimRelationship() +
             "\nConnection to Evidence: " + this.getEvidenceConnection() + "\nRepeat Offender: " + this.getIsRepeatOffender();
+    }
+
+    /**
+     * CALLING OBJECT MUST BE PERSON WITH SEARCH INFO WHILE PARAMETER IS ALREADY CREATED PERSON
+     * @param person suspect object to see if their info matches search info
+     * @return true if partial match is found, false if not
+     */
+    public boolean partialCompare(POI poi) {
+        if(!super.partialCompare(poi)) return false;
+        if(!this.getTattoos().equalsIgnoreCase(poi.getTattoos())){ 
+            if(this.getTattoos().equals(BLANK)) continue;
+            return false;
+        }
+        if(!this.getGang().equalsIgnoreCase(poi.getGang())){ 
+            if(this.getGang().equals(BLANK)) continue;
+            return false;
+        }
+        if(!this.getVictimRelationship().equalsIgnoreCase(poi.getVictimRelationship())){ 
+            if(this.getVictimRelationship().equals(BLANK)) continue;
+            return false;
+        }
+        if(!this.getEvidenceConnection().equalsIgnoreCase(poi.getEvidenceConnection())){ 
+            if(this.getEvidenceConnection().equals(BLANK)) continue;
+            return false;
+        }
+        if(this.getIsRepeatOffender()!=poi.getIsRepeatOffender()) return false;
+        return true;
     }
 
     /**

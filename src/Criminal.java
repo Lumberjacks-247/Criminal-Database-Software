@@ -9,15 +9,16 @@ public class Criminal extends Suspect{
     protected boolean inCustody;
 
     /**
+     * FOR CREATING CRIMINAL THROUGH UI
      * Creates a Crimianl object with passed in first and last name
      * @param firstName first name of criminal
      * @param lastName last name of criminal
      */
-    public Criminal(String firstName, String lastName, boolean inCustody) {
-        super(firstName, lastName, lastName, lastName, null, lastName, lastName, lastName, lastName, lastName, lastName, inCustody);
-        this.setID();
+    public Criminal(String firstName, String lastName) {
+        super(firstName, lastName);
     }
 
+    //FOR CREATING CRIMINAL FROM JSON
     public Criminal(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, 
     String eyeColor, String address, String age, String tattoos, String gang, String victimRelationShip, String evidenceConnection, boolean isRepeatOffender,
     ArrayList<Person> accomplices, ArrayList<Person> familyMembers, double footSize, String prefferedClothes, String nickNames,
@@ -26,10 +27,11 @@ public class Criminal extends Suspect{
         accomplices, familyMembers, footSize, prefferedClothes, nickNames, commonWords, hobbies, job, distinctPhysicalTraits);
         this.crimes = crimes;
         this. sentence = sentences;
-        this.status = status;
+        this.status = status == null ? "" : status;
         this.inCustody = inCustody;
     }
 
+    //USED FOR LOADING INTO JSON
     public Criminal(ArrayList<Crime> crimes, double sentence, String status, boolean inCustody) {
         this.crimes = crimes;
         this.sentence = sentence;
@@ -53,7 +55,6 @@ public class Criminal extends Suspect{
         this.distintPhysicalTraits = distinctPhysicalTraits;
     }
 
-    //need crime class
     public ArrayList<Crime> getCrimes() {
         return crimes;
     }
@@ -109,5 +110,30 @@ public class Criminal extends Suspect{
         return super.toString() + "\nCrimes: " + this.listCrimes(this.crimes) + "\nSentence: " + this.getSentence() + 
             "\nStatus: " + this.getStatus() + "\nIn Custody: " + this.getInCustody();
     }
+
+    public boolean partialCompare(Criminal criminal) {
+        if(!super.partialCompare(criminal)) return false;
+        /*if(!this.crimesCompare(crimes, criminal)){ 
+            if(this.crimes==null) continue;
+            return false;
+        }*/
+        if(this.getSentence()!=criminal.getSentence()){ 
+            if(this.getSentence()==0.0) continue;
+            return false;
+        }
+        if(!this.getStatus().equalsIgnoreCase(criminal.getStatus())){ 
+            if(this.getStatus().equals(BLANK)) continue;
+            return false;
+        }
+        if(!this.getInCustody()==criminal.getInCustody()) return false;
+        return true;
+    }
+
+    /*public boolean crimesCompare(ArrayList<Crime> crimes, Criminal criminal) {
+        for(Crime c : crimes){
+            if(c.getID().equals(criminal.getID())) return true;
+        }
+        return false;
+    }*/
     
 }

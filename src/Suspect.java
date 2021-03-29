@@ -8,12 +8,12 @@ public class Suspect extends POI{
     protected double footSize;
     protected String prefferedClothes, nickNames, commonWords, hobbies, job, distintPhysicalTraits;
 
-    public Suspect(String firstName,  String lastName, String accomplices, String familyMembers, Long footSize,
-			String prefClothes, String nicknames, String commonWords, String hobbies, String job, String physicalTraits, boolean isRepeatOffender) {
-        super(firstName, lastName, physicalTraits, physicalTraits, physicalTraits, physicalTraits, isRepeatOffender);
-        this.setID();
+    //HOW TO PHYSICALLY CREATE A NEW SUSPECT FROM UI
+    public Suspect(String firstName,  String lastName) {
+        super(firstName, lastName);
     }
 
+    //HOW TO CREATE SUSPECT FROM JSON FILE
     public Suspect(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, 
     String eyeColor, String address, String age, String tattoos, String gang, String victimRelationShip, String evidenceConnection, boolean isRepeatOffender,
     ArrayList<Person> accomplices, ArrayList<Person> familyMembers, double footSize, String prefferedClothes, String nickNames,
@@ -22,14 +22,15 @@ public class Suspect extends POI{
         this.accomplices = accomplices;
         this.familyMembers = familyMembers;
         this.footSize = footSize;
-        this.prefferedClothes = prefferedClothes;
-        this.nickNames = nickNames;
-        this.commonWords = commonWords;
-        this.hobbies = hobbies;
-        this.job = job;
-        this.distintPhysicalTraits = distinctPhysicalTraits;
+        this.prefferedClothes = prefferedClothes == null ? "" : prefferedClothes;
+        this.nickNames = nickNames == null ? "" : nickNames;
+        this.commonWords = commonWords == null ? "" : commonWords;
+        this.hobbies = hobbies == null ? "" : hobbies;
+        this.job = job == null ? "" : job;
+        this.distintPhysicalTraits = distinctPhysicalTraits == null ? "" : distinctPhysicalTraits;
     }
 
+    //USED FOR LOADING INTO JSON FILE
     public Suspect(ArrayList<Person> accomplices, ArrayList<Person> familyMembers, double footSize, String prefferedClothes, String nickNames,
         String commonWords, String hobbies, String job, String distinctPhysicalTraits) {
             this.accomplices = accomplices;
@@ -255,6 +256,54 @@ public class Suspect extends POI{
             "\nFoot Size: " + this.getFootSize() + "\nPreffered Clothes: " + this.getPrefferedClothes() + "\nNick Names: " + this.getNickNames() +
             "\nCommon Words: " + this.getCommonWords() + "\nHobbies: " + this.getHobbies() + "\nJob: " + this.getJob() + 
             "\nDistinct Physical Traits: " + this.getDistintPhysicalTraits();
+    }
+
+    public boolean partialCompare(Suspect suspect) {
+        if(!super.partialCompare(suspect)) return false;
+        if(!this.arrayListCompare(accomplices, suspect)){ 
+            if(this.accomplices==null) continue;
+            return false;
+        }
+        if(!this.arrayListCompare(familyMembers, suspect)){ 
+            if(this.familyMembers==null) continue;
+            return false;
+        }
+        if(this.footSize!=suspect.footSize){ 
+            if(this.footSize==0.0) continue;
+            return false;
+        }
+        if(!this.getPrefferedClothes().equalsIgnoreCase(suspect.getPrefferedClothes())){ 
+            if(this.getPrefferedClothes().equals(BLANK)) continue;
+            return false;
+        }
+        if(!this.getNickNames().equalsIgnoreCase(suspect.getNickNames())){ 
+            if(this.getNickNames().equals(BLANK)) continue;
+            return false;
+        }
+        if(!this.getCommonWords().equalsIgnoreCase(suspect.getCommonWords())){ 
+            if(this.getCommonWords().equals(BLANK)) continue;
+            return false;
+        }
+        if(!this.getHobbies().equalsIgnoreCase(suspect.getHobbies())){ 
+            if(this.getHobbies().equals(BLANK)) continue;
+            return false;
+        }
+        if(!this.getJob().equalsIgnoreCase(suspect.getJob())){ 
+            if(this.getJob().equals(BLANK)) continue;
+            return false;
+        }
+        if(!this.getDistintPhysicalTraits().equalsIgnoreCase(suspect.getDistintPhysicalTraits())){ 
+            if(this.getDistintPhysicalTraits().equals(BLANK)) continue;
+            return false;
+        }
+        return true;
+    }
+
+    public boolean arrayListCompare(ArrayList<Person> people, Person person) {
+        for(Person p : people) {
+            if(p.getFirstName().equalsIgnoreCase(person.getFirstName()) && p.getLastName().equalsIgnoreCase(person.getLastName())) return true;
+        }
+        return false;
     }
 
     /**

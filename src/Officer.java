@@ -5,21 +5,25 @@ public class Officer extends Person{
     private String statement;
 
     /**
+     * CREATES OFFICER FROM UI
+     * NEED TYPEOFOFFICER TO AVOID ERROR WITH OTHER CONSTUCTOR
      * creates Officer object with passed in first and last name
      * @param firstName officers first name
      * @param lastName officers last name
      */
-    /*public Officer(String firstName, String lastName) {
+    public Officer(String firstName, String lastName, String typeOfOfficer) {
         super(firstName, lastName);
-    }*/
-
-    public Officer(String firstName, String lastName, String typeOfOfficer, String statement) {
-        super(firstName, lastName);
-        this.typeOfOfficer = typeOfOfficer;
-        this.statement = statement;
-        this.setID();
+        this.typeOfOfficer = typeOfOfficer == null ? "" : typeOfOfficer;
     }
 
+    //USED FOR CREATING OFFICER FROM JSON
+    public Officer(String firstName, String lastName, String typeOfOfficer, String statement) {
+        super(firstName, lastName);
+        this.typeOfOfficer = typeOfOfficer == null ? "" : typeOfOfficer;
+        this.statement = statement == null ? "" : statement;
+    }
+
+    //uSED FOR LOADING INTO JSON
     public Officer(String typeOfOfficer, String statement) {
         this.typeOfOfficer = typeOfOfficer;
         this.statement = statement;
@@ -71,6 +75,19 @@ public class Officer extends Person{
     @Override
     public String toString() {
         return super.toString() + "\nType of Officer: " + this.getTypeOfOfficer() + "\nStatement: " + this.getStatement();
+    }
+
+    public boolean partialCompare(Officer officer) {
+        if(!super.partialCompare(officer)) return false;
+        if(!this.getTypeOfOfficer().equalsIgnoreCase(officer.getTypeOfOfficer())){ 
+            if(this.getTypeOfOfficer().equals(BLANK)) continue;
+            return false;
+        }
+        if(!this.getStatement().equalsIgnoreCase(officer.getStatement())){ 
+            if(this.getStatement().equals(BLANK)) continue;
+            return false;
+        }
+        return true;
     }
     
 }
