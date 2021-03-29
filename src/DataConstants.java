@@ -4,7 +4,7 @@
  */
 package src;
 public abstract class DataConstants {
-    protected static final String CRIMES_FILE_NAME = "dat/crimes.json";
+    protected static final String CRIMES_FILE_NAME = "dat/crime.json";
     protected static final String CRIMES_ID = "id";
     protected static final String CRIMES_TYPE_OF_CRIME = "typeOfCrime";
     protected static final String CRIMES_CHARGE_LEVEL = "levelOfCharge";
@@ -63,16 +63,16 @@ public abstract class DataConstants {
     protected static final String HOSPITAL_DATE = "date";
     protected static final String HOSPITAL_NUM_DAYS = "numDays";
 
-    protected static final String SUSPECTS_FILE_NAME = "dat/suspects.json";
-    protected static final String SUSPECTS_ACCOMPLICES = "accomplices";
-    protected static final String SUSPECTS_FAMILY_MEMBERS = "familyMembers";
-    protected static final String SUSPECTS_FOOT_SIZE = "footSize";
-    protected static final String SUSPECTS_PREFERRED_CLOTHES = "prefClothes";
-    protected static final String SUSPECTS_NICKNAMES = "nicknames";
-    protected static final String SUSPECTS_COMMON_WORDS = "commonWords";
-    protected static final String SUSPECTS_HOBBIES = "hobbies";
-    protected static final String SUSPECTS_JOB = "job";
-    protected static final String SUSPECTS_PHYSICAL_TRAITS = "physTraits";
+    protected static final String SUSPECT_FILE_NAME = "dat/suspect.json";
+    protected static final String SUSPECT_ACCOMPLICES = "accomplices";
+    protected static final String SUSPECT_FAMILY_MEMBERS = "familyMembers";
+    protected static final String SUSPECT_FOOT_SIZE = "footSize";
+    protected static final String SUSPECT_PREFERRED_CLOTHES = "prefClothes";
+    protected static final String SUSPECT_NICKNAMES = "nicknames";
+    protected static final String SUSPECT_COMMON_WORDS = "commonWords";
+    protected static final String SUSPECT_HOBBIES = "hobbies";
+    protected static final String SUSPECT_JOB = "job";
+    protected static final String SUSPECT_PHYSICAL_TRAITS = "physTraits";
 
     protected static final String USER_FILE_NAME = "dat/user.json";
     protected static final String USER_ACCESS_LEVEL = "accessLevel";

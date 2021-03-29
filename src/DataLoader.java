@@ -51,7 +51,7 @@ public class DataLoader extends DataConstants {
     }
 
     /**
-     * Loads all Crime objects from crimes.json
+     * Loads all Crime objects from crime.json
      * @return ArrayList of Crime
      */
     public static ArrayList<Crime> loadCrimes() {
@@ -171,7 +171,7 @@ public class DataLoader extends DataConstants {
                 String evidenceConn = (String)criminalJSON.get(POI_EVIDENCE_CONN);
                 boolean isRepeatOffender = ((Boolean)criminalJSON.get(POI_IS_REPEAT_OFFENDER)).booleanValue();
                 ArrayList<Person> accomplices = new ArrayList<Person>();
-                JSONArray accomplicesJSON = (JSONArray)criminalJSON.get(SUSPECTS_ACCOMPLICES);
+                JSONArray accomplicesJSON = (JSONArray)criminalJSON.get(SUSPECT_ACCOMPLICES);
                 Iterator<String> accomplicesIterator = accomplicesJSON.iterator();
                 for (int j = 0; j < accomplicesJSON.size(); ++j) {
                     if (accomplicesIterator.hasNext()) {
@@ -179,20 +179,20 @@ public class DataLoader extends DataConstants {
                     }
                 }
                 ArrayList<Person> family = new ArrayList<Person>();
-                JSONArray familyJSON = (JSONArray)criminalJSON.get(SUSPECTS_FAMILY_MEMBERS);
+                JSONArray familyJSON = (JSONArray)criminalJSON.get(SUSPECT_FAMILY_MEMBERS);
                 Iterator<String> familyIterator = familyJSON.iterator();
                 for (int j = 0; j < familyJSON.size(); ++j) {
                     if (familyIterator.hasNext()) {
                         family.add(People.getInstance().getPerson(familyIterator.next()));
                     }
                 }
-                double footSize = ((Long)criminalJSON.get(SUSPECTS_FOOT_SIZE)).floatValue();
-                String prefClothes = (String)criminalJSON.get(SUSPECTS_PREFERRED_CLOTHES);
-                String nicknames = (String)criminalJSON.get(SUSPECTS_NICKNAMES);
-                String commonWords = (String)criminalJSON.get(SUSPECTS_COMMON_WORDS);
-                String hobbies = (String)criminalJSON.get(SUSPECTS_HOBBIES);
-                String job = (String)criminalJSON.get(SUSPECTS_JOB);
-                String physicalTraits = (String)criminalJSON.get(SUSPECTS_PHYSICAL_TRAITS);
+                double footSize = ((Long)criminalJSON.get(SUSPECT_FOOT_SIZE)).floatValue();
+                String prefClothes = (String)criminalJSON.get(SUSPECT_PREFERRED_CLOTHES);
+                String nicknames = (String)criminalJSON.get(SUSPECT_NICKNAMES);
+                String commonWords = (String)criminalJSON.get(SUSPECT_COMMON_WORDS);
+                String hobbies = (String)criminalJSON.get(SUSPECT_HOBBIES);
+                String job = (String)criminalJSON.get(SUSPECT_JOB);
+                String physicalTraits = (String)criminalJSON.get(SUSPECT_PHYSICAL_TRAITS);
                 ArrayList<Crime> crimes = new ArrayList<Crime>();
                 JSONArray crimesJSON = (JSONArray)criminalJSON.get(CRIMINAL_CRIMES);
                 Iterator<String> crimesIterator = crimesJSON.iterator();
@@ -318,14 +318,14 @@ public class DataLoader extends DataConstants {
     }
 
     /**
-     * Loads all Suspect objects from suspects.json
+     * Loads all Suspect objects from suspect.json
      * @return ArrayList of Suspect
      */
     public static ArrayList<Suspect> loadSuspects() {
         ArrayList<Suspect> suspect = new ArrayList<Suspect>();
 
         try {
-            FileReader reader = new FileReader(SUSPECTS_FILE_NAME);
+            FileReader reader = new FileReader(SUSPECT_FILE_NAME);
             JSONParser parser = new JSONParser();
             JSONArray suspectsJSON = (JSONArray)parser.parse(reader);
 
@@ -347,7 +347,7 @@ public class DataLoader extends DataConstants {
                 String evidenceConn = (String)suspectJSON.get(POI_EVIDENCE_CONN);
                 boolean isRepeatOffender = ((Boolean)suspectJSON.get(POI_IS_REPEAT_OFFENDER)).booleanValue();
                 ArrayList<Person> accomplices = new ArrayList<Person>();
-                JSONArray accomplicesJSON = (JSONArray)suspectJSON.get(SUSPECTS_ACCOMPLICES);
+                JSONArray accomplicesJSON = (JSONArray)suspectJSON.get(SUSPECT_ACCOMPLICES);
                 Iterator<String> accomplicesIterator = accomplicesJSON.iterator();
                 for (int j = 0; j < accomplicesJSON.size(); ++j) {
                     if (accomplicesIterator.hasNext()) {
@@ -355,20 +355,20 @@ public class DataLoader extends DataConstants {
                     }
                 }
                 ArrayList<Person> family = new ArrayList<Person>();
-                JSONArray familyJSON = (JSONArray)suspectJSON.get(SUSPECTS_FAMILY_MEMBERS);
+                JSONArray familyJSON = (JSONArray)suspectJSON.get(SUSPECT_FAMILY_MEMBERS);
                 Iterator<String> familyIterator = familyJSON.iterator();
                 for (int j = 0; j < familyJSON.size(); ++j) {
                     if (familyIterator.hasNext()) {
                         family.add(People.getInstance().getPerson(familyIterator.next()));
                     }
                 }
-                double footSize = ((Long)suspectJSON.get(SUSPECTS_FOOT_SIZE)).floatValue();
-                String prefClothes = (String)suspectJSON.get(SUSPECTS_PREFERRED_CLOTHES);
-                String nicknames = (String)suspectJSON.get(SUSPECTS_NICKNAMES);
-                String commonWords = (String)suspectJSON.get(SUSPECTS_COMMON_WORDS);
-                String hobbies = (String)suspectJSON.get(SUSPECTS_HOBBIES);
-                String job = (String)suspectJSON.get(SUSPECTS_JOB);
-                String physicalTraits = (String)suspectJSON.get(SUSPECTS_PHYSICAL_TRAITS);
+                double footSize = ((Long)suspectJSON.get(SUSPECT_FOOT_SIZE)).floatValue();
+                String prefClothes = (String)suspectJSON.get(SUSPECT_PREFERRED_CLOTHES);
+                String nicknames = (String)suspectJSON.get(SUSPECT_NICKNAMES);
+                String commonWords = (String)suspectJSON.get(SUSPECT_COMMON_WORDS);
+                String hobbies = (String)suspectJSON.get(SUSPECT_HOBBIES);
+                String job = (String)suspectJSON.get(SUSPECT_JOB);
+                String physicalTraits = (String)suspectJSON.get(SUSPECT_PHYSICAL_TRAITS);
                 Suspect ret = new Suspect(accomplices, family, footSize, prefClothes, nicknames, commonWords, hobbies, job, physicalTraits);
                 ret.setPOIInfo(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelation, evidenceConn, isRepeatOffender);
                 suspect.add(ret);
