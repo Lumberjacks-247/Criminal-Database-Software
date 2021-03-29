@@ -161,8 +161,8 @@ public class DataWriter extends DataConstants{
 		criminalDetails.put(POI_VICTIM_RELATION, criminal.getVictimRelationship());
 		criminalDetails.put(POI_EVIDENCE_CONN, criminal.getEvidenceConnection());
 		criminalDetails.put(POI_IS_REPEAT_OFFENDER, criminal.getIsRepeatOffender());
-		criminalDetails.put(SUSPECTS_ACCOMPLICES, criminal.getAccomplice(firstName, lastName));  // GET ALL ACCOMPLICES!!!
-		criminalDetails.put(SUSPECTS_FAMILY_MEMBERS, criminal.getFamilyMember(firstName, lastName));  // GET ALL FAMILY!!!
+		criminalDetails.put(SUSPECTS_ACCOMPLICES, criminal.getAccomplices();  // GET ALL ACCOMPLICES!!!
+		criminalDetails.put(SUSPECTS_FAMILY_MEMBERS, criminal.getFamilyMembers();  // GET ALL FAMILY!!!
 		criminalDetails.put(SUSPECTS_FOOT_SIZE, criminal.getFootSize());
 		criminalDetails.put(SUSPECTS_PREFERRED_CLOTHES, criminal.getPrefferedClothes());
 		criminalDetails.put(SUSPECTS_NICKNAMES, criminal.getNickNames());
@@ -333,8 +333,8 @@ public class DataWriter extends DataConstants{
 		suspectDetails.put(POI_VICTIM_RELATION, suspect.getVictimRelationship());
 		suspectDetails.put(POI_EVIDENCE_CONN, suspect.getEvidenceConnection());
 		suspectDetails.put(POI_IS_REPEAT_OFFENDER, suspect.getIsRepeatOffender());
-		suspectDetails.put(SUSPECTS_ACCOMPLICES, suspect.getAccomplice());	// WRITE ARRAYLIST
-		suspectDetails.put(SUSPECTS_FAMILY_MEMBERS, suspect.getFamilyMember());
+		suspectDetails.put(SUSPECTS_ACCOMPLICES, suspect.getAccomplices());	// WRITE ARRAYLIST
+		suspectDetails.put(SUSPECTS_FAMILY_MEMBERS, suspect.getFamilyMembers());
 		suspectDetails.put(SUSPECTS_FOOT_SIZE, suspect.getFootSize());
 		suspectDetails.put(SUSPECTS_PREFERRED_CLOTHES, suspect.getPrefferedClothes());
 		suspectDetails.put(SUSPECTS_NICKNAMES, suspect.getNickNames());
