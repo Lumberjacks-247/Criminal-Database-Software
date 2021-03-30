@@ -1,8 +1,5 @@
 package src;
 import java.util.ArrayList;
-
-import src.HospitalReport;
-
 public class Victim extends Person{
 
     private String statement;
@@ -97,8 +94,7 @@ public class Victim extends Person{
     public boolean partialCompare(Victim victim) {
         if(!super.partialCompare(victim)) return false;
         if(!this.getStatement().equalsIgnoreCase(victim.getStatement())){ 
-            if(this.getStatement().equals(BLANK)) continue;
-            return false;
+            if(!this.getStatement().equals(BLANK)) return false;
         }
         if(this.getIsAlive()!=victim.getIsAlive()) return false;
         //Compare Hospital Reports HERE

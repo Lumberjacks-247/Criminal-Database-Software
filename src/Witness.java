@@ -109,20 +109,16 @@ public class Witness extends Person{
     public boolean partialCompare(Witness witness) {
         if(!super.partialCompare(witness)) return false;
         if(!this.getPhoneNumber().equalsIgnoreCase(witness.getPhoneNumber())){ 
-            if(this.getPhoneNumber().equals(BLANK)) continue;
-            return false;
+            if(!this.getPhoneNumber().equals(BLANK)) return false;
         }
         if(!this.getEmail().equalsIgnoreCase(witness.getEmail())){ 
-            if(this.getEmail().equals(BLANK)) continue;
-            return false;
+            if(!this.getEmail().equals(BLANK)) return false;
         }
         if(!this.getStatement().equalsIgnoreCase(witness.getStatement())){ 
-            if(this.getStatement().equals(BLANK)) continue;
-            return false;
+            if(!this.getStatement().equals(BLANK)) return false;
         }
         if(!this.getRelationToBadGuy().equalsIgnoreCase(witness.getRelationToBadGuy())){ 
-            if(this.getRelationToBadGuy().equals(BLANK)) continue;
-            return false;
+            if(!this.getRelationToBadGuy().equals(BLANK)) return false;
         }
         return true;
     }

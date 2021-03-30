@@ -42,7 +42,8 @@ public class Victims {
 	public boolean addVictim(String firstName,  String lastName, String statement, boolean isAlive, ArrayList<HospitalReport> hReports) {
 		if(haveVictim(firstName))
 			return false;
-		victimList.add(new Victim(firstName, lastName, statement, isAlive, hReports));
+		//victimList.add(new Victim(firstName, lastName, statement, isAlive, hReports));
+		victimList.add(new Victim(firstName, lastName));
 		return true;
 	}
 	

@@ -1,8 +1,8 @@
+package src;
 /**
  * DataWriter, a JSON Writer for CriminalDatabaseSoftware
  * @author Brooks Robinson
  */
-package src;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;

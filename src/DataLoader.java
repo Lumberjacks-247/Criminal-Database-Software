@@ -1,8 +1,8 @@
+package src;
 /**
  * DataLoader, a JSON Loader for CriminalDatabaseSoftware
  * @author Brooks Robinson
  */
-package src;
 import java.io.FileReader;
 import java.util.ArrayList;
 import org.json.simple.JSONArray;

@@ -42,7 +42,8 @@ public class POIs {
 	public boolean addPOI(String firstName,  String lastName, String tattoos, String gang, String victimRelation, String evidenceConn, Boolean isRepeatOffender) {
 		if(havePOI(firstName))
 			return false;
-		pOISList.add(new POI(firstName, lastName, tattoos, gang, victimRelation, evidenceConn, isRepeatOffender));
+		//pOISList.add(new POI(firstName, lastName, tattoos, gang, victimRelation, evidenceConn, isRepeatOffender));
+		pOISList.add(new POI(firstName, lastName));
 		return true;
 	}
 	

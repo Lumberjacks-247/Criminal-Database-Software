@@ -42,7 +42,8 @@ public class Criminals {
 	public boolean addCriminal(String firstName, String lastName, String crimes, String sentence, String status, boolean inCustody) {
 		if(haveCriminal(firstName))
 			return false;
-		criminalList.add(new Criminal(firstName, lastName, crimes, sentence, status, status, status, status, status, 0, status, status, status, inCustody, null, null, 0, status, status, status, status, status, status, null, 0, status, inCustody));
+		//criminalList.add(new Criminal(firstName, lastName, crimes, sentence, status, status, status, status, status, 0, status, status, status, inCustody, null, null, 0, status, status, status, status, status, status, null, 0, status, inCustody));
+		criminalList.add(new Criminal(firstName, lastName));
 		return true;
 	}
 	
