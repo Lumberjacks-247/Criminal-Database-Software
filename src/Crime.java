@@ -2,8 +2,6 @@ package src;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-import src.Criminal;
-
 public class Crime {
 
     private int levelOfCharge, jurisdiction;
@@ -276,15 +274,6 @@ public class Crime {
 		return crime;
 	}
 
-	public boolean haveCrime(String crimeName) {
-		for(Crime crime : crimeList) {
-			if(crime.getCrime().equals(crime)) {
-				return true;
-			}
-		}
-		return false;
-	}
-
     public String listNamesPOI(ArrayList<POI> people) {
         String ret = "";
         for(Person p : people) {
@@ -346,10 +335,10 @@ public class Crime {
     }
 
     public String toString() {
-        String levelOfCharge = (String)levelOfCharge;
-        String jurisdiction = (String)jurisdiction;
-        String isOpen = (String)isOpen;
-        String[] details = new String[]{id,typeOfCrime,levelOfCharge,jurisdiction,location,isOpen,author.getFirstName() + " " + author.getLastName(),listNamesPOI(pois),
+        String levelOfChar = String.valueOf(levelOfCharge);
+        String juris = String.valueOf(jurisdiction);
+        String isOp = String.valueOf(isOpen);
+        String[] details = new String[]{id,typeOfCrime,levelOfChar,juris,location,isOp,author.getFirstName() + " " + author.getLastName(),listNamesPOI(pois),
             listNamesSuspect(suspects),listNamesCriminal(criminals),listNamesVictim(victims),listNamesWitness(witnesses),
             listNamesOfficer(officers), listEvidence(evidence)};
         String[] prompts = new String[]{"ID: ","Type of Crime: ","Level of Charge","Jurisdiction","Location: ","Open: ","Author Name: ",
@@ -363,10 +352,10 @@ public class Crime {
   
           if (!detail.equals("")) {
             output += prompt + detail + " | ";
-          } 
-  
-          
+          }
         }
+        return output;
+    }
 
 	private Crime getCrime() {
 		// TODO Auto-generated method stub

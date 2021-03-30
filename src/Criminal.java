@@ -112,18 +112,17 @@ public class Criminal extends Suspect{
     }
 
     public boolean partialCompare(Criminal criminal) {
+        boolean ret = true;
         if(!super.partialCompare(criminal)) return false;
         /*if(!this.crimesCompare(crimes, criminal)){ 
             if(this.crimes==null) continue;
             return false;
         }*/
         if(this.getSentence()!=criminal.getSentence()){ 
-            if(this.getSentence()==0.0) continue;
-            return false;
+            if(this.getSentence()!=0.0) return false;
         }
         if(!this.getStatus().equalsIgnoreCase(criminal.getStatus())){ 
-            if(this.getStatus().equals(BLANK)) continue;
-            return false;
+            if(!this.getStatus().equals(BLANK)) return false;
         }
         if(!this.getInCustody()==criminal.getInCustody()) return false;
         return true;

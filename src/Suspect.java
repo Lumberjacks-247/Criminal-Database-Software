@@ -261,40 +261,31 @@ public class Suspect extends POI{
     public boolean partialCompare(Suspect suspect) {
         if(!super.partialCompare(suspect)) return false;
         if(!this.arrayListCompare(accomplices, suspect)){ 
-            if(this.accomplices==null) continue;
-            return false;
+            if(this.accomplices!=null) return false;
         }
         if(!this.arrayListCompare(familyMembers, suspect)){ 
-            if(this.familyMembers==null) continue;
-            return false;
+            if(this.familyMembers!=null) return false;
         }
         if(this.footSize!=suspect.footSize){ 
-            if(this.footSize==0.0) continue;
-            return false;
+            if(this.footSize!=0.0) return false;
         }
         if(!this.getPrefferedClothes().equalsIgnoreCase(suspect.getPrefferedClothes())){ 
-            if(this.getPrefferedClothes().equals(BLANK)) continue;
-            return false;
+            if(!this.getPrefferedClothes().equals(BLANK)) return false;
         }
         if(!this.getNickNames().equalsIgnoreCase(suspect.getNickNames())){ 
-            if(this.getNickNames().equals(BLANK)) continue;
-            return false;
+            if(!this.getNickNames().equals(BLANK)) return false;
         }
         if(!this.getCommonWords().equalsIgnoreCase(suspect.getCommonWords())){ 
-            if(this.getCommonWords().equals(BLANK)) continue;
-            return false;
+            if(!this.getCommonWords().equals(BLANK)) return false;
         }
         if(!this.getHobbies().equalsIgnoreCase(suspect.getHobbies())){ 
-            if(this.getHobbies().equals(BLANK)) continue;
-            return false;
+            if(!this.getHobbies().equals(BLANK)) return false;
         }
         if(!this.getJob().equalsIgnoreCase(suspect.getJob())){ 
-            if(this.getJob().equals(BLANK)) continue;
-            return false;
+            if(!this.getJob().equals(BLANK)) return false;
         }
         if(!this.getDistintPhysicalTraits().equalsIgnoreCase(suspect.getDistintPhysicalTraits())){ 
-            if(this.getDistintPhysicalTraits().equals(BLANK)) continue;
-            return false;
+            if(!this.getDistintPhysicalTraits().equals(BLANK)) return false;
         }
         return true;
     }

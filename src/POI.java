@@ -131,20 +131,16 @@ public class POI extends Person{
     public boolean partialCompare(POI poi) {
         if(!super.partialCompare(poi)) return false;
         if(!this.getTattoos().equalsIgnoreCase(poi.getTattoos())){ 
-            if(this.getTattoos().equals(BLANK)) continue;
-            return false;
+            if(!this.getTattoos().equals(BLANK)) return false;
         }
         if(!this.getGang().equalsIgnoreCase(poi.getGang())){ 
-            if(this.getGang().equals(BLANK)) continue;
-            return false;
+            if(!this.getGang().equals(BLANK)) return false;
         }
         if(!this.getVictimRelationship().equalsIgnoreCase(poi.getVictimRelationship())){ 
-            if(this.getVictimRelationship().equals(BLANK)) continue;
-            return false;
+            if(!this.getVictimRelationship().equals(BLANK)) return false;
         }
         if(!this.getEvidenceConnection().equalsIgnoreCase(poi.getEvidenceConnection())){ 
-            if(this.getEvidenceConnection().equals(BLANK)) continue;
-            return false;
+            if(!this.getEvidenceConnection().equals(BLANK)) return false;
         }
         if(this.getIsRepeatOffender()!=poi.getIsRepeatOffender()) return false;
         return true;

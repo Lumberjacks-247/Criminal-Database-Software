@@ -43,7 +43,8 @@ public class Suspects {
 			String prefClothes, String nicknames, String commonWords, String hobbies, String job, String physicalTraits) {
 		if(haveSuspect(firstName))
 			return false;
-		suspectList.add(new Suspect(firstName, lastName, accomplices, familyMembers, footSize, prefClothes, nicknames, commonWords, hobbies, job, physicalTraits, false));
+		//suspectList.add(new Suspect(firstName, lastName, accomplices, familyMembers, footSize, prefClothes, nicknames, commonWords, hobbies, job, physicalTraits, false));
+		suspectList.add(new Suspect(firstName, lastName));
 		return true;
 	}
 	

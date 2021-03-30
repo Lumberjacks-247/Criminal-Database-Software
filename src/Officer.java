@@ -80,12 +80,10 @@ public class Officer extends Person{
     public boolean partialCompare(Officer officer) {
         if(!super.partialCompare(officer)) return false;
         if(!this.getTypeOfOfficer().equalsIgnoreCase(officer.getTypeOfOfficer())){ 
-            if(this.getTypeOfOfficer().equals(BLANK)) continue;
-            return false;
+            if(!this.getTypeOfOfficer().equals(BLANK)) return false;
         }
         if(!this.getStatement().equalsIgnoreCase(officer.getStatement())){ 
-            if(this.getStatement().equals(BLANK)) continue;
-            return false;
+            if(!this.getStatement().equals(BLANK)) return false;
         }
         return true;
     }

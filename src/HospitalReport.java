@@ -93,7 +93,27 @@ public class HospitalReport {
 		this.numDaysAdmitted = numDaysAdmitted;
 	}
 
+	/*public static HospitalReport getInstance() {
+		if(hospitalReport == null) {
+			hospitalReport = new HospitalReport();
+		}
+		return hospitalReport;
+	}*/
 
+	/*public boolean haveHospitalReport(String hospitalReportName) {
+		for(HospitalReport hospitalReport : hospitalReportList) {
+			if(hospitalReport.getHospitalReportName().equals(hospitalReportName)) 
+				return true;
+		}
+		return false;
+	}
 
+	private boolean getHospitalReport(String hospitalReportName) {
+		for(HospitalReport hospitalReport : hospitalReportList) {
+			if(hospitalReport.getHospitalReportName().equals(hospitalReportName)) 
+				return true;
+		}
+		return false;
+	}*/
     
 }

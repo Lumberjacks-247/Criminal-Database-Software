@@ -227,41 +227,32 @@ public class Person {
      */
     public boolean partialCompare(Person person) {
         if(!this.getFirstName().equalsIgnoreCase(person.getFirstName())){
-            if(this.getFirstName().equals(BLANK)) continue;
-            return false;
+            if(!this.getFirstName().equals(BLANK)) return false;
         }
         if(!this.getLastName().equalsIgnoreCase(person.getLastName())){ 
-            if(this.getLastName().equals(BLANK)) continue;
-            return false;
+            if(!this.getLastName().equals(BLANK)) return false;
         }
         if(!compareID(person)) return false;
         if(!this.getGender().equalsIgnoreCase(person.getGender())){ 
-            if(this.getGender().equals(BLANK)) continue;
-            return false;
+            if(!this.getGender().equals(BLANK)) return false;
         }
         if(!this.getRace().equalsIgnoreCase(person.getRace())){ 
-            if(this.getRace().equals(BLANK)) continue;
-            return false;
+            if(!this.getRace().equals(BLANK)) return false;
         }
         if(!this.getHairColor().equalsIgnoreCase(person.getHairColor())){ 
-            if(this.getHairColor().equals(BLANK)) continue;
-            return false;
+            if(!this.getHairColor().equals(BLANK)) return false;
         }
         if(!this.getHairStyle().equalsIgnoreCase(person.getHairStyle())){ 
-            if(this.getHairStyle().equals(BLANK)) continue;
-            return false;
+            if(!this.getHairStyle().equals(BLANK)) return false;
         }
         if(!this.getEyeColor().equalsIgnoreCase(person.getEyeColor())){ 
-            if(this.getEyeColor().equals(BLANK)) continue;
-            return false;
+            if(!this.getEyeColor().equals(BLANK)) return false;
         }
         if(!this.getAddress().equalsIgnoreCase(person.getAddress())){ 
-            if(this.getAddress().equals(BLANK)) continue;
-            return false;
+            if(!this.getAddress().equals(BLANK)) return false;
         }
         if(!this.getAge().equalsIgnoreCase(person.getAge())){ 
-            if(this.getAge().equals(BLANK)) continue;
-            return false;
+            if(!this.getAge().equals(BLANK)) return false;
         }
         return true;
     }
@@ -269,5 +260,4 @@ public class Person {
     public boolean compareID(Person person) {
         return(this.getID().equals(person.getID()));
     }
-
 }

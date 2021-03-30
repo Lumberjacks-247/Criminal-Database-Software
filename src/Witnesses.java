@@ -42,7 +42,8 @@ public class Witnesses {
 	public boolean addWitness(String firstName,  String lastName, String phone, String email, String statement, String relationBad) {
 		if(haveWitness(firstName))
 			return false;
-		witnessList.add(new Witness(firstName, lastName, phone, email, statement, relationBad));
+		//witnessList.add(new Witness(firstName, lastName, phone, email, statement, relationBad));
+		witnessList.add(new Witness(firstName, lastName));
 		return true;
 	}
 	
