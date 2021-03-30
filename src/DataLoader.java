@@ -8,11 +8,10 @@ import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-
 import java.util.Iterator;
+@SuppressWarnings("unchecked")
 
 public class DataLoader extends DataConstants {
-
     private static final String DELIMITER = " ";
 
     /**

@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+@SuppressWarnings("unchecked")
 
 public class DataWriter extends DataConstants{
     
