@@ -1,4 +1,5 @@
 package src;
+import java.util.ArrayList;
 public class Facade {
 
 	private People people;
@@ -240,9 +241,9 @@ public class Facade {
 		return false;
 	}
 	
-	public boolean addWitness(String witnessName) {
-		if(!findWitness(witnessName)) {
-			witness.addWitness(witnessName, witnessName, null, witnessName, witnessName, witnessName);
+	public boolean addVictim(String firstName,  String lastName, String statement, boolean isAlive, ArrayList <HospitalReport> hReports) {
+		if(!findWitness(firstName)) {
+			victim.addVictim(firstName, lastName, statement, isAlive, hReports);
 			return false;
 		}
 		return true;
