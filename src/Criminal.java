@@ -3,9 +3,9 @@ import java.util.ArrayList;
 
 public class Criminal extends Suspect{
 
-    protected ArrayList<Crime> crimes;
+    //protected ArrayList<Crime> crimes;
     protected double sentence;
-    protected String status;
+    protected String status, crimes;
     protected boolean inCustody;
 
     /**
@@ -22,7 +22,7 @@ public class Criminal extends Suspect{
     public Criminal(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, 
     String eyeColor, String address, String age, String tattoos, String gang, String victimRelationShip, String evidenceConnection, boolean isRepeatOffender,
     ArrayList<Person> accomplices, ArrayList<Person> familyMembers, double footSize, String prefferedClothes, String nickNames,
-    String commonWords, String hobbies, String job, String distinctPhysicalTraits, ArrayList<Crime> crimes, double sentences, String status, boolean inCustody) {
+    String commonWords, String hobbies, String job, String distinctPhysicalTraits, String crimes, double sentences, String status, boolean inCustody) {
         super(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelationShip, evidenceConnection, isRepeatOffender, 
         accomplices, familyMembers, footSize, prefferedClothes, nickNames, commonWords, hobbies, job, distinctPhysicalTraits);
         this.crimes = crimes == null ? new ArrayList<Crime>() : crimes;
@@ -32,7 +32,7 @@ public class Criminal extends Suspect{
     }
 
     //USED FOR LOADING INTO JSON
-    public Criminal(ArrayList<Crime> crimes, double sentence, String status, boolean inCustody) {
+    public Criminal(String crimes, double sentence, String status, boolean inCustody) {
         this.crimes = crimes;
         this.sentence = sentence;
         this.status = status;
@@ -63,7 +63,7 @@ public class Criminal extends Suspect{
         this.distintPhysicalTraits = distinctPhysicalTraits == null ? "" : distinctPhysicalTraits;
     }
 
-    public ArrayList<Crime> getCrimes() {
+    public String getCrimes() {
         return crimes;
     }
 
