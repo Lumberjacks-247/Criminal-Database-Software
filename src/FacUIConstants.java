@@ -1,6 +1,9 @@
 package src;
 //TODO - Add JavaDoc
 
+import java.io.File;
+import java.io.FileWriter;
+
 /**
  * Defines how calls are made to the Facade.
  * @author Blake Seekings
@@ -26,7 +29,11 @@ public class FacUIConstants {
     if (crime == null) {
       return ScreenCalls.MAINMENU.call(s);
     } else {
-      System.out.println(crime);
+      try (FileWriter writer = new FileWriter(new File("testcrime.txt"));) {
+        writer.write(crime.toString());
+      } catch( Exception e) {
+        
+      }
       return ScreenCalls.MAINMENU.call(s);
     }
 

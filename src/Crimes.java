@@ -28,7 +28,7 @@ public class Crimes {
 	
 	public Crime getCrime(String crimeName) {
 		for(Crime crime: crimeList) {
-			if(crime.getCrimeName().equals(crimeName)) {
+			if(crime.getID().equals(crimeName)) {
 				return crime;
 			}
 		}
