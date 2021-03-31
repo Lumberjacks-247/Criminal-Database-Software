@@ -291,10 +291,6 @@ public class UIConstants {
     return screen;
   }
 
-  public static Screen ResultScreen(Screen parent,Object[] objs) {
-    return new ResScreen(parent,objs);
-  }
-
 
 
 }

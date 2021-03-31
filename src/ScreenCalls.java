@@ -12,7 +12,6 @@ public enum ScreenCalls {
 
     NULL            (UIConstants::Null),
     START           (UIConstants::WelcomeScreen),
-    RESULTS         (UIConstants::ResultScreen),
     PARENT          (UIConstants::ParentScreen),
     WELCOME         (UIConstants::WelcomeScreen),
     LOGIN           (UIConstants::LoginScreen),
