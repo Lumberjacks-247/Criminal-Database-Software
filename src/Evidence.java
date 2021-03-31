@@ -77,9 +77,5 @@ public class Evidence {
         this.dateOfDiscovery = dateOfDiscovery;
     }
 
-	public Object getEvidenceName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-    
+
 }

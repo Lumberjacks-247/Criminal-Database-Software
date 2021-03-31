@@ -31,7 +31,9 @@ public class POI extends Person{
         this.isRepeatOffender = isRepeatOffender;
     }
 
-    public POI() {};
+    public POI() {
+      this.init(null,null,null,null,null,null,null,null,null,null,null,null,null,null,false);
+    };
 
     public void setPersonInfo(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, String eyeColor, String address, String age) {
         this.firstName = firstName;
@@ -44,6 +46,17 @@ public class POI extends Person{
         this.eyeColor = eyeColor;
         this.address = address;
         this.age = age;
+    }
+
+
+    protected void init(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, String eyeColor, String address, String age, String tattoos, String gang, String victimRelationShip, String evidenceConnection, boolean isRepeatOffender) {
+      super.init(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age);
+      this.tattoos = tattoos == null ? "" : tattoos;
+      this.gang = gang == null ? "" : gang;
+      this.victimRelationship = victimRelationShip == null ? "" : victimRelationShip;
+      this.evidenceConnection = evidenceConnection == null ? "" : evidenceConnection;
+      this.isRepeatOffender = isRepeatOffender;
+
     }
 
     /**
@@ -90,7 +103,7 @@ public class POI extends Person{
      * changes boolean value of isRepeatOffender from false to true
      */
     public void changeRepeatOffender() {
-        this.isRepeatOffender = true;
+        this.isRepeatOffender = !this.isRepeatOffender;
     }
 
     /**
@@ -116,6 +129,7 @@ public class POI extends Person{
     public String getEvidenceConnection() {
         return this.evidenceConnection;
     }
+
 
     @Override
     public String toString() {
@@ -158,9 +172,6 @@ public class POI extends Person{
         this.evidenceConnection = evidenceConnection;
     }
 
-	public Object getPOIName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
     
 }

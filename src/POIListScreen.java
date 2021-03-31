@@ -52,7 +52,6 @@ public class POIListScreen extends Screen {
       numPOI++;
   }
 
-
   public Screen next(String input) {
 
     int index;
@@ -60,6 +59,7 @@ public class POIListScreen extends Screen {
       return this;
 
     if (index == 0) {
+      this.parent.updatePOIList(this.list,numPOI);
       return this.parent;
     }
     

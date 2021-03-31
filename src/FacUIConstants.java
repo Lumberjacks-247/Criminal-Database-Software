@@ -67,7 +67,7 @@ public class FacUIConstants {
    * @return The defined Logout Screen
    */
   public static Screen logout(Screen s) {
-    //fac.logout();
+    fac.logout();
     return ScreenCalls.LOGOUT.call(s);
   }
 
@@ -80,7 +80,7 @@ public class FacUIConstants {
     String username = s.getDataValue(0);
     String password = s.getDataValue(1);
 
-    if (fac.login(username, password)/*override*/) {
+    if (fac.login(username, password)) {
       return ScreenCalls.MAINMENU.call(s);
     } else {
       return ScreenCalls.WELCOME.call(s);
@@ -100,13 +100,12 @@ public class FacUIConstants {
     String p3 = s.getDataValue(3); //Last Name
     int p4 = Integer.parseInt(s.getDataValue(4)); //Access Level
 
-    if (fac.createAccount(p0,p2,p3,p4,p1)/*override*/) {
+    if (fac.createAccount(p0,p2,p3,p4,p1)) {
       return ScreenCalls.MAINMENU.call(s);
     } else {
       return ScreenCalls.WELCOME.call(s);
     }
-
-
+    
   }
 
   public static Screen createCrime(Screen s) {

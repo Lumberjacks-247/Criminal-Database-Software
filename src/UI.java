@@ -19,7 +19,12 @@ public class UI {
    * @return method call success boolean
    */
   public static boolean display() {
-    
+
+    //cls
+    for (int i = 0; i < 100; ++i){
+      System.out.println();
+    }
+
     // Display screen
     screen.display();
     
@@ -39,7 +44,6 @@ public class UI {
   }
 
   public static void main(String[] args) { 
-    FacCalls.LOGOUT.call(screen);
     while(UI.display());
   }
 

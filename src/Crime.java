@@ -2,8 +2,6 @@ package src;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-import src.Criminal;
-
 public class Crime {
 
     private int levelOfCharge, jurisdiction;
@@ -11,9 +9,7 @@ public class Crime {
     private String id, typeOfCrime, location;
     private boolean isOpen = true;
     private User author;
-    private static Crime crime;
     private ArrayList<POI> pois;
-    private ArrayList<Crime> crimeList;
     private ArrayList<Suspect> suspects;
     private ArrayList<Criminal> criminals;
     private ArrayList<Victim> victims;
@@ -193,9 +189,9 @@ public class Crime {
 		this.pois = pois;
 	}
 
-    public int getPoisLength() {
-        return this.pois.size();
-    }
+  public int getPoisLength() {
+      return this.pois.size();
+  }
 
 	public ArrayList<Suspect> getSuspects() {
 		return suspects;
@@ -269,29 +265,14 @@ public class Crime {
         return this.evidence.size();
     }
 
-	public static Crime getInstance() {
-		if(crime == null) {
-			crime = new Crime();
-		}
-		return crime;
-	}
 
-	public boolean haveCrime(String crimeName) {
-		for(Crime crime : crimeList) {
-			if(crime.getCrime().equals(crime)) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-    public String listNamesPOI(ArrayList<POI> people) {
-        String ret = "";
-        for(Person p : people) {
-            ret.concat(list(p));
-        }
-        return ret;
-    }
+  public String listNamesPOI(ArrayList<POI> people) {
+      String ret = "";
+      for(Person p : people) {
+          ret.concat(list(p));
+      }
+      return ret;
+  }
 
     public String listNamesSuspect(ArrayList<Suspect> people) {
         String ret = "";
@@ -346,10 +327,10 @@ public class Crime {
     }
 
     public String toString() {
-        String levelOfCharge = (String)levelOfCharge;
-        String jurisdiction = (String)jurisdiction;
-        String isOpen = (String)isOpen;
-        String[] details = new String[]{id,typeOfCrime,levelOfCharge,jurisdiction,location,isOpen,author.getFirstName() + " " + author.getLastName(),listNamesPOI(pois),
+        String levelOfCharg = ""+levelOfCharge;
+        String jurisdictio = ""+jurisdiction;
+        String isOpe = ""+isOpen;
+        String[] details = new String[]{id,typeOfCrime,levelOfCharg,jurisdictio,location,isOpe,author.getFirstName() + " " + author.getLastName(),listNamesPOI(pois),
             listNamesSuspect(suspects),listNamesCriminal(criminals),listNamesVictim(victims),listNamesWitness(witnesses),
             listNamesOfficer(officers), listEvidence(evidence)};
         String[] prompts = new String[]{"ID: ","Type of Crime: ","Level of Charge","Jurisdiction","Location: ","Open: ","Author Name: ",
@@ -368,14 +349,8 @@ public class Crime {
           
         }
 
-	private Crime getCrime() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+        return output;
+      }
 
-	public Object getCrimeName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
     
 }

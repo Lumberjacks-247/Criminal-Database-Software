@@ -1,36 +1,36 @@
 package src;
 public class Facade {
 
-	private People people;
-	private Crimes crime;
-	private Users user;
-	private User currentUser;
-	private Criminals criminal;
-	private Evidences evidence;
-	private Officers officer;
-	private POIs poi;
-	private Suspects suspect;
-	private Victims victim;
-	private Witnesses witness;
-	private HospitalReports hospitalreport;
+	// private People people;
+	// private Crimes crime;
+	private Users users;
+	// private User currentUser;
+	// private Criminals criminal;
+	// private Evidences evidence;
+	// private Officers officer;
+	// private POIs poi;
+	// private Suspects suspect;
+	// private Victims victim;
+	// private Witnesses witness;
+	// private HospitalReports hospitalreport;
 
 	
 	public Facade() {
 
 
-		user = Users.getInstance();
-		people = People.getInstance(); 
-		crime = Crimes.getInstance();
-		criminal = Criminals.getInstance();
-		evidence = Evidences.getInstance();
-		officer = Officers.getInstance();
-		poi = POIs.getInstance();
-		suspect = Suspects.getInstance();
-		victim = Victims.getInstance();
-		witness = Witnesses.getInstance();
-		hospitalreport = HospitalReports.getInstance();
+		users = Users.getInstance();
+		// people = People.getInstance(); 
+		// crime = Crimes.getInstance();
+		// criminal = Criminals.getInstance();
+		// evidence = Evidences.getInstance();
+		// officer = Officers.getInstance();
+		// poi = POIs.getInstance();
+		// suspect = Suspects.getInstance();
+		// victim = Victims.getInstance();
+		// witness = Witnesses.getInstance();
+		// hospitalreport = HospitalReports.getInstance();
 	}
-	
+	/*
 	public boolean findPerson(String personName) {
 		return people.havePerson(personName);
 	}
@@ -47,13 +47,13 @@ public class Facade {
 		return false;
 	}
 	
-	// public boolean addPerson(String personName, String newPerson) {
-	// 	if(!findPerson(personName)) {
-	// 		person.addPerson(null, null, null, null, null, null, null, null, null, null);
-	// 		return false;
-	// 	}
-	// 	return true;
-	// }
+	public boolean addPerson(String personName, String newPerson) {
+		if(!findPerson(personName)) {
+			person.addPerson(null, null, null, null, null, null, null, null, null, null);
+			return false;
+		}
+		return true;
+	}
 
 	public boolean findCrime(String crimeName) {
 		return crime.haveCrime(crimeName);
@@ -78,32 +78,33 @@ public class Facade {
 		}
 		return true;
 	}
-	
+	*/
 	public boolean createAccount(String userName, String firstName, String lastName, int accessLevel, String userPassword)
 	{
-		return user.addUser(userName,  firstName,  lastName,  accessLevel,  userPassword);
+		return users.addUser(userName,  firstName,  lastName,  accessLevel,  userPassword);
 	}
-	
-	public boolean findUser(String userName, String userPassword) {
-		return user.haveUser(userName, userPassword);
+	/*
+  */
+	public boolean findUser(String username, String password) {
+		return users.haveUser(username, password);
 	}
-	
+	/*
 	public User getCurrentUser() {
 		return currentUser;
 	}
-	
-	public boolean login(String userName, String userPassword) {
-		if(!user.haveUser(userName, userPassword))
+	*/
+	public boolean login(String username, String password) {
+		if(!users.haveUser(username, password))
 			return false;
-		
-		currentUser = user.getUser(userName);
+      
+		//currentUser = users.getUser(userName);
 		return true;
 	}
 
 	public void logout() {
-		user.saveUsers();
+		users.saveUsers();
 	}
-	
+	/*
 	public boolean findCriminal(String criminalName) {
 		return criminal.haveCriminal(criminalName);
 	}
@@ -295,5 +296,7 @@ public class Facade {
 		}
 		return true;
 	}
+
+  */
 	
 }
