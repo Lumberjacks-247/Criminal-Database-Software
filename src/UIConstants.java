@@ -201,11 +201,11 @@ public class UIConstants {
     
     String titleString = "Search Reports";
     
-    String dataPromptString = "Author;Level of Charge;Jurisdiction;Type of Crime;Location";
+    String dataPromptString = "ID: ";
     
-    String choiceString = "Back;Set Author;Set Level of Charge;Set Jurisdiction;Set Type of Crime;Set Location;Search for Report";
+    String choiceString = "Back;Set ID;Search for Report";
 
-    String linkString = "S:PARENT;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;F:SEARCHREPORTS";
+    String linkString = "S:PARENT;ENTERDATA;F:SEARCHREPORTS";
 
     /* Extra Adjustments */
     Screen screen = new EditorScreen(titleString, dataPromptString, choiceString, linkString);

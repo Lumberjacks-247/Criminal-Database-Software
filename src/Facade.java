@@ -55,10 +55,11 @@ public class Facade {
 		return true;
 	}
 
-	public boolean findCrime(String crimeName) {
-		return crime.haveCrime(crimeName);
+  */
+	public Crime findCrime(String crimeName) {
+		return crime.findCrime(crimeName);
 	}
-
+  /*
 	public boolean checkCrime(String crimeName) {
 		if(!findCrime(crimeName)) 
 			return false;

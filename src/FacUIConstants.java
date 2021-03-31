@@ -18,21 +18,19 @@ public class FacUIConstants {
    * @param s The Screen which contains the information of the Report Search
    * @return The Screen object representing a success or failure to find Reports
    */
-//   public static Screen searchReports(Screen s) {
-//     String p0 = s.getDataValue(0); // Author
-//     String p1 = s.getDataValue(1); // LofC
-//     String p2 = s.getDataValue(2); // Jurisdiction
-//     String p3 = s.getDataValue(3); // TofC
-//     String p4 = s.getDataValue(4); // Location
-// 
-//     if (fac.findCrime(p0,p1,p2,p3,p4)) {
-//       return ScreenCalls.MAINMENU.call(s);
-//     } else {
-//       return ScreenCalls.MAINMENU.call(s);
-//     }
-// 
-// 
-//   }
+  public static Screen searchReports(Screen s) {
+    String id = s.getDataValue(0); //ID
+
+    Crime crime = fac.findCrime(id);
+    if (crime == null) {
+      return ScreenCalls.MAINMENU.call(s);
+    } else {
+      System.out.println(crime);
+      return ScreenCalls.MAINMENU.call(s);
+    }
+
+
+  }
 
   /**
    * Calls the Facade and passes the People information to search for. When
