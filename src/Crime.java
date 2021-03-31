@@ -348,9 +348,5 @@ public class Crime {
         }
         return output;
     }
-
-        return output;
-      }
-
     
 }
