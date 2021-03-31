@@ -47,26 +47,45 @@ public class FacUIConstants {
    * @param s The Screen object containing the information for the Person Search
    * @return The Screen object representing a success or failure to find Persons
    */
-//   public static Screen searchPeople(Screen s) {
-//     
-// 
-//     String p0 = s.getDataValue(0);  //First Name
-//     String p1 = s.getDataValue(1); //Last Name
-//     String p2 = s.getDataValue(2); //Gender
-//     String p3 = s.getDataValue(3); //Race
-//     String p4 = s.getDataValue(4); //Hair Color 
-//     String p5 = s.getDataValue(5); //Hair Style
-//     String p6 = s.getDataValue(6); //Eye Color
-//     String p7 = s.getDataValue(7); //Set Address
-//     String p8 = s.getDataValue(8); //Age
-// 
-//     //Search people
-//     /* Person[] people = fac.searchPeople(p0,p1,p2,p3,p4,p5,p6,p7,p8);*/
-// 
-//     return ScreenCalls.MAINMENU.call(s);
-//   }
+  public static Screen searchSuspects(Screen s) {
+    
 
-  /**
+    String p0 = s.getDataValue(0); //First Name
+    String p1 = s.getDataValue(1); //Last Name
+    String p2 = s.getDataValue(2); //Gender
+    String p3 = s.getDataValue(3); //Race
+    String p4 = s.getDataValue(4); //Hair Color 
+    String p5 = s.getDataValue(5); //Hair Style
+    String p6 = s.getDataValue(6); //Eye Color
+    String p7 = s.getDataValue(7); //Set Address
+    String p8 = s.getDataValue(8); //Age
+    String p9 = s.getDataValue(9);  //Tattoos
+    String p10 = s.getDataValue(10); //Gang
+    String p11 = s.getDataValue(11); //Victim Relation
+    String p12 = s.getDataValue(12); //Evidence
+    boolean  p13 = s.getDataValue(13) == null ? false : s.getDataValue(13).equalsIgnoreCase("true"); //isRepeatOffender 
+    String p14 = s.getDataValue(14); //Clothes
+    String p15 = s.getDataValue(15); //Nicknames
+    String p16 = s.getDataValue(16); //Common Words
+    String p17 = s.getDataValue(17); //Hobbies
+    String p18 = s.getDataValue(18);  //Job
+    String p19 = s.getDataValue(19); //Physical Traits
+
+    Suspect partial = new Suspect(p0,p1,null,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,null,null,-1,p14,p15,p16,p17,p18,p19);
+
+    Suspect[] sussies = fac.searchSuspects(partial);
+
+    int numSussies = 0;
+    for (Suspect sus : sussies) {
+      if (sus == null)
+        break;
+      numSussies++;
+    }
+
+    return new SuspectsListScreen(s,sussies,numSussies,false);
+  }
+
+  /** 
    * Calls the Facade to log the current user out. Returns the user to the
    * logout Screen, which is defined in <code> ScreenCalls </code>.
    * @param s The Screen which called for this method.

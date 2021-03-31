@@ -7,10 +7,18 @@ public class SuspectsListScreen extends Screen {
 
   private Suspect[] list;
   private int numSuspects;
+  private boolean allowChange = true;
   public SuspectsListScreen(Screen parent, Suspect[] list, int numSuspects) {
     this.parent = parent;
     this.list = list;
     this.numSuspects = numSuspects;
+  }
+
+  public SuspectsListScreen(Screen parent, Suspect[] list, int numSuspects, boolean changeable) {
+    this.parent = parent;
+    this.list = list;
+    this.numSuspects = numSuspects;
+    this.allowChange = changeable;
   }
 
 
@@ -26,7 +34,8 @@ public class SuspectsListScreen extends Screen {
       out += "(" + (count+1) + ") " + list[count].toString() + "\n";
     
 
-    out += "(" + (count+1) + ")" + " Add Suspect"   + "\n";
+    if (this.allowChange)
+      out += "(" + (count+1) + ")" + " Add Suspect"   + "\n";
     System.out.println(title+out);
   }
 
@@ -35,7 +44,9 @@ public class SuspectsListScreen extends Screen {
   public int isValid(String input) {
     try {
       int i = Integer.parseInt(input);
-      if (i >= 0 && i <= this.numSuspects+1) {
+      if (this.allowChange && i >= 0 && i <= this.numSuspects+1) {
+        return i;
+      } else if (i == 0) {
         return i;
       }
       return -1;
@@ -59,23 +70,24 @@ public class SuspectsListScreen extends Screen {
       return this;
 
     if (index == 0) {
-      this.parent.updateSuspectList(this.list,numSuspects);
+      if (this.allowChange)
+        this.parent.updateSuspectList(this.list,numSuspects);
       return this.parent;
     }
     
     Suspect suspect;
 
-    if (index-1 == numSuspects) {
-      suspect = new Suspect();
+    if (this.allowChange) {
+      if (index-1 == numSuspects) {
+        suspect = new Suspect();
+      } else {
+        suspect = list[index-1];
+      }
+
+      return new EditSuspectScreen(this,suspect,index-1);
     } else {
-      suspect = list[index-1];
+      return null;
     }
-
-
-    return new EditSuspectScreen(this,suspect,index-1);
-
-    
-
   }
   
 }

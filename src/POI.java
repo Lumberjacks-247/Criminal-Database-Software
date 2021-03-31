@@ -133,8 +133,23 @@ public class POI extends Person{
 
     @Override
     public String toString() {
-        return super.toString() + "\nTattoos: " + this.getTattoos() + "\nGang: " + this.getGang() + "\nRelation to Victim" + this.getVictimRelationship() +
-            "\nConnection to Evidence: " + this.getEvidenceConnection() + "\nRepeat Offender: " + this.getIsRepeatOffender();
+      String[] details = new String[]{tattoos,gang,victimRelationship,evidenceConnection,isRepeatOffender+""};
+      String[] prompts = new String[]{"Tattoos:","Gangs:","Relationship to Victim:","Connection to Evidence:","Repeat Offender:"};
+      
+      String out = super.toString();
+      if (!out.equals("")) out += " | ";
+      String buffer = "";
+      for (int i = 0; i < details.length;++i) {
+        String detail = details[i];
+        String prompt = prompts[i];
+
+        if (!detail.equals("")) {
+          out += buffer + prompt + " " + detail;
+          buffer = " | ";
+        }
+      }
+
+      return out;
     }
 
     /**
@@ -143,20 +158,28 @@ public class POI extends Person{
      * @return true if partial match is found, false if not
      */
     public boolean partialCompare(POI poi) {
-        if(!super.partialCompare(poi)) return false;
-        if(!this.getTattoos().equalsIgnoreCase(poi.getTattoos())){ 
-            if(!this.getTattoos().equals(BLANK)) return false;
-        }
-        if(!this.getGang().equalsIgnoreCase(poi.getGang())){ 
-            if(!this.getGang().equals(BLANK)) return false;
-        }
-        if(!this.getVictimRelationship().equalsIgnoreCase(poi.getVictimRelationship())){ 
-            if(!this.getVictimRelationship().equals(BLANK)) return false;
-        }
-        if(!this.getEvidenceConnection().equalsIgnoreCase(poi.getEvidenceConnection())){ 
-            if(!this.getEvidenceConnection().equals(BLANK)) return false;
-        }
-        if(this.getIsRepeatOffender()!=poi.getIsRepeatOffender()) return false;
+        if(!super.partialCompare((Person)poi)) return false;
+
+        if(!this.getTattoos().equals(""))
+          if(!this.getTattoos().equalsIgnoreCase(poi.getTattoos()))
+            return false;
+
+        if(!this.getGang().equals(""))
+          if(!this.getGang().equalsIgnoreCase(poi.getGang()))
+              return false;
+
+        if(!this.getVictimRelationship().equals(""))
+          if(!this.getVictimRelationship().equalsIgnoreCase(poi.getVictimRelationship()))
+              return false;
+
+        if(!this.getEvidenceConnection().equals(""))
+          if(!this.getEvidenceConnection().equalsIgnoreCase(poi.getEvidenceConnection()))
+              return false;
+        
+        if (this.getIsRepeatOffender())
+          if(!poi.getIsRepeatOffender())
+            return false;
+
         return true;
     }
 

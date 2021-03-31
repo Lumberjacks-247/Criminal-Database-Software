@@ -19,8 +19,8 @@ public class Suspect extends POI{
     ArrayList<Person> accomplices, ArrayList<Person> familyMembers, double footSize, String prefferedClothes, String nickNames,
     String commonWords, String hobbies, String job, String distinctPhysicalTraits) {
         super(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelationShip, evidenceConnection, isRepeatOffender);
-        this.accomplices = accomplices;
-        this.familyMembers = familyMembers;
+        this.accomplices = accomplices == null ? new ArrayList<Person>() : accomplices;
+        this.familyMembers = familyMembers == null ? new ArrayList<Person>() : familyMembers;
         this.footSize = footSize;
         this.prefferedClothes = prefferedClothes == null ? "" : prefferedClothes;
         this.nickNames = nickNames == null ? "" : nickNames;
@@ -162,7 +162,7 @@ public class Suspect extends POI{
      * @param footSize new foot size of suspect
      */
     public void setFootSize(double footSize) { 
-        if(footSize>0) this.footSize = footSize;
+        if(footSize>=0) this.footSize = footSize;
     }
 
     /**
@@ -263,41 +263,88 @@ public class Suspect extends POI{
 
     @Override
     public String toString() {
-        return super.toString() + "\nAccomplices: " + this.list(this.accomplices) + "\nFamily Members: " + this.list(this.familyMembers) +
-            "\nFoot Size: " + this.getFootSize() + "\nPreffered Clothes: " + this.getPrefferedClothes() + "\nNick Names: " + this.getNickNames() +
-            "\nCommon Words: " + this.getCommonWords() + "\nHobbies: " + this.getHobbies() + "\nJob: " + this.getJob() + 
-            "\nDistinct Physical Traits: " + this.getDistintPhysicalTraits();
+      String[] details = new String[]{footSize+"",prefferedClothes,nickNames,commonWords,hobbies,job,distintPhysicalTraits};
+      String[] prompts = new String[]{"Foot Size:","Clothes:","Nicknames:","Common Words/Phrases:","Hobbies:","Job:","Physical Traits:"};
+
+      String out = super.toString();
+      if (!out.equals("")) out += " | ";
+      String buffer = "";
+      for (int i = 0; i < details.length;++i) {
+        String detail = details[i];
+        String prompt = prompts[i];
+
+        if (!detail.equals(""))  {
+          out += buffer + prompt + " " + detail;
+          buffer = " | ";
+        }
+      }
+
+      out += " | ";
+
+      if (accomplices.size() > 0) {
+        out += "\nAccomplices:\t";
+
+        buffer = "";
+        for (Person p : accomplices) {
+          out += buffer + p.toString() + "\n";
+          buffer = "\t\t";
+        }
+      }
+
+      if (familyMembers.size() > 0) {
+        out += "\nFamily Members:\t";
+
+        buffer = "";
+        for (Person p : familyMembers) {
+          out += buffer + p.toString() + "\n";
+          buffer = "\t\t";
+        }
+      }
+      return out;
     }
 
     public boolean partialCompare(Suspect suspect) {
-        if(!super.partialCompare(suspect)) return false;
-        if(!this.arrayListCompare(accomplices, suspect)){ 
-            if(this.accomplices!=null) return false;
-        }
-        if(!this.arrayListCompare(familyMembers, suspect)){ 
-            if(this.familyMembers!=null) return false;
-        }
-        if(this.footSize!=suspect.footSize){ 
-            if(this.footSize!=0.0) return false;
-        }
-        if(!this.getPrefferedClothes().equalsIgnoreCase(suspect.getPrefferedClothes())){ 
-            if(!this.getPrefferedClothes().equals(BLANK)) return false;
-        }
-        if(!this.getNickNames().equalsIgnoreCase(suspect.getNickNames())){ 
-            if(!this.getNickNames().equals(BLANK)) return false;
-        }
-        if(!this.getCommonWords().equalsIgnoreCase(suspect.getCommonWords())){ 
-            if(!this.getCommonWords().equals(BLANK)) return false;
-        }
-        if(!this.getHobbies().equalsIgnoreCase(suspect.getHobbies())){ 
-            if(!this.getHobbies().equals(BLANK)) return false;
-        }
-        if(!this.getJob().equalsIgnoreCase(suspect.getJob())){ 
-            if(!this.getJob().equals(BLANK)) return false;
-        }
-        if(!this.getDistintPhysicalTraits().equalsIgnoreCase(suspect.getDistintPhysicalTraits())){ 
-            if(!this.getDistintPhysicalTraits().equals(BLANK)) return false;
-        }
+        if(!super.partialCompare((POI)suspect)) return false;
+
+        if (this.accomplices.size() != 0)
+          if (!this.arrayListCompare(accomplices, suspect))
+            return false;
+
+        if(this.familyMembers.size() != 0)
+          if(!this.arrayListCompare(familyMembers, suspect)) 
+            return false;
+        
+        if(this.footSize >= 0.0)
+          if(this.footSize!=suspect.footSize)
+            return false;
+        
+
+        if (!this.getPrefferedClothes().equals(""))
+          if(!this.getPrefferedClothes().equalsIgnoreCase(suspect.getPrefferedClothes()))
+            return false;
+            
+            
+        if(!this.getNickNames().equals(""))
+          if(!this.getNickNames().equalsIgnoreCase(suspect.getNickNames()))
+              return false;
+        
+
+        if(!this.getCommonWords().equals(""))
+          if(!this.getCommonWords().equalsIgnoreCase(suspect.getCommonWords()))
+            return false;
+
+        if(!this.getHobbies().equals(""))
+          if(!this.getHobbies().equalsIgnoreCase(suspect.getHobbies()))
+            return false;
+
+        if(!this.getJob().equals(""))
+          if(!this.getJob().equalsIgnoreCase(suspect.getJob()))
+              return false;
+
+        if(!this.getDistintPhysicalTraits().equals(""))
+          if(!this.getDistintPhysicalTraits().equalsIgnoreCase(suspect.getDistintPhysicalTraits()))
+            return false;
+        
         return true;
     }
 

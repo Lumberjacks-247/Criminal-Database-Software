@@ -167,7 +167,7 @@ public class UIConstants {
 
     String titleString = "Search";
     String choiceString = "Back;Search People;Search Reports";
-    String linkString = "S:PARENT;S:SEARCHPEOPLE;S:SEARCHREPORTS";
+    String linkString = "S:PARENT;S:SEARCHSUSPECT;S:SEARCHREPORTS";
   
     Screen screen = new TransScreen(titleString,choiceString,linkString);
     screen.setParent(parent);
@@ -179,16 +179,16 @@ public class UIConstants {
    * @param parent The Screen instance preceding the new Screen
    * @return The Search People Screen
    */
-  public static Screen SearchPeopleScreen(Screen parent) {
+  public static Screen SearchSuspectScreen(Screen parent) {
 
-    String titleString = "Search People";
-    String dataPromptString = "Firstname;Lastname;Gender;Race;Hair Color;Hair Style;Eye Color;Address;Age";
+    String titleString = "Search Suspects";
+    String dataPromptString = "Firstname;Lastname;Gender;Race;Hair Color;Hair Style;Eye Color;Address;Age;Tattoos;Gang;Victim Relation;Evidence Connection;isRepeatOffender;Clothes;Nicknames;Common Words;Hobbies;Job;Physical Traits";
     
     String choiceString = "Back;Set Firstname;Set Lastname;Set gender;Set Race;";
-    choiceString += "Set Hair Color;Set Hair Style;Set Eye Color;Set Address;Set Age;Search";
+    choiceString += "Set Hair Color;Set Hair Style;Set Eye Color;Set Address;Set Age;Set Tattoos;Set Gang;Set Victim Relation;Set Evidence Connection;Set isRepeatOffender;Set Clothes;Set Nicknames;Set Common Words;Set Hobbies;Set Job;Set Physical Traits;Search";
 
     String linkString = "S:PARENT;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;";
-    linkString +=       "ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;F:SEARCHPEOPLE";
+    linkString +=       "ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;F:SEARCHSUSPECTS";
 
 
      /* Extra Adjustments */

@@ -39,9 +39,9 @@ public class Person {
     }
 
     protected void init(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, String eyeColor, String address, String age) {
-      this.firstName = firstName;
-      this.lastName = lastName;
-      this.id = id == null ? "" : id;
+      this.firstName = firstName == null ? "" : firstName;
+      this.lastName = lastName == null ? "" : lastName;
+      this.id = id == null ? getNewID() : id;
       this.gender = gender == null ? "" : gender;
       this.race = race == null ? "" : race;
       this.hairColor = hairColor == null ? "" : hairColor;
@@ -54,6 +54,11 @@ public class Person {
     //need to check all Person object to see if id already is being used
     protected void setID() {
         this.id = "P" + df.format(idCount);
+    }
+
+    protected String getNewID() {
+      idCount++;
+      return "P" + df.format(idCount);
     }
     /**
      * Returns first name of person
@@ -211,16 +216,18 @@ public class Person {
     }
 
     public String toString() {
-      String[] details = new String[]{firstName+ " " +lastName,age,gender,race,hairColor,hairStyle,eyeColor,address};
-      String[] prompts = new String[]{"Name: ","Age: ","Gender: ","Race: ","Hair Color: ","Hair Style: ","Eye Color: ","Address: "};
+      String[] details = new String[]{firstName,lastName,age,gender,race,hairColor,hairStyle,eyeColor,address};
+      String[] prompts = new String[]{"First Name: ","Last Name: ","Age: ","Gender: ","Race: ","Hair Color: ","Hair Style: ","Eye Color: ","Address: "};
       
       String output = "";
+      String buffer = "";
       for (int i = 0; i < details.length;i++) {
         String detail = details[i];
         String prompt = prompts[i];
 
         if (!detail.equals("")) {
-          output += prompt + detail + " | ";
+          output += buffer + prompt + detail;
+          buffer = " | "; 
         } 
 
         
@@ -235,53 +242,47 @@ public class Person {
      * @return true if partial match is found, false if not
      */
     public boolean partialCompare(Person person) {
-        if(!this.getFirstName().equalsIgnoreCase(person.getFirstName())){
-            if(this.getFirstName().equals(BLANK)){}
-            else
+  
+
+      if(!this.getFirstName().equals(""))
+        if(!this.getFirstName().equalsIgnoreCase(person.getFirstName()))
               return false;
-        }
-        if(!this.getLastName().equalsIgnoreCase(person.getLastName())){ 
-            if(this.getLastName().equals(BLANK)){}
-            else
-              return false;
-        }
-        if(!compareID(person)) return false;
-        if(!this.getGender().equalsIgnoreCase(person.getGender())){ 
-            if(this.getGender().equals(BLANK)){}
-            else
-              return false;
-        }
-        if(!this.getRace().equalsIgnoreCase(person.getRace())){ 
-            if(this.getRace().equals(BLANK)){}
-            else
-              return false;
-        }
-        if(!this.getHairColor().equalsIgnoreCase(person.getHairColor())){ 
-            if(this.getHairColor().equals(BLANK)){}
-            else
-              return false;
-        }
-        if(!this.getHairStyle().equalsIgnoreCase(person.getHairStyle())){ 
-            if(this.getHairStyle().equals(BLANK)){}
-            else
-              return false;
-        }
-        if(!this.getEyeColor().equalsIgnoreCase(person.getEyeColor())){ 
-            if(this.getEyeColor().equals(BLANK)){}
-            else
-              return false;
-        }
-        if(!this.getAddress().equalsIgnoreCase(person.getAddress())){ 
-            if(this.getAddress().equals(BLANK)){}
-            else
-              return false;
-        }
-        if(!this.getAge().equalsIgnoreCase(person.getAge())){ 
-            if(this.getAge().equals(BLANK)){}
-            else
-              return false;
-        }
-        return true;
+
+      if(!this.getLastName().equals(""))
+        if(!this.getLastName().equalsIgnoreCase(person.getLastName()))
+          return false;
+        
+      //if(!compareID(person)) return false;
+
+      if(!this.getGender().equals(""))
+        if(!this.getGender().equalsIgnoreCase(person.getGender()))
+          return false;
+
+      if(!this.getRace().equals(""))
+        if(!this.getRace().equalsIgnoreCase(person.getRace()))
+          return false;
+
+      if(!this.getHairColor().equals(""))
+        if(!this.getHairColor().equalsIgnoreCase(person.getHairColor()))
+          return false;
+      
+      if(!this.getHairStyle().equals(""))
+        if(!this.getHairStyle().equalsIgnoreCase(person.getHairStyle()))
+            return false;
+
+      if(!this.getEyeColor().equals(""))
+        if(!this.getEyeColor().equalsIgnoreCase(person.getEyeColor()))
+          return false;
+
+      if(!this.getAddress().equals(""))    
+        if(!this.getAddress().equalsIgnoreCase(person.getAddress()))
+          return false;
+
+      if(!this.getAge().equals(""))
+        if(!this.getAge().equalsIgnoreCase(person.getAge()))
+          return false;
+      
+      return true;
     }
 
     public boolean compareID(Person person) {

@@ -325,7 +325,7 @@ public class DataLoader extends DataConstants {
     @SuppressWarnings("unchecked")
     public static ArrayList<Suspect> loadSuspects() {
         ArrayList<Suspect> suspect = new ArrayList<Suspect>();
-
+        System.out.println("READING SUSPECTS");
         try {
             FileReader reader = new FileReader(SUSPECT_FILE_NAME);
             JSONParser parser = new JSONParser();
@@ -364,7 +364,7 @@ public class DataLoader extends DataConstants {
                         //family.add(People.getInstance().getPerson(familyIterator.next()));
                     }
                 }
-                double footSize = ((Long)suspectJSON.get(SUSPECT_FOOT_SIZE)).floatValue();
+                double footSize = (double)(suspectJSON.get(SUSPECT_FOOT_SIZE));
                 String prefClothes = (String)suspectJSON.get(SUSPECT_PREFERRED_CLOTHES);
                 String nicknames = (String)suspectJSON.get(SUSPECT_NICKNAMES);
                 String commonWords = (String)suspectJSON.get(SUSPECT_COMMON_WORDS);
@@ -376,12 +376,18 @@ public class DataLoader extends DataConstants {
                 suspect.add(ret);
             }
 
+            System.out.println("DONE READING SUSPECTS");
+
+            for (Suspect sus : suspect) {
+              System.out.println(sus);
+            }
             return suspect;
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+        System.out.println("ERROR READING SUSPECTS");
         return null;
     }
 

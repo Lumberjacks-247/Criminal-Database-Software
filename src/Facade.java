@@ -10,7 +10,7 @@ public class Facade {
 	// private Evidences evidence;
 	// private Officers officer;
 	// private POIs poi;
-	// private Suspects suspect;
+	private Suspects suspects;
 	// private Victims victim;
 	// private Witnesses witness;
 	// private HospitalReports hospitalreport;
@@ -28,7 +28,7 @@ public class Facade {
 		// evidence = Evidences.getInstance();
 		// officer = Officers.getInstance();
 		// poi = POIs.getInstance();
-		// suspect = Suspects.getInstance();
+		suspects = Suspects.getInstance();
 		// victim = Victims.getInstance();
 		// witness = Witnesses.getInstance();
 		// hospitalreport = HospitalReports.getInstance();
@@ -319,6 +319,10 @@ public class Facade {
 // 		return true;
 // 	}
 // 	
+
+    public Suspect[] searchSuspects(Suspect partial) {
+      return suspects.searchSuspects(partial);
+    }
 // 	/**
 // 	 * finds suspect in json files.
 // 	 * @param suspectName suspect name
