@@ -38,7 +38,7 @@ public class Person {
         this.init( firstName,  lastName,  id,  gender,  race,  hairColor,  hairStyle,  eyeColor,  address,  age);
     }
 
-    private void init(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, String eyeColor, String address, String age) {
+    protected void init(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, String eyeColor, String address, String age) {
       this.firstName = firstName;
       this.lastName = lastName;
       this.id = id == null ? "" : id;
@@ -63,6 +63,10 @@ public class Person {
         return this.firstName;
     }
 
+    protected void setFirstName(String val) {
+      this.firstName = val;
+   }
+
     /**
      * Returns last name of person
      * @return last name of person as a String
@@ -70,6 +74,11 @@ public class Person {
     public String getLastName() {
         return this.lastName;
     }
+
+    public void setLastName(String val) {
+      this.lastName = val;
+  }
+
 
     /**
      * Changes name of person to passed in first and last name
@@ -227,32 +236,50 @@ public class Person {
      */
     public boolean partialCompare(Person person) {
         if(!this.getFirstName().equalsIgnoreCase(person.getFirstName())){
-            if(!this.getFirstName().equals(BLANK)) return false;
+            if(this.getFirstName().equals(BLANK)){}
+            else
+              return false;
         }
         if(!this.getLastName().equalsIgnoreCase(person.getLastName())){ 
-            if(!this.getLastName().equals(BLANK)) return false;
+            if(this.getLastName().equals(BLANK)){}
+            else
+              return false;
         }
         if(!compareID(person)) return false;
         if(!this.getGender().equalsIgnoreCase(person.getGender())){ 
-            if(!this.getGender().equals(BLANK)) return false;
+            if(this.getGender().equals(BLANK)){}
+            else
+              return false;
         }
         if(!this.getRace().equalsIgnoreCase(person.getRace())){ 
-            if(!this.getRace().equals(BLANK)) return false;
+            if(this.getRace().equals(BLANK)){}
+            else
+              return false;
         }
         if(!this.getHairColor().equalsIgnoreCase(person.getHairColor())){ 
-            if(!this.getHairColor().equals(BLANK)) return false;
+            if(this.getHairColor().equals(BLANK)){}
+            else
+              return false;
         }
         if(!this.getHairStyle().equalsIgnoreCase(person.getHairStyle())){ 
-            if(!this.getHairStyle().equals(BLANK)) return false;
+            if(this.getHairStyle().equals(BLANK)){}
+            else
+              return false;
         }
         if(!this.getEyeColor().equalsIgnoreCase(person.getEyeColor())){ 
-            if(!this.getEyeColor().equals(BLANK)) return false;
+            if(this.getEyeColor().equals(BLANK)){}
+            else
+              return false;
         }
         if(!this.getAddress().equalsIgnoreCase(person.getAddress())){ 
-            if(!this.getAddress().equals(BLANK)) return false;
+            if(this.getAddress().equals(BLANK)){}
+            else
+              return false;
         }
         if(!this.getAge().equalsIgnoreCase(person.getAge())){ 
-            if(!this.getAge().equals(BLANK)) return false;
+            if(this.getAge().equals(BLANK)){}
+            else
+              return false;
         }
         return true;
     }

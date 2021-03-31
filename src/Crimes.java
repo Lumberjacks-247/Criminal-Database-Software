@@ -17,12 +17,12 @@ public class Crimes {
 	}
 	
 	//check if have crime.
-	public boolean haveCrime(String crimeName) {
+	public Crime findCrime(String id) {
 		for(Crime crime : crimeList) {
-			if(crime.getCrimeName().equals(crimeName)) 
-				return true;
+			if(crime.getID().equals(id)) 
+				return crime;
 		}
-		return false;
+		return null;
 	}
 	
 	

@@ -44,7 +44,18 @@ public class Suspect extends POI{
             this.distintPhysicalTraits = distinctPhysicalTraits;
         }
 
-    public Suspect() {};
+    public Suspect() {
+      super(null,null,null,null,null,null,null,null,null, null,null,null,null,null,false);
+      this.accomplices = new ArrayList<Person>();
+      this.familyMembers = new ArrayList<Person>();
+      this.footSize = 0;
+      this.prefferedClothes = "";
+      this.nickNames = "";
+      this.commonWords = "";
+      this.hobbies = "";
+      this.job = "";
+      this.distintPhysicalTraits = "";                     
+    };
 
     public void setPOIInfo(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, 
     String eyeColor, String address, String age, String tattoos, String gang, String victimRelationShip, String evidenceConnection, boolean isRepeatOffender) {

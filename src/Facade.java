@@ -2,18 +2,18 @@ package src;
 import java.util.ArrayList;
 public class Facade {
 
-	private People people;
+	// private People people;
 	private Crimes crime;
-	private Users user;
-	private User currentUser;
-	private Criminals criminal;
-	private Evidences evidence;
-	private Officers officer;
-	private POIs poi;
-	private Suspects suspect;
-	private Victims victim;
-	private Witnesses witness;
-	private HospitalReports hospitalreport;
+	private Users users;
+	// private User currentUser;
+	// private Criminals criminal;
+	// private Evidences evidence;
+	// private Officers officer;
+	// private POIs poi;
+	// private Suspects suspect;
+	// private Victims victim;
+	// private Witnesses witness;
+	// private HospitalReports hospitalreport;
 
 	/**
 	 * creates instances of each, users, people, crimes, criminals, evidences, officers, pois, suspects, victims, witnesses, hospital reports.
@@ -21,24 +21,19 @@ public class Facade {
 	public Facade() {
 
 
-		user = Users.getInstance();
-		people = People.getInstance(); 
+		users = Users.getInstance();
+		// people = People.getInstance(); 
 		crime = Crimes.getInstance();
-		criminal = Criminals.getInstance();
-		evidence = Evidences.getInstance();
-		officer = Officers.getInstance();
-		poi = POIs.getInstance();
-		suspect = Suspects.getInstance();
-		victim = Victims.getInstance();
-		witness = Witnesses.getInstance();
-		hospitalreport = HospitalReports.getInstance();
+		// criminal = Criminals.getInstance();
+		// evidence = Evidences.getInstance();
+		// officer = Officers.getInstance();
+		// poi = POIs.getInstance();
+		// suspect = Suspects.getInstance();
+		// victim = Victims.getInstance();
+		// witness = Witnesses.getInstance();
+		// hospitalreport = HospitalReports.getInstance();
 	}
-	
-	/**
-	 * Finds a person based on name.
-	 * @param personName person name
-	 * @return returns if the person was found or not.
-	 */
+	/*
 	public boolean findPerson(String personName) {
 		return people.havePerson(personName);
 	}
@@ -67,30 +62,19 @@ public class Facade {
 		return false;
 	}
 	
-	// public boolean addPerson(String personName, String newPerson) {
-	// 	if(!findPerson(personName)) {
-	// 		person.addPerson(null, null, null, null, null, null, null, null, null, null);
-	// 		return false;
-	// 	}
-	// 	return true;
-	// }
-
-	/**
-	 * finds if crime exists
-	 * @param crimeName crime name
-	 * @return returns crime
-	 */
-
-	public boolean findCrime(String crimeName) {
-		return crime.haveCrime(crimeName);
+	public boolean addPerson(String personName, String newPerson) {
+		if(!findPerson(personName)) {
+			person.addPerson(null, null, null, null, null, null, null, null, null, null);
+			return false;
+		}
+		return true;
 	}
 
-	/**
-	 * Checks if crime is in json files
-	 * @param crimeName crime name
-	 * @return returns if crime is in json files.
-	 */
-
+  */
+	public Crime findCrime(String crimeName) {
+		return crime.findCrime(crimeName);
+	}
+  /*
 	public boolean checkCrime(String crimeName) {
 		if(!findCrime(crimeName)) 
 			return false;
@@ -123,51 +107,26 @@ public class Facade {
 		}
 		return true;
 	}
-	
-	/**
-	 * creates a new account for login
-	 * @param userName user name
-	 * @param firstName first name
-	 * @param lastName last name
-	 * @param accessLevel access level
-	 * @param userPassword user password
-	 * @return returns saved information into the json file
-	 */
+	*/
 	public boolean createAccount(String userName, String firstName, String lastName, int accessLevel, String userPassword)
 	{
-		return user.addUser(userName,  firstName,  lastName,  accessLevel,  userPassword);
+		return users.addUser(userName,  firstName,  lastName,  accessLevel,  userPassword);
 	}
-
-	/**
-	 * finds user in json files
-	 * @param userName user name
-	 * @param userPassword user password
-	 * @return returns if found.
-	 */
-	
-	public boolean findUser(String userName, String userPassword) {
-		return user.haveUser(userName, userPassword);
+	/*
+  */
+	public boolean findUser(String username, String password) {
+		return users.haveUser(username, password);
 	}
-	
-	/**
-	 * gets the current user information
-	 * @return returns current user information.
-	 */
+	/*
 	public User getCurrentUser() {
 		return currentUser;
 	}
-	
-	/**
-	 * allows login true or false
-	 * @param userName user name
-	 * @param userPassword user password
-	 * @return returns if the user is in the files and returns current user information
-	 */
-	public boolean login(String userName, String userPassword) {
-		if(!user.haveUser(userName, userPassword))
+	*/
+	public boolean login(String username, String password) {
+		if(!users.haveUser(username, password))
 			return false;
-		
-		currentUser = user.getUser(userName);
+      
+		//currentUser = users.getUser(userName);
 		return true;
 	}
 
@@ -175,15 +134,9 @@ public class Facade {
 	 * logs out user and saves user information.
 	 */
 	public void logout() {
-		user.saveUsers();
+		users.saveUsers();
 	}
-
-	/**
-	 * finds criminal within the json files.
-	 * @param criminalName criminal name
-	 * @return returns if the criminal was found.
-	 */
-	
+	/*
 	public boolean findCriminal(String criminalName) {
 		return criminal.haveCriminal(criminalName);
 	}
@@ -551,5 +504,7 @@ public class Facade {
 		}
 		return true;
 	}
+
+  */
 	
 }

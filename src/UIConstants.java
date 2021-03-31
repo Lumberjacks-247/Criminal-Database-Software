@@ -202,11 +202,11 @@ public class UIConstants {
     
     String titleString = "Search Reports";
     
-    String dataPromptString = "Author;Level of Charge;Jurisdiction;Type of Crime;Location";
+    String dataPromptString = "ID: ";
     
-    String choiceString = "Back;Set Author;Set Level of Charge;Set Jurisdiction;Set Type of Crime;Set Location;Search for Report";
+    String choiceString = "Back;Set ID;Search for Report";
 
-    String linkString = "S:PARENT;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;F:SEARCHREPORTS";
+    String linkString = "S:PARENT;ENTERDATA;F:SEARCHREPORTS";
 
     /* Extra Adjustments */
     Screen screen = new EditorScreen(titleString, dataPromptString, choiceString, linkString);
@@ -280,21 +280,13 @@ public class UIConstants {
     
     /* Extra Adjustments */
     Screen screen = new TransScreen(titleString,choiceString,linkString);
-    screen.setParent(null);
+    screen.setParent(parent);
     return screen;
   }
 
 
   public static Screen NewCrimeScreen(Screen parent) {
-        
-    String titleString = "New Crime";
-    String dataPromptString = "Name of Crime";
-    String choiceString = "Back;Set Name of Crime;Create New Crime";
-    String linkString = "S:PARENT;ENTERDATA;F:CREATECRIME";
-
-    
-    /* Extra Adjustments */
-    Screen screen = new EditorScreen(titleString, dataPromptString, choiceString, linkString);
+    Screen screen = new EnterNewCrime();
     screen.setParent(parent);
     return screen;
   }
@@ -302,6 +294,7 @@ public class UIConstants {
   public static Screen ResultScreen(Screen parent,Object[] objs) {
     return new ResScreen(parent,objs);
   }
+
 
 
 }

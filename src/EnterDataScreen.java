@@ -26,6 +26,12 @@ public class EnterDataScreen extends Screen {
 
   }
 
+  public EnterDataScreen(Screen parent, String prompt, String value, int index) {
+    this.parent = parent;
+    this.data = new Datum(prompt,value);
+    this.index = index;
+  }
+
   public void display() {
     System.out.println(data);
     System.out.print(data.prompt + ": ");

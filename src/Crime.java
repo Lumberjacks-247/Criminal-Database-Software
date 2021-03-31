@@ -9,9 +9,7 @@ public class Crime {
     private String id, typeOfCrime, location;
     private boolean isOpen = true;
     private User author;
-    private static Crime crime;
     private ArrayList<POI> pois;
-    private ArrayList<Crime> crimeList;
     private ArrayList<Suspect> suspects;
     private ArrayList<Criminal> criminals;
     private ArrayList<Victim> victims;
@@ -191,9 +189,9 @@ public class Crime {
 		this.pois = pois;
 	}
 
-    public int getPoisLength() {
-        return this.pois.size();
-    }
+  public int getPoisLength() {
+      return this.pois.size();
+  }
 
 	public ArrayList<Suspect> getSuspects() {
 		return suspects;
@@ -267,20 +265,14 @@ public class Crime {
         return this.evidence.size();
     }
 
-	public static Crime getInstance() {
-		if(crime == null) {
-			crime = new Crime();
-		}
-		return crime;
-	}
 
-    public String listNamesPOI(ArrayList<POI> people) {
-        String ret = "";
-        for(Person p : people) {
-            ret.concat(list(p));
-        }
-        return ret;
-    }
+  public String listNamesPOI(ArrayList<POI> people) {
+      String ret = "";
+      for(Person p : people) {
+          ret.concat(list(p));
+      }
+      return ret;
+  }
 
     public String listNamesSuspect(ArrayList<Suspect> people) {
         String ret = "";
@@ -335,10 +327,10 @@ public class Crime {
     }
 
     public String toString() {
-        String levelOfChar = String.valueOf(levelOfCharge);
-        String juris = String.valueOf(jurisdiction);
-        String isOp = String.valueOf(isOpen);
-        String[] details = new String[]{id,typeOfCrime,levelOfChar,juris,location,isOp,author.getFirstName() + " " + author.getLastName(),listNamesPOI(pois),
+        String levelOfCharg = ""+levelOfCharge;
+        String jurisdictio = ""+jurisdiction;
+        String isOpe = ""+isOpen;
+        String[] details = new String[]{id,typeOfCrime,levelOfCharg,jurisdictio,location,isOpe,author.getFirstName() + " " + author.getLastName(),listNamesPOI(pois),
             listNamesSuspect(suspects),listNamesCriminal(criminals),listNamesVictim(victims),listNamesWitness(witnesses),
             listNamesOfficer(officers), listEvidence(evidence)};
         String[] prompts = new String[]{"ID: ","Type of Crime: ","Level of Charge","Jurisdiction","Location: ","Open: ","Author Name: ",
@@ -357,14 +349,8 @@ public class Crime {
         return output;
     }
 
-	private Crime getCrime() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+        return output;
+      }
 
-	public Object getCrimeName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
     
 }

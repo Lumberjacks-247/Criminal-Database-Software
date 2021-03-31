@@ -43,14 +43,10 @@ public class Users {
 		if(haveUser(userName, userPassword))
 			return false;
 		userList.add(new User(userName, firstName, lastName, accessLevel, userPassword));
-    saveUsers();
+		DataWriter.saveUsers();
 		return true;
 	}
-	
-	public void saveUsers() {
-		DataWriter.saveUsers();
-	}
-
-
-
+  public void saveUsers() {
+    DataWriter.saveUsers();
+  }
 }

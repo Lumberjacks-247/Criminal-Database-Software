@@ -63,6 +63,7 @@ public abstract class Screen {
   protected class Datum {
     public String prompt,value = null;
     public Datum(String prompt_) {prompt = prompt_;}
+    public Datum(String prompt_,String value_) {prompt = prompt_;value = value_;}
     public String toString() { return prompt + ": " + value;}
   }
 
@@ -102,6 +103,14 @@ public abstract class Screen {
   protected Datum getDatum(int index) {
     return this.data[index];
   }
+
+  protected void updatePOIList(POI[] arr,int num){}
+  protected void updateSuspectList(Suspect[] arr,int num){}
+  protected void updateCriminalList(POI[] arr,int num){}
+  protected void updateOfficerList(POI[] arr,int num){}
+  protected void updateVictimList(Victim[] arr,int num){}
+  protected void updateEvidenceList(Evidence[] arr,int num){}
+
 
   
 

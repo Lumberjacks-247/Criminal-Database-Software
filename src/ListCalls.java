@@ -8,27 +8,13 @@ import java.util.function.BiFunction;
  * @author Blake Seekings
  * @version 1.4
  */
-public enum ScreenCalls {
+public enum ListCalls {
 
-    NULL          (UIConstants::Null),
-    START         (UIConstants::WelcomeScreen),
-    RESULTS       (UIConstants::ResultScreen),
-    PARENT        (UIConstants::ParentScreen),
-    WELCOME       (UIConstants::WelcomeScreen),
-    LOGIN         (UIConstants::LoginScreen),
-    LOGOUT        (UIConstants::WelcomeScreen),
-    CREATEACCOUNT (UIConstants::CreateAccountScreen),
-    SEARCH        (UIConstants::SearchScreen),
-    SEARCHPEOPLE  (UIConstants::SearchPeopleScreen),
-    SEARCHREPORTS (UIConstants::SearchReportsScreen),
-    MAINMENU      (UIConstants::MainMenuScreen),
-    NEWDATA       (UIConstants::NewDataScreen),
-    NEWCRIME      (UIConstants::NewCrimeScreen),
+    POI       (ListConstants::poiList)
     ;
 
 
     /* Method reference */
-    private Function<Screen,Screen> f;
     private BiFunction<Screen,Object[],Screen> b;
     /**
      * Constructs enum objects.
@@ -63,9 +49,4 @@ public enum ScreenCalls {
     public Screen call(Screen screen, Object[] objs) {
       return this.b.apply(screen, objs);
     }
-
-  
-  
-
-
 }

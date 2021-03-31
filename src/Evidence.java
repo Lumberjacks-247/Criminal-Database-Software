@@ -18,6 +18,13 @@ public class Evidence {
         this.setID();
     }
 
+
+    public Evidence() {
+      idCount++;
+      this.setID();
+      this.description = "";
+      this.dateOfDiscovery = "";
+    }
     /**
      * creates an Evidence object by reading in the parameters from a json file
      * @param id id of piece of evidence
@@ -77,9 +84,5 @@ public class Evidence {
         this.dateOfDiscovery = dateOfDiscovery;
     }
 
-	public Object getEvidenceName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-    
+
 }
