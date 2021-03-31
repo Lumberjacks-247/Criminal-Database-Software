@@ -25,8 +25,8 @@ public class Criminal extends Suspect{
     String commonWords, String hobbies, String job, String distinctPhysicalTraits, ArrayList<Crime> crimes, double sentences, String status, boolean inCustody) {
         super(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelationShip, evidenceConnection, isRepeatOffender, 
         accomplices, familyMembers, footSize, prefferedClothes, nickNames, commonWords, hobbies, job, distinctPhysicalTraits);
-        this.crimes = crimes;
-        this. sentence = sentences;
+        this.crimes = crimes == null ? new ArrayList<Crime>() : crimes;
+        this.sentence = sentences;
         this.status = status == null ? "" : status;
         this.inCustody = inCustody;
     }
@@ -39,20 +39,28 @@ public class Criminal extends Suspect{
         this.inCustody = inCustody;
     }
 
+    public Criminal() {
+      setSuspectInfo(null,null,null,null,null,null,null,null,null,null,null,null,null,null,false,new ArrayList<Person>(),new ArrayList<Person>(),-1.0,null,null,null,null,null,null,null);
+      this.crimes = new ArrayList<Crime>();
+      this.sentence = -1;
+      this.status = "";
+      this.inCustody = false;
+    }
+
     public void setSuspectInfo(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, 
     String eyeColor, String address, String age, String tattoos, String gang, String victimRelationShip, String evidenceConnection, boolean isRepeatOffender,
     ArrayList<Person> accomplices, ArrayList<Person> familyMembers, double footSize, String prefferedClothes, String nickNames,
     String commonWords, String hobbies, String job, String distinctPhysicalTraits) {
         super.setPOIInfo(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelationShip, evidenceConnection, isRepeatOffender);
-        this.accomplices = accomplices;
-        this.familyMembers = familyMembers;
+        this.accomplices = accomplices == null ? new ArrayList<Person>() : accomplices;
+        this.familyMembers = familyMembers == null ? new ArrayList<Person>() : familyMembers;
         this.footSize = footSize;
-        this.prefferedClothes = prefferedClothes;
-        this.nickNames = nickNames;
-        this.commonWords = commonWords;
-        this.hobbies = hobbies;
-        this.job = job;
-        this.distintPhysicalTraits = distinctPhysicalTraits;
+        this.prefferedClothes = prefferedClothes == null ? "" : prefferedClothes;
+        this.nickNames = nickNames == null ? "" : nickNames;
+        this.commonWords = commonWords == null ? "" : commonWords;
+        this.hobbies = hobbies == null ? "" : hobbies;
+        this.job = job == null ? "" : job;
+        this.distintPhysicalTraits = distinctPhysicalTraits == null ? "" : distinctPhysicalTraits;
     }
 
     public ArrayList<Crime> getCrimes() {
@@ -107,6 +115,7 @@ public class Criminal extends Suspect{
 
     @Override
     public String toString() {
+      String[] details = new String[]{sentence,};
         return super.toString() + "\nCrimes: " + this.listCrimes(this.crimes) + "\nSentence: " + this.getSentence() + 
             "\nStatus: " + this.getStatus() + "\nIn Custody: " + this.getInCustody();
     }

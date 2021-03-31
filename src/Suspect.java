@@ -279,8 +279,6 @@ public class Suspect extends POI{
         }
       }
 
-      out += " | ";
-
       if (accomplices.size() > 0) {
         out += "\nAccomplices:\t";
 
