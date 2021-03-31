@@ -240,9 +240,9 @@ public class Facade {
 		return false;
 	}
 	
-	public boolean addVictim(String victimName) {
-		if(!findVictim(victimName)) {
-			victim.addVictim(victimName, victimName, victimName, false, null, victimName);
+	public boolean addWitness(String witnessName) {
+		if(!findWitness(witnessName)) {
+			witness.addWitness(witnessName, witnessName, null, witnessName, witnessName, witnessName);
 			return false;
 		}
 		return true;
