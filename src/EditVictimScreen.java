@@ -29,7 +29,7 @@ public class EditVictimScreen extends Screen {
     out += "Address: " +              victim.getAddress() + "\n";
     out += "Age: " +                  victim.getAge() + "\n";
     out += "Statement: " +            victim.getStatement() + "\n";
-    out += "Alive: " +                (victim.getIsAlive() ? "true" : "false");
+    out += "Alive: " +                (victim.getIsAlive() ? "true" : "false") + "\n";
     out += UIConstants.DIV;
 
     String bot = "";

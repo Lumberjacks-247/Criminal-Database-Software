@@ -29,7 +29,7 @@ public class FacUIConstants {
     if (crime == null) {
       return ScreenCalls.MAINMENU.call(s);
     } else {
-      try (FileWriter writer = new FileWriter(new File("testcrime.txt"));) {
+      try (FileWriter writer = new FileWriter(new File("output.txt"));) {
         writer.write(crime.toString());
       } catch( Exception e) {
         
@@ -47,7 +47,7 @@ public class FacUIConstants {
    * @param s The Screen object containing the information for the Person Search
    * @return The Screen object representing a success or failure to find Persons
    */
-  public static Screen searchSuspects(Screen s) {
+  public static Screen searchCriminals(Screen s) {
     
 
     String p0 = s.getDataValue(0); //First Name
@@ -68,21 +68,24 @@ public class FacUIConstants {
     String p15 = s.getDataValue(15); //Nicknames
     String p16 = s.getDataValue(16); //Common Words
     String p17 = s.getDataValue(17); //Hobbies
-    String p18 = s.getDataValue(18);  //Job
+    String p18 = s.getDataValue(18); //Job
     String p19 = s.getDataValue(19); //Physical Traits
+    String p20 = s.getDataValue(20) == null ? "" : s.getDataValue(20); //Sentence
+    String p21 = s.getDataValue(21); //Status
+    boolean p22 = s.getDataValue(22) == null ? false : s.getDataValue(22).equalsIgnoreCase("true"); //In Custody
 
-    Suspect partial = new Suspect(p0,p1,null,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,null,null,-1,p14,p15,p16,p17,p18,p19);
+    Criminal partial = new Criminal(p0,p1,null,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,null,null,-1,p14,p15,p16,p17,p18,null,p19,p20,p21,p22);
 
-    Suspect[] sussies = fac.searchSuspects(partial);
+    Criminal[] crimmies = fac.searchCriminals(partial);
 
-    int numSussies = 0;
-    for (Suspect sus : sussies) {
-      if (sus == null)
+    int numCrimmies = 0;
+    for (Criminal crim : crimmies) {
+      if (crim == null)
         break;
-      numSussies++;
+      numCrimmies++;
     }
 
-    return new SuspectsListScreen(s,sussies,numSussies,false);
+    return new CriminalListScreen(s,crimmies,numCrimmies,false);
   }
 
   /** 

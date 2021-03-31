@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Criminal extends Suspect{
 
     //protected ArrayList<Crime> crimes;
-    protected double sentence;
+    protected String sentence;
     protected String status, crimes;
     protected boolean inCustody;
 
@@ -22,17 +22,17 @@ public class Criminal extends Suspect{
     public Criminal(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, 
     String eyeColor, String address, String age, String tattoos, String gang, String victimRelationShip, String evidenceConnection, boolean isRepeatOffender,
     ArrayList<Person> accomplices, ArrayList<Person> familyMembers, double footSize, String prefferedClothes, String nickNames,
-    String commonWords, String hobbies, String job, String distinctPhysicalTraits, String crimes, double sentences, String status, boolean inCustody) {
+    String commonWords, String hobbies, String job, String distinctPhysicalTraits, String crimes, String sentences, String status, boolean inCustody) {
         super(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelationShip, evidenceConnection, isRepeatOffender, 
         accomplices, familyMembers, footSize, prefferedClothes, nickNames, commonWords, hobbies, job, distinctPhysicalTraits);
-        this.crimes = crimes == null ? new ArrayList<Crime>() : crimes;
+        this.crimes = crimes == null ? "" : crimes;
         this.sentence = sentences;
         this.status = status == null ? "" : status;
         this.inCustody = inCustody;
     }
 
     //USED FOR LOADING INTO JSON
-    public Criminal(String crimes, double sentence, String status, boolean inCustody) {
+    public Criminal(String crimes, String sentence, String status, boolean inCustody) {
         this.crimes = crimes;
         this.sentence = sentence;
         this.status = status;
@@ -40,9 +40,9 @@ public class Criminal extends Suspect{
     }
 
     public Criminal() {
-      setSuspectInfo(null,null,null,null,null,null,null,null,null,null,null,null,null,null,false,new ArrayList<Person>(),new ArrayList<Person>(),-1.0,null,null,null,null,null,null,null);
-      this.crimes = new ArrayList<Crime>();
-      this.sentence = -1;
+      setSuspectInfo(null,null,null,null,null,null,null,null,null,null,null,null,null,null,false,new ArrayList<Person>(),new ArrayList<Person>(),-1.0,null,null,null,null,null,null);
+      this.crimes = "";
+      this.sentence = "";
       this.status = "";
       this.inCustody = false;
     }
@@ -66,22 +66,22 @@ public class Criminal extends Suspect{
     public String getCrimes() {
         return crimes;
     }
+// 
+//     public void addCrime(Crime crime) {
+//         crimes.add(crime);
+//     }
 
-    public void addCrime(Crime crime) {
-        crimes.add(crime);
-    }
-
-    public int getCrimesLength() {
-        return this.crimes.size();
-    }
+    // public int getCrimesLength() {
+    //     return this.crimes.size();
+    // }
 
     //should this be in crime class?
-    public double getSentence() {
+    public String getSentence() {
         return this.sentence;
     }
 
-    public void setSentence(double sentence) {
-        if(sentence>0) this.sentence = sentence;
+    public void setSentence(String sentence) {
+        this.sentence = sentence;
     }
 
     public String getStatus() {
@@ -115,25 +115,46 @@ public class Criminal extends Suspect{
 
     @Override
     public String toString() {
-      String[] details = new String[]{sentence,};
-        return super.toString() + "\nCrimes: " + this.listCrimes(this.crimes) + "\nSentence: " + this.getSentence() + 
-            "\nStatus: " + this.getStatus() + "\nIn Custody: " + this.getInCustody();
+      String[] details = new String[]{sentence+"",crimes,status,inCustody+""};
+      String[] prompts = new String[]{"Sentence:","Crimes:","Status:","In Custody:"};
+
+      String out = super.toString();
+
+      if (!out.equals(""))
+        out += " | ";
+
+      String buffer = "";
+      for (int i = 0;i < details.length;++i) {
+        String detail = details[i];
+        String prompt = prompts[i];
+
+        if (!detail.equals("")) {
+          out += buffer + prompt + " " + detail;
+          buffer = " | ";
+        }
+      }
+
+      return out;
     }
 
     public boolean partialCompare(Criminal criminal) {
-        boolean ret = true;
         if(!super.partialCompare(criminal)) return false;
         /*if(!this.crimesCompare(crimes, criminal)){ 
             if(this.crimes==null) continue;
             return false;
         }*/
-        if(this.getSentence()!=criminal.getSentence()){ 
-            if(this.getSentence()!=0.0) return false;
-        }
-        if(!this.getStatus().equalsIgnoreCase(criminal.getStatus())){ 
-            if(!this.getStatus().equals(BLANK)) return false;
-        }
-        if(!this.getInCustody()==criminal.getInCustody()) return false;
+        if(!this.getSentence().equals(""))
+          if(!this.getSentence().equalsIgnoreCase(criminal.getSentence()))
+             return false;
+
+        if(!this.getStatus().equals(""))
+          if(!this.getStatus().equalsIgnoreCase(criminal.getStatus()))
+            return false;
+        
+        if (this.getInCustody())
+          if(this.getInCustody()!=criminal.getInCustody()) return false;
+
+
         return true;
     }
 
