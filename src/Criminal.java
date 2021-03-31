@@ -7,6 +7,7 @@ public class Criminal extends Suspect{
     protected double sentence;
     protected String status, crimes;
     protected boolean inCustody;
+    protected int height;
 
     /**
      * FOR CREATING CRIMINAL THROUGH UI
@@ -22,21 +23,23 @@ public class Criminal extends Suspect{
     public Criminal(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, 
     String eyeColor, String address, String age, String tattoos, String gang, String victimRelationShip, String evidenceConnection, boolean isRepeatOffender,
     ArrayList<Person> accomplices, ArrayList<Person> familyMembers, double footSize, String prefferedClothes, String nickNames,
-    String commonWords, String hobbies, String job, String distinctPhysicalTraits, String crimes, double sentences, String status, boolean inCustody) {
+    String commonWords, String hobbies, String job, String distinctPhysicalTraits, String crimes, double sentences, String status, boolean inCustody, int height) {
         super(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelationShip, evidenceConnection, isRepeatOffender, 
         accomplices, familyMembers, footSize, prefferedClothes, nickNames, commonWords, hobbies, job, distinctPhysicalTraits);
         this.crimes = crimes;
         this. sentence = sentences;
         this.status = status == null ? "" : status;
         this.inCustody = inCustody;
+        this.height = height;
     }
 
     //USED FOR LOADING INTO JSON
-    public Criminal(String crimes, double sentence, String status, boolean inCustody) {
+    public Criminal(String crimes, double sentence, String status, boolean inCustody, int height) {
         this.crimes = crimes;
         this.sentence = sentence;
         this.status = status;
         this.inCustody = inCustody;
+        this.height = height;
     }
 
     public void setSuspectInfo(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, 
@@ -59,13 +62,19 @@ public class Criminal extends Suspect{
         return crimes;
     }
 
-    public void addCrime(Crime crime) {
-        crimes.add(crime);
+    public void addCrime(String crime) {
+        crimes += ", " + crime;
     }
 
+    public int getHeight() {
+        return height;
+    }
+
+    /*
     public int getCrimesLength() {
         return this.crimes.size();
     }
+    */
 
     //should this be in crime class?
     public double getSentence() {
@@ -97,17 +106,13 @@ public class Criminal extends Suspect{
 		return null;
 	}
 
-    public String listCrimes(ArrayList<Crime> crimes) {
-        String ret = "";
-        for(Crime crime : crimes) {
-            ret = ret + crime.getID() + ", ";
-        }
-        return ret;
+    public String listCrimes() {
+        return crimes;
     }
 
     @Override
     public String toString() {
-        return super.toString() + "\nCrimes: " + this.listCrimes(this.crimes) + "\nSentence: " + this.getSentence() + 
+        return super.toString() + "\nCrimes: " + this.crimes + "\nSentence: " + this.getSentence() + 
             "\nStatus: " + this.getStatus() + "\nIn Custody: " + this.getInCustody();
     }
 

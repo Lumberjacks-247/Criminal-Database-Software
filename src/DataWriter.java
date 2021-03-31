@@ -190,6 +190,7 @@ public class DataWriter extends DataConstants{
 		criminalDetails.put(CRIMINAL_SENTENCE, criminal.getSentence());
 		criminalDetails.put(CRIMINAL_STATUS, criminal.getStatus());
 		criminalDetails.put(CRIMINAL_IN_CUSTODY, criminal.getInCustody());
+		criminalDetails.put(CRIMINAL_HEIGHT, criminal.getHeight());
 		return criminalDetails;
 	}
 

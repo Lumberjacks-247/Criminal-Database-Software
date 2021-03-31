@@ -27,7 +27,8 @@
     "crimes":[ "C50029" ],
     "sentence":"46 years",
     "status":"At ADX Florence",
-    "inCustody":false
+    "inCustody":false,
+    "height":67
   },{
     "firstName":"Tyson",
     "lastName":"Leise",
@@ -53,10 +54,11 @@
     "hobbies":"football, TV",
     "job":"Construction",
     "physTraits":"Missing left ring finger",
-    "crimes":[ "C90092" ],
+    "crimes":"",
     "sentence":"6 months",
     "status":"",
-    "inCustody":false
+    "inCustody":false,
+    "height":72
   },{
     "firstName":"Emma",
     "lastName":"Vigeland",
@@ -82,10 +84,11 @@
     "hobbies":"football, TV",
     "job":"Construction",
     "physTraits":"Missing left ring finger",
-    "crimes":[ "C90092" ],
+    "crimes":"Murdering her watermelon",
     "sentence":"6 months",
     "status":"",
-    "inCustody":false
+    "inCustody":false,
+    "height":59
   },{
     "firstName":"Tim",
     "lastName":"Wareheimer",
@@ -111,10 +114,11 @@
     "hobbies":"computers",
     "job":"IT",
     "physTraits":"mole on left arm",
-    "crimes":[ "C90092" ],
+    "crimes":"Robbing bar, stealing liquor",
     "sentence":"6 months",
     "status":"",
-    "inCustody":true
+    "inCustody":true,
+    "height":72
   },{
     "firstName":"Lorenzo",
     "lastName":"Sampson",
@@ -143,7 +147,8 @@
     "crimes":"",
     "sentence":"",
     "status":"",
-    "inCustody":false
+    "inCustody":false,
+    "height":74
   },{
     "firstName":"Steven",
     "lastName":"Nike",
@@ -172,7 +177,8 @@
     "crimes":"Wire fraud",
     "sentence":"",
     "status":"",
-    "inCustody":true
+    "inCustody":true,
+    "height":74
   },{
     "firstName":"Samantha",
     "lastName":"Carter",
@@ -201,6 +207,7 @@
     "crimes":"",
     "sentence":"",
     "status":"",
-    "inCustody":false
+    "inCustody":false,
+    "height":74
   }
 ]

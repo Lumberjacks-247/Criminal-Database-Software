@@ -194,6 +194,7 @@ public class DataLoader extends DataConstants {
                 String hobbies = (String)criminalJSON.get(SUSPECT_HOBBIES);
                 String job = (String)criminalJSON.get(SUSPECT_JOB);
                 String physicalTraits = (String)criminalJSON.get(SUSPECT_PHYSICAL_TRAITS);
+                /*
                 ArrayList<Crime> crimes = new ArrayList<Crime>();
                 JSONArray crimesJSON = (JSONArray)criminalJSON.get(CRIMINAL_CRIMES);
                 Iterator<String> crimesIterator = crimesJSON.iterator();
@@ -202,10 +203,13 @@ public class DataLoader extends DataConstants {
                         //crimes.add(Crimes.getInstance().getCrime(crimesIterator.next()));
                     }
                 }
+                */
+                String crimes = (String)criminalJSON.get(CRIMINAL_CRIMES);
                 double sentence = ((Long)criminalJSON.get(CRIMINAL_SENTENCE)).doubleValue();
                 String status = (String)criminalJSON.get(CRIMINAL_STATUS);
                 boolean inCustody = ((Boolean)criminalJSON.get(CRIMINAL_IN_CUSTODY)).booleanValue();
-                Criminal ret = new Criminal(crimes, sentence, status, inCustody);
+                int height = ((Long)criminalJSON.get(CRIMINAL_HEIGHT)).intValue();
+                Criminal ret = new Criminal(crimes, sentence, status, inCustody, height);
                 ret.setSuspectInfo(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelation, evidenceConn, isRepeatOffender, accomplices, family, footSize, prefClothes, nicknames, commonWords, hobbies, job, physicalTraits);
                 criminals.add(ret);
             }
