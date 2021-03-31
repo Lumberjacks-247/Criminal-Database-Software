@@ -35,16 +35,16 @@ public class CriminalListScreen extends Screen {
     int count = 0;
     String out = "(0) Back\n";
     for (;count < numCriminals;count++)
-      out += "(" + (count+1) + ") " + list[count].toString() + "\n";
+      out += "\n(" + (count+1) + ") " + list[count].toString() + "\n\n";
     
 
     if (this.allowChange)
       out += "(" + (count+1) + ")" + " Add Criminal"   + "\n";
     else
-      out += "(" + (count+1) + ")" + "Print Results" + "\n";
+      out += "\n(" + (count+1) + ")" + " Print Results" + "\n";
 
     out += "\n>> ";
-    System.out.println(title+out);
+    System.out.print(title+out);
   }
 
 

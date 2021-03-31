@@ -3,7 +3,7 @@ package src;
 import java.io.File;
 import java.io.FileWriter;
 
-import jdk.jfr.events.FileWriteEvent;
+
 
 public class SuspectsListScreen extends Screen {
 
@@ -36,13 +36,13 @@ public class SuspectsListScreen extends Screen {
     int count = 0;
     String out = "(0) Back\n";
     for (;count < numSuspects;count++)
-      out += "(" + (count+1) + ") " + list[count].toString() + "\n";
+      out += "\n(" + (count+1) + ")\n " + list[count].toString() + "\n";
     
 
     if (this.allowChange)
       out += "(" + (count+1) + ")" + " Add Suspect"   + "\n";
     else
-      out += "(" + (count+1) + ")" + "Print Results" + "\n";
+      out += "\n(" + (count+1) + ")" + " Print Results" + "\n";
 
     out += "\n>> ";
     System.out.println(title+out);
