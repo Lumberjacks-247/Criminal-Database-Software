@@ -19,6 +19,13 @@ public class Victim extends Person{
         super(firstName, lastName);
     }
 
+    public Victim() {
+      setPersonInfo("", "", ""); 
+      this.statement = "";
+      this.isAlive = true;
+      this.hospitalReports = new ArrayList<HospitalReport>();
+    }
+
     //USED FOR CREATING VICTIM FROM JSON
     public Victim(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, 
         String eyeColor, String address, String age, String statement, boolean isAlive, ArrayList<HospitalReport> hospitalReports) {
@@ -40,6 +47,7 @@ public class Victim extends Person{
         this.lastName = lastName;
         this.id = id;
     }
+
 
     /**
      * returns victims report of the crime

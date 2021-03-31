@@ -2,7 +2,7 @@ package src;
 public class Facade {
 
 	// private People people;
-	// private Crimes crime;
+	private Crimes crime;
 	private Users users;
 	// private User currentUser;
 	// private Criminals criminal;
@@ -20,7 +20,7 @@ public class Facade {
 
 		users = Users.getInstance();
 		// people = People.getInstance(); 
-		// crime = Crimes.getInstance();
+		crime = Crimes.getInstance();
 		// criminal = Criminals.getInstance();
 		// evidence = Evidences.getInstance();
 		// officer = Officers.getInstance();

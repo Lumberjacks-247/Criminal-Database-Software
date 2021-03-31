@@ -105,6 +105,12 @@ public abstract class Screen {
   }
 
   protected void updatePOIList(POI[] arr,int num){}
+  protected void updateSuspectList(Suspect[] arr,int num){}
+  protected void updateCriminalList(POI[] arr,int num){}
+  protected void updateOfficerList(POI[] arr,int num){}
+  protected void updateVictimList(Victim[] arr,int num){}
+  protected void updateEvidenceList(Evidence[] arr,int num){}
+
 
   
 

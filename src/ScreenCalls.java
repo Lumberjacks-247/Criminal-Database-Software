@@ -11,7 +11,7 @@ import java.util.function.BiFunction;
 public enum ScreenCalls {
 
     NULL          (UIConstants::Null),
-    START         (UIConstants::NewCrimeScreen),
+    START         (UIConstants::WelcomeScreen),
     RESULTS       (UIConstants::ResultScreen),
     PARENT        (UIConstants::ParentScreen),
     WELCOME       (UIConstants::WelcomeScreen),

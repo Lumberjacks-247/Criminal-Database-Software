@@ -84,12 +84,24 @@ public class EnterNewCrime extends Screen {
     this.pois = arr;
     this.numPOI = num;
   }
+  public void updateSuspectList(Suspect[] arr,int num) {
+    this.suspects = arr;
+    this.numSuspects = num;
+  }
+  public void updateVictimList(Victim[] arr,int num) {
+    this.victims = arr;
+    this.numVictims = num;
+  }
+  public void updateEvidenceList(Evidence[] arr,int num) {
+    this.evidence = arr;
+    this.numEvidence = num;
+  }
   public Screen next(String input) {
     int index;
     if ((index = isValid(input)) < 0)
       return this;
 
-    String[] choices = "S:PARENT;ENTERDATA;ENTERDATA;ENTERDATA;L:POILIST;L:SUSPECTLIST;L:CRIMINALLIST;L:VICTIMLIST;L:OFFICERLIST;L:EVIDENCELIST;F:CREATENEWCRIME".split(";");
+    String[] choices = "S:PARENT;ENTERDATA;ENTERDATA;ENTERDATA;L:POILIST;L:SUSPECTLIST;L:CRIMINALLIST;L:VICTIMLIST;L:OFFICERLIST;L:EVIDENCELIST;F:NEWCRIME".split(";");
     
     String choice = choices[index];
 
@@ -101,16 +113,16 @@ public class EnterNewCrime extends Screen {
         return new EnterDataScreen(this, index-1);
       case "L:POILIST":
         return new POIListScreen(this,this.pois,this.numPOI);
-      // case "L:SUSPECTLIST":
-      //   return new ListScreen();
+      case "L:SUSPECTLIST":
+        return new SuspectsListScreen(this,this.suspects,this.numSuspects);
       // case "L:CRIMINALLIST":
       //   return new ListScreen();
-      // case "L:VICTIMLIST":
-      //   return new ListScreen();
+      case "L:VICTIMLIST":
+        return new VictimListScreen(this,this.victims,this.numVictims);
       // case "L:OFFICERLIST":
       //   return new ListScreen();
-      // case "L:EVIDENCELIST":
-      //   return new ListScreen();
+      case "L:EVIDENCELIST":
+         return new EvidenceListScreen(this,this.evidence,this.numEvidence);
     }
 
     return Telephone.call(this,choice);
