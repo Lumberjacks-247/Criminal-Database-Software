@@ -53,7 +53,6 @@ public class DataLoader extends DataConstants {
      * Loads all Crime objects from crime.json
      * @return ArrayList of Crime
      */
-    @SuppressWarnings("unchecked")
     public static ArrayList<Crime> loadCrimes() {
         ArrayList<Crime> crimes = new ArrayList<Crime>();
 
@@ -145,7 +144,6 @@ public class DataLoader extends DataConstants {
      * Loads all Criminal objects from criminal.json
      * @return ArrayList of Criminal
      */
-    @SuppressWarnings("unchecked")
     public static ArrayList<Criminal> loadCriminals() {
         ArrayList<Criminal> criminals = new ArrayList<Criminal>();
         
@@ -323,7 +321,6 @@ public class DataLoader extends DataConstants {
      * Loads all Suspect objects from suspect.json
      * @return ArrayList of Suspect
      */
-    @SuppressWarnings("unchecked")
     public static ArrayList<Suspect> loadSuspects() {
         ArrayList<Suspect> suspect = new ArrayList<Suspect>();
         try {
@@ -421,7 +418,6 @@ public class DataLoader extends DataConstants {
      * Loads all Victim objects from victim.json
      * @return ArrayList of Victim
      */
-    @SuppressWarnings("unchecked")
     public static ArrayList<Victim> loadVictims() {
         ArrayList<Victim> victim = new ArrayList<Victim>();
 
