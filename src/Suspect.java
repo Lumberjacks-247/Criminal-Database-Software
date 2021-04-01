@@ -274,8 +274,8 @@ public class Suspect extends POI{
 
     @Override
     public String toString() {
-      String[] details = new String[]{height,footSize+"",prefferedClothes,nickNames,commonWords,hobbies,job,distintPhysicalTraits};
-      String[] prompts = new String[]{"Height:","Foot Size:","Clothes:","Nicknames:","Common Words/Phrases:","Hobbies:","Job:","Physical Traits:"};
+      String[] details = new String[]{footSize+"",prefferedClothes,nickNames,commonWords,hobbies,job,distintPhysicalTraits};
+      String[] prompts = new String[]{"Foot Size:","Clothes:","Nicknames:","Common Words/Phrases:","Hobbies:","Job:","Physical Traits:"};
 
       String out = super.toString();
       if (!out.equals("")) out += " | ";
@@ -353,6 +353,10 @@ public class Suspect extends POI{
         if(!this.getDistintPhysicalTraits().equals(""))
           if(!this.getDistintPhysicalTraits().equalsIgnoreCase(suspect.getDistintPhysicalTraits()))
             return false;
+
+        if(!this.getHeight().equals(""))
+            if(!this.getHeight().equalsIgnoreCase((suspect.getHeight())))
+                return false;
         
         return true;
     }
