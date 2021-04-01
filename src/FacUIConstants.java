@@ -137,6 +137,19 @@ public class FacUIConstants {
   }
 
   public static Screen createCrime(Screen s) {
+    EnterNewCrime c = (EnterNewCrime)s;
+    String p0 = c.getDataValue(0); // Type of Crime
+    String p1 = c.getDataValue(1); // Location
+    String p2 = c.getDataValue(2); // Author
+    POI[] p3 = c.pois;
+    Suspect[] p4 = c.suspects;
+    Criminal[] p5 = c.criminals;
+    Victim[] p6 = c.victims;
+    Officer[] p7 = c.officers;
+    Evidence[] p8 = c.evidence;
+
+    fac.addCrime(p0,p1,p2,p3,p4,p5,p6,p7,p8);
+
     return s.parent;
   }
 

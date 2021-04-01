@@ -10,12 +10,12 @@ public class EnterNewCrime extends Screen {
   private final int NUM_CHOICES = 10;
 
  
-  private POI[] pois = new POI[MAX_POI_LENGTH];
-  private Suspect[] suspects = new Suspect[MAX_SUSPECT_LENGTH];
-  private Criminal[] criminals = new Criminal[MAX_CRIMINAL_LENGTH];
-  private Victim[] victims = new Victim[MAX_VICTIM_LENGTH];
-  private Officer[] officers = new Officer[MAX_OFFICER_LENGTH];
-  private Evidence[] evidence = new Evidence[MAX_EVIDENCE_LENGTH];
+  public POI[] pois = new POI[MAX_POI_LENGTH];
+  public Suspect[] suspects = new Suspect[MAX_SUSPECT_LENGTH];
+  public Criminal[] criminals = new Criminal[MAX_CRIMINAL_LENGTH];
+  public Victim[] victims = new Victim[MAX_VICTIM_LENGTH];
+  public Officer[] officers = new Officer[MAX_OFFICER_LENGTH];
+  public Evidence[] evidence = new Evidence[MAX_EVIDENCE_LENGTH];
 
 
   private int numPOI = 0;
