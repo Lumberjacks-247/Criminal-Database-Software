@@ -11,9 +11,6 @@ import org.json.simple.JSONObject;
 @SuppressWarnings("unchecked")
 
 public class DataWriter extends DataConstants{
-  
-
-    @SuppressWarnings("unchecked")
     public static void saveUsers() {
         Users users = Users.getInstance();
         ArrayList<User> userList = users.getUsers();
@@ -34,8 +31,6 @@ public class DataWriter extends DataConstants{
 
     }
 
-	
-    @SuppressWarnings("unchecked")
     public static JSONObject getUserJSON(User user) {
         JSONObject userDetails = new JSONObject();
         userDetails.put(USER_ACCESS_LEVEL, user.getAccessLevel());
@@ -74,7 +69,6 @@ public class DataWriter extends DataConstants{
 		return victimDetails;
 	}
 
-  */
 	public static void saveCrimes() {
 		Crimes crimes = Crimes.getInstance();
 		ArrayList<Crime> crimeList = crimes.getCrimes();
@@ -91,7 +85,6 @@ public class DataWriter extends DataConstants{
 			e.printStackTrace();
 		}
 	}
-  /*
 
 	public static JSONObject getCrimeJSON(Crime crime) {
 		JSONObject crimeDetails = new JSONObject();
