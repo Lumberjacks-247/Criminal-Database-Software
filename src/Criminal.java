@@ -139,7 +139,7 @@ public class Criminal extends Suspect{
     }
 
     public boolean partialCompare(Criminal criminal) {
-        if(!super.partialCompare(criminal)) return false;
+        if(!super.partialCompare((Suspect)criminal)) return false;
         /*if(!this.crimesCompare(crimes, criminal)){ 
             if(this.crimes==null) continue;
             return false;
