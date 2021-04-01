@@ -28,6 +28,7 @@ public class EditSuspectScreen extends Screen {
     out += "Eye Color: \t\t" +            suspect.getEyeColor() + "\n";
     out += "Address: \t\t" +              suspect.getAddress() + "\n";
     out += "Age: \t\t\t" +                  suspect.getAge() + "\n";
+    out += "Height: \t\t" +                  suspect.getHeight() + "\n";
     out += "Tattos: \t\t" +             suspect.getTattoos() + "\n";
     out += "Gang: \t\t\t" +                 suspect.getGang() + "\n";
     out += "Victim Relationship: \t" +  suspect.getVictimRelationship() + "\n";
@@ -47,13 +48,14 @@ public class EditSuspectScreen extends Screen {
     bot += "(7) Set Eye Color\n";
     bot += "(8) Set Address\n";
     bot += "(9) Set Age\n";
-    bot += "(10) Set Tattos\n";
-    bot += "(11) Set Gang\n";
-    bot += "(12) Set Victim Relationship\n";
-    bot += "(13) Set Evidence Connection\n";
-    bot += "(14) Change Repeat Offender\n";
-    bot += "(15) Set Preffered Clothes\n";
-    bot += "(16) Done";
+    bot += "(10) Set Height\n";
+    bot += "(11) Set Tattos\n";
+    bot += "(12) Set Gang\n";
+    bot += "(13) Set Victim Relationship\n";
+    bot += "(14) Set Evidence Connection\n";
+    bot += "(15) Change Repeat Offender\n";
+    bot += "(16) Set Preffered Clothes\n";
+    bot += "(17) Done";
 
     String disp = title + out + bot;
     disp += "\n>> ";
@@ -91,21 +93,24 @@ public class EditSuspectScreen extends Screen {
         this.suspect.setAge(value);
         break;
       case "9":
-        this.suspect.setTattoos(value);
+        this.suspect.setHeight(value);
         break;
       case "10":
-        this.suspect.setGang(value);
+        this.suspect.setTattoos(value);
         break;
       case "11":
-        this.suspect.setVictimRelationship(value);
+        this.suspect.setGang(value);
         break;
       case "12":
-        this.suspect.setEvidenceConnection(value);
+        this.suspect.setVictimRelationship(value);
         break;
       case "13":
-        this.suspect.changeRepeatOffender();
+        this.suspect.setEvidenceConnection(value);
         break;
       case "14":
+        this.suspect.changeRepeatOffender();
+        break;
+      case "15":
         this.suspect.setPrefferedClothes(value);
       default:
 
@@ -137,19 +142,21 @@ public class EditSuspectScreen extends Screen {
       case "9":
         return new EnterDataScreen(this,"Age: ",this.suspect.getAge(),8);
       case "10":
-        return new EnterDataScreen(this,"Tattoos: ",this.suspect.getTattoos(),9);
+        return new EnterDataScreen(this,"Height: ",this.suspect.getHeight(),9);
       case "11":
-        return new EnterDataScreen(this,"Gang: ",this.suspect.getGang(),10);
+        return new EnterDataScreen(this,"Tattoos: ",this.suspect.getTattoos(),9);
       case "12":
-        return new EnterDataScreen(this,"Victim Relationship: ",this.suspect.getVictimRelationship(),11);
+        return new EnterDataScreen(this,"Gang: ",this.suspect.getGang(),10);
       case "13":
-        return new EnterDataScreen(this,"Evidence Connection: ",this.suspect.getEvidenceConnection(),12);
+        return new EnterDataScreen(this,"Victim Relationship: ",this.suspect.getVictimRelationship(),11);
       case "14":
+        return new EnterDataScreen(this,"Evidence Connection: ",this.suspect.getEvidenceConnection(),12);
+      case "15":
         this.suspect.changeRepeatOffender();
         return this;
-      case "15":
-        return new EnterDataScreen(this,"Perferred Clothes: ",this.suspect.getPrefferedClothes(),14);
       case "16":
+        return new EnterDataScreen(this,"Perffered Clothes: ",this.suspect.getPrefferedClothes(),14);
+      case "17":
         this.parent.addSuspect(this.suspect, parentIndex);
         return this.parent;
       default:

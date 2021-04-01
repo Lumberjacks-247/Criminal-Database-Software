@@ -19,15 +19,16 @@ public class EditCriminalScreen extends Screen {
     title += UIConstants.DIV;
 
     String out = "";
-    out += "First Name: \t" +           criminal.getFirstName() + "\n";
-    out += "Last Name: \t" +            criminal.getLastName() + "\n";
+    out += "First Name: \t\t" +           criminal.getFirstName() + "\n";
+    out += "Last Name: \t\t" +            criminal.getLastName() + "\n";
     out += "Gender: \t\t" +               criminal.getGender() + "\n";
-    out += "Race: \t\t" +                 criminal.getRace() + "\n";
-    out += "Hair Color: \t" +           criminal.getHairColor() + "\n";
-    out += "Hair Style: \t" +           criminal.getHairStyle() + "\n";
-    out += "Eye Color: \t" +            criminal.getEyeColor() + "\n";
-    out += "Address: \t" +              criminal.getAddress() + "\n";
-    out += "Age: \t\t" +                  criminal.getAge() + "\n";
+    out += "Race: \t\t\t" +                 criminal.getRace() + "\n";
+    out += "Hair Color: \t\t" +           criminal.getHairColor() + "\n";
+    out += "Hair Style: \t\t" +           criminal.getHairStyle() + "\n";
+    out += "Eye Color: \t\t" +            criminal.getEyeColor() + "\n";
+    out += "Address: \t\t" +              criminal.getAddress() + "\n";
+    out += "Age: \t\t\t" +                  criminal.getAge() + "\n";
+    out += "Height: \t\t" +                  criminal.getHeight() + "\n";
     out += "Tattos: \t" +             criminal.getTattoos() + "\n";
     out += "Gang: \t\t" +                 criminal.getGang() + "\n";
     out += "Victim Relationship: \t" +  criminal.getVictimRelationship() + "\n";
@@ -47,6 +48,7 @@ public class EditCriminalScreen extends Screen {
     bot += "(7) Set Eye Color\n";
     bot += "(8) Set Address\n";
     bot += "(9) Set Age\n";
+    bot += "(10) Set Height\n";
     bot += "(10) Set Tattos\n";
     bot += "(11) Set Gang\n";
     bot += "(12) Set Victim Relationship\n";
