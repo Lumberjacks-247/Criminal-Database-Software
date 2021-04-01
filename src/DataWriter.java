@@ -75,7 +75,7 @@ public class DataWriter extends DataConstants{
 		return victimDetails;
 	}
 
-
+  */
 	public static void saveCrimes() {
 		Crimes crimes = Crimes.getInstance();
 		ArrayList<Crime> crimeList = crimes.getCrimes();
@@ -92,7 +92,7 @@ public class DataWriter extends DataConstants{
 			e.printStackTrace();
 		}
 	}
-
+  /*
 
 	public static JSONObject getCrimeJSON(Crime crime) {
 		JSONObject crimeDetails = new JSONObject();
