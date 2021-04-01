@@ -19,21 +19,21 @@ public class EditCriminalScreen extends Screen {
     title += UIConstants.DIV;
 
     String out = "";
-    out += "First Name: " +           criminal.getFirstName() + "\n";
-    out += "Last Name: " +            criminal.getLastName() + "\n";
-    out += "Gender: " +               criminal.getGender() + "\n";
-    out += "Race: " +                 criminal.getRace() + "\n";
-    out += "Hair Color: " +           criminal.getHairColor() + "\n";
-    out += "Hair Style: " +           criminal.getHairStyle() + "\n";
-    out += "Eye Color: " +            criminal.getEyeColor() + "\n";
-    out += "Address: " +              criminal.getAddress() + "\n";
-    out += "Age: " +                  criminal.getAge() + "\n";
-    out += "Tattos: : " +             criminal.getTattoos() + "\n";
-    out += "Gang: " +                 criminal.getGang() + "\n";
-    out += "Victim Relationship: " +  criminal.getVictimRelationship() + "\n";
-    out += "Evidence Connection: " +  criminal.getEvidenceConnection() + "\n";
-    out += "Repeat Offender: " +     (criminal.getIsRepeatOffender() ? "true" : "false") + "\n";
-    out += "PrefClothes: " +          criminal.getPrefferedClothes() + "\n";
+    out += "First Name: \t" +           criminal.getFirstName() + "\n";
+    out += "Last Name: \t" +            criminal.getLastName() + "\n";
+    out += "Gender: \t\t" +               criminal.getGender() + "\n";
+    out += "Race: \t\t" +                 criminal.getRace() + "\n";
+    out += "Hair Color: \t" +           criminal.getHairColor() + "\n";
+    out += "Hair Style: \t" +           criminal.getHairStyle() + "\n";
+    out += "Eye Color: \t" +            criminal.getEyeColor() + "\n";
+    out += "Address: \t" +              criminal.getAddress() + "\n";
+    out += "Age: \t\t" +                  criminal.getAge() + "\n";
+    out += "Tattos: \t" +             criminal.getTattoos() + "\n";
+    out += "Gang: \t\t" +                 criminal.getGang() + "\n";
+    out += "Victim Relationship: \t" +  criminal.getVictimRelationship() + "\n";
+    out += "Evidence Connection: \t" +  criminal.getEvidenceConnection() + "\n";
+    out += "Repeat Offender: \t" +     (criminal.getIsRepeatOffender() ? "true" : "false") + "\n";
+    out += "PrefClothes: \t" +          criminal.getPrefferedClothes() + "\n";
     out += UIConstants.DIV;
 
     String bot = "";

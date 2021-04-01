@@ -19,20 +19,20 @@ public class EditPOIScreen extends Screen {
     title += UIConstants.DIV;
 
     String out = "";
-    out += "First Name: " +           poi.getFirstName() + "\n";
-    out += "Last Name: " +            poi.getLastName() + "\n";
-    out += "Gender: " +               poi.getGender() + "\n";
-    out += "Race: " +                 poi.getRace() + "\n";
-    out += "Hair Color: " +           poi.getHairColor() + "\n";
-    out += "Hair Style: " +           poi.getHairStyle() + "\n";
-    out += "Eye Color: " +            poi.getEyeColor() + "\n";
-    out += "Address: " +              poi.getAddress() + "\n";
-    out += "Age: " +                  poi.getAge() + "\n";
-    out += "Tattos: : " +             poi.getTattoos() + "\n";
-    out += "Gang: " +                 poi.getGang() + "\n";
-    out += "Victim Relationship: " +  poi.getVictimRelationship() + "\n";
-    out += "Evidence Connection: " +  poi.getEvidenceConnection() + "\n";
-    out += "Repeat Offender: " +     (poi.getIsRepeatOffender() ? "true" : "false") + "\n";
+    out += "First Name: \t\t" +           poi.getFirstName() + "\n";
+    out += "Last Name: \t\t" +            poi.getLastName() + "\n";
+    out += "Gender: \t\t" +               poi.getGender() + "\n";
+    out += "Race: \t\t\t" +                 poi.getRace() + "\n";
+    out += "Hair Color: \t\t" +           poi.getHairColor() + "\n";
+    out += "Hair Style: \t\t" +           poi.getHairStyle() + "\n";
+    out += "Eye Color: \t\t" +            poi.getEyeColor() + "\n";
+    out += "Address: \t\t" +              poi.getAddress() + "\n";
+    out += "Age: \t\t\t" +                  poi.getAge() + "\n";
+    out += "Tattos: \t\t" +             poi.getTattoos() + "\n";
+    out += "Gang: \t\t\t" +                 poi.getGang() + "\n";
+    out += "Victim Relationship: \t" +  poi.getVictimRelationship() + "\n";
+    out += "Evidence Connection: \t" +  poi.getEvidenceConnection() + "\n";
+    out += "Repeat Offender: \t" +     (poi.getIsRepeatOffender() ? "true" : "false") + "\n";
     out += UIConstants.DIV;
 
     String bot = "";

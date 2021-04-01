@@ -19,17 +19,17 @@ public class EditVictimScreen extends Screen {
     title += UIConstants.DIV;
 
     String out = "";
-    out += "First Name: " +           victim.getFirstName() + "\n";
-    out += "Last Name: " +            victim.getLastName() + "\n";
-    out += "Gender: " +               victim.getGender() + "\n";
-    out += "Race: " +                 victim.getRace() + "\n";
-    out += "Hair Color: " +           victim.getHairColor() + "\n";
-    out += "Hair Style: " +           victim.getHairStyle() + "\n";
-    out += "Eye Color: " +            victim.getEyeColor() + "\n";
-    out += "Address: " +              victim.getAddress() + "\n";
-    out += "Age: " +                  victim.getAge() + "\n";
-    out += "Statement: " +            victim.getStatement() + "\n";
-    out += "Alive: " +                (victim.getIsAlive() ? "true" : "false") + "\n";
+    out += "First Name: \t" +           victim.getFirstName() + "\n";
+    out += "Last Name: \t" +            victim.getLastName() + "\n";
+    out += "Gender: \t" +               victim.getGender() + "\n";
+    out += "Race: \t\t" +                 victim.getRace() + "\n";
+    out += "Hair Color: \t" +           victim.getHairColor() + "\n";
+    out += "Hair Style: \t" +           victim.getHairStyle() + "\n";
+    out += "Eye Color: \t" +            victim.getEyeColor() + "\n";
+    out += "Address: \t" +              victim.getAddress() + "\n";
+    out += "Age: \t\t" +                  victim.getAge() + "\n";
+    out += "Statement: \t" +            victim.getStatement() + "\n";
+    out += "Alive: \t\t" +                (victim.getIsAlive() ? "true" : "false") + "\n";
     out += UIConstants.DIV;
 
     String bot = "";
