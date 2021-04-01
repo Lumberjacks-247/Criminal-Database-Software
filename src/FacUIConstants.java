@@ -149,7 +149,7 @@ public class FacUIConstants {
     Officer[] p7 = c.officers;
     Evidence[] p8 = c.evidence;
 
-    fac.addCrime(p0,p1,p2,p3,p4,p5,p6,p7,p8);
+    //fac.addCrime(p0,p1,p2,p3,p4,p5,p6,p7,p8);
 
     return s.parent;
   }
