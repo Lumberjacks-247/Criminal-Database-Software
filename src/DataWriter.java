@@ -46,7 +46,6 @@ public class DataWriter extends DataConstants{
         return userDetails;
     }
 
-  /*
 	public static void saveVictims() {
 		Victims victims = Victims.getInstance();
 		ArrayList<Victim> victimList = victims.getVictims();
@@ -97,7 +96,7 @@ public class DataWriter extends DataConstants{
 	public static JSONObject getCrimeJSON(Crime crime) {
 		JSONObject crimeDetails = new JSONObject();
 		crimeDetails.put(CRIMES_ID, crime.getID());
-		crimeDetails.put(CRIMES_TYPE_OF_CRIME, crime.getCrimeName());
+		crimeDetails.put(CRIMES_TYPE_OF_CRIME, crime.getTypeOfCrime());
 		crimeDetails.put(CRIMES_CHARGE_LEVEL, crime.getLevelOfCharge());
 		crimeDetails.put(CRIMES_JURISDICTION, crime.getJurisdiction());
 		crimeDetails.put(CRIMES_IS_OPEN, crime.getIsOpen());
@@ -395,5 +394,4 @@ public class DataWriter extends DataConstants{
 		hreportDetails.put(HOSPITAL_NUM_DAYS, report.getNumDaysAdmitted());
 		return hreportDetails;
 	}
-  */
 }

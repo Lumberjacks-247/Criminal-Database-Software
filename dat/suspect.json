@@ -23,7 +23,8 @@
     "commonWords":"ice, tar",
     "hobbies":"drugs",
     "job":"Dealer",
-    "physTraits":""
+    "physTraits":"",
+    "height":"5'11"
   },{
     "firstName":"Tyson",
     "lastName":"Leise",
@@ -48,6 +49,7 @@
     "commonWords":"steak, burger",
     "hobbies":"football, TV",
     "job":"Construction",
-    "physTraits":"Missing left ring finger"
+    "physTraits":"Missing left ring finger",
+    "height":"5'3"
   }
 ]

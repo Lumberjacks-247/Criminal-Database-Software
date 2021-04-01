@@ -194,6 +194,7 @@ public class DataLoader extends DataConstants {
                 String hobbies = (String)criminalJSON.get(SUSPECT_HOBBIES);
                 String job = (String)criminalJSON.get(SUSPECT_JOB);
                 String physicalTraits = (String)criminalJSON.get(SUSPECT_PHYSICAL_TRAITS);
+                String height = (String)criminalJSON.get(SUSPECT_HEIGHT);
                 //ArrayList<Crime> crimes = new ArrayList<Crime>();
                 String crimes = ""+criminalJSON.get(CRIMINAL_CRIMES);
                 // Iterator<String> crimesIterator = crimesJSON.iterator();
@@ -206,7 +207,7 @@ public class DataLoader extends DataConstants {
                 String status = (String)criminalJSON.get(CRIMINAL_STATUS);
                 boolean inCustody = ((Boolean)criminalJSON.get(CRIMINAL_IN_CUSTODY)).booleanValue();
                 Criminal ret = new Criminal(crimes+"", sentence, status, inCustody); //TODO - Flag
-                ret.setSuspectInfo(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelation, evidenceConn, isRepeatOffender, accomplices, family, footSize, prefClothes, nicknames, commonWords, hobbies, job, physicalTraits);
+                ret.setSuspectInfo(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelation, evidenceConn, isRepeatOffender, accomplices, family, footSize, prefClothes, nicknames, commonWords, hobbies, job, physicalTraits, height);
                 criminals.add(ret);
             }
 
@@ -370,7 +371,8 @@ public class DataLoader extends DataConstants {
                 String hobbies = (String)suspectJSON.get(SUSPECT_HOBBIES);
                 String job = (String)suspectJSON.get(SUSPECT_JOB);
                 String physicalTraits = (String)suspectJSON.get(SUSPECT_PHYSICAL_TRAITS);
-                Suspect ret = new Suspect(accomplices, family, footSize, prefClothes, nicknames, commonWords, hobbies, job, physicalTraits);
+                String height = (String)suspectJSON.get(SUSPECT_HEIGHT);
+                Suspect ret = new Suspect(accomplices, family, footSize, prefClothes, nicknames, commonWords, hobbies, job, physicalTraits, height);
                 ret.setPOIInfo(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelation, evidenceConn, isRepeatOffender);
                 suspect.add(ret);
             }

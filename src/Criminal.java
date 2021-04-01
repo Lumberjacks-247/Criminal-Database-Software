@@ -22,9 +22,9 @@ public class Criminal extends Suspect{
     public Criminal(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, 
     String eyeColor, String address, String age, String tattoos, String gang, String victimRelationShip, String evidenceConnection, boolean isRepeatOffender,
     ArrayList<Person> accomplices, ArrayList<Person> familyMembers, double footSize, String prefferedClothes, String nickNames,
-    String commonWords, String hobbies, String job, String distinctPhysicalTraits, String crimes, String sentences, String status, boolean inCustody) {
+    String commonWords, String hobbies, String job, String distinctPhysicalTraits, String height, String crimes, String sentences, String status, boolean inCustody) {
         super(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelationShip, evidenceConnection, isRepeatOffender, 
-        accomplices, familyMembers, footSize, prefferedClothes, nickNames, commonWords, hobbies, job, distinctPhysicalTraits);
+        accomplices, familyMembers, footSize, prefferedClothes, nickNames, commonWords, hobbies, job, distinctPhysicalTraits, height);
         this.crimes = crimes == null ? "" : crimes;
         this.sentence = sentences;
         this.status = status == null ? "" : status;
@@ -40,7 +40,7 @@ public class Criminal extends Suspect{
     }
 
     public Criminal() {
-      setSuspectInfo(null,null,null,null,null,null,null,null,null,null,null,null,null,null,false,new ArrayList<Person>(),new ArrayList<Person>(),-1.0,null,null,null,null,null,null);
+      setSuspectInfo(null,null,null,null,null,null,null,null,null,null,null,null,null,null,false,new ArrayList<Person>(),new ArrayList<Person>(),-1.0,null,null,null,null,null,null, null);
       this.crimes = "";
       this.sentence = "";
       this.status = "";
@@ -50,7 +50,7 @@ public class Criminal extends Suspect{
     public void setSuspectInfo(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, 
     String eyeColor, String address, String age, String tattoos, String gang, String victimRelationShip, String evidenceConnection, boolean isRepeatOffender,
     ArrayList<Person> accomplices, ArrayList<Person> familyMembers, double footSize, String prefferedClothes, String nickNames,
-    String commonWords, String hobbies, String job, String distinctPhysicalTraits) {
+    String commonWords, String hobbies, String job, String distinctPhysicalTraits, String height) {
         super.setPOIInfo(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelationShip, evidenceConnection, isRepeatOffender);
         this.accomplices = accomplices == null ? new ArrayList<Person>() : accomplices;
         this.familyMembers = familyMembers == null ? new ArrayList<Person>() : familyMembers;
@@ -61,6 +61,7 @@ public class Criminal extends Suspect{
         this.hobbies = hobbies == null ? "" : hobbies;
         this.job = job == null ? "" : job;
         this.distintPhysicalTraits = distinctPhysicalTraits == null ? "" : distinctPhysicalTraits;
+        this.height = height == null ? "" : height;
     }
 
     public String getCrimes() {
