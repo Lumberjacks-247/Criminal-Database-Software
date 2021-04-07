@@ -75,7 +75,7 @@ public class FacUIConstants {
     String p22 = s.getDataValue(22); //Status
     boolean p23 = s.getDataValue(23) == null ? false : s.getDataValue(23).equalsIgnoreCase("true"); //In Custody
 
-    Criminal partial = new Criminal(p0,p1,null,p2,p3,p4,p5,p6,p7,p8,p10,p11,p12,p13,p14,null,null,-1,p15,p16,p17,p18,p19,null,p20,p9,p21,p22,p23);
+    Criminal partial = new Criminal(p0,p1,null,p2,p3,p4,p5,p6,p7,p8,p10,p11,p12,p13,p14,null,null,-1,p15,p16,p17,p18,p19,null,p9,p20,p21,p22,p23);
 
     Criminal[] crimmies = fac.searchCriminals(partial);
 
@@ -149,7 +149,7 @@ public class FacUIConstants {
     Officer[] p7 = c.officers;
     Evidence[] p8 = c.evidence;
 
-    fac.addCrime(p0,p1,p2,p3,p4,p5,p6,p7,p8);
+    //fac.addCrime(p0,p1,p2,p3,p4,p5,p6,p7,p8);
 
     return s.parent;
   }
