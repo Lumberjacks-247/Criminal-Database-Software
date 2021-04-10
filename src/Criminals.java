@@ -16,6 +16,23 @@ public class Criminals {
 		return criminals;
 	}
 	
+
+  public Criminal[] searchCriminals(Criminal partial) {
+      if (criminalList == null) {
+        return new Criminal[0];
+      }
+      Criminal[] matched = new Criminal[criminalList.size()];
+      int num = 0;
+  
+      for (Criminal crim : criminalList) {
+        if (partial.partialCompare(crim)) {
+          matched[num++] = crim;
+        }
+      }
+  
+      return matched;
+  }
+  
 	//check if have criminal.
 	public boolean haveCriminal(String criminalName) {
 		for(Criminal criminal : criminalList) {

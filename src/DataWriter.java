@@ -11,9 +11,6 @@ import org.json.simple.JSONObject;
 @SuppressWarnings("unchecked")
 
 public class DataWriter extends DataConstants{
-  
-
-    @SuppressWarnings("unchecked")
     public static void saveUsers() {
         Users users = Users.getInstance();
         ArrayList<User> userList = users.getUsers();
@@ -34,8 +31,6 @@ public class DataWriter extends DataConstants{
 
     }
 
-	
-    @SuppressWarnings("unchecked")
     public static JSONObject getUserJSON(User user) {
         JSONObject userDetails = new JSONObject();
         userDetails.put(USER_ACCESS_LEVEL, user.getAccessLevel());
@@ -46,7 +41,6 @@ public class DataWriter extends DataConstants{
         return userDetails;
     }
 
-  /*
 	public static void saveVictims() {
 		Victims victims = Victims.getInstance();
 		ArrayList<Victim> victimList = victims.getVictims();
@@ -75,7 +69,6 @@ public class DataWriter extends DataConstants{
 		return victimDetails;
 	}
 
-
 	public static void saveCrimes() {
 		Crimes crimes = Crimes.getInstance();
 		ArrayList<Crime> crimeList = crimes.getCrimes();
@@ -93,11 +86,10 @@ public class DataWriter extends DataConstants{
 		}
 	}
 
-
 	public static JSONObject getCrimeJSON(Crime crime) {
 		JSONObject crimeDetails = new JSONObject();
 		crimeDetails.put(CRIMES_ID, crime.getID());
-		crimeDetails.put(CRIMES_TYPE_OF_CRIME, crime.getCrimeName());
+		crimeDetails.put(CRIMES_TYPE_OF_CRIME, crime.getTypeOfCrime());
 		crimeDetails.put(CRIMES_CHARGE_LEVEL, crime.getLevelOfCharge());
 		crimeDetails.put(CRIMES_JURISDICTION, crime.getJurisdiction());
 		crimeDetails.put(CRIMES_IS_OPEN, crime.getIsOpen());
@@ -396,5 +388,4 @@ public class DataWriter extends DataConstants{
 		hreportDetails.put(HOSPITAL_NUM_DAYS, report.getNumDaysAdmitted());
 		return hreportDetails;
 	}
-  */
 }

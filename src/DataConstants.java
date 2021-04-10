@@ -74,6 +74,7 @@ public abstract class DataConstants {
     protected static final String SUSPECT_HOBBIES = "hobbies";
     protected static final String SUSPECT_JOB = "job";
     protected static final String SUSPECT_PHYSICAL_TRAITS = "physTraits";
+    protected static final String SUSPECT_HEIGHT = "height";
 
     protected static final String USER_FILE_NAME = "dat/user.json";
     protected static final String USER_ACCESS_LEVEL = "accessLevel";

@@ -15,7 +15,7 @@ public enum FacCalls {
     LOGOUT        (FacUIConstants::logout),
     CREATEACCOUNT (FacUIConstants::createAccount),
     NEWCRIME   (FacUIConstants::createCrime),
-    SEARCHSUSPECTS (FacUIConstants::searchSuspects),
+    SEARCHCRIMINALS (FacUIConstants::searchCriminals),
     SEARCHREPORTS (FacUIConstants::searchReports)
     ;
 

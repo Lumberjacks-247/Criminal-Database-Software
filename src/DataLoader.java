@@ -53,7 +53,6 @@ public class DataLoader extends DataConstants {
      * Loads all Crime objects from crime.json
      * @return ArrayList of Crime
      */
-    @SuppressWarnings("unchecked")
     public static ArrayList<Crime> loadCrimes() {
         ArrayList<Crime> crimes = new ArrayList<Crime>();
 
@@ -145,10 +144,9 @@ public class DataLoader extends DataConstants {
      * Loads all Criminal objects from criminal.json
      * @return ArrayList of Criminal
      */
-    @SuppressWarnings("unchecked")
     public static ArrayList<Criminal> loadCriminals() {
         ArrayList<Criminal> criminals = new ArrayList<Criminal>();
-
+        
         try {
             FileReader reader = new FileReader(CRIMINAL_FILE_NAME);
             JSONParser parser = new JSONParser();
@@ -187,30 +185,27 @@ public class DataLoader extends DataConstants {
                         //family.add(People.getInstance().getPerson(familyIterator.next()));
                     }
                 }
-                double footSize = ((Long)criminalJSON.get(SUSPECT_FOOT_SIZE)).doubleValue();
+                double footSize = (double)(criminalJSON.get(SUSPECT_FOOT_SIZE));
                 String prefClothes = (String)criminalJSON.get(SUSPECT_PREFERRED_CLOTHES);
                 String nicknames = (String)criminalJSON.get(SUSPECT_NICKNAMES);
                 String commonWords = (String)criminalJSON.get(SUSPECT_COMMON_WORDS);
                 String hobbies = (String)criminalJSON.get(SUSPECT_HOBBIES);
                 String job = (String)criminalJSON.get(SUSPECT_JOB);
                 String physicalTraits = (String)criminalJSON.get(SUSPECT_PHYSICAL_TRAITS);
-                /*
-                ArrayList<Crime> crimes = new ArrayList<Crime>();
-                JSONArray crimesJSON = (JSONArray)criminalJSON.get(CRIMINAL_CRIMES);
-                Iterator<String> crimesIterator = crimesJSON.iterator();
-                for (int j = 0; j < crimesJSON.size(); ++j) {
-                    if (crimesIterator.hasNext()) {
-                        //crimes.add(Crimes.getInstance().getCrime(crimesIterator.next()));
-                    }
-                }
-                */
-                String crimes = (String)criminalJSON.get(CRIMINAL_CRIMES);
-                double sentence = ((Long)criminalJSON.get(CRIMINAL_SENTENCE)).doubleValue();
+                String height = (String)criminalJSON.get(SUSPECT_HEIGHT);
+                //ArrayList<Crime> crimes = new ArrayList<Crime>();
+                String crimes = ""+criminalJSON.get(CRIMINAL_CRIMES);
+                // Iterator<String> crimesIterator = crimesJSON.iterator();
+                // for (int j = 0; j < crimesJSON.size(); ++j) {
+                //     if (crimesIterator.hasNext()) {
+                //         //crimes.add(Crimes.getInstance().getCrime(crimesIterator.next()));
+                //     }
+                // }
+                String sentence = ""+(criminalJSON.get(CRIMINAL_SENTENCE));
                 String status = (String)criminalJSON.get(CRIMINAL_STATUS);
                 boolean inCustody = ((Boolean)criminalJSON.get(CRIMINAL_IN_CUSTODY)).booleanValue();
-                int height = ((Long)criminalJSON.get(CRIMINAL_HEIGHT)).intValue();
-                Criminal ret = new Criminal(crimes, sentence, status, inCustody, height);
-                ret.setSuspectInfo(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelation, evidenceConn, isRepeatOffender, accomplices, family, footSize, prefClothes, nicknames, commonWords, hobbies, job, physicalTraits);
+                Criminal ret = new Criminal(crimes+"", sentence, status, inCustody); //TODO - Flag
+                ret.setSuspectInfo(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelation, evidenceConn, isRepeatOffender, accomplices, family, footSize, prefClothes, nicknames, commonWords, hobbies, job, physicalTraits, height);
                 criminals.add(ret);
             }
 
@@ -218,7 +213,7 @@ public class DataLoader extends DataConstants {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        
         return null;
     }
 
@@ -326,10 +321,8 @@ public class DataLoader extends DataConstants {
      * Loads all Suspect objects from suspect.json
      * @return ArrayList of Suspect
      */
-    @SuppressWarnings("unchecked")
     public static ArrayList<Suspect> loadSuspects() {
         ArrayList<Suspect> suspect = new ArrayList<Suspect>();
-        System.out.println("READING SUSPECTS");
         try {
             FileReader reader = new FileReader(SUSPECT_FILE_NAME);
             JSONParser parser = new JSONParser();
@@ -375,15 +368,10 @@ public class DataLoader extends DataConstants {
                 String hobbies = (String)suspectJSON.get(SUSPECT_HOBBIES);
                 String job = (String)suspectJSON.get(SUSPECT_JOB);
                 String physicalTraits = (String)suspectJSON.get(SUSPECT_PHYSICAL_TRAITS);
-                Suspect ret = new Suspect(accomplices, family, footSize, prefClothes, nicknames, commonWords, hobbies, job, physicalTraits);
+                String height = (String)suspectJSON.get(SUSPECT_HEIGHT);
+                Suspect ret = new Suspect(accomplices, family, footSize, prefClothes, nicknames, commonWords, hobbies, job, physicalTraits, height);
                 ret.setPOIInfo(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelation, evidenceConn, isRepeatOffender);
                 suspect.add(ret);
-            }
-
-            System.out.println("DONE READING SUSPECTS");
-
-            for (Suspect sus : suspect) {
-              System.out.println(sus);
             }
             return suspect;
 
@@ -391,7 +379,7 @@ public class DataLoader extends DataConstants {
             e.printStackTrace();
         }
 
-        System.out.println("ERROR READING SUSPECTS");
+
         return null;
     }
 
@@ -430,7 +418,6 @@ public class DataLoader extends DataConstants {
      * Loads all Victim objects from victim.json
      * @return ArrayList of Victim
      */
-    @SuppressWarnings("unchecked")
     public static ArrayList<Victim> loadVictims() {
         ArrayList<Victim> victim = new ArrayList<Victim>();
 

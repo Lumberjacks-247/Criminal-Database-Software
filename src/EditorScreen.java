@@ -45,7 +45,7 @@ public class EditorScreen extends Screen {
 
     String mid = "";
     for(int i=0; i<data.length;) { 
-      mid += UIConstants.center(this.data[i++].toString()) + "\n"; 
+      mid += this.data[i++].toString() + "\n"; 
     }
     mid += UIConstants.DIV;
     String  bot = "";

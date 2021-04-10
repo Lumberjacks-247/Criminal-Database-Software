@@ -17,7 +17,7 @@ public class Victim extends Person{
     }
 
     public Victim() {
-      setPersonInfo("", "", ""); 
+      super(null,null,null,null,null,null,null,null,null,null);
       this.statement = "";
       this.isAlive = true;
       this.hospitalReports = new ArrayList<HospitalReport>();

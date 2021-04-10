@@ -29,7 +29,7 @@ public class FacUIConstants {
     if (crime == null) {
       return ScreenCalls.MAINMENU.call(s);
     } else {
-      try (FileWriter writer = new FileWriter(new File("testcrime.txt"));) {
+      try (FileWriter writer = new FileWriter(new File("output.txt"));) {
         writer.write(crime.toString());
       } catch( Exception e) {
         
@@ -47,7 +47,7 @@ public class FacUIConstants {
    * @param s The Screen object containing the information for the Person Search
    * @return The Screen object representing a success or failure to find Persons
    */
-  public static Screen searchSuspects(Screen s) {
+  public static Screen searchCriminals(Screen s) {
     
 
     String p0 = s.getDataValue(0); //First Name
@@ -59,30 +59,34 @@ public class FacUIConstants {
     String p6 = s.getDataValue(6); //Eye Color
     String p7 = s.getDataValue(7); //Set Address
     String p8 = s.getDataValue(8); //Age
-    String p9 = s.getDataValue(9);  //Tattoos
-    String p10 = s.getDataValue(10); //Gang
-    String p11 = s.getDataValue(11); //Victim Relation
-    String p12 = s.getDataValue(12); //Evidence
-    boolean  p13 = s.getDataValue(13) == null ? false : s.getDataValue(13).equalsIgnoreCase("true"); //isRepeatOffender 
-    String p14 = s.getDataValue(14); //Clothes
-    String p15 = s.getDataValue(15); //Nicknames
-    String p16 = s.getDataValue(16); //Common Words
-    String p17 = s.getDataValue(17); //Hobbies
-    String p18 = s.getDataValue(18);  //Job
-    String p19 = s.getDataValue(19); //Physical Traits
+    String p9 = s.getDataValue(9); // Height
+    String p10 = s.getDataValue(10);  //Tattoos
+    String p11 = s.getDataValue(11); //Gang
+    String p12 = s.getDataValue(12); //Victim Relation
+    String p13 = s.getDataValue(13); //Evidence
+    boolean  p14 = s.getDataValue(14) == null ? false : s.getDataValue(14).equalsIgnoreCase("true"); //isRepeatOffender 
+    String p15 = s.getDataValue(15); //Clothes
+    String p16 = s.getDataValue(16); //Nicknames
+    String p17 = s.getDataValue(17); //Common Words
+    String p18 = s.getDataValue(18); //Hobbies
+    String p19 = s.getDataValue(19); //Job
+    String p20 = s.getDataValue(20); //Physical Traits
+    String p21 = s.getDataValue(21) == null ? "" : s.getDataValue(21); //Sentence
+    String p22 = s.getDataValue(22); //Status
+    boolean p23 = s.getDataValue(23) == null ? false : s.getDataValue(23).equalsIgnoreCase("true"); //In Custody
 
-    Suspect partial = new Suspect(p0,p1,null,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,null,null,-1,p14,p15,p16,p17,p18,p19);
+    Criminal partial = new Criminal(p0,p1,null,p2,p3,p4,p5,p6,p7,p8,p10,p11,p12,p13,p14,null,null,-1,p15,p16,p17,p18,p19,null,p9,p20,p21,p22,p23);
 
-    Suspect[] sussies = fac.searchSuspects(partial);
+    Criminal[] crimmies = fac.searchCriminals(partial);
 
-    int numSussies = 0;
-    for (Suspect sus : sussies) {
-      if (sus == null)
+    int numCrimmies = 0;
+    for (Criminal crim : crimmies) {
+      if (crim == null)
         break;
-      numSussies++;
+      numCrimmies++;
     }
 
-    return new SuspectsListScreen(s,sussies,numSussies,false);
+    return new CriminalListScreen(s,crimmies,numCrimmies,false);
   }
 
   /** 
@@ -134,6 +138,19 @@ public class FacUIConstants {
   }
 
   public static Screen createCrime(Screen s) {
+    EnterNewCrime c = (EnterNewCrime)s;
+    String p0 = c.getDataValue(0); // Type of Crime
+    String p1 = c.getDataValue(1); // Location
+    String p2 = c.getDataValue(2); // Author
+    POI[] p3 = c.pois;
+    Suspect[] p4 = c.suspects;
+    Criminal[] p5 = c.criminals;
+    Victim[] p6 = c.victims;
+    Officer[] p7 = c.officers;
+    Evidence[] p8 = c.evidence;
+
+    //fac.addCrime(p0,p1,p2,p3,p4,p5,p6,p7,p8);
+
     return s.parent;
   }
 

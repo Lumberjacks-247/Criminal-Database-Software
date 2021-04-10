@@ -6,7 +6,7 @@ public class Facade {
 	private Crimes crime;
 	private Users users;
 	// private User currentUser;
-	// private Criminals criminal;
+	private Criminals criminals;
 	// private Evidences evidence;
 	// private Officers officer;
 	// private POIs poi;
@@ -24,7 +24,7 @@ public class Facade {
 		users = Users.getInstance();
 		// people = People.getInstance(); 
 		crime = Crimes.getInstance();
-		// criminal = Criminals.getInstance();
+		criminals = Criminals.getInstance();
 		// evidence = Evidences.getInstance();
 		// officer = Officers.getInstance();
 		// poi = POIs.getInstance();
@@ -322,6 +322,10 @@ public class Facade {
 
     public Suspect[] searchSuspects(Suspect partial) {
       return suspects.searchSuspects(partial);
+    }
+
+    public Criminal[] searchCriminals(Criminal partial) {
+      return criminals.searchCriminals(partial);
     }
 // 	/**
 // 	 * finds suspect in json files.

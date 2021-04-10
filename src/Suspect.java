@@ -6,7 +6,7 @@ public class Suspect extends POI{
     protected ArrayList<Person> accomplices;
     protected ArrayList<Person> familyMembers;
     protected double footSize;
-    protected String prefferedClothes, nickNames, commonWords, hobbies, job, distintPhysicalTraits;
+    protected String prefferedClothes, nickNames, commonWords, hobbies, job, distintPhysicalTraits, height;
 
     //HOW TO PHYSICALLY CREATE A NEW SUSPECT FROM UI
     public Suspect(String firstName,  String lastName) {
@@ -17,7 +17,7 @@ public class Suspect extends POI{
     public Suspect(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, 
     String eyeColor, String address, String age, String tattoos, String gang, String victimRelationShip, String evidenceConnection, boolean isRepeatOffender,
     ArrayList<Person> accomplices, ArrayList<Person> familyMembers, double footSize, String prefferedClothes, String nickNames,
-    String commonWords, String hobbies, String job, String distinctPhysicalTraits) {
+    String commonWords, String hobbies, String job, String distinctPhysicalTraits, String height) {
         super(firstName, lastName, id, gender, race, hairColor, hairStyle, eyeColor, address, age, tattoos, gang, victimRelationShip, evidenceConnection, isRepeatOffender);
         this.accomplices = accomplices == null ? new ArrayList<Person>() : accomplices;
         this.familyMembers = familyMembers == null ? new ArrayList<Person>() : familyMembers;
@@ -28,11 +28,12 @@ public class Suspect extends POI{
         this.hobbies = hobbies == null ? "" : hobbies;
         this.job = job == null ? "" : job;
         this.distintPhysicalTraits = distinctPhysicalTraits == null ? "" : distinctPhysicalTraits;
+        this.height = height == null ? "" : height;
     }
 
     //USED FOR LOADING INTO JSON FILE
     public Suspect(ArrayList<Person> accomplices, ArrayList<Person> familyMembers, double footSize, String prefferedClothes, String nickNames,
-        String commonWords, String hobbies, String job, String distinctPhysicalTraits) {
+        String commonWords, String hobbies, String job, String distinctPhysicalTraits, String height) {
             this.accomplices = accomplices;
             this.familyMembers = familyMembers;
             this.footSize = footSize;
@@ -42,6 +43,7 @@ public class Suspect extends POI{
             this.hobbies = hobbies;
             this.job = job;
             this.distintPhysicalTraits = distinctPhysicalTraits;
+            this.height = height;
         }
 
     public Suspect() {
@@ -54,8 +56,9 @@ public class Suspect extends POI{
       this.commonWords = "";
       this.hobbies = "";
       this.job = "";
-      this.distintPhysicalTraits = "";                     
-    };
+      this.distintPhysicalTraits = "";
+      this.height = "";
+    }
 
     public void setPOIInfo(String firstName, String lastName, String id, String gender, String race, String hairColor, String hairStyle, 
     String eyeColor, String address, String age, String tattoos, String gang, String victimRelationShip, String evidenceConnection, boolean isRepeatOffender) {
@@ -87,6 +90,14 @@ public class Suspect extends POI{
     public void addAccomplice(Person accomplice) {
         if(accomplices.contains(accomplice)) return;
         this.accomplices.add(accomplice);
+    }
+
+    public String getHeight() {
+        return this.height;
+    }
+
+    public String setHeight(String lhs) {
+        return this.height = lhs;
     }
 
     /**
@@ -263,8 +274,8 @@ public class Suspect extends POI{
 
     @Override
     public String toString() {
-      String[] details = new String[]{footSize+"",prefferedClothes,nickNames,commonWords,hobbies,job,distintPhysicalTraits};
-      String[] prompts = new String[]{"Foot Size:","Clothes:","Nicknames:","Common Words/Phrases:","Hobbies:","Job:","Physical Traits:"};
+      String[] details = new String[]{height,footSize+"",prefferedClothes,nickNames,commonWords,hobbies,job,distintPhysicalTraits};
+      String[] prompts = new String[]{"Height:","Foot Size:","Clothes:","Nicknames:","Common Words/Phrases:","Hobbies:","Job:","Physical Traits:"};
 
       String out = super.toString();
       if (!out.equals("")) out += " | ";
@@ -278,8 +289,6 @@ public class Suspect extends POI{
           buffer = " | ";
         }
       }
-
-      out += " | ";
 
       if (accomplices.size() > 0) {
         out += "\nAccomplices:\t";
@@ -344,6 +353,12 @@ public class Suspect extends POI{
         if(!this.getDistintPhysicalTraits().equals(""))
           if(!this.getDistintPhysicalTraits().equalsIgnoreCase(suspect.getDistintPhysicalTraits()))
             return false;
+
+        System.out.println("\n\n" + this.getHeight() + " : " + suspect.getHeight() + "\n\n\n\n");
+
+        if(!this.getHeight().equals(""))
+            if(!this.getHeight().equalsIgnoreCase(suspect.getHeight()))
+                return false;
         
         return true;
     }

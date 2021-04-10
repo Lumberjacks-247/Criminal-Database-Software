@@ -10,20 +10,19 @@ import java.util.function.BiFunction;
  */
 public enum ScreenCalls {
 
-    NULL          (UIConstants::Null),
-    START         (UIConstants::WelcomeScreen),
-    RESULTS       (UIConstants::ResultScreen),
-    PARENT        (UIConstants::ParentScreen),
-    WELCOME       (UIConstants::WelcomeScreen),
-    LOGIN         (UIConstants::LoginScreen),
-    LOGOUT        (UIConstants::WelcomeScreen),
-    CREATEACCOUNT (UIConstants::CreateAccountScreen),
-    SEARCH        (UIConstants::SearchScreen),
-    SEARCHSUSPECT (UIConstants::SearchSuspectScreen),
-    SEARCHREPORTS (UIConstants::SearchReportsScreen),
-    MAINMENU      (UIConstants::MainMenuScreen),
-    NEWDATA       (UIConstants::NewDataScreen),
-    NEWCRIME      (UIConstants::NewCrimeScreen),
+    NULL            (UIConstants::Null),
+    START           (UIConstants::WelcomeScreen),
+    PARENT          (UIConstants::ParentScreen),
+    WELCOME         (UIConstants::WelcomeScreen),
+    LOGIN           (UIConstants::LoginScreen),
+    LOGOUT          (UIConstants::WelcomeScreen),
+    CREATEACCOUNT   (UIConstants::CreateAccountScreen),
+    SEARCH          (UIConstants::SearchScreen),
+    SEARCHCRIMINALS (UIConstants::SearchCriminalScreen),
+    SEARCHREPORTS   (UIConstants::SearchReportsScreen),
+    MAINMENU        (UIConstants::MainMenuScreen),
+    NEWDATA         (UIConstants::NewDataScreen),
+    NEWCRIME        (UIConstants::NewCrimeScreen),
     ;
 
 

@@ -167,7 +167,7 @@ public class UIConstants {
 
     String titleString = "Search";
     String choiceString = "Back;Search People;Search Reports";
-    String linkString = "S:PARENT;S:SEARCHSUSPECT;S:SEARCHREPORTS";
+    String linkString = "S:PARENT;S:SEARCHCRIMINALS;S:SEARCHREPORTS";
   
     Screen screen = new TransScreen(titleString,choiceString,linkString);
     screen.setParent(parent);
@@ -179,16 +179,16 @@ public class UIConstants {
    * @param parent The Screen instance preceding the new Screen
    * @return The Search People Screen
    */
-  public static Screen SearchSuspectScreen(Screen parent) {
+  public static Screen SearchCriminalScreen(Screen parent) {
 
-    String titleString = "Search Suspects";
-    String dataPromptString = "Firstname;Lastname;Gender;Race;Hair Color;Hair Style;Eye Color;Address;Age;Tattoos;Gang;Victim Relation;Evidence Connection;isRepeatOffender;Clothes;Nicknames;Common Words;Hobbies;Job;Physical Traits";
+    String titleString = "Search Criminals";
+    String dataPromptString = "Firstname;Lastname;Gender;Race;Hair Color;Hair Style;Eye Color;Address;Age;Height;Tattoos;Gang;Victim Relation;Evidence Connection;isRepeatOffender;Clothes;Nicknames;Common Words;Hobbies;Job;Physical Traits;Sentence;In Custody;Status";
     
     String choiceString = "Back;Set Firstname;Set Lastname;Set gender;Set Race;";
-    choiceString += "Set Hair Color;Set Hair Style;Set Eye Color;Set Address;Set Age;Set Tattoos;Set Gang;Set Victim Relation;Set Evidence Connection;Set isRepeatOffender;Set Clothes;Set Nicknames;Set Common Words;Set Hobbies;Set Job;Set Physical Traits;Search";
+    choiceString += "Set Hair Color;Set Hair Style;Set Eye Color;Set Address;Set Age;Set Height;Set Tattoos;Set Gang;Set Victim Relation;Set Evidence Connection;Set isRepeatOffender;Set Clothes;Set Nicknames;Set Common Words;Set Hobbies;Set Job;Set Physical Traits;Set Sentence;Set Status;Set Custody;Search";
 
     String linkString = "S:PARENT;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;";
-    linkString +=       "ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;F:SEARCHSUSPECTS";
+    linkString +=       "ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;ENTERDATA;F:SEARCHCRIMINALS";
 
 
      /* Extra Adjustments */
@@ -289,10 +289,6 @@ public class UIConstants {
     Screen screen = new EnterNewCrime();
     screen.setParent(parent);
     return screen;
-  }
-
-  public static Screen ResultScreen(Screen parent,Object[] objs) {
-    return new ResScreen(parent,objs);
   }
 
 

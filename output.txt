@@ -1,0 +1,1 @@
+ID: C10105 | Type of Crime: Assault | Level of Charge1 | Jurisdiction2 | Location: 2038 E Main St | Open: true | Author Name: Sam Seder | 

@@ -19,8 +19,8 @@ public class EditEvidenceScreen extends Screen {
     title += UIConstants.DIV;
 
     String out = "";
-    out += "Description: " +           evidence.getDescription() + "\n";
-    out += "Date of Discovery: " +     evidence.getDateOfDiscovery() + "\n";
+    out += "Description: \t\t" +           evidence.getDescription() + "\n";
+    out += "Date of Discovery: \t" +     evidence.getDateOfDiscovery() + "\n";
     
     out += UIConstants.DIV;
 
