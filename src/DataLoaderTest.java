@@ -15,8 +15,8 @@ class DataLoaderTest {
     @BeforeEach
     public void setup() {
         userList.clear();
-        userList.add(new User(userName, firstName, lastName, accessLevel, userPassword));
-        userList.add(new User(userName, firstName, lastName, accessLevel, userPassword));
+        userList.add(new User("billybob", "Billy", "Bob", 0, "password!01@"));
+        userList.add(new User("JohnnyTest", "Duke", "Soprano", 2, "mOltisanti"));
         DataWriter.saveUsers();
     }
 
@@ -24,5 +24,24 @@ class DataLoaderTest {
     public void tearDown() {
         Users.getInstance().getUsers().clear();
         DataWriter.saveUsers();
+    }
+
+    @Test
+    void testGetUsersSize() {
+        userList = DataLoader.loadUsers();
+        assertEquals(2, userList.size());        
+    }
+
+    @Test
+    void testGetUsersSizeZero() {
+        Users.getInstance().getUsers().clear();
+        DataWriter.saveUsers();
+        assertEquals(0, userList.size());
+    }
+
+    @Test 
+    void testGetUserLastName() {
+        userList = DataLoader.loadUsers();
+        assertEquals("", userList.get(0).getLastName());
     }
 }
