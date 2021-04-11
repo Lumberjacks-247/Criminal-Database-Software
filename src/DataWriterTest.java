@@ -334,5 +334,67 @@ class DataWriterTest {
         assertEquals(null, DataLoader.loadPOI().get(0).getTattoos());
     }
 
-    
+    @Test
+    void testWriteOneSuspects() {
+        suspectList.add(new Suspect(accomplices, familyMembers, footSize, prefferedClothes, nickNames, commonWords, hobbies, job, distinctPhysicalTraits, height));
+        DataWriter.saveSuspects();
+        assertEquals("", DataLoader.loadSuspects().get(0).getPrefferedClothes());
+    }
+
+    @Test
+    void testWriteFiveSuspects() {
+        suspectList.add(new Suspect(accomplices, familyMembers, footSize, prefferedClothes, nickNames, commonWords, hobbies, job, distinctPhysicalTraits, height));
+        suspectList.add(new Suspect(accomplices, familyMembers, footSize, prefferedClothes, nickNames, commonWords, hobbies, job, distinctPhysicalTraits, height));
+        suspectList.add(new Suspect(accomplices, familyMembers, footSize, prefferedClothes, nickNames, commonWords, hobbies, job, distinctPhysicalTraits, height));
+        suspectList.add(new Suspect(accomplices, familyMembers, footSize, prefferedClothes, nickNames, commonWords, hobbies, job, distinctPhysicalTraits, height));
+        suspectList.add(new Suspect(accomplices, familyMembers, footSize, prefferedClothes, nickNames, commonWords, hobbies, job, distinctPhysicalTraits, height));
+        DataWriter.saveSuspects();
+        assertEquals("", DataLoader.loadSuspects().get(3).getFootSize());
+    }
+
+    @Test
+    void testWriteEmptySuspects() {
+        suspectList.add(new Suspect(null, null, 0.0, "", "", "", "", "", "", ""));
+        DataWriter.saveSuspects();
+        assertEquals("", DataLoader.loadSuspects().get(0).getHobbies());
+    }
+
+    @Test
+    void testWriteNullSuspects() {
+        suspectList.add(new Suspect(null, null, 0.0, null, "", "", "", "", "", ""));
+        DataWriter.saveSuspects();
+        assertEquals(null, DataLoader.loadSuspects().get(0).getPrefferedClothes());
+    }
+
+    @Test
+    void testWriteOneVictims() {
+        victimList.add(new Victim(statement, isAlive, hospitalReports));
+        DataWriter.saveVictims();
+        assertEquals(false, DataLoader.loadVictims().get(0).getIsAlive());
+    }
+
+    @Test
+    void testWriteFiveVictims() {
+        victimList.add(new Victim(statement, isAlive, hospitalReports));
+        victimList.add(new Victim(statement, isAlive, hospitalReports));
+        victimList.add(new Victim(statement, isAlive, hospitalReports));
+        victimList.add(new Victim(statement, isAlive, hospitalReports));
+        victimList.add(new Victim(statement, isAlive, hospitalReports));
+        DataWriter.saveVictims();
+        assertEquals("", DataLoader.loadVictims().get(4).getHospitalReports());
+    }
+
+    @Test
+    void testWriteEmptyVictims() {
+        victimList.add(new Victim("", true, null));
+        DataWriter.saveVictims();
+        assertEquals("", DataLoader.loadVictims().get(0).getStatement());
+    }
+
+    @Test
+    void testWriteNullVictims() {
+        victimList.add(new Victim(null, false, null));
+        DataWriter.saveVictims();
+        assertEquals(null, DataLoader.loadVictims().get(0).getStatement());
+    }
 }
