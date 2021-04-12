@@ -11,6 +11,7 @@ public class POIListScreen extends Screen {
     this.parent = parent;
     this.list = list;
     this.numPOI = numPOI;
+    this.title = "POIListScreen";
   }
 
 

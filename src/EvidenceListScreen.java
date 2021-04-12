@@ -11,6 +11,7 @@ public class EvidenceListScreen extends Screen {
     this.parent = parent;
     this.list = list;
     this.numEvidence = numEvidence;
+    this.title = "EvidenceListScreen";
   }
 
 

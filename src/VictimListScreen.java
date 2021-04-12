@@ -11,6 +11,7 @@ public class VictimListScreen extends Screen {
     this.parent = parent;
     this.list = list;
     this.numVictim = numVictim;
+    this.title = "VictimListScreen";
   }
 
 
