@@ -7,6 +7,7 @@ public class Criminal extends Suspect{
     protected String sentence;
     protected String status, crimes;
     protected boolean inCustody;
+    protected int height;
 
     /**
      * FOR CREATING CRIMINAL THROUGH UI
@@ -29,6 +30,7 @@ public class Criminal extends Suspect{
         this.sentence = sentences;
         this.status = status == null ? "" : status;
         this.inCustody = inCustody;
+        this.height = height;
     }
 
     //USED FOR LOADING INTO JSON
@@ -37,6 +39,7 @@ public class Criminal extends Suspect{
         this.sentence = sentence;
         this.status = status;
         this.inCustody = inCustody;
+        this.height = height;
     }
 
     public Criminal() {
@@ -106,12 +109,8 @@ public class Criminal extends Suspect{
 		return null;
 	}
 
-    public String listCrimes(ArrayList<Crime> crimes) {
-        String ret = "";
-        for(Crime crime : crimes) {
-            ret = ret + crime.getID() + ", ";
-        }
-        return ret;
+    public String listCrimes() {
+        return crimes;
     }
 
     @Override

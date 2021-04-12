@@ -348,5 +348,10 @@ public class Crime {
         }
         return output;
     }
+
+    public static void main(String[] args) { 
+        Crime crime = new Crime(null, "murder", 3, 2, false, null, "Orlando, FL", null, null, null, null, null, null, null);
+        System.out.println(crime);
+    }
     
 }

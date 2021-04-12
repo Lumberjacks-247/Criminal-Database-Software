@@ -28,7 +28,8 @@
     "crimes":[ "C50029" ],
     "sentence":"46 years",
     "status":"At ADX Florence",
-    "inCustody":false
+    "inCustody":false,
+    "height":67
   },{
     "firstName":"Tyson",
     "lastName":"Leise",
@@ -58,7 +59,8 @@
     "crimes":[ "C90092" ],
     "sentence":"6 months",
     "status":"",
-    "inCustody":false
+    "inCustody":false,
+    "height":72
   },{
     "firstName":"Emma",
     "lastName":"Vigeland",
@@ -88,7 +90,8 @@
     "crimes":[ "C90092" ],
     "sentence":"6 months",
     "status":"",
-    "inCustody":false
+    "inCustody":false,
+    "height":59
   },{
     "firstName":"Tim",
     "lastName":"Wareheimer",
@@ -118,7 +121,8 @@
     "crimes":[ "C90092" ],
     "sentence":"6 months",
     "status":"",
-    "inCustody":true
+    "inCustody":true,
+    "height":72
   },{
     "firstName":"Lorenzo",
     "lastName":"Sampson",
@@ -148,7 +152,8 @@
     "crimes":"",
     "sentence":"",
     "status":"",
-    "inCustody":false
+    "inCustody":false,
+    "height":74
   },{
     "firstName":"Steven",
     "lastName":"Nike",
@@ -178,7 +183,8 @@
     "crimes":"Wire fraud",
     "sentence":"",
     "status":"",
-    "inCustody":true
+    "inCustody":true,
+    "height":74
   },{
     "firstName":"Samantha",
     "lastName":"Carter",
@@ -208,6 +214,7 @@
     "crimes":"",
     "sentence":"",
     "status":"",
-    "inCustody":false
+    "inCustody":false,
+    "height":74
   }
 ]
