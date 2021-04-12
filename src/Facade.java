@@ -5,7 +5,7 @@ public class Facade {
 	// private People people;
 	private Crimes crime;
 	private Users users;
-	// private User currentUser;
+	private User currentUser;
 	private Criminals criminals;
 	// private Evidences evidence;
 	// private Officers officer;
@@ -118,15 +118,15 @@ public class Facade {
 	// 	return users.haveUser(username, password);
 	// }
 	// /*
-	// public User getCurrentUser() {
-	// 	return currentUser;
-	// }
+	public User getCurrentUser() {
+		return currentUser;
+	}
 	
 	public boolean login(String username, String password) {
 		if(!users.haveUser(username, password))
 			return false;
       
-		//currentUser = users.getUser(userName);
+		currentUser = users.getUser(username);
 		return true;
 	}
 
