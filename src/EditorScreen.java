@@ -7,8 +7,6 @@ package src;
  */
 public class EditorScreen extends Screen {
 
-
-  private String title;
   private String[] choices;
 
 

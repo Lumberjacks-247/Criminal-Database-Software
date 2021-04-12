@@ -18,6 +18,7 @@ public abstract class Screen {
 ##############################################################
 */
   public String name;
+  public String title;
   
   public Screen getParent() {
     return this.parent;

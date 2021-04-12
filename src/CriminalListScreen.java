@@ -16,6 +16,7 @@ public class CriminalListScreen extends Screen {
     this.parent = parent;
     this.list = list;
     this.numCriminals = numCriminals;
+    title = "CriminalListScreen";
   }
 
   public CriminalListScreen(Screen parent, Criminal[] list, int numCriminals, boolean changeable) {
@@ -23,13 +24,14 @@ public class CriminalListScreen extends Screen {
     this.list = list;
     this.numCriminals = numCriminals;
     this.allowChange = changeable;
+    title = "CriminalListScreen";
   }
 
 
   public void display() {
     
-    String title = UIConstants.center("Criminals") + "\n";
-    title += UIConstants.DIV;
+    String t = UIConstants.center("Criminals") + "\n";
+    t += UIConstants.DIV;
 
     
     int count = 0;
@@ -44,7 +46,7 @@ public class CriminalListScreen extends Screen {
       out += "\n(" + (count+1) + ")" + " Print Results" + "\n";
 
     out += "\n>> ";
-    System.out.print(title+out);
+    System.out.print(t+out);
   }
 
 

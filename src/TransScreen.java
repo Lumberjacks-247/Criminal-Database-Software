@@ -8,7 +8,7 @@ package src;
  */
 public class TransScreen extends Screen {
 
-  private String title;
+
   private String[] choices;
 
   /**
