@@ -191,6 +191,9 @@ public class POI extends Person{
         this.evidenceConnection = evidenceConnection;
     }
 
-
+    public static void main(String[] args) { 
+        POI james = new POI("james", "castle", null, null, "white", "black", null, "green", null, "22", null, null, null, null, true);
+        System.out.println(james);
+    }
     
 }
