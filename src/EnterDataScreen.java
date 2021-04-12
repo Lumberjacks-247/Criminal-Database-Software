@@ -23,6 +23,7 @@ public class EnterDataScreen extends Screen {
     this.parent = parent;
     this.index = dataIndex;
     this.data = this.parent.getDatum(index);
+    this.title = "EnterDataScreen";
 
   }
 
@@ -30,6 +31,7 @@ public class EnterDataScreen extends Screen {
     this.parent = parent;
     this.data = new Datum(prompt,value);
     this.index = index;
+    this.title = "EnterDataScreen";
   }
 
   public void display() {
@@ -46,5 +48,9 @@ public class EnterDataScreen extends Screen {
 
     this.parent.setDataValue(this.index,input);
     return this.parent;
+  }
+
+  public String[] getDatum() {
+    return new String[]{this.data.prompt,this.data.value};
   }
 }

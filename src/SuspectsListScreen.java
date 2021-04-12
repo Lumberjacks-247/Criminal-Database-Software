@@ -17,6 +17,7 @@ public class SuspectsListScreen extends Screen {
     this.parent = parent;
     this.list = list;
     this.numSuspects = numSuspects;
+    this.title = "SuspectListScreen";
   }
 
   public SuspectsListScreen(Screen parent, Suspect[] list, int numSuspects, boolean changeable) {
@@ -24,6 +25,7 @@ public class SuspectsListScreen extends Screen {
     this.list = list;
     this.numSuspects = numSuspects;
     this.allowChange = changeable;
+    this.title = "SuspectListScreen";
   }
 
 

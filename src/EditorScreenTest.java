@@ -65,9 +65,10 @@ public class EditorScreenTest {
   @Test
   public void test_next_EnterData() {
 
+    String[] expected = new String[]{"EnterDataScreen","EnterDataScreen"};
     String[] input = new String[]{"1","2"};
-    for (String i : input) {
-      assertNull(child.next(i).title);
+    for (int i = 0; i < input.length;i++) {
+      assertEquals(expected[i],child.next(input[i]).title,"The " + i + "th input is the problem");
     }
   }
 

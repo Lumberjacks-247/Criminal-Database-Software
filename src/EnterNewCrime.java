@@ -18,7 +18,7 @@ public class EnterNewCrime extends Screen {
   public Evidence[] evidence = new Evidence[MAX_EVIDENCE_LENGTH];
 
 
-  private int numPOI = 0;
+  public int numPOI = 0;
   private int numSuspects = 0;
   private int numCriminals = 0;
   private int numVictims = 0;
@@ -27,6 +27,7 @@ public class EnterNewCrime extends Screen {
 
   public EnterNewCrime() {
     data = new Datum[]{new Datum("Type of Crime"),new Datum("Location"),new Datum("Author")};
+    this.title = "EnterNewCrime";
   }
 
   public void display () {
@@ -84,6 +85,12 @@ public class EnterNewCrime extends Screen {
     this.pois = arr;
     this.numPOI = num;
   }
+
+  public void updateCriminalList(Criminal[] arr,int num) {
+    this.criminals = arr;
+    this.numCriminals = num;
+  }
+
   public void updateSuspectList(Suspect[] arr,int num) {
     this.suspects = arr;
     this.numSuspects = num;
@@ -109,18 +116,16 @@ public class EnterNewCrime extends Screen {
       return new EnterDataScreen(this, index-1);
 
     switch (choice) {
-      case "ENTERDATA":
-        return new EnterDataScreen(this, index-1);
       case "L:POILIST":
         return new POIListScreen(this,this.pois,this.numPOI);
       case "L:SUSPECTLIST":
         return new SuspectsListScreen(this,this.suspects,this.numSuspects);
-      // case "L:CRIMINALLIST":
-      //   return new ListScreen();
+      case "L:CRIMINALLIST":
+         return new CriminalListScreen(this,this.criminals,this.numCriminals);
       case "L:VICTIMLIST":
         return new VictimListScreen(this,this.victims,this.numVictims);
       // case "L:OFFICERLIST":
-      //   return new ListScreen();
+      //   return new OfficerListScreen();
       case "L:EVIDENCELIST":
          return new EvidenceListScreen(this,this.evidence,this.numEvidence);
     }

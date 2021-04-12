@@ -11,6 +11,7 @@ public class EditCriminalScreen extends Screen {
     this.parent = parent;
     this.criminal = criminal;
     this.parentIndex = index;
+    this.title = "CriminalEditorScreen";
   }
 
   public void display() {

@@ -11,6 +11,7 @@ public class EditSuspectScreen extends Screen {
     this.parent = parent;
     this.suspect = suspect;
     this.parentIndex = index;
+    this.title = "EditSuspectScreen";
   }
 
   public void display() {
@@ -112,9 +113,7 @@ public class EditSuspectScreen extends Screen {
         break;
       case "15":
         this.suspect.setPrefferedClothes(value);
-      default:
-
-        
+      default:   
     }
   }
 

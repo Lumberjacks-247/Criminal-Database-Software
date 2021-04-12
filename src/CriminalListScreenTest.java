@@ -112,6 +112,36 @@ public class CriminalListScreenTest {
     assertEquals(expected,actual,"Editor is Wrong");
   }
 
+  @Test
+  public void test_next_OutOfBounds_NonNumericalString() {
+
+    String expected = "CriminalListScreen";
+
+    String actual = CLS_Display.next("Hello World!").title;
+    assertEquals(expected,actual, "Display is Wrong");
+    
+    actual = CLS_Editor.next("Hello World!").title;
+    assertEquals(expected,actual, "Editor is Wrong");
+  }
+
+  @Test
+  public void test_next_InBounds_Display() {
+    String expected = "CriminalListScreen";
+
+    String actual = CLS_Display.next("1").title;
+    assertEquals(expected,actual);
+  }
+
+
+  @Test
+  public void test_next_InBounds_Editor() {
+    String expected = "CriminalEditorScreen";
+
+    String actual = CLS_Editor.next("1").title;
+    assertEquals(expected,actual);
+  }
+
+
 
 
 
