@@ -7,7 +7,7 @@ public class Criminal extends Suspect{
     protected String sentence;
     protected String status, crimes;
     protected boolean inCustody;
-    protected int height;
+    protected String height;
 
     /**
      * FOR CREATING CRIMINAL THROUGH UI
